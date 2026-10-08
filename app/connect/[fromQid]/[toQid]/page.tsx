@@ -7,6 +7,7 @@ import ConnectionResult from "@/components/ConnectionResult";
 import type { ConnectionPageData } from "@/lib/connection-page-data";
 import { getConnectionPageData } from "@/lib/connection-page-data";
 import { getConnectionPath } from "@/lib/connection-share";
+import { getCanonicalConnectionUrl } from "@/lib/seo";
 
 type ConnectPageProps = {
   params: Promise<{ fromQid: string; toQid: string }>;
@@ -16,15 +17,22 @@ function metadataForState(data: ConnectionPageData): Metadata {
   if (data.status === "success" && data.result.bestPath) {
     const title = `How are ${data.source.label} and ${data.target.label} connected? | HowConnected`;
     const description = `Discover the ${data.result.bestPath.steps}-step connection between ${data.source.label} and ${data.target.label}.`;
+    const canonicalUrl = getCanonicalConnectionUrl(
+      data.source.id,
+      data.target.id,
+    );
 
     return {
       title,
       description,
+      alternates: { canonical: canonicalUrl },
+      robots: { index: true, follow: true },
       openGraph: {
         title,
         description,
         type: "website",
         siteName: "HowConnected",
+        url: canonicalUrl,
       },
       twitter: {
         card: "summary",

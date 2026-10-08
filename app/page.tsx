@@ -1,5 +1,11 @@
+import type { Metadata } from "next";
 import ConnectionExplorer from "@/components/ConnectionExplorer";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  alternates: { canonical: "/" },
+  openGraph: { url: "/" },
+};
 
 export default function Home() {
   return (
