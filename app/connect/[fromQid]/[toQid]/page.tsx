@@ -84,7 +84,7 @@ function PageFrame({ children }: { children: React.ReactNode }) {
           <Link
             href="/"
             className="inline-flex items-center gap-2.5 rounded-lg focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#ff6846]"
-            aria-label="HowConnected home"
+            aria-label="Go to HowConnected home"
           >
             <span className="relative grid size-8 place-items-center rounded-full bg-[#17233f]">
               <span className="absolute left-[7px] size-1.5 rounded-full bg-[#ff795b]" />

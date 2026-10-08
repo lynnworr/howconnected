@@ -33,6 +33,28 @@ test("public footer links to public routes and never exposes admin", async () =>
   assert.doesNotMatch(adminLayout, /PublicFooter/);
 });
 
+test("public brand marks link home with an accessible label while admin stays unchanged", async () => {
+  const publicBrandFiles = await Promise.all(
+    [
+      "../app/page.tsx",
+      "../app/connect/[fromQid]/[toQid]/page.tsx",
+      "../components/PublicPageShell.tsx",
+      "../components/ShareableConnectionCard.tsx",
+    ].map((path) => readFile(new URL(path, import.meta.url), "utf8")),
+  );
+  const adminPage = await readFile(
+    new URL("../app/admin/page.tsx", import.meta.url),
+    "utf8",
+  );
+
+  for (const source of publicBrandFiles) {
+    assert.match(source, /href="\/"/);
+    assert.match(source, /aria-label="Go to HowConnected home"/);
+    assert.match(source, /focus-visible:outline/);
+  }
+  assert.doesNotMatch(adminPage, /Go to HowConnected home/);
+});
+
 test("successful results include explanation sections and a non-rendering ad reservation", async () => {
   const insights = await readFile(
     new URL("../components/ConnectionInsights.tsx", import.meta.url),

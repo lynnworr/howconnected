@@ -1,3 +1,4 @@
+import Link from "next/link";
 import ConnectionPath from "@/components/ConnectionPath";
 import type { ConnectionPathData } from "@/components/connection-types";
 import type { EntityImageMap } from "@/lib/connection-images";
@@ -34,14 +35,18 @@ export default function ShareableConnectionCard({
             Connected in {path.steps} {path.steps === 1 ? "step" : "steps"}
           </p>
         </div>
-        <div className="inline-flex items-center gap-1.5 text-[10px] font-extrabold uppercase tracking-[0.16em] text-[#59647a]">
+        <Link
+          href="/"
+          aria-label="Go to HowConnected home"
+          className="inline-flex items-center gap-1.5 rounded-md text-[10px] font-extrabold uppercase tracking-[0.16em] text-[#59647a] transition hover:text-[#26334f] focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-[#ff6846]"
+        >
           <span className="relative grid size-6 place-items-center rounded-full bg-[#17233f]">
             <span className="absolute left-[5px] size-1 rounded-full bg-[#ff795b]" />
             <span className="absolute right-[5px] size-1 rounded-full bg-[#58bea0]" />
             <span className="h-px w-3 rotate-[-18deg] bg-white/75" />
           </span>
           HowConnected
-        </div>
+        </Link>
       </div>
 
       <ConnectionPath path={path} sourceContext="share_card" />

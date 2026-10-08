@@ -21,7 +21,7 @@ export default function Home() {
 
       <div className="relative mx-auto flex min-h-screen w-full max-w-[1440px] flex-col px-4 pb-16 pt-5 sm:px-7 lg:px-10">
         <header className="flex items-center justify-between">
-          <Link href="/" className="inline-flex items-center gap-2.5 rounded-lg focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#ff6846]" aria-label="HowConnected home">
+          <Link href="/" className="inline-flex items-center gap-2.5 rounded-lg focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#ff6846]" aria-label="Go to HowConnected home">
             <span className="relative grid size-8 place-items-center rounded-full bg-[#17233f]">
               <span className="absolute left-[7px] size-1.5 rounded-full bg-[#ff795b]" />
               <span className="absolute right-[7px] size-1.5 rounded-full bg-[#58bea0]" />
