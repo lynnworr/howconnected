@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import ConnectionExplorer from "@/components/ConnectionExplorer";
 import Link from "next/link";
+import PublicFooter from "@/components/PublicFooter";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/" },
@@ -52,9 +53,7 @@ export default function Home() {
           <ConnectionExplorer />
         </section>
 
-        <footer className="mt-16 flex items-center justify-center border-t border-[#dfe2e5]/70 pt-6 text-center text-xs text-[#818999]">
-          Curiosity has no dead ends.
-        </footer>
+        <PublicFooter />
       </div>
     </main>
   );

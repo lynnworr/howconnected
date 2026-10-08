@@ -4,10 +4,12 @@ import { Suspense } from "react";
 import { connection } from "next/server";
 import ConnectionOutcomeAnalytics from "@/components/ConnectionOutcomeAnalytics";
 import ConnectionResult from "@/components/ConnectionResult";
+import PublicFooter from "@/components/PublicFooter";
 import type { ConnectionPageData } from "@/lib/connection-page-data";
 import { getConnectionPageData } from "@/lib/connection-page-data";
 import { getConnectionPath } from "@/lib/connection-share";
 import { getCanonicalConnectionUrl } from "@/lib/seo";
+import { buildConnectionSeoDescription } from "@/lib/path-content";
 
 type ConnectPageProps = {
   params: Promise<{ fromQid: string; toQid: string }>;
@@ -16,7 +18,11 @@ type ConnectPageProps = {
 function metadataForState(data: ConnectionPageData): Metadata {
   if (data.status === "success" && data.result.bestPath) {
     const title = `How are ${data.source.label} and ${data.target.label} connected? | HowConnected`;
-    const description = `Discover the ${data.result.bestPath.steps}-step connection between ${data.source.label} and ${data.target.label}.`;
+    const description = buildConnectionSeoDescription(
+      data.result.bestPath,
+      data.source.label,
+      data.target.label,
+    );
     const canonicalUrl = getCanonicalConnectionUrl(
       data.source.id,
       data.target.id,
@@ -96,9 +102,7 @@ function PageFrame({ children }: { children: React.ReactNode }) {
 
         <div className="flex flex-1 flex-col justify-center py-12">{children}</div>
 
-        <footer className="mt-12 flex items-center justify-center border-t border-[#dfe2e5]/70 pt-6 text-center text-xs text-[#818999]">
-          Curiosity has no dead ends.
-        </footer>
+        <PublicFooter />
       </div>
     </main>
   );

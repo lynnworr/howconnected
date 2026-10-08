@@ -3,6 +3,8 @@
 import Link from "next/link";
 import { useEffect, useMemo, useRef, useState } from "react";
 import ConnectionPath from "@/components/ConnectionPath";
+import ConnectionInsights from "@/components/ConnectionInsights";
+import FutureAdPlacement from "@/components/FutureAdPlacement";
 import PathQualityFeedback from "@/components/PathQualityFeedback";
 import ShareableConnectionCard from "@/components/ShareableConnectionCard";
 import ShareControls from "@/components/ShareControls";
@@ -126,6 +128,10 @@ export default function ConnectionResult({
         path={enrichedResult.bestPath}
         images={images}
       />
+
+      <ConnectionInsights path={enrichedResult.bestPath} />
+
+      <FutureAdPlacement placement="after-connection-content" />
 
       <ShareControls
         fromQid={fromQid}

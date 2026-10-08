@@ -2,7 +2,7 @@ export const SITE_ORIGIN = "https://www.howconnected.app";
 
 export const ROBOTS_RULES = {
   userAgent: "*",
-  allow: ["/", "/connect/"],
+  allow: ["/", "/connect/", "/about", "/privacy", "/terms", "/contact"],
   disallow: ["/admin", "/api/"],
 };
 
@@ -17,6 +17,13 @@ export const INDEXABLE_CONNECTIONS = [
   ["Q532423", "Q7414"],
 ] as const;
 
+export const PUBLIC_PAGE_PATHS = [
+  "/about",
+  "/privacy",
+  "/terms",
+  "/contact",
+] as const;
+
 export function getCanonicalConnectionUrl(
   fromQid: string,
   toQid: string,
@@ -27,6 +34,7 @@ export function getCanonicalConnectionUrl(
 export function getIndexableUrls(): string[] {
   return [
     SITE_ORIGIN,
+    ...PUBLIC_PAGE_PATHS.map((path) => `${SITE_ORIGIN}${path}`),
     ...INDEXABLE_CONNECTIONS.map(([fromQid, toQid]) =>
       getCanonicalConnectionUrl(fromQid, toQid),
     ),
