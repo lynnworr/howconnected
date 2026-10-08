@@ -21,24 +21,24 @@ export default function ShareableConnectionCard({
   });
 
   return (
-    <div className="mx-auto max-w-5xl rounded-[24px] border border-[#dfe3e9] bg-white p-4 shadow-[0_16px_50px_rgba(23,34,56,0.08)] sm:p-6">
-      <div className="mb-6 flex flex-col items-center justify-between gap-3 border-b border-[#eceef1] pb-5 sm:flex-row sm:text-left">
-        <div>
+    <div className="mx-auto max-w-[68rem]">
+      <div className="mb-4 flex flex-col items-center justify-between gap-2 border-b border-[#e6e7e8] pb-3 sm:flex-row sm:text-left">
+        <div className="text-center sm:text-left">
           <p className="text-[10px] font-extrabold uppercase tracking-[0.18em] text-[#ee6243]">
             Connection path
           </p>
-          <h3 className="mt-1 text-balance text-xl font-bold tracking-[-0.025em] text-[#15213b] sm:text-2xl">
+          <h3 className="mt-0.5 text-balance text-lg font-bold tracking-[-0.025em] text-[#15213b] sm:text-xl">
             {sourceName} <span className="text-[#a1a8b4]">→</span> {targetName}
           </h3>
-          <p className="mt-1 text-sm text-[#70798b]">
+          <p className="mt-0.5 text-xs text-[#7a8291]">
             Connected in {path.steps} {path.steps === 1 ? "step" : "steps"}
           </p>
         </div>
-        <div className="inline-flex items-center gap-2 text-xs font-extrabold uppercase tracking-[0.16em] text-[#26334f]">
-          <span className="relative grid size-7 place-items-center rounded-full bg-[#17233f]">
-            <span className="absolute left-[6px] size-1.5 rounded-full bg-[#ff795b]" />
-            <span className="absolute right-[6px] size-1.5 rounded-full bg-[#58bea0]" />
-            <span className="h-px w-3.5 rotate-[-18deg] bg-white/75" />
+        <div className="inline-flex items-center gap-1.5 text-[10px] font-extrabold uppercase tracking-[0.16em] text-[#59647a]">
+          <span className="relative grid size-6 place-items-center rounded-full bg-[#17233f]">
+            <span className="absolute left-[5px] size-1 rounded-full bg-[#ff795b]" />
+            <span className="absolute right-[5px] size-1 rounded-full bg-[#58bea0]" />
+            <span className="h-px w-3 rotate-[-18deg] bg-white/75" />
           </span>
           HowConnected
         </div>
@@ -47,11 +47,11 @@ export default function ShareableConnectionCard({
       <ConnectionPath path={path} sourceContext="share_card" />
 
       {credits.length > 0 ? (
-        <details className="mt-6 border-t border-[#eceef1] pt-4 text-left">
-          <summary className="cursor-pointer text-xs font-bold text-[#687186] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#ff6846]">
+        <details className="mt-4 border-t border-[#e8e9eb] pt-3 text-left">
+          <summary className="w-fit cursor-pointer text-[11px] font-semibold text-[#7b8495] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#ff6846]">
             Image credits
           </summary>
-          <ul className="mt-3 space-y-2 text-xs leading-5 text-[#70798b]">
+          <ul className="mt-2 space-y-1.5 text-[11px] leading-5 text-[#70798b]">
             {credits.map(({ node, image }) => (
               <li key={`${node.qid}-${image.imageUrl}`}>
                 <a

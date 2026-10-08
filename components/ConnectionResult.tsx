@@ -109,14 +109,14 @@ export default function ConnectionResult({
   return (
     <section
       aria-live="polite"
-      className="mx-auto mt-12 w-full max-w-6xl rounded-[28px] border border-[#e2e5ea] bg-[#fbfaf7]/95 p-5 shadow-[0_24px_80px_rgba(20,30,50,0.09)] md:p-9"
+      className="mx-auto mt-12 w-full max-w-6xl rounded-[28px] border border-[#e4e5e7] bg-[#fbfaf7]/95 p-4 shadow-[0_20px_65px_rgba(20,30,50,0.075)] sm:p-6 md:p-7"
     >
-      <div className="mb-8 text-center">
+      <div className="mb-5 text-center">
         <span className="inline-flex items-center gap-2 rounded-full bg-[#dff5ec] px-3 py-1 text-xs font-bold uppercase tracking-[0.14em] text-[#177258]">
           <span className="size-1.5 rounded-full bg-[#22a77b]" />
           Connection found
         </span>
-        <h2 className="mt-4 text-2xl font-bold tracking-[-0.03em] text-[#15213b] md:text-3xl">
+        <h2 className="mt-3 text-2xl font-bold tracking-[-0.03em] text-[#15213b] md:text-3xl">
           They&apos;re connected in {enrichedResult.bestPath.steps}{" "}
           {enrichedResult.bestPath.steps === 1 ? "step" : "steps"}.
         </h2>
@@ -133,18 +133,9 @@ export default function ConnectionResult({
 
       <FutureAdPlacement placement="after-connection-content" />
 
-      <ShareControls
-        fromQid={fromQid}
-        toQid={toQid}
-        sourceName={share.sourceName}
-        targetName={share.targetName}
-        steps={enrichedResult.bestPath.steps}
-        path={share.path}
-      />
-
       {enrichedResult.alternatePaths.length > 0 ? (
         <details
-          className="group mx-auto mt-8 max-w-4xl rounded-2xl border border-[#e1e4e9] bg-white"
+          className="group mx-auto mt-6 max-w-4xl rounded-xl border border-[#e4e6e9] bg-white/65"
           onToggle={(event) => {
             if (event.currentTarget.open) {
               trackProductEvent("alternate_paths_opened", {
@@ -180,7 +171,16 @@ export default function ConnectionResult({
         pathSteps={enrichedResult.bestPath.steps}
       />
 
-      <div className="mt-8 flex justify-center">
+      <ShareControls
+        fromQid={fromQid}
+        toQid={toQid}
+        sourceName={share.sourceName}
+        targetName={share.targetName}
+        steps={enrichedResult.bestPath.steps}
+        path={share.path}
+      />
+
+      <div className="mt-5 flex justify-center">
         {onReset ? (
           <button
             type="button"
