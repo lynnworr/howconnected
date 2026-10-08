@@ -12,18 +12,20 @@ type ConnectionPathProps = {
   sourceContext?: "path" | "share_card";
 };
 
-function EntityCard({
+function EntityNode({
   node,
   compact,
+  position,
   sourceContext,
 }: {
   node: ConnectionNode;
   compact: boolean;
+  position: "first" | "middle" | "last" | "only";
   sourceContext: "path" | "share_card";
 }) {
   const [imageFailed, setImageFailed] = useState(false);
   const visibleType = node.type && node.type !== "entity" ? node.type : "entity";
-  const avatarSize = compact ? 38 : 52;
+  const avatarSize = compact ? 44 : 64;
   const useContain = /(company|organization|business|brand)/i.test(visibleType);
   const primaryUrl = node.wikipediaUrl ?? node.wikidataUrl;
   const primaryDestination = node.wikipediaUrl ? "wikipedia" : "wikidata";
@@ -62,75 +64,116 @@ function EntityCard({
     </span>
   );
 
+  const railPosition =
+    position === "first"
+      ? "left-1/2 right-0"
+      : position === "last"
+        ? "left-0 right-1/2"
+        : "inset-x-0";
+
   return (
     <div
-      className={`relative z-10 flex shrink-0 flex-col items-center rounded-xl border border-[#e6e7e8] bg-[#fffdf9]/95 text-center shadow-[0_3px_12px_rgba(23,34,56,0.045)] ${
+      className={`relative z-10 flex w-[min(100%,18rem)] shrink-0 flex-col items-center text-center lg:grid lg:w-full ${
         compact
-          ? "min-h-24 w-[min(100%,18rem)] px-3 py-2.5 md:h-28 md:w-24"
-          : "h-40 w-[min(100%,18rem)] px-3 py-2.5 md:w-32"
+          ? "lg:h-44 lg:grid-rows-[2.5rem_3rem_0.75rem_3rem_1.5rem]"
+          : "lg:h-52 lg:grid-rows-[3rem_4rem_0.75rem_3rem_1.5rem]"
       }`}
     >
-      {primaryUrl ? (
-        <a
-          href={primaryUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          onClick={() => trackSource(primaryDestination)}
-          className="rounded-full transition hover:scale-[1.03] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#ff6846]"
-          aria-label={`Open ${node.name} on ${node.sourceLabel ?? "its source page"} in a new tab`}
-        >
-          {avatar}
-        </a>
-      ) : (
-        avatar
-      )}
-      <span className="mt-2 text-[9px] font-bold uppercase tracking-[0.15em] text-[#d45a40]">
+      <span aria-hidden="true" className="hidden lg:block" />
+      <div
+        className={`relative flex w-full items-center justify-center ${compact ? "h-12" : "h-16"} lg:h-full`}
+      >
+        {position !== "only" ? (
+          <span
+            aria-hidden="true"
+            className={`absolute top-1/2 hidden h-px -translate-y-1/2 bg-[#d7dbe0] lg:block ${railPosition}`}
+          />
+        ) : null}
+        {primaryUrl ? (
+          <a
+            href={primaryUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => trackSource(primaryDestination)}
+            className="relative z-10 rounded-full shadow-[0_4px_14px_rgba(23,34,56,0.1)] transition hover:scale-[1.03] focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-[#ff6846]"
+            aria-label={`Open ${node.name} on ${node.sourceLabel ?? "its source page"} in a new tab`}
+          >
+            {avatar}
+          </a>
+        ) : (
+          <span className="relative z-10">{avatar}</span>
+        )}
+      </div>
+      <span className="mt-2 text-[9px] font-bold uppercase tracking-[0.15em] text-[#d45a40] lg:mt-0">
         {visibleType}
       </span>
-      {primaryUrl ? (
-        <a
-          href={primaryUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          onClick={() => trackSource(primaryDestination)}
-          className="mt-1 flex min-h-9 max-w-full items-center justify-center text-balance rounded-sm text-[13px] font-bold leading-[1.2] text-[#15213b] underline decoration-transparent underline-offset-2 transition hover:text-[#c9472d] hover:decoration-[#e9a18f] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#ff6846] md:text-sm"
-        >
-          {node.name} <span aria-hidden="true" className="text-[0.72em] text-[#8991a0]">↗</span>
-          <span className="sr-only"> (opens in a new tab)</span>
-        </a>
-      ) : (
-        <span className="mt-1 flex min-h-9 max-w-full items-center justify-center text-balance text-[13px] font-bold leading-[1.2] text-[#15213b] md:text-sm">
-          {node.name}
-        </span>
-      )}
+      <span className="mt-1 flex min-h-10 max-w-full items-center justify-center text-balance text-[13px] font-bold leading-[1.2] text-[#15213b] lg:mt-0 lg:px-1 lg:text-sm">
+        {node.name}
+      </span>
       {node.wikidataUrl ? (
         <a
           href={node.wikidataUrl}
           target="_blank"
           rel="noopener noreferrer"
           onClick={() => trackSource("wikidata")}
-          className="mt-auto rounded-sm pt-1 text-[9px] font-medium text-[#8a91a0] underline decoration-transparent underline-offset-2 transition hover:text-[#b74a33] hover:decoration-[#d7dbe2] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#ff6846]"
-          aria-label={`Open the Wikidata source for ${node.name} in a new tab`}
+          title={`Open ${node.name} source`}
+          className="mt-1 inline-grid size-6 place-items-center rounded-full text-[#8a91a0] transition hover:bg-[#fff0eb] hover:text-[#b74a33] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#ff6846] lg:mt-0 lg:justify-self-center"
+          aria-label={`Open ${node.name} source`}
         >
-          Source <span aria-hidden="true">↗</span>
+          <svg
+            aria-hidden="true"
+            viewBox="0 0 16 16"
+            className="size-3.5"
+            fill="none"
+          >
+            <path
+              d="M6 3H3.75A.75.75 0 0 0 3 3.75v8.5c0 .414.336.75.75.75h8.5a.75.75 0 0 0 .75-.75V10M9 3h4v4M13 3 7.5 8.5"
+              stroke="currentColor"
+              strokeWidth="1.4"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
         </a>
       ) : null}
     </div>
   );
 }
 
-function RelationshipConnector({ label }: { label: string }) {
+function RelationshipConnector({
+  label,
+  compact,
+}: {
+  label: string;
+  compact: boolean;
+}) {
   return (
-    <div className="relative z-20 flex min-h-12 w-full shrink-0 items-center justify-center md:min-h-0 md:w-full">
-      <span className="flex max-w-40 flex-col items-center gap-0.5 bg-[#fbfaf7] px-2 py-1 text-center text-[10px] font-semibold leading-tight text-[#9f4936] md:max-w-full md:flex-row md:gap-1">
-        <span>{label}</span>
-        <span aria-hidden="true" className="text-xs leading-none text-[#c9634d] md:hidden">
+    <div className="relative z-20 w-full shrink-0">
+      <div className="grid h-20 grid-rows-[1fr_auto_1fr] lg:hidden">
+        <span aria-hidden="true" className="h-full w-px justify-self-center bg-[#d7dbe0]" />
+        <span className="bg-[#fbfaf7] px-2 py-1 text-center text-[10px] font-semibold leading-tight text-[#9f4936]">
+          {label}
+        </span>
+        <span aria-hidden="true" className="flex flex-col items-center text-xs leading-none text-[#c9634d]">
+          <span className="min-h-0 w-px flex-1 bg-[#d7dbe0]" />
           ↓
         </span>
-        <span aria-hidden="true" className="hidden text-xs leading-none text-[#c9634d] md:inline">
+      </div>
+      <div
+        className={`hidden w-full lg:grid ${
+          compact
+            ? "h-44 grid-rows-[2.5rem_3rem_1fr]"
+            : "h-52 grid-rows-[3rem_4rem_1fr]"
+        }`}
+      >
+        <span className="flex items-end justify-center px-1 pb-1 text-center text-[9px] font-semibold leading-[1.15] text-[#9f4936]">
+          {label}
+        </span>
+        <span aria-hidden="true" className="flex items-center text-sm leading-none text-[#c9634d]">
+          <span className="h-px min-w-0 flex-1 bg-[#d7dbe0]" />
           →
         </span>
-      </span>
+      </div>
     </div>
   );
 }
@@ -140,20 +183,21 @@ export default function ConnectionPath({
   compact = false,
   sourceContext = "path",
 }: ConnectionPathProps) {
-  const nodeWidth = compact ? 96 : 128;
-  const minimumConnectorWidth = compact ? 48 : 56;
-  const maximumConnectorWidth = compact ? 64 : 96;
-  const maximumPathWidth = compact ? 816 : 1088;
-  const connectorCount = Math.max(1, path.nodes.length - 1);
-  const connectorWidth = Math.max(
-    minimumConnectorWidth,
-    Math.min(
-      maximumConnectorWidth,
-      Math.floor(
-        (maximumPathWidth - nodeWidth * path.nodes.length) / connectorCount,
-      ),
-    ),
-  );
+  const nodeCount = path.nodes.length;
+  const nodeWidth = compact
+    ? 96
+    : nodeCount <= 4
+      ? 138
+      : nodeCount === 5
+        ? 120
+        : 100;
+  const connectorWidth = compact
+    ? 48
+    : nodeCount <= 4
+      ? 110
+      : nodeCount === 5
+        ? 70
+        : 56;
   const desktopColumns = path.nodes
     .flatMap((_, index) =>
       index === path.nodes.length - 1
@@ -161,19 +205,12 @@ export default function ConnectionPath({
         : [`${nodeWidth}px`, `${connectorWidth}px`],
     )
     .join(" ");
-  const linePosition = compact
-    ? "top-12 bottom-12 md:bottom-auto md:left-12 md:right-12 md:top-1/2"
-    : "top-20 bottom-20 md:bottom-auto md:left-16 md:right-16 md:top-1/2";
 
   return (
     <div
-      className="relative mx-auto flex w-full flex-col items-center justify-center md:grid md:w-fit md:items-center"
+      className="relative mx-auto flex w-full flex-col items-center justify-center lg:grid lg:w-fit lg:items-start"
       style={{ gridTemplateColumns: desktopColumns } as CSSProperties}
     >
-      <div
-        aria-hidden="true"
-        className={`absolute left-1/2 w-px -translate-x-1/2 bg-[#d7dbe0] md:h-px md:w-auto md:translate-x-0 ${linePosition}`}
-      />
       {path.nodes.map((node, index) => (
         <div
           className="contents"
@@ -182,11 +219,21 @@ export default function ConnectionPath({
           {index > 0 ? (
             <RelationshipConnector
               label={path.relationships[index - 1]?.label ?? "connected to"}
+              compact={compact}
             />
           ) : null}
-          <EntityCard
+          <EntityNode
             node={node}
             compact={compact}
+            position={
+              nodeCount === 1
+                ? "only"
+                : index === 0
+                  ? "first"
+                  : index === nodeCount - 1
+                    ? "last"
+                    : "middle"
+            }
             sourceContext={sourceContext}
           />
         </div>
