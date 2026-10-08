@@ -43,11 +43,12 @@ Copy `.env.example` to `.env.local` and provide these server-only values:
 NEO4J_URI=neo4j+s://your-database-id.databases.neo4j.io
 NEO4J_USERNAME=neo4j
 NEO4J_PASSWORD=your-password
+ADMIN_PASSWORD=use-a-long-random-password
 DISCOVERY_TIMEOUT_MS=14000
 DISCOVERY_SEMANTIC_STAGE_MS=8000
 ```
 
-Never prefix these secrets with `NEXT_PUBLIC_`. `.env.local` remains ignored by Git. Browser requests use relative URLs, so the application has no production dependency on localhost. `DISCOVERY_TIMEOUT_MS` is optional, constrained to 10–30 seconds, and defaults to 14 seconds. `DISCOVERY_SEMANTIC_STAGE_MS` defaults to 8 seconds and must remain below the total timeout so the bounded Wikipedia-assisted fallback has time to run.
+Never prefix these secrets with `NEXT_PUBLIC_`. `.env.local` remains ignored by Git. `ADMIN_PASSWORD` protects the private `/admin` feedback dashboard; use a long, unique value. Browser requests use relative URLs, so the application has no production dependency on localhost. `DISCOVERY_TIMEOUT_MS` is optional, constrained to 10–30 seconds, and defaults to 14 seconds. `DISCOVERY_SEMANTIC_STAGE_MS` defaults to 8 seconds and must remain below the total timeout so the bounded Wikipedia-assisted fallback has time to run.
 
 Run the repeatable cross-domain development benchmark against a local development server with `npm run benchmark:discovery`. Set `BENCHMARK_BASE_URL` only when intentionally testing another non-production environment.
 
@@ -56,7 +57,7 @@ Run the broader 98-pair, 14-domain product-quality audit with `npm run benchmark
 ### Vercel deployment
 
 1. Import the repository into Vercel as a Next.js project.
-2. Add all three Neo4j variables in **Project Settings → Environment Variables** for Production and any Preview environments that should use Neo4j.
+2. Add all three Neo4j variables and `ADMIN_PASSWORD` in **Project Settings → Environment Variables** for Production and any Preview environments that should expose the admin dashboard.
 3. Use the encrypted Aura `neo4j+s://` URI.
 4. Enable **Web Analytics** in the project dashboard.
 5. Deploy, then verify `/api/neo4j-test`, a connection, and a feedback submission.
