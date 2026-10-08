@@ -167,3 +167,186 @@ test("penalizes using an event merely to jump between participants", () => {
   assert.equal(score.patternPenalty, 4.25);
   assert.equal(score.qualityBand, "weak");
 });
+
+test("rewards creator citizenship while rejecting citizenship as a person shortcut", () => {
+  const creatorChain = scorePath({
+    nodes: [node("monument"), node("creator"), node("country")],
+    relationships: [
+      { weight: 1, storedType: "CREATOR", direction: "forward" },
+      {
+        weight: 1.15,
+        storedType: "COUNTRY_OF_CITIZENSHIP",
+        direction: "forward",
+      },
+    ],
+  });
+  const peopleShortcut = scorePath({
+    nodes: [node("person-a"), node("country"), node("person-b")],
+    relationships: [
+      {
+        weight: 1.15,
+        storedType: "COUNTRY_OF_CITIZENSHIP",
+        direction: "forward",
+      },
+      {
+        weight: 1.15,
+        storedType: "COUNTRY_OF_CITIZENSHIP",
+        direction: "reverse",
+      },
+    ],
+  });
+
+  assert.equal(creatorChain.qualityBand, "strong");
+  assert.equal(creatorChain.patternPenalty, 0);
+  assert.equal(peopleShortcut.patternPenalty, 4);
+  assert.equal(peopleShortcut.qualityBand, "weak");
+});
+
+test("rejects a geographic container used only to jump between countries", () => {
+  const score = scorePath({
+    nodes: [node("artwork"), node("france"), node("region"), node("italy")],
+    relationships: [
+      { weight: 1, storedType: "COUNTRY", direction: "forward" },
+      { weight: 1.6, storedType: "PART_OF", direction: "forward" },
+      { weight: 1.6, storedType: "PART_OF", direction: "reverse" },
+    ],
+  });
+
+  assert.equal(score.patternPenalty, 4);
+  assert.equal(score.qualityBand, "weak");
+});
+
+test("rejects citizenship used to jump into an unrelated geographic entity", () => {
+  const score = scorePath({
+    nodes: [node("person"), node("country"), node("monument")],
+    relationships: [
+      {
+        weight: 1.15,
+        storedType: "COUNTRY_OF_CITIZENSHIP",
+        direction: "forward",
+      },
+      { weight: 1, storedType: "COUNTRY", direction: "reverse" },
+    ],
+  });
+
+  assert.equal(score.patternPenalty, 4);
+  assert.equal(score.qualityBand, "weak");
+});
+
+test("preserves explicit citizenship through a historical state", () => {
+  const score = scorePath({
+    nodes: [
+      node("architect"),
+      { id: "historical-state", name: "Kingdom of Denmark", type: "place" },
+      { id: "modern-country", name: "Denmark", type: "place" },
+    ],
+    relationships: [
+      {
+        weight: 1.15,
+        storedType: "COUNTRY_OF_CITIZENSHIP",
+        direction: "forward",
+      },
+      { weight: 1.15, storedType: "COUNTRY", direction: "reverse" },
+    ],
+  });
+
+  assert.equal(score.patternPenalty, 0);
+  assert.equal(score.qualityBand, "strong");
+});
+
+test("rejects countries joined only because they founded the same organization", () => {
+  const score = scorePath({
+    nodes: [
+      node("artwork"),
+      { id: "france", type: "place" },
+      { id: "union", type: "company/organization" },
+      { id: "italy", type: "place" },
+    ],
+    relationships: [
+      { weight: 1, storedType: "COUNTRY", direction: "forward" },
+      { weight: 1, storedType: "FOUNDED_BY", direction: "reverse" },
+      { weight: 1, storedType: "FOUNDED_BY", direction: "forward" },
+    ],
+  });
+
+  assert.equal(score.patternPenalty, 4);
+  assert.equal(score.qualityBand, "weak");
+});
+
+test("rejects a country used to select an unrelated citizen", () => {
+  const score = scorePath({
+    nodes: [
+      { id: "nasa", type: "company/organization" },
+      { id: "washington", type: "place" },
+      { id: "usa", type: "place" },
+      { id: "pemberton", type: "person" },
+      { id: "coca-cola", type: "company/organization" },
+    ],
+    relationships: [
+      { weight: 1.5, storedType: "HEADQUARTERS_LOCATION", direction: "forward" },
+      { weight: 1.15, storedType: "COUNTRY", direction: "forward" },
+      { weight: 1.15, storedType: "COUNTRY_OF_CITIZENSHIP", direction: "reverse" },
+      { weight: 1, storedType: "FOUNDED_BY", direction: "reverse" },
+    ],
+  });
+
+  assert.ok(score.patternPenalties.some(({ kind }) => kind === "country-citizen-hop"));
+  assert.equal(score.qualityBand, "weak");
+});
+
+test("penalizes a structural investment hub but exempts endpoints", () => {
+  const blackRock = {
+    id: "blackrock",
+    name: "Example Capital",
+    type: "company/organization",
+    description: "global asset management company",
+  };
+  const degrees = new Map([["blackrock", 20]]);
+  const bridge = scorePath(
+    {
+      nodes: [node("company"), blackRock, node("executive"), node("school")],
+      relationships: [
+        { weight: 1.1, storedType: "OWNED_BY", direction: "forward" },
+        { weight: 1.1, storedType: "CHIEF_EXECUTIVE_OFFICER", direction: "forward" },
+        { weight: 1.4, storedType: "EDUCATED_AT", direction: "forward" },
+      ],
+    },
+    degrees,
+  );
+  const endpoint = scorePath(
+    {
+      nodes: [blackRock, node("company")],
+      relationships: [
+        { weight: 1.1, storedType: "OWNED_BY", direction: "forward" },
+      ],
+    },
+    degrees,
+  );
+
+  assert.ok(bridge.hubPenalty >= 4);
+  assert.equal(bridge.qualityBand, "weak");
+  assert.equal(endpoint.hubPenalty, 0);
+});
+
+test("prefers a direct domain relationship over a slightly cheaper indirect path", () => {
+  const ranked = rankPathCandidates([
+    {
+      name: "indirect",
+      nodes: [node("aircraft"), node("country"), node("airline")],
+      relationships: [
+        { weight: 1.1, storedType: "COUNTRY", direction: "forward" },
+        { weight: 1.1, storedType: "LOCATION", direction: "reverse" },
+      ],
+    },
+    {
+      name: "direct operator",
+      nodes: [node("aircraft"), node("airline")],
+      relationships: [
+        { weight: 2.5, storedType: "OPERATOR", direction: "forward" },
+      ],
+    },
+  ]);
+
+  assert.equal(ranked[0].name, "direct operator");
+  assert.equal(ranked[0].directRelationshipBonus, 0.4);
+});

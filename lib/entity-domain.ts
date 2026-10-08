@@ -3,12 +3,17 @@ export const ENTITY_DOMAINS = [
   "company/organization",
   "film",
   "television series",
+  "music artist",
+  "music organization",
   "music/work",
+  "monument/artifact",
   "sports team",
   "sports person",
   "educational institution",
   "place",
   "event",
+  "historical event",
+  "transportation",
   "product",
   "government/scientific organization",
   "entity",
@@ -31,6 +36,39 @@ const INSTANCE_DOMAINS: Readonly<Record<string, EntityDomain>> = {
   Q482994: "music/work",
   Q7366: "music/work",
   Q2188189: "music/work",
+  Q215380: "music organization",
+  Q2088357: "music organization",
+  Q198: "historical event",
+  Q178561: "historical event",
+  Q3839081: "historical event",
+  Q13418847: "historical event",
+  Q273120: "historical event",
+  Q131569: "historical event",
+  Q5916: "historical event",
+  Q11436: "transportation",
+  Q210932: "transportation",
+  Q15056993: "transportation",
+  Q40218: "transportation",
+  Q25956: "transportation",
+  Q3231690: "transportation",
+  Q1420: "transportation",
+  Q11446: "transportation",
+  Q1248784: "transportation",
+  Q46970: "transportation",
+  Q870: "transportation",
+  Q179700: "monument/artifact",
+  Q1779653: "monument/artifact",
+  Q1440300: "monument/artifact",
+  Q1440476: "monument/artifact",
+  Q2319498: "monument/artifact",
+  Q3305213: "monument/artifact",
+  Q153562: "monument/artifact",
+  Q38048707: "monument/artifact",
+  Q860861: "monument/artifact",
+  Q4989906: "monument/artifact",
+  Q811979: "monument/artifact",
+  Q838948: "monument/artifact",
+  Q220659: "monument/artifact",
   Q12973014: "sports team",
   Q476028: "sports team",
   Q847017: "sports team",
@@ -61,6 +99,9 @@ export function classifyEntityDomain(input: DomainInput): EntityDomain {
   if (/athlete|footballer|basketball player|baseball player|hockey player|sportsperson|sports player/.test(value)) {
     return "sports person";
   }
+  if (/singer|musician|rapper|record producer|songwriter|music composer|musical artist/.test(value)) {
+    return "music artist";
+  }
   if (input.type && input.type !== "entity" && isEntityDomain(input.type)) {
     return input.type;
   }
@@ -77,6 +118,30 @@ export function classifyEntityDomain(input: DomainInput): EntityDomain {
   if (/television series|tv series|animated series|television program/.test(value)) {
     return "television series";
   }
+  if (/record label|music group|musical group|\bband\b|audio streaming|music streaming|music company/.test(value)) {
+    return "music organization";
+  }
+  if (
+    /world war|global war|civil war|\bbattle\b|armed conflict|revolution|historical event|disaster|terrorist attack|political crisis|protest|uprising|treaty|peace conference|spaceflight|geopolitical tension/.test(
+      value,
+    )
+  ) {
+    return "historical event";
+  }
+  if (
+    /aircraft|airliner|spacecraft|space station|automobile|motor vehicle|vehicle model|\bship\b|ocean liner|airport|airline|railway|\btrain\b|locomotive/.test(
+      value,
+    )
+  ) {
+    return "transportation";
+  }
+  if (
+    /monument|statue|sculpture|painting|artwork|work of art|architectural landmark|built structure|cultural heritage|opera house|observation tower|lattice tower/.test(
+      value,
+    )
+  ) {
+    return "monument/artifact";
+  }
   if (/\bfilm\b|motion picture|feature film/.test(value)) return "film";
   if (/album|song|musical work|recording|creative work|book|novel|video game/.test(value)) {
     return "music/work";
@@ -87,7 +152,7 @@ export function classifyEntityDomain(input: DomainInput): EntityDomain {
   if (/company|corporation|organization|organisation|business|studio|network|broadcaster/.test(value)) {
     return "company/organization";
   }
-  if (/stadium|arena|venue|city|country|river|place|location/.test(value)) {
+  if (/stadium|arena|venue|city|country|river|place|location|\bnation\b|historical state|city-state|republic|kingdom/.test(value)) {
     return "place";
   }
   if (/event|tournament|festival|ceremony|conference/.test(value)) return "event";
@@ -112,8 +177,13 @@ export function domainBridgePenalty(
     "film",
     "television series",
     "music/work",
+    "music artist",
+    "music organization",
+    "monument/artifact",
     "sports person",
     "event",
+    "historical event",
+    "transportation",
   ]);
   if (bridgeDomains.has(domain)) return -0.35;
   if (domain === "government/scientific organization") return -0.2;

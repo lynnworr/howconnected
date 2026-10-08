@@ -59,6 +59,7 @@ export type RankedPath = {
   relationshipScore: number;
   hopPenalty: number;
   hubPenalty: number;
+  directRelationshipBonus: number;
   baseScore: number;
   patternPenalty: number;
   patternPenalties: PatternPenalty[];
@@ -114,7 +115,12 @@ function serializePath(path: Path): CandidatePath | null {
       label: getDisplayedRelationshipLabel(config, direction),
       storedType: relationship.type,
       direction,
-      weight: config.weight,
+      weight:
+        typeof relationship.properties.weight === "number"
+          ? relationship.properties.weight
+          : neo4j.isInt(relationship.properties.weight)
+            ? relationship.properties.weight.toNumber()
+            : config.weight,
       from: serializeNode(segment.start).name,
       to: serializeNode(segment.end).name,
     });
@@ -175,6 +181,7 @@ function preparePathForResponse(
     relationshipScore: number;
     hopPenalty: number;
     hubPenalty: number;
+    directRelationshipBonus: number;
     baseScore: number;
     patternPenalty: number;
     patternPenalties: PatternPenalty[];
@@ -194,6 +201,7 @@ function preparePathForResponse(
     relationshipScore: path.relationshipScore,
     hopPenalty: path.hopPenalty,
     hubPenalty: path.hubPenalty,
+    directRelationshipBonus: path.directRelationshipBonus,
     baseScore: path.baseScore,
     patternPenalty: path.patternPenalty,
     patternPenalties: path.patternPenalties,

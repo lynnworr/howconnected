@@ -12,6 +12,7 @@ import { ingestWikidataEntityWithMetadata } from "@/lib/ingest-wikidata";
 import { getNeo4jDriver } from "@/lib/neo4j";
 import { findRankedPathsByQids } from "@/lib/ranked-paths";
 import { REVERSE_DISCOVERY_VERSION } from "@/lib/wikidata-incoming";
+import { WIKIDATA_EXPANSION_VERSION } from "@/lib/wikidata-properties";
 import { findWikipediaBridgeCandidates } from "@/lib/wikipedia-bridges";
 
 type EntityRecord = {
@@ -57,10 +58,15 @@ async function getExpansionState(qid: string) {
       OPTIONAL MATCH (entity:Entity {qid: $qid})
       RETURN entity IS NOT NULL AS exists,
              (coalesce(entity.wikidataExpanded, false)
+               AND coalesce(entity.wikidataExpansionVersion, 0) >= $expansionVersion
                AND coalesce(entity.wikidataReverseExpanded, false)
                AND coalesce(entity.wikidataReverseExpansionVersion, 0) >= $reverseDiscoveryVersion) AS expanded
     `,
-    { qid, reverseDiscoveryVersion: REVERSE_DISCOVERY_VERSION },
+    {
+      qid,
+      expansionVersion: WIKIDATA_EXPANSION_VERSION,
+      reverseDiscoveryVersion: REVERSE_DISCOVERY_VERSION,
+    },
   );
   const record = result.records[0];
 

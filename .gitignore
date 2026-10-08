@@ -12,6 +12,8 @@
 
 # testing
 /coverage
+/benchmarks/domain-audit/*.json
+/benchmarks/domain-audit/*.csv
 
 # next.js
 /.next/

@@ -109,7 +109,7 @@ test("selects only relevant reverse properties within the global property cap", 
   const selected = selectReverseDiscoveryProperties(
     {
       type: "person",
-      description: "American actor, director, writer, and singer",
+      description: "American actor, director, and writer",
     },
     Object.values(APPROVED_WIKIDATA_PROPERTIES),
   );

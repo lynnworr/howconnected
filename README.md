@@ -49,7 +49,9 @@ DISCOVERY_SEMANTIC_STAGE_MS=8000
 
 Never prefix these secrets with `NEXT_PUBLIC_`. `.env.local` remains ignored by Git. Browser requests use relative URLs, so the application has no production dependency on localhost. `DISCOVERY_TIMEOUT_MS` is optional, constrained to 10–30 seconds, and defaults to 14 seconds. `DISCOVERY_SEMANTIC_STAGE_MS` defaults to 8 seconds and must remain below the total timeout so the bounded Wikipedia-assisted fallback has time to run.
 
-Run the repeatable 25-pair development benchmark against a local development server with `npm run benchmark:discovery`. Set `BENCHMARK_BASE_URL` only when intentionally testing another non-production environment.
+Run the repeatable cross-domain development benchmark against a local development server with `npm run benchmark:discovery`. Set `BENCHMARK_BASE_URL` only when intentionally testing another non-production environment.
+
+Run the broader 98-pair, 14-domain product-quality audit with `npm run benchmark:domains`. It prints a domain ranking and writes development-only JSON and CSV reports under `benchmarks/domain-audit/`; generated reports are ignored by Git. Requests are paced to reduce Wikimedia load. If a run contains transient HTTP failures, rerun with `BENCHMARK_RESUME=1` to retry only those pairs and merge them into the latest report.
 
 ### Vercel deployment
 

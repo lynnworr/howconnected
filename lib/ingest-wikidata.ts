@@ -4,6 +4,8 @@ import {
   APPROVED_WIKIDATA_PROPERTIES,
   MAX_LINKED_ENTITIES_PER_PROPERTY,
   MAX_RELATIONSHIPS_PER_INGESTION,
+  WIKIDATA_EXPANSION_VERSION,
+  getConfiguredRelationshipWeight,
   type WikidataPropertyConfig,
 } from "@/lib/wikidata-properties";
 import {
@@ -120,7 +122,7 @@ function collectRelationships(
 
     const targetQids = getEntityQids(
       entity.claims[property.wikidataProperty] ?? [],
-    ).slice(
+    ).filter((targetQid) => targetQid !== entity.qid).slice(
       0,
       Math.min(
         property.maxFanout ?? MAX_LINKED_ENTITIES_PER_PROPERTY,
@@ -252,6 +254,7 @@ export async function ingestWikidataEntityWithMetadata(
               END,
               source.wikidataExpanded = true,
               source.wikidataExpandedAt = datetime(),
+              source.wikidataExpansionVersion = $expansionVersion,
               source.wikidataReverseExpanded = CASE
                 WHEN $reverseLookupComplete THEN true
                 ELSE coalesce(source.wikidataReverseExpanded, false)
@@ -272,6 +275,7 @@ export async function ingestWikidataEntityWithMetadata(
           type: sourceType,
           reverseLookupComplete,
           reverseDiscoveryVersion: REVERSE_DISCOVERY_VERSION,
+          expansionVersion: WIKIDATA_EXPANSION_VERSION,
         },
       );
 
@@ -342,7 +346,7 @@ export async function ingestWikidataEntityWithMetadata(
             wikidataProperty: property.wikidataProperty,
             label: property.label,
             reverseLabel: property.reverseLabel,
-            weight: property.weight,
+            weight: getConfiguredRelationshipWeight(property, sourceType),
             traversable: property.traversable,
           },
         );

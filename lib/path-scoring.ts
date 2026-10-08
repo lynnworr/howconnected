@@ -4,6 +4,9 @@ export const HOP_PENALTY_PER_STEP = 0.15;
 const HUB_DEGREE_THRESHOLD = 10;
 const HUB_PENALTY_PER_EXTRA_EDGE = 0.03;
 const MAX_HUB_PENALTY_PER_NODE = 1.5;
+const INVESTMENT_HUB_MIN_DEGREE = 8;
+const INVESTMENT_HUB_PENALTY = 4;
+export const DIRECT_DOMAIN_RELATIONSHIP_BONUS = 0.4;
 
 export type TraversalDirection = "forward" | "reverse";
 
@@ -28,6 +31,11 @@ export type PatternPenalty = {
     | "education-person-hop"
     | "membership-return-hop"
     | "association-return-hop"
+    | "citizenship-return-hop"
+    | "citizenship-geography-bounce"
+    | "country-citizen-hop"
+    | "geographic-return-hop"
+    | "shared-organization-place-hop"
     | "repeated-association"
     | "generic-institution-chain"
     | "investment-ownership-chain";
@@ -38,6 +46,7 @@ export type ScoreBreakdown = {
   relationshipScore: number;
   hopPenalty: number;
   hubPenalty: number;
+  directRelationshipBonus: number;
   baseScore: number;
   patternPenalty: number;
   patternPenalties: PatternPenalty[];
@@ -64,6 +73,31 @@ const OWNERSHIP_TYPES = new Set([
   "ACQUIRED_BY",
 ]);
 
+const GEOGRAPHIC_CONTAINER_TYPES = new Set([
+  "COUNTRY",
+  "LOCATION",
+  "LOCATED_IN_ADMINISTRATIVE_ENTITY",
+  "PART_OF",
+]);
+
+const DIRECT_DOMAIN_RELATIONSHIP_TYPES = new Set([
+  "MANUFACTURER",
+  "OPERATOR",
+  "AIRLINE_HUB",
+  "PRODUCER",
+  "PERFORMER",
+  "COMPOSER",
+  "PARTICIPANT",
+  "PARTICIPANT_IN",
+  "CONFLICT",
+]);
+
+const INVESTMENT_ADJACENT_TYPES = new Set([
+  ...OWNERSHIP_TYPES,
+  "CHIEF_EXECUTIVE_OFFICER",
+  "EMPLOYER",
+]);
+
 function isGenericInstitution(node: ScoreablePath["nodes"][number]): boolean {
   const value = `${node.name ?? ""} ${node.type ?? ""} ${node.description ?? ""}`.toLowerCase();
   return (
@@ -75,6 +109,13 @@ function isGenericInstitution(node: ScoreablePath["nodes"][number]): boolean {
 function isInvestmentEntity(node: ScoreablePath["nodes"][number]): boolean {
   const value = `${node.name ?? ""} ${node.type ?? ""} ${node.description ?? ""}`.toLowerCase();
   return /investment|private equity|asset management|holding company|venture capital/.test(
+    value,
+  );
+}
+
+function isHistoricalState(node: ScoreablePath["nodes"][number]): boolean {
+  const value = `${node.name ?? ""} ${node.description ?? ""}`.toLowerCase();
+  return /\b(kingdom|republic|empire|caliphate|duchy|principality|historical state)\b/.test(
     value,
   );
 }
@@ -113,6 +154,55 @@ export function calculatePatternPenalties(
       next.direction === "reverse"
     ) {
       penalties.push({ kind: "association-return-hop", penalty: 3 });
+    }
+    if (
+      current.storedType === "COUNTRY_OF_CITIZENSHIP" &&
+      current.direction === "forward" &&
+      next.storedType === "COUNTRY_OF_CITIZENSHIP" &&
+      next.direction === "reverse"
+    ) {
+      penalties.push({ kind: "citizenship-return-hop", penalty: 4 });
+    }
+    if (
+      current.storedType === "COUNTRY_OF_CITIZENSHIP" &&
+      current.direction === "forward" &&
+      typeof next.storedType === "string" &&
+      GEOGRAPHIC_CONTAINER_TYPES.has(next.storedType) &&
+      next.direction === "reverse" &&
+      !(
+        isHistoricalState(path.nodes[index + 1]) &&
+        path.nodes[index + 2]?.type === "place"
+      )
+    ) {
+      penalties.push({ kind: "citizenship-geography-bounce", penalty: 4 });
+    }
+    if (
+      typeof current.storedType === "string" &&
+      GEOGRAPHIC_CONTAINER_TYPES.has(current.storedType) &&
+      current.direction === "forward" &&
+      next.storedType === "COUNTRY_OF_CITIZENSHIP" &&
+      next.direction === "reverse"
+    ) {
+      penalties.push({ kind: "country-citizen-hop", penalty: 4.5 });
+    }
+    if (
+      current.storedType === next.storedType &&
+      typeof current.storedType === "string" &&
+      GEOGRAPHIC_CONTAINER_TYPES.has(current.storedType) &&
+      current.direction === "forward" &&
+      next.direction === "reverse"
+    ) {
+      penalties.push({ kind: "geographic-return-hop", penalty: 4 });
+    }
+    if (
+      current.storedType === "FOUNDED_BY" &&
+      next.storedType === "FOUNDED_BY" &&
+      current.direction === "reverse" &&
+      next.direction === "forward" &&
+      path.nodes[index]?.type === "place" &&
+      path.nodes[index + 2]?.type === "place"
+    ) {
+      penalties.push({ kind: "shared-organization-place-hop", penalty: 4 });
     }
   }
 
@@ -174,17 +264,31 @@ export function getDisplayedRelationshipLabel(
 }
 
 export function calculateHubPenalty(
-  nodes: ScoreablePath["nodes"],
+  path: ScoreablePath,
   nodeDegrees: ReadonlyMap<string, number>,
 ): number {
   return roundScore(
-    nodes.slice(1, -1).reduce((total, node) => {
+    path.nodes.slice(1, -1).reduce((total, node, intermediateIndex) => {
       const degree = nodeDegrees.get(node.id) ?? 0;
-      const penalty = Math.min(
+      let penalty = Math.min(
         Math.max(0, degree - HUB_DEGREE_THRESHOLD) *
           HUB_PENALTY_PER_EXTRA_EDGE,
         MAX_HUB_PENALTY_PER_NODE,
       );
+      const pathNodeIndex = intermediateIndex + 1;
+      const adjacentTypes = [
+        path.relationships[pathNodeIndex - 1]?.storedType,
+        path.relationships[pathNodeIndex]?.storedType,
+      ];
+      if (
+        degree >= INVESTMENT_HUB_MIN_DEGREE &&
+        isInvestmentEntity(node) &&
+        adjacentTypes.some(
+          (type) => typeof type === "string" && INVESTMENT_ADJACENT_TYPES.has(type),
+        )
+      ) {
+        penalty += INVESTMENT_HUB_PENALTY;
+      }
 
       return total + penalty;
     }, 0),
@@ -204,8 +308,16 @@ export function scorePath(
   const hopPenalty = roundScore(
     path.relationships.length * HOP_PENALTY_PER_STEP,
   );
-  const hubPenalty = calculateHubPenalty(path.nodes, nodeDegrees);
-  const baseScore = roundScore(relationshipScore + hopPenalty + hubPenalty);
+  const hubPenalty = calculateHubPenalty(path, nodeDegrees);
+  const directRelationshipBonus =
+    path.relationships.length === 1 &&
+    typeof path.relationships[0]?.storedType === "string" &&
+    DIRECT_DOMAIN_RELATIONSHIP_TYPES.has(path.relationships[0].storedType)
+      ? DIRECT_DOMAIN_RELATIONSHIP_BONUS
+      : 0;
+  const baseScore = roundScore(
+    relationshipScore + hopPenalty + hubPenalty - directRelationshipBonus,
+  );
   const patternPenalties = calculatePatternPenalties(path);
   const patternPenalty = roundScore(
     patternPenalties.reduce((total, item) => total + item.penalty, 0),
@@ -216,6 +328,7 @@ export function scorePath(
     relationshipScore,
     hopPenalty,
     hubPenalty,
+    directRelationshipBonus,
     baseScore,
     patternPenalty,
     patternPenalties,

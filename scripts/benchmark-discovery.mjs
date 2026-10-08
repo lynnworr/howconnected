@@ -26,6 +26,12 @@ const pairs = [
   ["Pixar", "Q127552", "Steve Jobs", "Q19837"],
   ["Walt Disney", "Q8704", "The Walt Disney Company", "Q7414"],
   ["Tim Cook", "Q265852", "Apple", "Q312"],
+  ["Statue of Liberty", "Q9202", "France", "Q142"],
+  ["Eiffel Tower", "Q243", "France", "Q142"],
+  ["Statue of Liberty", "Q9202", "United States", "Q30"],
+  ["Mona Lisa", "Q12418", "France", "Q142"],
+  ["Mona Lisa", "Q12418", "Italy", "Q38"],
+  ["Sydney Opera House", "Q45178", "Denmark", "Q35"],
 ];
 
 const results = [];
@@ -70,28 +76,43 @@ for (const [source, fromQid, target, toQid] of pairs) {
   }
 }
 
-const count = results.length;
-const found = results.filter((result) => result.found);
-const cold = results.filter((result) => result.stage !== "A");
-const bands = Object.fromEntries(
-  ["strong", "acceptable", "weak"].map((band) => [
-    band,
-    results.filter((result) => result.qualityBand === band).length,
-  ]),
-);
+function summarize(sample) {
+  const count = sample.length;
+  const found = sample.filter((result) => result.found);
+  const cold = sample.filter((result) => result.stage !== "A");
+  const bands = Object.fromEntries(
+    ["strong", "acceptable", "weak"].map((band) => [
+      band,
+      sample.filter((result) => result.qualityBand === band).length,
+    ]),
+  );
+
+  return {
+    pairs: count,
+    semanticPathSuccessRate: found.length / count,
+    qualityRates: Object.fromEntries(
+      Object.entries(bands).map(([band, value]) => [band, value / count]),
+    ),
+    averageColdRuntimeMs:
+      cold.length > 0
+        ? Math.round(
+            cold.reduce((total, result) => total + result.runtimeMs, 0) /
+              cold.length,
+          )
+        : null,
+    coldSamples: cold.length,
+    timeoutRate:
+      sample.filter((result) => result.timedOut).length / count,
+    errorRate:
+      sample.filter((result) => (result.httpStatus ?? 500) >= 400).length /
+      count,
+  };
+}
+
 const summary = {
-  pairs: count,
-  semanticPathSuccessRate: found.length / count,
-  qualityRates: Object.fromEntries(
-    Object.entries(bands).map(([band, value]) => [band, value / count]),
-  ),
-  averageColdRuntimeMs:
-    cold.length > 0
-      ? Math.round(cold.reduce((total, result) => total + result.runtimeMs, 0) / cold.length)
-      : null,
-  coldSamples: cold.length,
-  timeoutRate: results.filter((result) => result.timedOut).length / count,
-  errorRate: results.filter((result) => (result.httpStatus ?? 500) >= 400).length / count,
+  overall: summarize(results),
+  originalCrossDomain: summarize(results.slice(0, 25)),
+  monumentAndArtwork: summarize(results.slice(25)),
 };
 
 console.log(JSON.stringify({ summary, results }, null, 2));

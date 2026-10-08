@@ -7,6 +7,7 @@ export type RelationshipConfig = {
   reverseDiscoveryEnabled?: boolean;
   reverseDiscoveryLabel?: string;
   reverseDiscoveryFanout?: number;
+  domainWeights?: Readonly<Record<string, number>>;
 };
 
 export type WikidataPropertyConfig = RelationshipConfig & {
@@ -21,12 +22,14 @@ type WikidataPropertyBase = Pick<
 
 export const MAX_LINKED_ENTITIES_PER_PROPERTY = 5;
 export const MAX_RELATIONSHIPS_PER_INGESTION = 30;
+export const WIKIDATA_EXPANSION_VERSION = 4;
 
 const BASE_WIKIDATA_PROPERTIES = {
   P26: { wikidataProperty: "P26", label: "spouse", relationship: "SPOUSE", weight: 1.0 },
   P40: { wikidataProperty: "P40", label: "child", relationship: "CHILD", weight: 1.0 },
   P22: { wikidataProperty: "P22", label: "father", relationship: "FATHER", weight: 1.0 },
   P25: { wikidataProperty: "P25", label: "mother", relationship: "MOTHER", weight: 1.0 },
+  P27: { wikidataProperty: "P27", label: "country of citizenship", relationship: "COUNTRY_OF_CITIZENSHIP", weight: 1.15 },
   P69: { wikidataProperty: "P69", label: "educated at", relationship: "EDUCATED_AT", weight: 1.2 },
   P108: { wikidataProperty: "P108", label: "employer", relationship: "EMPLOYER", weight: 1.2 },
   P463: { wikidataProperty: "P463", label: "member of", relationship: "MEMBER_OF", weight: 1.1 },
@@ -35,6 +38,16 @@ const BASE_WIKIDATA_PROPERTIES = {
   P749: { wikidataProperty: "P749", label: "parent organization", relationship: "PARENT_ORGANIZATION", weight: 1.1 },
   P355: { wikidataProperty: "P355", label: "subsidiary", relationship: "SUBSIDIARY", weight: 1.1 },
   P159: { wikidataProperty: "P159", label: "headquarters location", relationship: "HEADQUARTERS_LOCATION", weight: 1.3 },
+  P17: { wikidataProperty: "P17", label: "country", relationship: "COUNTRY", weight: 1.3 },
+  P84: { wikidataProperty: "P84", label: "architect", relationship: "ARCHITECT", weight: 1.0 },
+  P88: { wikidataProperty: "P88", label: "commissioned by", relationship: "COMMISSIONED_BY", weight: 1.1 },
+  P131: { wikidataProperty: "P131", label: "located in administrative territorial entity", relationship: "LOCATED_IN_ADMINISTRATIVE_ENTITY", weight: 1.5 },
+  P276: { wikidataProperty: "P276", label: "location", relationship: "LOCATION", weight: 1.2 },
+  P361: { wikidataProperty: "P361", label: "part of", relationship: "PART_OF", weight: 1.6 },
+  P495: { wikidataProperty: "P495", label: "country of origin", relationship: "COUNTRY_OF_ORIGIN", weight: 1.0 },
+  P793: { wikidataProperty: "P793", label: "significant event", relationship: "SIGNIFICANT_EVENT", weight: 2.0 },
+  P1365: { wikidataProperty: "P1365", label: "replaces", relationship: "REPLACES", weight: 1.1 },
+  P1366: { wikidataProperty: "P1366", label: "replaced by", relationship: "REPLACED_BY", weight: 1.1 },
   P272: { wikidataProperty: "P272", label: "production company", relationship: "PRODUCTION_COMPANY", weight: 1.2 },
   P750: { wikidataProperty: "P750", label: "distributed by", relationship: "DISTRIBUTED_BY", weight: 1.4 },
   P449: { wikidataProperty: "P449", label: "original broadcaster", relationship: "ORIGINAL_BROADCASTER", weight: 1.3 },
@@ -49,6 +62,9 @@ const BASE_WIKIDATA_PROPERTIES = {
   P162: { wikidataProperty: "P162", label: "producer", relationship: "PRODUCER", weight: 1.1 },
   P175: { wikidataProperty: "P175", label: "performer", relationship: "PERFORMER", weight: 1.0 },
   P264: { wikidataProperty: "P264", label: "record label", relationship: "RECORD_LABEL", weight: 1.2 },
+  P767: { wikidataProperty: "P767", label: "contributor", relationship: "CONTRIBUTOR", weight: 1.2 },
+  P155: { wikidataProperty: "P155", label: "follows", relationship: "FOLLOWS", weight: 1.8 },
+  P156: { wikidataProperty: "P156", label: "followed by", relationship: "FOLLOWED_BY", weight: 1.8 },
   P176: { wikidataProperty: "P176", label: "manufacturer", relationship: "MANUFACTURER", weight: 1.2 },
   P178: { wikidataProperty: "P178", label: "developer", relationship: "DEVELOPER", weight: 1.0 },
   P1441: { wikidataProperty: "P1441", label: "present in work", relationship: "PRESENT_IN_WORK", weight: 1.4 },
@@ -62,6 +78,8 @@ const BASE_WIKIDATA_PROPERTIES = {
   P710: { wikidataProperty: "P710", label: "participant", relationship: "PARTICIPANT", weight: 1.2 },
   P1344: { wikidataProperty: "P1344", label: "participant in", relationship: "PARTICIPANT_IN", weight: 1.2 },
   P137: { wikidataProperty: "P137", label: "operator", relationship: "OPERATOR", weight: 1.1 },
+  P113: { wikidataProperty: "P113", label: "airline hub", relationship: "AIRLINE_HUB", weight: 1.2 },
+  P607: { wikidataProperty: "P607", label: "conflict", relationship: "CONFLICT", weight: 1.1 },
   P169: { wikidataProperty: "P169", label: "chief executive officer", relationship: "CHIEF_EXECUTIVE_OFFICER", weight: 1.0 },
   P1056: { wikidataProperty: "P1056", label: "product or material produced", relationship: "PRODUCES", weight: 1.2 },
   P102: { wikidataProperty: "P102", label: "member of political party", relationship: "MEMBER_OF_POLITICAL_PARTY", weight: 1.1 },
@@ -77,6 +95,7 @@ const WIKIDATA_PROPERTY_POLICIES = {
   P40: { label: "child", reverseLabel: "parent", weight: 1.0, traversable: true, maxFanout: 5 },
   P22: { label: "father", reverseLabel: "child", weight: 1.0, traversable: true, maxFanout: 1 },
   P25: { label: "mother", reverseLabel: "child", weight: 1.0, traversable: true, maxFanout: 1 },
+  P27: { label: "country of citizenship", reverseLabel: "citizen", weight: 1.15, traversable: true, maxFanout: 2 },
   P69: { label: "educated at", reverseLabel: "student", weight: 1.4, traversable: true, maxFanout: 5 },
   P108: { label: "employer", reverseLabel: "employs", weight: 1.2, traversable: true, maxFanout: 5, reverseDiscoveryEnabled: true, reverseDiscoveryLabel: "employs", reverseDiscoveryFanout: 3 },
   P463: { label: "member of", reverseLabel: "has member", weight: 1.3, traversable: true, maxFanout: 4, reverseDiscoveryEnabled: true, reverseDiscoveryLabel: "has member", reverseDiscoveryFanout: 3 },
@@ -85,6 +104,16 @@ const WIKIDATA_PROPERTY_POLICIES = {
   P749: { label: "parent organization", reverseLabel: "subsidiary", weight: 1.1, traversable: true, maxFanout: 3 },
   P355: { label: "subsidiary", reverseLabel: "parent organization", weight: 1.1, traversable: true, maxFanout: 5 },
   P159: { label: "headquarters location", reverseLabel: "headquarters of", weight: 1.5, traversable: true, maxFanout: 2 },
+  P17: { label: "country", reverseLabel: "contains", weight: 1.3, traversable: true, maxFanout: 2, domainWeights: { "monument/artifact": 1.0, place: 1.15 } },
+  P84: { label: "architect", reverseLabel: "architect of", weight: 1.0, traversable: true, maxFanout: 4, reverseDiscoveryEnabled: true, reverseDiscoveryLabel: "architect of", reverseDiscoveryFanout: 4 },
+  P88: { label: "commissioned by", reverseLabel: "commissioned", weight: 1.1, traversable: true, maxFanout: 3 },
+  P131: { label: "located in administrative territorial entity", reverseLabel: "contains", weight: 1.5, traversable: true, maxFanout: 3, domainWeights: { "monument/artifact": 1.3, place: 1.5 } },
+  P276: { label: "location", reverseLabel: "location of", weight: 1.2, traversable: true, maxFanout: 3, domainWeights: { "monument/artifact": 1.0, place: 1.3 } },
+  P361: { label: "part of", reverseLabel: "has part", weight: 1.6, traversable: true, maxFanout: 3 },
+  P495: { label: "country of origin", reverseLabel: "origin of", weight: 1.0, traversable: true, maxFanout: 2 },
+  P793: { label: "significant event", reverseLabel: "significant event for", weight: 2.0, traversable: true, maxFanout: 3 },
+  P1365: { label: "replaces", reverseLabel: "replaced by", weight: 1.1, traversable: true, maxFanout: 3 },
+  P1366: { label: "replaced by", reverseLabel: "replaces", weight: 1.1, traversable: true, maxFanout: 3 },
   P272: { label: "production company", reverseLabel: "produced", weight: 1.2, traversable: true, maxFanout: 4, reverseDiscoveryEnabled: true, reverseDiscoveryLabel: "produced", reverseDiscoveryFanout: 5 },
   P750: { label: "distributed by", reverseLabel: "distributed", weight: 1.4, traversable: true, maxFanout: 3, reverseDiscoveryEnabled: true, reverseDiscoveryLabel: "distributed", reverseDiscoveryFanout: 3 },
   P449: { label: "original broadcaster", reverseLabel: "broadcast", weight: 1.3, traversable: true, maxFanout: 3, reverseDiscoveryEnabled: true, reverseDiscoveryLabel: "broadcast", reverseDiscoveryFanout: 5 },
@@ -99,6 +128,9 @@ const WIKIDATA_PROPERTY_POLICIES = {
   P162: { label: "producer", reverseLabel: "produced", weight: 1.2, traversable: true, maxFanout: 4, reverseDiscoveryEnabled: true, reverseDiscoveryLabel: "produced", reverseDiscoveryFanout: 5 },
   P175: { label: "performer", reverseLabel: "performed", weight: 1.1, traversable: true, maxFanout: 6, reverseDiscoveryEnabled: true, reverseDiscoveryLabel: "performed", reverseDiscoveryFanout: 6 },
   P264: { label: "record label", reverseLabel: "label for", weight: 1.4, traversable: true, maxFanout: 4 },
+  P767: { label: "contributor", reverseLabel: "contributed to", weight: 1.2, traversable: true, maxFanout: 5, reverseDiscoveryEnabled: true, reverseDiscoveryLabel: "contributed to", reverseDiscoveryFanout: 4 },
+  P155: { label: "follows", reverseLabel: "followed by", weight: 1.8, traversable: true, maxFanout: 1 },
+  P156: { label: "followed by", reverseLabel: "follows", weight: 1.8, traversable: true, maxFanout: 1 },
   P176: { label: "manufacturer", reverseLabel: "manufacturer of", weight: 1.4, traversable: true, maxFanout: 4, reverseDiscoveryEnabled: true, reverseDiscoveryLabel: "manufacturer of", reverseDiscoveryFanout: 5 },
   P178: { label: "developer", reverseLabel: "developer of", weight: 1.2, traversable: true, maxFanout: 4 },
   P1441: { label: "present in work", reverseLabel: "features", weight: 5.0, traversable: false, maxFanout: 3 },
@@ -109,9 +141,11 @@ const WIKIDATA_PROPERTY_POLICIES = {
   P115: { label: "home venue", reverseLabel: "home venue for", weight: 1.3, traversable: true, maxFanout: 2, reverseDiscoveryEnabled: true, reverseDiscoveryLabel: "home venue for", reverseDiscoveryFanout: 4 },
   P859: { label: "sponsor", reverseLabel: "sponsors", weight: 1.5, traversable: true, maxFanout: 3, reverseDiscoveryEnabled: true, reverseDiscoveryLabel: "sponsors", reverseDiscoveryFanout: 3 },
   P664: { label: "organizer", reverseLabel: "organized", weight: 1.2, traversable: true, maxFanout: 3, reverseDiscoveryEnabled: true, reverseDiscoveryLabel: "organized", reverseDiscoveryFanout: 4 },
-  P710: { label: "participant", reverseLabel: "participated in", weight: 1.3, traversable: true, maxFanout: 8, reverseDiscoveryEnabled: true, reverseDiscoveryLabel: "participated in", reverseDiscoveryFanout: 4 },
-  P1344: { label: "participant in", reverseLabel: "had participant", weight: 1.3, traversable: true, maxFanout: 5, reverseDiscoveryEnabled: true, reverseDiscoveryLabel: "had participant", reverseDiscoveryFanout: 4 },
+  P710: { label: "participant", reverseLabel: "participated in", weight: 1.15, traversable: true, maxFanout: 6, reverseDiscoveryEnabled: true, reverseDiscoveryLabel: "participated in", reverseDiscoveryFanout: 3 },
+  P1344: { label: "participant in", reverseLabel: "had participant", weight: 1.15, traversable: true, maxFanout: 4, reverseDiscoveryEnabled: true, reverseDiscoveryLabel: "had participant", reverseDiscoveryFanout: 3 },
   P137: { label: "operator", reverseLabel: "operates", weight: 1.2, traversable: true, maxFanout: 3, reverseDiscoveryEnabled: true, reverseDiscoveryLabel: "operates", reverseDiscoveryFanout: 4 },
+  P113: { label: "airline hub", reverseLabel: "hub airline", weight: 1.2, traversable: true, maxFanout: 5, reverseDiscoveryEnabled: true, reverseDiscoveryLabel: "hub airline", reverseDiscoveryFanout: 4 },
+  P607: { label: "conflict", reverseLabel: "includes conflict", weight: 1.1, traversable: true, maxFanout: 2 },
   P169: { label: "chief executive officer", reverseLabel: "CEO of", weight: 1.1, traversable: true, maxFanout: 2, reverseDiscoveryEnabled: true, reverseDiscoveryLabel: "CEO of", reverseDiscoveryFanout: 4 },
   P1056: { label: "produces", reverseLabel: "produced by", weight: 1.3, traversable: true, maxFanout: 5, reverseDiscoveryEnabled: true, reverseDiscoveryLabel: "produced by", reverseDiscoveryFanout: 3 },
   P102: { label: "member of political party", reverseLabel: "political party member", weight: 4.0, traversable: false, maxFanout: 2 },
@@ -148,3 +182,10 @@ const relationshipEntries: [string, RelationshipConfig][] = [
 export const RELATIONSHIP_CONFIG_BY_TYPE: Readonly<
   Record<string, RelationshipConfig>
 > = Object.fromEntries(relationshipEntries);
+
+export function getConfiguredRelationshipWeight(
+  config: RelationshipConfig,
+  sourceDomain: string,
+): number {
+  return config.domainWeights?.[sourceDomain] ?? config.weight;
+}
