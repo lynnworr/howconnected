@@ -7,6 +7,7 @@ import {
 } from "../lib/discovery-policy.ts";
 import {
   APPROVED_WIKIDATA_PROPERTIES,
+  WIKIDATA_EXPANSION_VERSION,
   getConfiguredRelationshipWeight,
 } from "../lib/wikidata-properties.ts";
 import { DISCOVERY_CONFIG } from "../lib/discovery-config.ts";
@@ -141,6 +142,7 @@ test("selects domain-specific outgoing property families", () => {
   assert.ok(television.includes("P272"));
   assert.ok(television.includes("P449"));
   assert.ok(team.includes("P54"));
+  assert.equal(team[0], "P641");
   assert.ok(team.includes("P286"));
   assert.ok(team.includes("P115"));
   assert.ok(organization.includes("P1056"));
@@ -157,6 +159,21 @@ test("selects domain-specific outgoing property families", () => {
   assert.ok(artifact.includes("P793"));
   assert.ok(person.includes("P27"));
   assert.ok(!organization.includes("P17"));
+});
+
+test("supports bounded sport taxonomy without broad reverse discovery", () => {
+  const sport = APPROVED_WIKIDATA_PROPERTIES.P641;
+
+  assert.equal(sport.relationship, "SPORT");
+  assert.equal(sport.label, "sport");
+  assert.equal(sport.reverseLabel, "sport of");
+  assert.equal(sport.maxFanout, 2);
+  assert.notEqual(sport.reverseDiscoveryEnabled, true);
+  assert.equal(WIKIDATA_EXPANSION_VERSION, 5);
+  assert.ok(ids(selectOutgoingDiscoveryProperties("sports person", properties)).includes("P641"));
+  assert.ok(ids(selectOutgoingDiscoveryProperties("company/organization", properties)).includes("P641"));
+  assert.ok(ids(selectOutgoingDiscoveryProperties("event", properties)).includes("P641"));
+  assert.ok(ids(selectOutgoingDiscoveryProperties("entity", properties)).includes("P641"));
 });
 
 test("uses domain-aware geographic weights without weakening unrelated entities", () => {

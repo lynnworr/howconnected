@@ -10,6 +10,10 @@ import {
   type AdminFeedbackFilter,
 } from "@/lib/admin-feedback-core";
 import { getAdminFeedbackDashboard } from "@/lib/admin-feedback";
+import {
+  getLatestCoverageGapSummary,
+  type CoverageGapSummary,
+} from "@/lib/accuracy-gap-report";
 import type { PathFeedbackReason } from "@/lib/path-feedback";
 
 type AdminPageProps = {
@@ -119,10 +123,12 @@ function entityLabel(name: string | null, qid: string): string {
 
 function Dashboard({
   data,
+  gaps,
   filter,
   reason,
 }: {
   data: AdminFeedbackDashboard;
+  gaps: CoverageGapSummary | null;
   filter: AdminFeedbackFilter;
   reason: PathFeedbackReason | null;
 }) {
@@ -159,6 +165,61 @@ function Dashboard({
         <MetricCard label="Thumbs up" value={data.summary.positive} />
         <MetricCard label="Not really" value={data.summary.negative} />
         <MetricCard label="Positive feedback" value={`${data.summary.positivePercentage}%`} />
+      </section>
+
+      <section aria-labelledby="coverage-gaps-heading" className="mt-8 rounded-2xl border border-[#e0e4e9] bg-white/90 p-5 shadow-[0_8px_30px_rgba(25,35,55,0.04)] sm:p-6">
+        <div className="flex flex-wrap items-end justify-between gap-3">
+          <div>
+            <p className="text-xs font-bold uppercase tracking-[0.12em] text-[#758095]">Semantic Gap Scanner</p>
+            <h2 id="coverage-gaps-heading" className="mt-1 text-xl font-extrabold text-[#17233f]">Coverage Gaps</h2>
+          </div>
+          {gaps ? <p className="text-xs text-[#758095]">Latest scan {formatTimestamp(gaps.generatedAt)}</p> : null}
+        </div>
+        {gaps ? (
+          <>
+            <div className="mt-5 grid gap-3 sm:grid-cols-3">
+              <MetricCard label="Pairs tested" value={gaps.totalPairs} />
+              <MetricCard label="False negatives" value={gaps.falseNegatives} />
+              <MetricCard label="False-negative rate" value={`${(gaps.falseNegativeRate * 100).toFixed(1)}%`} />
+            </div>
+            <div className="mt-6 overflow-x-auto">
+              <table className="w-full min-w-[780px] border-collapse text-left text-sm">
+                <thead className="border-b border-[#e0e4e9] text-xs uppercase tracking-[0.08em] text-[#667086]">
+                  <tr>
+                    <th className="px-3 py-3 font-bold">Gap</th>
+                    <th className="px-3 py-3 font-bold">Cause</th>
+                    <th className="px-3 py-3 font-bold">Failures</th>
+                    <th className="px-3 py-3 font-bold">Representative pairs</th>
+                    <th className="px-3 py-3 text-right font-bold">Priority</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-[#e7e9ed]">
+                  {gaps.topClusters.map((cluster) => (
+                    <tr key={cluster.id} className="align-top">
+                      <td className="px-3 py-3">
+                        <p className="font-bold text-[#26334f]">{cluster.relationshipFamilyLabel}</p>
+                        <p className="mt-1 text-xs text-[#758095]">{cluster.properties.join(", ")} · {cluster.sourceDomain} → {cluster.targetDomain}</p>
+                      </td>
+                      <td className="px-3 py-3 text-[#566176]">{cluster.failureCause}</td>
+                      <td className="px-3 py-3 font-semibold text-[#26334f]">{cluster.failures}/{cluster.tested}</td>
+                      <td className="px-3 py-3 text-xs leading-5 text-[#566176]">
+                        {cluster.representativePairs.map((pair) => (
+                          <div key={`${pair.sourceQid}-${pair.targetQid}`}>{pair.sourceName} → {pair.targetName}</div>
+                        ))}
+                      </td>
+                      <td className="px-3 py-3 text-right font-extrabold text-[#b6442c]">{cluster.priorityScore}</td>
+                    </tr>
+                  ))}
+                  {gaps.topClusters.length === 0 ? (
+                    <tr><td colSpan={5} className="px-3 py-8 text-center text-[#758095]">No false-negative clusters in the latest scan.</td></tr>
+                  ) : null}
+                </tbody>
+              </table>
+            </div>
+          </>
+        ) : (
+          <p className="mt-4 text-sm text-[#667086]">No completed gap scan is available yet. Run <code className="rounded bg-[#f1f2f4] px-1.5 py-0.5">npm run benchmark:gaps</code>.</p>
+        )}
       </section>
 
       <section className="mt-8 grid gap-6 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)]">
@@ -284,7 +345,10 @@ async function AdminContent({ searchParams }: AdminPageProps) {
   const filter = parseAdminFeedbackFilter(params.filter);
   const reason = filter === "negative" ? parseAdminFeedbackReason(params.reason) : null;
 
-  const data = await loadAdminDashboard(filter, reason);
+  const [data, gaps] = await Promise.all([
+    loadAdminDashboard(filter, reason),
+    getLatestCoverageGapSummary(),
+  ]);
   if (!data) {
     return (
       <section className="mx-auto max-w-lg rounded-2xl border border-[#ead7cf] bg-white p-8 text-center">
@@ -294,7 +358,7 @@ async function AdminContent({ searchParams }: AdminPageProps) {
     );
   }
 
-  return <Dashboard data={data} filter={filter} reason={reason} />;
+  return <Dashboard data={data} gaps={gaps} filter={filter} reason={reason} />;
 }
 
 async function loadAdminDashboard(

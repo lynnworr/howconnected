@@ -134,6 +134,22 @@ test("preserves a coherent media ownership path as acceptable", () => {
   assert.equal(score.qualityBand, "acceptable");
 });
 
+test("treats a direct team-to-sport statement as a strong semantic path", () => {
+  const score = scorePath({
+    nodes: [
+      { id: "raiders", type: "sports team" },
+      { id: "american-football", type: "entity" },
+    ],
+    relationships: [
+      { weight: 1, storedType: "SPORT", direction: "forward" },
+    ],
+  });
+
+  assert.equal(score.patternPenalty, 0);
+  assert.equal(score.score, 1.15);
+  assert.equal(score.qualityBand, "strong");
+});
+
 test("classifies quality bands and rejects non-semantic path edges", () => {
   assert.equal(classifyPathQuality(4, 0), "strong");
   assert.equal(classifyPathQuality(7, 1), "acceptable");

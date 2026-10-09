@@ -14,6 +14,8 @@
 /coverage
 /benchmarks/domain-audit/*.json
 /benchmarks/domain-audit/*.csv
+/benchmarks/gap-scan/reports/
+/benchmarks/gap-scan/.cache/
 
 # next.js
 /.next/

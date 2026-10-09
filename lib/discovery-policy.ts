@@ -3,23 +3,23 @@ import type { WikidataPropertyConfig } from "./wikidata-properties.ts";
 
 const OUTGOING_PROPERTIES: Readonly<Record<EntityDomain, readonly string[]>> = {
   person: ["P26", "P40", "P22", "P25", "P27", "P69", "P108", "P463", "P800", "P54", "P1344", "P607", "P175", "P737"],
-  "sports person": ["P54", "P108", "P69", "P1344", "P26", "P40", "P800"],
+  "sports person": ["P641", "P54", "P108", "P69", "P1344", "P26", "P40", "P800"],
   film: ["P161", "P57", "P58", "P86", "P1431", "P162", "P272", "P750", "P170", "P175"],
   "television series": ["P161", "P725", "P170", "P58", "P86", "P1431", "P162", "P272", "P449", "P750"],
   "music artist": ["P175", "P264", "P800", "P361", "P463", "P108", "P737"],
   "music organization": ["P112", "P127", "P749", "P355", "P361", "P264"],
   "music/work": ["P175", "P162", "P86", "P767", "P264", "P155", "P156", "P361", "P50", "P272", "P750", "P170", "P176", "P178"],
   "monument/artifact": ["P495", "P276", "P17", "P170", "P84", "P88", "P131", "P793", "P361"],
-  "sports team": ["P118", "P286", "P127", "P115", "P169", "P749", "P859", "P54"],
-  "company/organization": ["P112", "P169", "P355", "P749", "P127", "P1056", "P176", "P137", "P859", "P664", "P463"],
+  "sports team": ["P641", "P118", "P286", "P127", "P115", "P169", "P749", "P859", "P54"],
+  "company/organization": ["P641", "P112", "P169", "P355", "P749", "P127", "P1056", "P176", "P137", "P859", "P664", "P463"],
   "government/scientific organization": ["P112", "P169", "P355", "P749", "P127", "P1056", "P137", "P664", "P463"],
   "educational institution": ["P112", "P169", "P749", "P108", "P463", "P159"],
   place: ["P17", "P1365", "P1366", "P361", "P131", "P115", "P159", "P137", "P664"],
-  event: ["P664", "P710", "P859", "P137", "P115", "P272"],
+  event: ["P641", "P664", "P710", "P859", "P137", "P115", "P272"],
   "historical event": ["P710", "P607", "P137", "P276", "P131", "P17", "P664", "P793", "P361"],
   transportation: ["P176", "P137", "P113", "P127", "P749", "P361", "P17"],
   product: ["P176", "P127", "P749", "P178", "P1056"],
-  entity: ["P26", "P108", "P112", "P127", "P749", "P161", "P725", "P57", "P50", "P175", "P176", "P178", "P800", "P54"],
+  entity: ["P641", "P26", "P108", "P112", "P127", "P749", "P161", "P725", "P57", "P50", "P175", "P176", "P178", "P800", "P54"],
 };
 
 const REVERSE_PROPERTIES: Readonly<Record<EntityDomain, readonly string[]>> = {

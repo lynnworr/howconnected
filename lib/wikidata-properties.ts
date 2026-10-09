@@ -22,7 +22,7 @@ type WikidataPropertyBase = Pick<
 
 export const MAX_LINKED_ENTITIES_PER_PROPERTY = 5;
 export const MAX_RELATIONSHIPS_PER_INGESTION = 30;
-export const WIKIDATA_EXPANSION_VERSION = 4;
+export const WIKIDATA_EXPANSION_VERSION = 5;
 
 const BASE_WIKIDATA_PROPERTIES = {
   P26: { wikidataProperty: "P26", label: "spouse", relationship: "SPOUSE", weight: 1.0 },
@@ -71,6 +71,7 @@ const BASE_WIKIDATA_PROPERTIES = {
   P800: { wikidataProperty: "P800", label: "notable work", relationship: "NOTABLE_WORK", weight: 1.2 },
   P54: { wikidataProperty: "P54", label: "member of sports team", relationship: "MEMBER_OF_SPORTS_TEAM", weight: 1.1 },
   P118: { wikidataProperty: "P118", label: "league", relationship: "LEAGUE", weight: 1.1 },
+  P641: { wikidataProperty: "P641", label: "sport", relationship: "SPORT", weight: 1.0 },
   P286: { wikidataProperty: "P286", label: "head coach", relationship: "HEAD_COACH", weight: 1.0 },
   P115: { wikidataProperty: "P115", label: "home venue", relationship: "HOME_VENUE", weight: 1.2 },
   P859: { wikidataProperty: "P859", label: "sponsor", relationship: "SPONSOR", weight: 1.4 },
@@ -137,6 +138,7 @@ const WIKIDATA_PROPERTY_POLICIES = {
   P800: { label: "notable work", reverseLabel: "notable work of", weight: 1.8, traversable: true, maxFanout: 5 },
   P54: { label: "member of sports team", reverseLabel: "has player", weight: 1.2, traversable: true, maxFanout: 8, reverseDiscoveryEnabled: true, reverseDiscoveryLabel: "has player", reverseDiscoveryFanout: 8 },
   P118: { label: "league", reverseLabel: "has team or competitor", weight: 1.2, traversable: true, maxFanout: 3, reverseDiscoveryEnabled: true, reverseDiscoveryLabel: "has team or competitor", reverseDiscoveryFanout: 4 },
+  P641: { label: "sport", reverseLabel: "sport of", weight: 1.0, traversable: true, maxFanout: 2 },
   P286: { label: "head coach", reverseLabel: "coaches", weight: 1.1, traversable: true, maxFanout: 3, reverseDiscoveryEnabled: true, reverseDiscoveryLabel: "coaches", reverseDiscoveryFanout: 4 },
   P115: { label: "home venue", reverseLabel: "home venue for", weight: 1.3, traversable: true, maxFanout: 2, reverseDiscoveryEnabled: true, reverseDiscoveryLabel: "home venue for", reverseDiscoveryFanout: 4 },
   P859: { label: "sponsor", reverseLabel: "sponsors", weight: 1.5, traversable: true, maxFanout: 3, reverseDiscoveryEnabled: true, reverseDiscoveryLabel: "sponsors", reverseDiscoveryFanout: 3 },
