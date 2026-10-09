@@ -22,7 +22,7 @@ type WikidataPropertyBase = Pick<
 
 export const MAX_LINKED_ENTITIES_PER_PROPERTY = 5;
 export const MAX_RELATIONSHIPS_PER_INGESTION = 30;
-export const WIKIDATA_EXPANSION_VERSION = 5;
+export const WIKIDATA_EXPANSION_VERSION = 6;
 
 const BASE_WIKIDATA_PROPERTIES = {
   P26: { wikidataProperty: "P26", label: "spouse", relationship: "SPOUSE", weight: 1.0 },

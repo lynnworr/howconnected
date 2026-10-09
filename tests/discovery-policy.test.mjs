@@ -68,6 +68,21 @@ test("classifies coarse entity domains from claims and descriptions", () => {
     classifyEntityDomain({ description: "modular space station in low Earth orbit" }),
     "transportation",
   );
+  assert.equal(
+    classifyEntityDomain({
+      instanceOfQids: ["Q999999999"],
+      ancestorQids: ["Q105543609", "Q2188189"],
+      description: "composition",
+    }),
+    "music/work",
+  );
+  assert.equal(
+    classifyEntityDomain({
+      instanceOfQids: ["Q999999998"],
+      ancestorQids: ["Q35145263"],
+    }),
+    "place",
+  );
 });
 
 test("selects bounded historical-event relationship families", () => {
@@ -161,6 +176,18 @@ test("selects domain-specific outgoing property families", () => {
   assert.ok(!organization.includes("P17"));
 });
 
+test("adds only explicitly present supported contextual properties", () => {
+  const generic = ids(selectOutgoingDiscoveryProperties("entity", properties));
+  const contextual = ids(selectOutgoingDiscoveryProperties("entity", properties, {
+    availablePropertyIds: ["P276", "P793", "P179"],
+  }));
+
+  assert.ok(!generic.includes("P276"));
+  assert.ok(contextual.includes("P276"));
+  assert.ok(contextual.includes("P793"));
+  assert.ok(!contextual.includes("P179"));
+});
+
 test("supports bounded sport taxonomy without broad reverse discovery", () => {
   const sport = APPROVED_WIKIDATA_PROPERTIES.P641;
 
@@ -169,7 +196,7 @@ test("supports bounded sport taxonomy without broad reverse discovery", () => {
   assert.equal(sport.reverseLabel, "sport of");
   assert.equal(sport.maxFanout, 2);
   assert.notEqual(sport.reverseDiscoveryEnabled, true);
-  assert.equal(WIKIDATA_EXPANSION_VERSION, 5);
+  assert.equal(WIKIDATA_EXPANSION_VERSION, 6);
   assert.ok(ids(selectOutgoingDiscoveryProperties("sports person", properties)).includes("P641"));
   assert.ok(ids(selectOutgoingDiscoveryProperties("company/organization", properties)).includes("P641"));
   assert.ok(ids(selectOutgoingDiscoveryProperties("event", properties)).includes("P641"));

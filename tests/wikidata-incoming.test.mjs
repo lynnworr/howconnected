@@ -150,4 +150,10 @@ test("reorders reverse properties using entity context", () => {
     beverageCompany.map((property) => property.wikidataProperty),
     ["P176", "P108", "P859"],
   );
+
+  const architect = selectReverseDiscoveryProperties(
+    { type: "person", description: "Swiss architect and designer" },
+    Object.values(APPROVED_WIKIDATA_PROPERTIES),
+  );
+  assert.equal(architect[0].wikidataProperty, "P84");
 });

@@ -6,6 +6,7 @@ export const ENTITY_DOMAINS = [
   "music artist",
   "music organization",
   "music/work",
+  "creative work",
   "monument/artifact",
   "sports team",
   "sports person",
@@ -23,6 +24,7 @@ export type EntityDomain = (typeof ENTITY_DOMAINS)[number];
 
 type DomainInput = {
   instanceOfQids?: readonly string[];
+  ancestorQids?: readonly string[];
   type?: string;
   name?: string;
   description?: string;
@@ -36,6 +38,9 @@ const INSTANCE_DOMAINS: Readonly<Record<string, EntityDomain>> = {
   Q482994: "music/work",
   Q7366: "music/work",
   Q2188189: "music/work",
+  Q105543609: "music/work",
+  Q17537576: "creative work",
+  Q386724: "creative work",
   Q215380: "music organization",
   Q2088357: "music organization",
   Q198: "historical event",
@@ -77,6 +82,9 @@ const INSTANCE_DOMAINS: Readonly<Record<string, EntityDomain>> = {
   Q515: "place",
   Q6256: "place",
   Q486972: "place",
+  Q618123: "place",
+  Q2221906: "place",
+  Q35145263: "place",
   Q1656682: "event",
   Q2424752: "product",
   Q327333: "government/scientific organization",
@@ -85,10 +93,16 @@ const INSTANCE_DOMAINS: Readonly<Record<string, EntityDomain>> = {
   Q43229: "company/organization",
   Q4830453: "company/organization",
   Q783794: "company/organization",
+  Q484652: "company/organization",
+  Q213283: "government/scientific organization",
 };
 
 export function isEntityDomain(value: string): value is EntityDomain {
   return (ENTITY_DOMAINS as readonly string[]).includes(value);
+}
+
+export function hasKnownEntityDomain(qids: readonly string[]): boolean {
+  return qids.some((qid) => INSTANCE_DOMAINS[qid] !== undefined);
 }
 
 export function classifyEntityDomain(input: DomainInput): EntityDomain {
@@ -106,6 +120,10 @@ export function classifyEntityDomain(input: DomainInput): EntityDomain {
     return input.type;
   }
   for (const qid of input.instanceOfQids ?? []) {
+    const domain = INSTANCE_DOMAINS[qid];
+    if (domain) return domain;
+  }
+  for (const qid of input.ancestorQids ?? []) {
     const domain = INSTANCE_DOMAINS[qid];
     if (domain) return domain;
   }
@@ -143,9 +161,10 @@ export function classifyEntityDomain(input: DomainInput): EntityDomain {
     return "monument/artifact";
   }
   if (/\bfilm\b|motion picture|feature film/.test(value)) return "film";
-  if (/album|song|musical work|recording|creative work|book|novel|video game/.test(value)) {
+  if (/album|song|musical work|recording/.test(value)) {
     return "music/work";
   }
+  if (/creative work|book|novel|video game/.test(value)) return "creative work";
   if (/university|college|educational institution|school/.test(value)) {
     return "educational institution";
   }
@@ -177,6 +196,7 @@ export function domainBridgePenalty(
     "film",
     "television series",
     "music/work",
+    "creative work",
     "music artist",
     "music organization",
     "monument/artifact",

@@ -33,6 +33,45 @@ export type CoverageGapSummary = {
   topClusters: CoverageGapCluster[];
 };
 
+export type ExternalPropertyCoverage = {
+  wikidataProperty: string;
+  propertyLabel: string;
+  supportStatus: string;
+  tested: number;
+  falseNegatives: number;
+  falseNegativeRate: number;
+  dominantFailureCause: string | null;
+};
+
+export type ExternalFamilyCoverage = {
+  relationshipFamily: string;
+  properties: string[];
+  tested: number;
+  falseNegatives: number;
+  falseNegativeRate: number;
+  dominantFailureCause: string | null;
+};
+
+export type ExternalCoverageRecommendation = {
+  rank: number;
+  property: string;
+  propertyLabel: string;
+  rootCause: string | null;
+  expectedCoverageGain: number;
+  complexity: string;
+  hubPollutionRisk: string;
+};
+
+export type ExternalCoverageGapSummary = {
+  generatedAt: string;
+  totalPairs: number;
+  falseNegatives: number;
+  falseNegativeRate: number;
+  topMissingProperties: ExternalPropertyCoverage[];
+  topWeakFamilies: ExternalFamilyCoverage[];
+  topRecommendations: ExternalCoverageRecommendation[];
+};
+
 function record(value: unknown): Record<string, unknown> | null {
   return typeof value === "object" && value !== null ? value as Record<string, unknown> : null;
 }
@@ -97,6 +136,87 @@ export async function getLatestCoverageGapSummary(): Promise<CoverageGapSummary 
         const cleaned = cleanCluster(cluster);
         return cleaned ? [cleaned] : [];
       }).slice(0, 10) : [],
+    };
+  } catch {
+    return null;
+  }
+}
+
+function cleanExternalProperty(value: unknown): ExternalPropertyCoverage | null {
+  const item = record(value);
+  const tested = finiteNumber(item?.tested);
+  const falseNegatives = finiteNumber(item?.falseNegatives);
+  const falseNegativeRate = finiteNumber(item?.falseNegativeRate);
+  if (!item || typeof item.wikidataProperty !== "string" || tested === null || falseNegatives === null || falseNegativeRate === null) return null;
+  return {
+    wikidataProperty: item.wikidataProperty,
+    propertyLabel: typeof item.propertyLabel === "string" ? item.propertyLabel : item.wikidataProperty,
+    supportStatus: typeof item.supportStatus === "string" ? item.supportStatus : "unknown",
+    tested,
+    falseNegatives,
+    falseNegativeRate,
+    dominantFailureCause: typeof item.dominantFailureCause === "string" ? item.dominantFailureCause : null,
+  };
+}
+
+function cleanExternalFamily(value: unknown): ExternalFamilyCoverage | null {
+  const item = record(value);
+  const tested = finiteNumber(item?.tested);
+  const falseNegatives = finiteNumber(item?.falseNegatives);
+  const falseNegativeRate = finiteNumber(item?.falseNegativeRate);
+  if (!item || typeof item.relationshipFamily !== "string" || tested === null || falseNegatives === null || falseNegativeRate === null) return null;
+  return {
+    relationshipFamily: item.relationshipFamily,
+    properties: Array.isArray(item.properties) ? item.properties.filter((property): property is string => typeof property === "string").slice(0, 8) : [],
+    tested,
+    falseNegatives,
+    falseNegativeRate,
+    dominantFailureCause: typeof item.dominantFailureCause === "string" ? item.dominantFailureCause : null,
+  };
+}
+
+function cleanExternalRecommendation(value: unknown): ExternalCoverageRecommendation | null {
+  const item = record(value);
+  const rank = finiteNumber(item?.rank);
+  const expectedCoverageGain = finiteNumber(item?.expectedCoverageGain);
+  if (!item || rank === null || expectedCoverageGain === null || typeof item.property !== "string") return null;
+  return {
+    rank,
+    property: item.property,
+    propertyLabel: typeof item.propertyLabel === "string" ? item.propertyLabel : item.property,
+    rootCause: typeof item.rootCause === "string" ? item.rootCause : null,
+    expectedCoverageGain,
+    complexity: typeof item.complexity === "string" ? item.complexity : "unknown",
+    hubPollutionRisk: typeof item.hubPollutionRisk === "string" ? item.hubPollutionRisk : "unknown",
+  };
+}
+
+export async function getLatestExternalCoverageGapSummary(): Promise<ExternalCoverageGapSummary | null> {
+  try {
+    const path = join(process.cwd(), "benchmarks", "gap-scan", "reports", "external", "latest.json");
+    const report = record(JSON.parse(await readFile(path, "utf8")));
+    const summary = record(report?.summary);
+    const totalPairs = finiteNumber(summary?.totalPairs);
+    const falseNegatives = finiteNumber(summary?.falseNegatives);
+    const falseNegativeRate = finiteNumber(summary?.falseNegativeRate);
+    if (!report || typeof report.generatedAt !== "string" || totalPairs === null || falseNegatives === null || falseNegativeRate === null) return null;
+    return {
+      generatedAt: report.generatedAt,
+      totalPairs,
+      falseNegatives,
+      falseNegativeRate,
+      topMissingProperties: Array.isArray(report.propertyCoverage) ? report.propertyCoverage.flatMap((item) => {
+        const cleaned = cleanExternalProperty(item);
+        return cleaned && cleaned.falseNegatives > 0 ? [cleaned] : [];
+      }).slice(0, 10) : [],
+      topWeakFamilies: Array.isArray(report.familyCoverage) ? report.familyCoverage.flatMap((item) => {
+        const cleaned = cleanExternalFamily(item);
+        return cleaned && cleaned.falseNegatives > 0 ? [cleaned] : [];
+      }).slice(0, 10) : [],
+      topRecommendations: Array.isArray(report.recommendations) ? report.recommendations.flatMap((item) => {
+        const cleaned = cleanExternalRecommendation(item);
+        return cleaned ? [cleaned] : [];
+      }).slice(0, 20) : [],
     };
   } catch {
     return null;

@@ -62,6 +62,9 @@ export type DiscoveryDependencies = {
       maxNewEntities: number;
       maxNewRelationships: number;
       deadlineMs?: number;
+      priorityTargetQid?: string;
+      resolveTypeHierarchy?: boolean;
+      directTargetOnly?: boolean;
     },
   ) => Promise<{
     entitiesAdded: number;
@@ -519,7 +522,8 @@ export async function runDiscovery(
         relationshipsDiscovered: 0,
         reverseLookupComplete: null as boolean | null,
       };
-      if (!state.expanded) {
+      const shouldIngest = !state.expanded || candidate.depth === 0;
+      if (shouldIngest) {
         const remainingEntities = config.maxNewEntities - entitiesAdded;
         const remainingRelationships =
           config.maxNewRelationships - relationshipsAdded;
@@ -535,6 +539,9 @@ export async function runDiscovery(
           maxNewEntities: remainingEntities,
           maxNewRelationships: remainingRelationships,
           deadlineMs: semanticDeadline,
+          priorityTargetQid: candidate.side === "source" ? toQid : fromQid,
+          resolveTypeHierarchy: !state.expanded && candidate.depth === 0,
+          directTargetOnly: state.expanded && candidate.depth === 0,
         });
         entitiesAdded += ingestion.entitiesAdded;
         relationshipsAdded += ingestion.relationshipsAdded;
@@ -550,7 +557,7 @@ export async function runDiscovery(
       }
       expandedBySide[candidate.side].push(expansion);
 
-      if (!state.expanded) {
+      if (shouldIngest) {
         paths = await dependencies.findPaths(fromQid, toQid);
         observePaths(paths);
         if (isAcceptable(paths, config)) {
@@ -688,6 +695,8 @@ export async function runDiscovery(
         maxNewEntities: remainingEntities,
         maxNewRelationships: remainingRelationships,
         deadlineMs: deadline,
+        priorityTargetQid: candidate.side === "source" ? toQid : fromQid,
+        resolveTypeHierarchy: false,
       });
       entitiesAdded += ingestion.entitiesAdded;
       relationshipsAdded += ingestion.relationshipsAdded;

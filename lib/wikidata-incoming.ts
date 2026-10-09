@@ -84,7 +84,13 @@ async function performLookup(
   }
 
   const controller = new AbortController();
-  const timeout = setTimeout(() => controller.abort(), REQUEST_TIMEOUT_MS);
+  let timeout: ReturnType<typeof setTimeout> | undefined;
+  const timeoutResponse = new Promise<Response>((_, reject) => {
+    timeout = setTimeout(() => {
+      controller.abort();
+      reject(new DOMException("Wikidata reverse lookup timed out.", "AbortError"));
+    }, REQUEST_TIMEOUT_MS);
+  });
   const url = new URL(WIKIDATA_API_URL);
   url.search = new URLSearchParams({
     action: "query",
@@ -99,11 +105,14 @@ async function performLookup(
   }).toString();
 
   try {
-    const response = await fetchImpl(url, {
-      cache: "no-store",
-      signal: controller.signal,
-      headers: { Accept: "application/json", "User-Agent": USER_AGENT },
-    });
+    const response = await Promise.race([
+      fetchImpl(url, {
+        cache: "no-store",
+        signal: controller.signal,
+        headers: { Accept: "application/json", "User-Agent": USER_AGENT },
+      }),
+      timeoutResponse,
+    ]);
 
     if (response.status === 429) {
       rateLimitedUntil = now() + readRetryAfter(response.headers.get("Retry-After"), now());
@@ -130,7 +139,7 @@ async function performLookup(
           : "upstream-error",
     };
   } finally {
-    clearTimeout(timeout);
+    if (timeout) clearTimeout(timeout);
   }
 }
 
@@ -181,6 +190,7 @@ export function selectReverseDiscoveryProperties(
     if (/director|filmmaker/.test(value)) preferred.push("P57");
     if (/screenwriter|writer|author|novelist/.test(value)) preferred.push("P58", "P50");
     if (/singer|musician|performer|composer/.test(value)) preferred.push("P175", "P86");
+    if (/architect/.test(value)) preferred.push("P84");
     if (/producer/.test(value)) preferred.push("P1431", "P162");
     if (/founder|entrepreneur/.test(value)) preferred.push("P112");
     if (/executive|chief executive|ceo/.test(value)) preferred.push("P169");

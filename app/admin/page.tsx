@@ -11,8 +11,10 @@ import {
 } from "@/lib/admin-feedback-core";
 import { getAdminFeedbackDashboard } from "@/lib/admin-feedback";
 import {
+  getLatestExternalCoverageGapSummary,
   getLatestCoverageGapSummary,
   type CoverageGapSummary,
+  type ExternalCoverageGapSummary,
 } from "@/lib/accuracy-gap-report";
 import type { PathFeedbackReason } from "@/lib/path-feedback";
 
@@ -124,11 +126,13 @@ function entityLabel(name: string | null, qid: string): string {
 function Dashboard({
   data,
   gaps,
+  externalGaps,
   filter,
   reason,
 }: {
   data: AdminFeedbackDashboard;
   gaps: CoverageGapSummary | null;
+  externalGaps: ExternalCoverageGapSummary | null;
   filter: AdminFeedbackFilter;
   reason: PathFeedbackReason | null;
 }) {
@@ -170,8 +174,8 @@ function Dashboard({
       <section aria-labelledby="coverage-gaps-heading" className="mt-8 rounded-2xl border border-[#e0e4e9] bg-white/90 p-5 shadow-[0_8px_30px_rgba(25,35,55,0.04)] sm:p-6">
         <div className="flex flex-wrap items-end justify-between gap-3">
           <div>
-            <p className="text-xs font-bold uppercase tracking-[0.12em] text-[#758095]">Semantic Gap Scanner</p>
-            <h2 id="coverage-gaps-heading" className="mt-1 text-xl font-extrabold text-[#17233f]">Coverage Gaps</h2>
+            <p className="text-xs font-bold uppercase tracking-[0.12em] text-[#758095]">Internal graph scan</p>
+            <h2 id="coverage-gaps-heading" className="mt-1 text-xl font-extrabold text-[#17233f]">Internal Gap Scan</h2>
           </div>
           {gaps ? <p className="text-xs text-[#758095]">Latest scan {formatTimestamp(gaps.generatedAt)}</p> : null}
         </div>
@@ -219,6 +223,77 @@ function Dashboard({
           </>
         ) : (
           <p className="mt-4 text-sm text-[#667086]">No completed gap scan is available yet. Run <code className="rounded bg-[#f1f2f4] px-1.5 py-0.5">npm run benchmark:gaps</code>.</p>
+        )}
+      </section>
+
+      <section aria-labelledby="external-coverage-gaps-heading" className="mt-6 rounded-2xl border border-[#e0e4e9] bg-white/90 p-5 shadow-[0_8px_30px_rgba(25,35,55,0.04)] sm:p-6">
+        <div className="flex flex-wrap items-end justify-between gap-3">
+          <div>
+            <p className="text-xs font-bold uppercase tracking-[0.12em] text-[#758095]">External Wikidata scan</p>
+            <h2 id="external-coverage-gaps-heading" className="mt-1 text-xl font-extrabold text-[#17233f]">External Wikidata Coverage Scan</h2>
+          </div>
+          {externalGaps ? <p className="text-xs text-[#758095]">Latest scan {formatTimestamp(externalGaps.generatedAt)}</p> : null}
+        </div>
+        {externalGaps ? (
+          <>
+            <div className="mt-5 grid gap-3 sm:grid-cols-3">
+              <MetricCard label="External pairs tested" value={externalGaps.totalPairs} />
+              <MetricCard label="External false negatives" value={externalGaps.falseNegatives} />
+              <MetricCard label="External failure rate" value={`${(externalGaps.falseNegativeRate * 100).toFixed(1)}%`} />
+            </div>
+            <div className="mt-6 grid gap-6 xl:grid-cols-2">
+              <div className="overflow-x-auto">
+                <h3 className="font-bold text-[#26334f]">Top missing properties</h3>
+                <table className="mt-3 w-full min-w-[560px] border-collapse text-left text-sm">
+                  <thead className="border-b border-[#e0e4e9] text-xs uppercase tracking-[0.08em] text-[#667086]">
+                    <tr><th className="px-3 py-3">Property</th><th className="px-3 py-3">Support</th><th className="px-3 py-3">Failures</th><th className="px-3 py-3">Main cause</th></tr>
+                  </thead>
+                  <tbody className="divide-y divide-[#e7e9ed]">
+                    {externalGaps.topMissingProperties.map((property) => (
+                      <tr key={property.wikidataProperty} className="align-top">
+                        <td className="px-3 py-3"><span className="font-bold text-[#26334f]">{property.wikidataProperty}</span><span className="ml-2 text-[#566176]">{property.propertyLabel}</span></td>
+                        <td className="px-3 py-3 text-[#566176]">{property.supportStatus}</td>
+                        <td className="px-3 py-3 font-semibold text-[#26334f]">{property.falseNegatives}/{property.tested} ({(property.falseNegativeRate * 100).toFixed(0)}%)</td>
+                        <td className="px-3 py-3 text-[#566176]">{property.dominantFailureCause ?? "Unknown"}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+              <div className="overflow-x-auto">
+                <h3 className="font-bold text-[#26334f]">Weak relationship families</h3>
+                <table className="mt-3 w-full min-w-[520px] border-collapse text-left text-sm">
+                  <thead className="border-b border-[#e0e4e9] text-xs uppercase tracking-[0.08em] text-[#667086]">
+                    <tr><th className="px-3 py-3">Family</th><th className="px-3 py-3">Properties</th><th className="px-3 py-3">Failures</th><th className="px-3 py-3">Main cause</th></tr>
+                  </thead>
+                  <tbody className="divide-y divide-[#e7e9ed]">
+                    {externalGaps.topWeakFamilies.map((family) => (
+                      <tr key={family.relationshipFamily} className="align-top">
+                        <td className="px-3 py-3 font-bold text-[#26334f]">{family.relationshipFamily}</td>
+                        <td className="px-3 py-3 text-xs text-[#758095]">{family.properties.join(", ")}</td>
+                        <td className="px-3 py-3 font-semibold text-[#26334f]">{family.falseNegatives}/{family.tested} ({(family.falseNegativeRate * 100).toFixed(0)}%)</td>
+                        <td className="px-3 py-3 text-[#566176]">{family.dominantFailureCause ?? "Unknown"}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div className="mt-6">
+              <h3 className="font-bold text-[#26334f]">Recommended semantic backlog</h3>
+              <ol className="mt-3 grid gap-3 md:grid-cols-2">
+                {externalGaps.topRecommendations.map((item) => (
+                  <li key={item.property} className="rounded-xl border border-[#e4e7ec] bg-[#fafaf8] p-4 text-sm">
+                    <p className="font-bold text-[#26334f]">{item.rank}. {item.property} {item.propertyLabel}</p>
+                    <p className="mt-1 text-[#566176]">{item.rootCause ?? "Unknown cause"}</p>
+                    <p className="mt-2 text-xs text-[#758095]">Potential gain {item.expectedCoverageGain} · Complexity {item.complexity} · Hub risk {item.hubPollutionRisk}</p>
+                  </li>
+                ))}
+              </ol>
+            </div>
+          </>
+        ) : (
+          <p className="mt-4 text-sm text-[#667086]">No completed external scan is available yet. Run <code className="rounded bg-[#f1f2f4] px-1.5 py-0.5">npm run benchmark:gaps -- --mode=external</code>.</p>
         )}
       </section>
 
@@ -345,9 +420,10 @@ async function AdminContent({ searchParams }: AdminPageProps) {
   const filter = parseAdminFeedbackFilter(params.filter);
   const reason = filter === "negative" ? parseAdminFeedbackReason(params.reason) : null;
 
-  const [data, gaps] = await Promise.all([
+  const [data, gaps, externalGaps] = await Promise.all([
     loadAdminDashboard(filter, reason),
     getLatestCoverageGapSummary(),
+    getLatestExternalCoverageGapSummary(),
   ]);
   if (!data) {
     return (
@@ -358,7 +434,7 @@ async function AdminContent({ searchParams }: AdminPageProps) {
     );
   }
 
-  return <Dashboard data={data} gaps={gaps} filter={filter} reason={reason} />;
+  return <Dashboard data={data} gaps={gaps} externalGaps={externalGaps} filter={filter} reason={reason} />;
 }
 
 async function loadAdminDashboard(

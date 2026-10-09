@@ -10,14 +10,21 @@ import {
 } from "@/lib/wikidata-properties";
 import {
   fetchWikidataEntity,
+  fetchWikidataEntities,
   fetchWikidataEntitySummaries,
   isValidQid,
   type WikidataEntity,
   type WikidataEntitySummary,
 } from "@/lib/wikidata";
 import { getNeo4jDriver } from "@/lib/neo4j";
-import { classifyEntityDomain, type EntityDomain } from "@/lib/entity-domain";
+import {
+  classifyEntityDomain,
+  hasKnownEntityDomain,
+  type EntityDomain,
+} from "@/lib/entity-domain";
 import { selectOutgoingDiscoveryProperties } from "@/lib/discovery-policy";
+import { resolveWikidataTypeHierarchy } from "@/lib/wikidata-type-hierarchy";
+import { prioritizeClaimTargets } from "@/lib/wikidata-claim-routing";
 import {
   fetchIncomingWikidataEntities,
   REVERSE_DISCOVERY_VERSION,
@@ -58,6 +65,9 @@ export type WikidataIngestionOptions = {
   maxNewEntities?: number;
   maxRelationships?: number;
   deadlineMs?: number;
+  priorityTargetQid?: string;
+  resolveTypeHierarchy?: boolean;
+  directTargetOnly?: boolean;
 };
 
 function isJsonObject(value: unknown): value is JsonObject {
@@ -113,16 +123,28 @@ function collectRelationships(
       : Math.max(0, options.maxNewEntities - 1),
   );
 
-  for (const property of selectOutgoingDiscoveryProperties(
+  const selectedProperties = selectOutgoingDiscoveryProperties(
     domain,
     Object.values(APPROVED_WIKIDATA_PROPERTIES),
-  )) {
+    { availablePropertyIds: Object.keys(entity.claims) },
+  ).sort((left, right) => {
+    if (!options.priorityTargetQid) return 0;
+    const hasPriorityTarget = (property: WikidataPropertyConfig) =>
+      getEntityQids(entity.claims[property.wikidataProperty] ?? [])
+        .includes(options.priorityTargetQid as string);
+    return Number(hasPriorityTarget(right)) - Number(hasPriorityTarget(left));
+  });
+
+  for (const property of selectedProperties) {
     const remaining = relationshipLimit - candidates.length;
     if (remaining === 0) break;
 
-    const targetQids = getEntityQids(
+    const targetQids = prioritizeClaimTargets(getEntityQids(
       entity.claims[property.wikidataProperty] ?? [],
-    ).filter((targetQid) => targetQid !== entity.qid).slice(
+    ).filter((targetQid) =>
+      targetQid !== entity.qid &&
+      (!options.directTargetOnly || targetQid === options.priorityTargetQid)
+    ), options.priorityTargetQid).slice(
       0,
       Math.min(
         property.maxFanout ?? MAX_LINKED_ENTITIES_PER_PROPERTY,
@@ -168,8 +190,16 @@ export async function ingestWikidataEntityWithMetadata(
   options: WikidataIngestionOptions = {},
 ): Promise<WikidataIngestionResult> {
   const entity = await fetchWikidataEntity(qid);
+  const instanceOfQids = getEntityQids(entity.claims.P31 ?? []);
+  const ancestorQids = options.resolveTypeHierarchy && !hasKnownEntityDomain(instanceOfQids)
+    ? await resolveWikidataTypeHierarchy(instanceOfQids, {
+        fetchEntities: fetchWikidataEntities,
+        deadlineMs: options.deadlineMs,
+      })
+    : instanceOfQids;
   const sourceType = classifyEntityDomain({
-    instanceOfQids: getEntityQids(entity.claims.P31 ?? []),
+    instanceOfQids,
+    ancestorQids,
     name: entity.name,
     description: entity.description,
   });
@@ -185,7 +215,7 @@ export async function ingestWikidataEntityWithMetadata(
   const incomingCandidates: RelationshipCandidate[] = [];
   let reverseLookupComplete = true;
 
-  for (const property of selectReverseDiscoveryProperties(
+  for (const property of options.directTargetOnly ? [] : selectReverseDiscoveryProperties(
     { type: sourceType, description: entity.description },
     Object.values(APPROVED_WIKIDATA_PROPERTIES),
   )) {

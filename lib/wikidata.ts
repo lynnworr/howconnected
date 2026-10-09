@@ -12,6 +12,7 @@ export type WikidataEntitySummary = {
   name: string;
   description: string;
   hasLabel: boolean;
+  instanceOfQids?: string[];
 };
 
 export type WikidataEntity = WikidataEntitySummary & {
@@ -67,6 +68,21 @@ function readClaims(value: unknown): Record<string, readonly unknown[]> {
   );
 }
 
+function readEntityQids(claims: readonly unknown[]): string[] {
+  return [...new Set(claims.flatMap((claim) => {
+    if (!isJsonObject(claim) || !isJsonObject(claim.mainsnak)) return [];
+    const snak = claim.mainsnak;
+    if (
+      snak.snaktype !== "value" ||
+      snak.datatype !== "wikibase-item" ||
+      !isJsonObject(snak.datavalue) ||
+      !isJsonObject(snak.datavalue.value) ||
+      typeof snak.datavalue.value.id !== "string"
+    ) return [];
+    return [snak.datavalue.value.id];
+  }))];
+}
+
 async function fetchEntityRecords(
   qids: readonly string[],
   includeClaims: boolean,
@@ -84,24 +100,33 @@ async function fetchEntityRecords(
 
   let response: Response;
   const controller = new AbortController();
-  const timeout = setTimeout(() => controller.abort(), REQUEST_TIMEOUT_MS);
+  let timeout: ReturnType<typeof setTimeout> | undefined;
+  const timeoutResponse = new Promise<Response>((_, reject) => {
+    timeout = setTimeout(() => {
+      controller.abort();
+      reject(new WikidataFetchError("Wikidata request timed out."));
+    }, REQUEST_TIMEOUT_MS);
+  });
 
   try {
-    response = await fetch(url, {
-      cache: "no-store",
-      signal: controller.signal,
-      headers: {
-        Accept: "application/json",
-        "User-Agent":
-          "connections-lab/0.1 (https://connections-lab.vercel.app; controlled Wikidata ingestion)",
-      },
-    });
+    response = await Promise.race([
+      fetch(url, {
+        cache: "no-store",
+        signal: controller.signal,
+        headers: {
+          Accept: "application/json",
+          "User-Agent":
+            "connections-lab/0.1 (https://connections-lab.vercel.app; controlled Wikidata ingestion)",
+        },
+      }),
+      timeoutResponse,
+    ]);
   } catch (error: unknown) {
     throw new WikidataFetchError(
       error instanceof Error ? error.message : "Wikidata request failed.",
     );
   } finally {
-    clearTimeout(timeout);
+    if (timeout) clearTimeout(timeout);
   }
 
   if (!response.ok) {
@@ -118,18 +143,24 @@ async function fetchEntityRecords(
   return data.entities;
 }
 
-function normalizeSummary(qid: string, value: unknown): WikidataEntitySummary {
+function normalizeSummary(
+  qid: string,
+  value: unknown,
+  includeTypes = false,
+): WikidataEntitySummary {
   if (!isJsonObject(value) || value.missing !== undefined) {
     return { qid, name: qid, description: "", hasLabel: false };
   }
 
   const label = readLocalizedValue(value.labels);
 
+  const claims = includeTypes ? readClaims(value.claims) : {};
   return {
     qid,
     name: label ?? qid,
     description: readLocalizedValue(value.descriptions) ?? "",
     hasLabel: label !== undefined,
+    ...(includeTypes ? { instanceOfQids: readEntityQids(claims.P31 ?? []) } : {}),
   };
 }
 
@@ -149,12 +180,28 @@ export async function fetchWikidataEntity(qid: string): Promise<WikidataEntity> 
 
 export async function fetchWikidataEntitySummaries(
   qids: readonly string[],
+  options: { includeTypes?: boolean } = {},
 ): Promise<WikidataEntitySummary[]> {
   const uniqueQids = [...new Set(qids)];
   if (uniqueQids.length === 0) {
     return [];
   }
 
-  const records = await fetchEntityRecords(uniqueQids, false);
-  return uniqueQids.map((qid) => normalizeSummary(qid, records[qid]));
+  const records = await fetchEntityRecords(uniqueQids, options.includeTypes === true);
+  return uniqueQids.map((qid) =>
+    normalizeSummary(qid, records[qid], options.includeTypes === true),
+  );
+}
+
+export async function fetchWikidataEntities(
+  qids: readonly string[],
+): Promise<WikidataEntity[]> {
+  const uniqueQids = [...new Set(qids)];
+  if (uniqueQids.length === 0) return [];
+  const records = await fetchEntityRecords(uniqueQids, true);
+  return uniqueQids.flatMap((qid) => {
+    const value = records[qid];
+    if (!isJsonObject(value) || value.missing !== undefined) return [];
+    return [{ ...normalizeSummary(qid, value), claims: readClaims(value.claims) }];
+  });
 }

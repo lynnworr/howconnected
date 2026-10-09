@@ -122,6 +122,33 @@ test("enforces the configured relationship limit and reports its usage", async (
   assert.equal(result.discovery.terminationReason, "relationship-limit-reached");
 });
 
+test("passes the arbitrary opposite endpoint only as bounded ingestion context", async () => {
+  const calls = [];
+  await runDiscovery(
+    "Q1",
+    "Q2",
+    dependencies({
+      ingest: async (qid, limits) => {
+        calls.push({ qid, limits });
+        return { entitiesAdded: 0, relationshipsAdded: 0 };
+      },
+    }),
+    { ...config, maxDepthPerSide: 1 },
+  );
+
+  assert.deepEqual(
+    calls.map(({ qid, limits }) => ({
+      qid,
+      priorityTargetQid: limits.priorityTargetQid,
+      resolveTypeHierarchy: limits.resolveTypeHierarchy,
+    })),
+    [
+      { qid: "Q1", priorityTargetQid: "Q2", resolveTypeHierarchy: true },
+      { qid: "Q2", priorityTargetQid: "Q1", resolveTypeHierarchy: true },
+    ],
+  );
+});
+
 test("records expansion diagnostics and rejected candidate scores", async () => {
   const rejectedPaths = {
     ...goodPaths,
@@ -149,16 +176,16 @@ test("records expansion diagnostics and rejected candidate scores", async () => 
   assert.equal(result.discovery.expandedBySide.target[0].reverseLookupComplete, true);
 });
 
-test("uses expansion metadata to avoid refetching expanded entities", async () => {
-  let ingestionCalls = 0;
+test("refreshes only expanded roots for a source-verified direct statement", async () => {
+  const ingestionCalls = [];
   let frontierCalls = 0;
   await runDiscovery(
     "Q1",
     "Q2",
     dependencies({
       getExpansionState: async () => ({ exists: true, expanded: true }),
-      ingest: async () => {
-        ingestionCalls += 1;
+      ingest: async (qid, limits) => {
+        ingestionCalls.push({ qid, limits });
         return { entitiesAdded: 0, relationshipsAdded: 0 };
       },
       getFrontier: async () => {
@@ -169,7 +196,9 @@ test("uses expansion metadata to avoid refetching expanded entities", async () =
     config,
   );
 
-  assert.equal(ingestionCalls, 0);
+  assert.equal(ingestionCalls.length, 2);
+  assert.ok(ingestionCalls.every(({ limits }) => limits.directTargetOnly === true));
+  assert.ok(ingestionCalls.every(({ limits }) => limits.resolveTypeHierarchy === false));
   assert.equal(frontierCalls, 2);
 });
 

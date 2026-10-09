@@ -181,6 +181,9 @@ export function discoverConnection(fromQid: string, toQid: string) {
           maxNewEntities: limits.maxNewEntities,
           maxRelationships: limits.maxNewRelationships,
           deadlineMs: limits.deadlineMs,
+          priorityTargetQid: limits.priorityTargetQid,
+          resolveTypeHierarchy: limits.resolveTypeHierarchy,
+          directTargetOnly: limits.directTargetOnly,
         });
 
         return {

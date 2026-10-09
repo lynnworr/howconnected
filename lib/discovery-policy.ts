@@ -9,6 +9,7 @@ const OUTGOING_PROPERTIES: Readonly<Record<EntityDomain, readonly string[]>> = {
   "music artist": ["P175", "P264", "P800", "P361", "P463", "P108", "P737"],
   "music organization": ["P112", "P127", "P749", "P355", "P361", "P264"],
   "music/work": ["P175", "P162", "P86", "P767", "P264", "P155", "P156", "P361", "P50", "P272", "P750", "P170", "P176", "P178"],
+  "creative work": ["P50", "P170", "P178", "P176", "P361", "P155", "P156", "P272", "P750", "P86"],
   "monument/artifact": ["P495", "P276", "P17", "P170", "P84", "P88", "P131", "P793", "P361"],
   "sports team": ["P641", "P118", "P286", "P127", "P115", "P169", "P749", "P859", "P54"],
   "company/organization": ["P641", "P112", "P169", "P355", "P749", "P127", "P1056", "P176", "P137", "P859", "P664", "P463"],
@@ -23,13 +24,14 @@ const OUTGOING_PROPERTIES: Readonly<Record<EntityDomain, readonly string[]>> = {
 };
 
 const REVERSE_PROPERTIES: Readonly<Record<EntityDomain, readonly string[]>> = {
-  person: ["P161", "P725", "P57", "P58", "P50", "P175", "P1431", "P162", "P112", "P169"],
+  person: ["P161", "P725", "P57", "P58", "P50", "P175", "P84", "P86", "P1431", "P162", "P112", "P169"],
   "sports person": ["P54", "P161", "P725", "P710"],
   film: [],
   "television series": [],
   "music artist": ["P175", "P162", "P86", "P767"],
   "music organization": ["P264", "P127", "P749"],
   "music/work": [],
+  "creative work": [],
   "monument/artifact": [],
   "sports team": ["P54", "P859"],
   "company/organization": ["P272", "P750", "P449", "P108", "P463", "P859", "P664", "P137", "P176"],
@@ -57,8 +59,16 @@ function selectConfiguredProperties(
 export function selectOutgoingDiscoveryProperties(
   domain: EntityDomain,
   properties: readonly WikidataPropertyConfig[],
+  context: { availablePropertyIds?: readonly string[] } = {},
 ): WikidataPropertyConfig[] {
-  return selectConfiguredProperties(OUTGOING_PROPERTIES[domain], properties);
+  const contextualPropertyIds = [
+    "P276", "P793", "P137", "P361", "P131",
+    "P1344", "P84", "P86", "P710", "P112",
+  ].filter((propertyId) => context.availablePropertyIds?.includes(propertyId));
+  return selectConfiguredProperties(
+    [...new Set([...OUTGOING_PROPERTIES[domain], ...contextualPropertyIds])],
+    properties,
+  );
 }
 
 export function selectIncomingDiscoveryProperties(

@@ -38,6 +38,13 @@ const boundedInteger = (value, fallback, minimum, maximum) => {
   return Number.isFinite(parsed) ? Math.min(maximum, Math.max(minimum, parsed)) : fallback;
 };
 
+const requestedMode = argValue("mode") ?? "internal";
+if (requestedMode === "external") {
+  await import("./benchmark-gaps-external.mjs");
+  process.exit(0);
+}
+if (requestedMode !== "internal") throw new Error(`Unknown gap-scan mode: ${requestedMode}`);
+
 const options = {
   sampleSize: boundedInteger(argValue("sample"), 500, 10, 1_000),
   concurrency: boundedInteger(argValue("concurrency"), 2, 1, 4),

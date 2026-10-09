@@ -10,6 +10,15 @@ import {
   selectBalancedCorpus,
   summarizeGapResults,
 } from "../scripts/gap-scan-lib.mjs";
+import {
+  buildExternalCandidates,
+  buildExternalReportSections,
+  compareExternalReports,
+  diagnoseExternalFailure,
+  isRetryableExternalResult,
+  selectBalancedExternalCorpus,
+  selectExternalDevelopmentCorpus,
+} from "../scripts/external-gap-scan-lib.mjs";
 
 const entity = (qid, name, type) => ({ qid, name, type, description: "", degree: 2, attempts: 0 });
 
@@ -123,7 +132,76 @@ test("clusters, prioritizes, summarizes, compares, and exports scan results", ()
 test("private admin source renders the latest coverage-gap summary", async () => {
   const source = await readFile(new URL("../app/admin/page.tsx", import.meta.url), "utf8");
 
-  assert.match(source, /Coverage Gaps/);
+  assert.match(source, /Internal Gap Scan/);
   assert.match(source, /getLatestCoverageGapSummary/);
   assert.match(source, /False-negative rate/);
+  assert.match(source, /External Wikidata Coverage Scan/);
+  assert.match(source, /getLatestExternalCoverageGapSummary/);
+});
+
+test("external candidates come only from explicit Wikidata bindings and balance by property", () => {
+  const config = { id: "P123", label: "publisher", family: "software/games", supportStatus: "unsupported", sourceDomains: ["product"], targetDomains: ["company/organization"], relevance: 5, complexity: "low", hubRisk: "low", likelyCodeArea: "registry" };
+  const bindings = [{
+    source: { value: "http://www.wikidata.org/entity/Q1" },
+    target: { value: "http://www.wikidata.org/entity/Q2" },
+    sourceLabel: { value: "Work" },
+    targetLabel: { value: "Publisher" },
+    sourceSitelinks: { value: "20" },
+    targetSitelinks: { value: "10" },
+  }];
+  const p123 = buildExternalCandidates(config, bindings);
+  const p400 = buildExternalCandidates({ ...config, id: "P400", label: "platform" }, [{ ...bindings[0], source: { value: "http://www.wikidata.org/entity/Q3" }, target: { value: "http://www.wikidata.org/entity/Q4" } }]);
+  const selected = selectBalancedExternalCorpus([...p123, ...p400], 2);
+
+  assert.equal(p123.length, 1);
+  assert.equal(p123[0].wikidataProperty, "P123");
+  assert.deepEqual(new Set(selected.map(({ wikidataProperty }) => wikidataProperty)), new Set(["P123", "P400"]));
+  assert.deepEqual(
+    selectExternalDevelopmentCorpus([...p123, ...p400], 2).map(({ wikidataProperty }) => wikidataProperty),
+    ["P123", "P400"],
+  );
+});
+
+test("external diagnostics distinguish unsupported, selection, ingestion, and engine failures", () => {
+  const pair = {
+    wikidataProperty: "P123",
+    supportStatus: "unsupported",
+    expectedSourceDomains: ["product"],
+    expectedTargetDomains: ["company/organization"],
+  };
+  const result = { found: false, httpStatus: 200, diagnostics: { timedOut: true, terminationReason: "time-budget-exhausted", bestRejectedPath: { patternPenalty: 3 } } };
+  const causes = diagnoseExternalFailure(pair, result, {
+    enabledProperties: [], reverseEnabledProperties: [], sourceSelectedProperties: [], targetReverseSelectedProperties: [],
+    sourcePresent: true, targetPresent: false, relationshipPresent: false, sourceDomain: "entity", targetDomain: "entity",
+  });
+
+  assert.ok(causes.includes("unsupported property"));
+  assert.ok(causes.includes("source misclassification"));
+  assert.ok(causes.includes("target misclassification"));
+  assert.ok(causes.includes("ingestion missing"));
+  assert.ok(causes.includes("timeout"));
+  assert.ok(causes.includes("path exists but scoring rejected"));
+  assert.ok(causes.includes("path-pattern penalty rejected"));
+  assert.equal(isRetryableExternalResult({ found: false, httpStatus: 502, terminationReason: "Could not fetch a Wikidata entity." }), true);
+  assert.equal(isRetryableExternalResult({ found: false, httpStatus: 200, runtimeMs: 60_001, terminationReason: "no-acceptable-semantic-path" }), true);
+  assert.equal(isRetryableExternalResult({ found: false, httpStatus: 200, terminationReason: "no-acceptable-semantic-path" }), false);
+});
+
+test("external reports aggregate properties and families and compare repeatable pairs", () => {
+  const config = { id: "P123", label: "publisher", family: "software/games", supportStatus: "unsupported", sourceDomains: ["product"], targetDomains: ["company/organization"], relevance: 5, complexity: "low", hubRisk: "low", likelyCodeArea: "registry" };
+  const failed = { pairId: "p1", wikidataProperty: "P123", relationshipFamily: "software/games", sourceQid: "Q1", sourceName: "Work", sourceDomain: "product", targetQid: "Q2", targetName: "Publisher", targetDomain: "company/organization", found: false, falseNegative: true, runtimeMs: 100, failureCauses: ["unsupported property"], productionAttemptFrequency: 0 };
+  const passed = { ...failed, pairId: "p2", found: true, falseNegative: false, failureCauses: [], runtimeMs: 50 };
+  const sections = buildExternalReportSections([failed, passed], [config]);
+  const comparison = compareExternalReports(
+    { runId: "before", summary: { falseNegativeRate: 1 }, propertyCoverage: sections.propertyCoverage, results: [failed] },
+    { runId: "after", summary: { falseNegativeRate: 0 }, propertyCoverage: [{ ...sections.propertyCoverage[0], falseNegativeRate: 0 }], results: [{ ...failed, found: true, falseNegative: false }] },
+  );
+
+  assert.equal(sections.propertyCoverage[0].tested, 2);
+  assert.equal(sections.familyCoverage[0].falseNegativeRate, 0.5);
+  assert.equal(sections.unsupportedProperties[0].property, "P123");
+  assert.equal(sections.unsupportedProperties[0].sampleFailureRate, 0.5);
+  assert.equal(sections.recommendations[0].expectedCoverageGain, 1);
+  assert.deepEqual(comparison.falseNegativesFixed, ["p1"]);
+  assert.equal(comparison.overallCoverageChange, 1);
 });
