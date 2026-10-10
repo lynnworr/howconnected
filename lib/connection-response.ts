@@ -67,5 +67,16 @@ export function parseDiscoveryResult(value: unknown): DiscoveryResult | null {
         .filter((path): path is ConnectionPathData => path !== null)
     : [];
 
-  return { found: value.found, bestPath, alternatePaths };
+  const diagnosticSource = isRecord(value.diagnostics)
+    ? value.diagnostics
+    : isRecord(value.discovery)
+      ? value.discovery
+      : null;
+
+  return {
+    found: value.found,
+    timedOut: value.timedOut === true || diagnosticSource?.timedOut === true,
+    bestPath,
+    alternatePaths,
+  };
 }

@@ -22,7 +22,7 @@ export default function ContactPage() {
           business inquiries. If a connection looks wrong, include the two
           entities and, when possible, the result-page URL.
         </p>
-        <div className="relative mt-6 rounded-3xl border border-[#e1e5eb] bg-[#fbfbf8] p-5 sm:p-7">
+        <div className="hc-form-surface relative mt-6 rounded-3xl border p-5 sm:p-7">
           <ContactForm />
         </div>
       </section>

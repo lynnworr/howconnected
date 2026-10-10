@@ -3,14 +3,15 @@
 import { track } from "@vercel/analytics";
 
 export type ProductEventName =
-  | "entity_search"
-  | "connection_submit"
-  | "connection_success"
-  | "connection_no_result"
-  | "connection_error"
+  | "entity_lookup_completed"
+  | "search_initiated"
+  | "search_succeeded"
+  | "search_no_reliable_path"
+  | "search_timed_out"
+  | "search_failed"
   | "alternate_paths_opened"
-  | "share_clicked"
-  | "copy_link_clicked"
+  | "result_shared"
+  | "surprise_me_used"
   | "entity_source_opened"
   | "try_another_clicked";
 
@@ -25,7 +26,11 @@ export function trackProductEvent(
   name: ProductEventName,
   properties: ProductEventProperties = {},
 ) {
-  track(name, properties);
+  try {
+    track(name, properties);
+  } catch {
+    // Analytics must never block or break the product experience.
+  }
 }
 
 export function incrementSessionConnectionCount(): number {

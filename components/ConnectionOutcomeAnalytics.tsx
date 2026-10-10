@@ -7,7 +7,10 @@ import {
 } from "@/lib/product-analytics";
 
 type ConnectionOutcomeAnalyticsProps = {
-  event: Extract<ProductEventName, "connection_no_result" | "connection_error">;
+  event: Extract<
+    ProductEventName,
+    "search_no_reliable_path" | "search_timed_out" | "search_failed"
+  >;
   fromQid: string;
   toQid: string;
   origin: "homepage" | "shared_url";

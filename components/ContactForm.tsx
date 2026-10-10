@@ -9,7 +9,7 @@ type FormStatus =
   | { kind: "success" | "error"; message: string };
 
 const fieldClassName =
-  "mt-2 w-full rounded-2xl border border-[#d9dee7] bg-white px-4 py-3 text-base text-[#15213b] shadow-sm outline-none transition placeholder:text-[#9aa2b2] focus:border-[#58bea0] focus:ring-4 focus:ring-[#58bea0]/15 disabled:cursor-not-allowed disabled:bg-[#f2f2ef]";
+  "hc-form-control mt-2 w-full rounded-2xl border px-4 py-3 text-base outline-none transition placeholder:text-[#9aa2b2] disabled:cursor-not-allowed disabled:opacity-60";
 
 export default function ContactForm() {
   const [pending, setPending] = useState(false);
@@ -145,7 +145,7 @@ export default function ContactForm() {
         <button
           type="submit"
           disabled={pending}
-          className="inline-flex min-h-12 items-center justify-center rounded-full bg-[#17233f] px-6 py-3 text-sm font-bold text-white shadow-[0_10px_24px_rgba(23,35,63,0.18)] transition hover:bg-[#263653] focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-[#ff6846] disabled:cursor-wait disabled:opacity-65"
+          className="hc-primary-button inline-flex min-h-12 items-center justify-center rounded-full px-6 py-3 text-sm font-bold transition focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-[#ff6846] disabled:cursor-wait disabled:opacity-65"
         >
           {pending ? "Sending..." : "Send message"}
         </button>

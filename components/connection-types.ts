@@ -29,6 +29,7 @@ export type ConnectionPathData = {
 
 export type DiscoveryResult = {
   found: boolean;
+  timedOut: boolean;
   bestPath: ConnectionPathData | null;
   alternatePaths: ConnectionPathData[];
 };

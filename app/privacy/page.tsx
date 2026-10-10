@@ -19,7 +19,10 @@ export default function PrivacyPage() {
         <h2>Analytics and path feedback</h2>
         <p>
           HowConnected uses basic analytics to understand page visits and
-          broad product usage. The site also accepts path-quality feedback,
+          broad product usage, including whether searches succeed, time out,
+          are shared, or begin from Surprise Me. Analytics events do not
+          include search text, contact-form contents, or email addresses. The
+          site also accepts path-quality feedback,
           such as whether a result was useful and a selected reason. This
           feedback helps improve connection quality.
         </p>

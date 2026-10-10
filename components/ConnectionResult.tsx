@@ -64,7 +64,7 @@ export default function ConnectionResult({
     const key = `${fromQid}:${toQid}:${steps}`;
     if (trackedSuccessKey.current === key) return;
     trackedSuccessKey.current = key;
-    trackProductEvent("connection_success", {
+    trackProductEvent("search_succeeded", {
       fromQid,
       toQid,
       steps,
@@ -109,7 +109,7 @@ export default function ConnectionResult({
   return (
     <section
       aria-live="polite"
-      className="mx-auto mt-12 w-full max-w-6xl rounded-[28px] border border-[#e4e5e7] bg-[#fbfaf7]/95 p-4 shadow-[0_20px_65px_rgba(20,30,50,0.075)] sm:p-6 md:p-7"
+      className="hc-panel hc-result-panel mx-auto mt-12 w-full max-w-6xl rounded-[28px] border p-4 sm:p-6 md:p-7"
     >
       <div className="mb-5 text-center">
         <span className="inline-flex items-center gap-2 rounded-full bg-[#dff5ec] px-3 py-1 text-xs font-bold uppercase tracking-[0.14em] text-[#177258]">
@@ -180,12 +180,15 @@ export default function ConnectionResult({
         path={share.path}
       />
 
-      <div className="mt-5 flex justify-center">
+      <div className="mt-7 border-t border-[#e4e6e9] pt-6 text-center">
+        <h3 className="text-lg font-bold text-[#192541]">Where will the next thread lead?</h3>
+        <p className="mt-1 text-sm text-[#6f7889]">Pick two more people, places, or ideas to keep exploring.</p>
+        <div className="mt-4 flex justify-center">
         {onReset ? (
           <button
             type="button"
             onClick={onReset}
-            className="rounded-full border border-[#cfd5df] bg-white px-5 py-2.5 text-sm font-bold text-[#26334f] transition hover:-translate-y-0.5 hover:border-[#ff8a70] hover:text-[#c9472d] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#ff6846]"
+            className="hc-primary-button rounded-full px-5 py-2.5 text-sm font-bold transition hover:-translate-y-0.5 hover:bg-[#ff6846] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#ff6846]"
           >
             Try another connection
           </button>
@@ -199,11 +202,12 @@ export default function ConnectionResult({
                 origin: "shared_url",
               })
             }
-            className="rounded-full border border-[#cfd5df] bg-white px-5 py-2.5 text-sm font-bold text-[#26334f] transition hover:-translate-y-0.5 hover:border-[#ff8a70] hover:text-[#c9472d] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#ff6846]"
+            className="hc-primary-button rounded-full px-5 py-2.5 text-sm font-bold transition hover:-translate-y-0.5 hover:bg-[#ff6846] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#ff6846]"
           >
             Try another connection
           </Link>
         )}
+        </div>
       </div>
     </section>
   );

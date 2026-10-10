@@ -29,6 +29,20 @@ function EntityNode({
   const useContain = /(company|organization|business|brand)/i.test(visibleType);
   const primaryUrl = node.wikipediaUrl ?? node.wikidataUrl;
   const primaryDestination = node.wikipediaUrl ? "wikipedia" : "wikidata";
+  const positionLabel =
+    position === "first"
+      ? "Source"
+      : position === "last"
+        ? "Destination"
+        : position === "only"
+          ? "Source and destination"
+          : "Connection";
+  const endpointClass =
+    position === "first"
+      ? "hc-endpoint-source"
+      : position === "last"
+        ? "hc-endpoint-target"
+        : "hc-endpoint-middle";
 
   function trackSource(destinationType: "wikipedia" | "wikidata") {
     if (!node.qid) return;
@@ -73,13 +87,17 @@ function EntityNode({
 
   return (
     <div
-      className={`relative z-10 flex w-[min(100%,18rem)] shrink-0 flex-col items-center text-center lg:grid lg:w-full ${
+      role="listitem"
+      aria-label={`${positionLabel}: ${node.name}`}
+      className={`hc-path-node ${endpointClass} relative z-10 flex w-[min(100%,18rem)] shrink-0 flex-col items-center rounded-2xl border border-transparent px-3 py-3 text-center lg:grid lg:w-full lg:rounded-none lg:border-0 lg:px-0 lg:py-0 ${
         compact
           ? "lg:h-44 lg:grid-rows-[2.5rem_3rem_0.75rem_3rem_1.5rem]"
           : "lg:h-52 lg:grid-rows-[3rem_4rem_0.75rem_3rem_1.5rem]"
       }`}
     >
-      <span aria-hidden="true" className="hidden lg:block" />
+      <span className="text-[9px] font-extrabold uppercase tracking-[0.18em] text-[#6f7889] lg:self-end">
+        {positionLabel}
+      </span>
       <div
         className={`relative flex w-full items-center justify-center ${compact ? "h-12" : "h-16"} lg:h-full`}
       >
@@ -208,6 +226,8 @@ export default function ConnectionPath({
 
   return (
     <div
+      role="list"
+      aria-label={`Connection path with ${nodeCount} entities`}
       className="relative mx-auto flex w-full flex-col items-center justify-center lg:grid lg:w-fit lg:items-start"
       style={{ gridTemplateColumns: desktopColumns } as CSSProperties}
     >

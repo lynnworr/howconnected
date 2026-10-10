@@ -68,19 +68,24 @@ The Neo4j driver is created lazily and reused by warm Node.js Function instances
 
 Vercel Web Analytics records anonymous page analytics and these product events:
 
-- `entity_search`
-- `connection_submit`
-- `connection_success`
-- `connection_no_result`
-- `connection_error`
+- `entity_lookup_completed`
+- `search_initiated`
+- `search_succeeded`
+- `search_no_reliable_path`
+- `search_timed_out`
+- `search_failed`
 - `alternate_paths_opened`
-- `share_clicked`
-- `copy_link_clicked`
+- `result_shared`
+- `surprise_me_used`
 - `entity_source_opened`
 - `try_another_clicked`
 - `path_feedback_submitted`
 
-Events contain QIDs and coarse result metadata, never search text, credentials, names, free-form feedback, or personally identifiable information. Filter connection outcomes to `origin: homepage` when calculating submit success/no-result rates because direct share URLs also emit outcomes. `connection_submit` includes a session-local sequence number without transmitting a session identifier.
+Events contain QIDs and coarse result metadata, never search text, contact-form contents, credentials, names, free-form feedback, or personally identifiable information. Filter search outcomes to `origin: homepage` when calculating submit success/no-result rates because direct share URLs also emit outcomes. `search_initiated` includes a session-local sequence number without transmitting a session identifier.
+
+### Local public-beta preview
+
+Run `npm run dev`, then open `http://localhost:3000`. The header toggle follows the operating-system color scheme on a first visit and stores an explicit light or dark choice in local browser storage. Use the homepage to inspect search and Surprise Me, open a result to inspect the responsive path and share controls, and visit `/contact`, `/about`, `/privacy`, and `/terms` in both themes. Browser responsive mode at 390 px is the recommended mobile check.
 
 ### Feedback storage
 

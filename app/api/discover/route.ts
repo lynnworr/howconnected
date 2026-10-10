@@ -57,6 +57,7 @@ export async function GET(request: NextRequest) {
 
     return Response.json({
       found: consumerResult.found,
+      timedOut: discovery.timedOut,
       source: consumerResult.source,
       target: consumerResult.target,
       bestPath: toConsumerPath(consumerResult.bestPath),

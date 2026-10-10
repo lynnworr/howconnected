@@ -76,7 +76,7 @@ export default function EntitySearch({
         const nextSuggestions = data.results
           .filter(isSelectedEntity)
           .slice(0, 6);
-        trackProductEvent("entity_search", {
+        trackProductEvent("entity_lookup_completed", {
           queryLength: query.length,
           resultCount: nextSuggestions.length,
         });
@@ -159,7 +159,7 @@ export default function EntitySearch({
         {label}
       </label>
       <div
-        className={`group flex h-[72px] items-center gap-3 rounded-2xl border bg-white px-4 shadow-[0_12px_40px_rgba(18,27,47,0.07)] transition-all focus-within:-translate-y-0.5 focus-within:border-[#ff6846] focus-within:shadow-[0_16px_50px_rgba(255,104,70,0.14)] ${
+        className={`hc-search-field group flex h-[72px] items-center gap-3 rounded-2xl border px-4 transition-all focus-within:-translate-y-0.5 ${
           selected ? "border-[#9bd8c5]" : "border-[#dfe3ea]"
         }`}
       >
@@ -215,7 +215,7 @@ export default function EntitySearch({
       </div>
 
       {isOpen && value.trim().length >= 2 && selected?.label !== value ? (
-        <div className="absolute left-0 right-0 top-[80px] z-30 overflow-hidden rounded-2xl border border-[#e0e4eb] bg-white p-1.5 shadow-[0_24px_70px_rgba(18,27,47,0.17)]">
+        <div className="hc-search-menu absolute left-0 right-0 top-[80px] z-30 overflow-hidden rounded-2xl border p-1.5">
           {searchFailed ? (
             <p className="px-4 py-3 text-sm text-[#9a3f2d]">
               Search is unavailable right now. Please try again.

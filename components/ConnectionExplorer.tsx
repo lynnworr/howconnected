@@ -16,7 +16,7 @@ type SearchSelection = {
   entity: SelectedEntity | null;
 };
 
-type ExplorerStatus = "idle" | "loading" | "success" | "empty" | "error";
+type ExplorerStatus = "idle" | "loading" | "success" | "empty" | "timeout" | "error";
 
 const LOADING_MESSAGES = [
   "Searching the knowledge graph...",
@@ -135,7 +135,7 @@ export default function ConnectionExplorer() {
     const controller = new AbortController();
     const timeout = window.setTimeout(() => controller.abort(), 45_000);
     const sessionConnectionNumber = incrementSessionConnectionCount();
-    trackProductEvent("connection_submit", {
+    trackProductEvent("search_initiated", {
       fromQid: from.entity.id,
       toQid: to.entity.id,
       sessionConnectionNumber,
@@ -155,13 +155,16 @@ export default function ConnectionExplorer() {
       if (!parsed) throw new Error("Malformed discovery response");
 
       if (!parsed.found || !parsed.bestPath) {
-        trackProductEvent("connection_no_result", {
-          fromQid: from.entity.id,
-          toQid: to.entity.id,
-          origin: "homepage",
-          sessionConnectionNumber,
-        });
-        setStatus("empty");
+        trackProductEvent(
+          parsed.timedOut ? "search_timed_out" : "search_no_reliable_path",
+          {
+            fromQid: from.entity.id,
+            toQid: to.entity.id,
+            origin: "homepage",
+            sessionConnectionNumber,
+          },
+        );
+        setStatus(parsed.timedOut ? "timeout" : "empty");
         return;
       }
 
@@ -174,13 +177,15 @@ export default function ConnectionExplorer() {
       );
     } catch (error: unknown) {
       console.error("Connection request failed", error);
-      trackProductEvent("connection_error", {
+      const timedOut =
+        error instanceof DOMException && error.name === "AbortError";
+      trackProductEvent(timedOut ? "search_timed_out" : "search_failed", {
         fromQid: from.entity.id,
         toQid: to.entity.id,
         origin: "homepage",
         sessionConnectionNumber,
       });
-      setStatus("error");
+      setStatus(timedOut ? "timeout" : "error");
     } finally {
       window.clearTimeout(timeout);
     }
@@ -190,7 +195,7 @@ export default function ConnectionExplorer() {
     <div className="w-full">
       <form
         onSubmit={submit}
-        className="mx-auto mt-10 w-full max-w-5xl rounded-[28px] border border-white/80 bg-white/75 p-4 shadow-[0_30px_90px_rgba(19,31,55,0.12)] backdrop-blur-xl md:p-6"
+        className="hc-panel hc-search-panel mx-auto mt-10 w-full max-w-5xl rounded-[28px] border p-4 backdrop-blur-xl md:p-6"
       >
         <div className="flex flex-col items-stretch gap-3 md:flex-row md:items-center">
           <EntitySearch
@@ -202,7 +207,7 @@ export default function ConnectionExplorer() {
             inputRef={firstInputRef}
           />
 
-          <div className="flex shrink-0 items-center justify-center gap-3 py-1 md:w-24 md:flex-col md:gap-1">
+          <div className="hc-search-connector flex shrink-0 items-center justify-center gap-3 py-1 md:w-24 md:flex-col md:gap-1">
             <span className="h-px flex-1 bg-[#d7dce4] md:h-3 md:w-px md:flex-none" />
             <span className="text-[10px] font-extrabold uppercase tracking-[0.17em] text-[#7b8495]">
               connects to
@@ -223,7 +228,7 @@ export default function ConnectionExplorer() {
           <button
             type="submit"
             disabled={!canSubmit || status === "loading"}
-            className="group inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-[#17233f] px-7 text-sm font-bold text-white shadow-[0_12px_30px_rgba(23,35,63,0.25)] transition enabled:hover:-translate-y-0.5 enabled:hover:bg-[#ff6846] enabled:hover:shadow-[0_16px_36px_rgba(255,104,70,0.28)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#ff6846] disabled:cursor-not-allowed disabled:opacity-40"
+            className="hc-search-submit group inline-flex min-h-12 items-center justify-center gap-2 rounded-full px-7 text-sm font-bold transition enabled:hover:-translate-y-0.5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#ff6846] disabled:cursor-not-allowed disabled:opacity-40"
           >
             Find the connection
             <span aria-hidden="true" className="transition-transform group-enabled:group-hover:translate-x-0.5">
@@ -242,14 +247,14 @@ export default function ConnectionExplorer() {
         </div>
       </form>
 
-      <div className="mt-6 flex flex-wrap items-center justify-center gap-2">
+      <div className="hc-examples mt-6 flex flex-wrap items-center justify-center gap-2">
         <span className="mr-1 text-xs font-semibold text-[#7b8495]">Try an example</span>
         {EXAMPLES.map((example) => (
           <button
             key={`${example.from.id}-${example.to.id}`}
             type="button"
             onClick={() => applyExample(example.from, example.to)}
-            className="rounded-full border border-[#d9dee6] bg-white/70 px-3 py-1.5 text-xs font-semibold text-[#46516a] transition hover:border-[#ff9b84] hover:bg-white hover:text-[#c9472d] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#ff6846]"
+            className="hc-example-chip rounded-full border px-3 py-1.5 text-xs font-semibold transition focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#ff6846]"
           >
             {example.from.label} <span aria-hidden="true">→</span> {example.to.label}
           </button>
@@ -258,7 +263,7 @@ export default function ConnectionExplorer() {
 
       {status === "loading" ? (
         <section
-          className="mx-auto mt-12 max-w-3xl rounded-[28px] border border-[#e1e5eb] bg-white/80 px-6 py-10 text-center shadow-[0_20px_70px_rgba(20,30,50,0.08)]"
+          className="hc-panel mx-auto mt-12 max-w-3xl rounded-[28px] border px-6 py-10 text-center"
           aria-live="polite"
           aria-busy="true"
         >
@@ -289,21 +294,25 @@ export default function ConnectionExplorer() {
         />
       ) : null}
 
-      {status === "empty" || status === "error" ? (
+      {status === "empty" || status === "timeout" || status === "error" ? (
         <section
           aria-live="polite"
-          className="mx-auto mt-12 max-w-xl rounded-[28px] border border-[#eadfd8] bg-[#fffaf6] px-6 py-9 text-center shadow-[0_18px_60px_rgba(30,35,50,0.07)]"
+          className="hc-panel mx-auto mt-12 max-w-xl rounded-[28px] border px-6 py-9 text-center"
         >
           <span className="text-3xl" aria-hidden="true">⌁</span>
           <h2 className="mt-3 text-xl font-bold text-[#192541]">
             {status === "empty"
               ? "We couldn't find a strong connection yet."
-              : "We couldn't complete that search."}
+              : status === "timeout"
+                ? "That search took too long."
+                : "We couldn't complete that search."}
           </h2>
           <p className="mx-auto mt-2 max-w-md text-sm leading-6 text-[#6f7889]">
             {status === "empty"
               ? "Try another pair — our knowledge graph is still growing."
-              : "Something got in the way. Please try again in a moment."}
+              : status === "timeout"
+                ? "The connection search reached its time limit. Try again or choose another pair."
+                : "Something got in the way. Please try again in a moment."}
           </p>
           <button
             type="button"
