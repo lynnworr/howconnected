@@ -1,9 +1,13 @@
 import "server-only";
 
+import { AsyncResourceCache } from "@/lib/async-resource-cache";
+
 export { isValidQid } from "@/lib/wikidata-id";
 
 const WIKIDATA_API_URL = "https://www.wikidata.org/w/api.php";
 const REQUEST_TIMEOUT_MS = 3_000;
+const ENTITY_CACHE_TTL_MS = 6 * 60 * 60 * 1_000;
+const ENTITY_CACHE_MAX_ENTRIES = 500;
 
 type JsonObject = Record<string, unknown>;
 
@@ -18,6 +22,11 @@ export type WikidataEntitySummary = {
 export type WikidataEntity = WikidataEntitySummary & {
   claims: Record<string, readonly unknown[]>;
 };
+
+const entityCache = new AsyncResourceCache<string, WikidataEntity>({
+  ttlMs: ENTITY_CACHE_TTL_MS,
+  maxEntries: ENTITY_CACHE_MAX_ENTRIES,
+});
 
 export class WikidataFetchError extends Error {
   constructor(message: string) {
@@ -165,17 +174,19 @@ function normalizeSummary(
 }
 
 export async function fetchWikidataEntity(qid: string): Promise<WikidataEntity> {
-  const records = await fetchEntityRecords([qid], true);
-  const value = records[qid];
+  return entityCache.get(qid, async () => {
+    const records = await fetchEntityRecords([qid], true);
+    const value = records[qid];
 
-  if (!isJsonObject(value) || value.missing !== undefined) {
-    throw new WikidataEntityNotFoundError(qid);
-  }
+    if (!isJsonObject(value) || value.missing !== undefined) {
+      throw new WikidataEntityNotFoundError(qid);
+    }
 
-  return {
-    ...normalizeSummary(qid, value),
-    claims: readClaims(value.claims),
-  };
+    return {
+      ...normalizeSummary(qid, value),
+      claims: readClaims(value.claims),
+    };
+  });
 }
 
 export async function fetchWikidataEntitySummaries(

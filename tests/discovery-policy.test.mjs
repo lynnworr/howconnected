@@ -188,6 +188,18 @@ test("adds only explicitly present supported contextual properties", () => {
   assert.ok(!contextual.includes("P179"));
 });
 
+test("prioritizes only approved properties that explicitly reach the requested target", () => {
+  const selected = ids(selectOutgoingDiscoveryProperties("person", properties, {
+    availablePropertyIds: ["P641", "P179", "P400", "P123"],
+    explicitTargetPropertyIds: ["P641", "P179", "P400", "P123"],
+  }));
+
+  assert.equal(selected[0], "P641");
+  assert.ok(!selected.includes("P179"));
+  assert.ok(!selected.includes("P400"));
+  assert.ok(!selected.includes("P123"));
+});
+
 test("supports bounded sport taxonomy without broad reverse discovery", () => {
   const sport = APPROVED_WIKIDATA_PROPERTIES.P641;
 

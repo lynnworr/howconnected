@@ -59,14 +59,23 @@ function selectConfiguredProperties(
 export function selectOutgoingDiscoveryProperties(
   domain: EntityDomain,
   properties: readonly WikidataPropertyConfig[],
-  context: { availablePropertyIds?: readonly string[] } = {},
+  context: {
+    availablePropertyIds?: readonly string[];
+    explicitTargetPropertyIds?: readonly string[];
+  } = {},
 ): WikidataPropertyConfig[] {
   const contextualPropertyIds = [
     "P276", "P793", "P137", "P361", "P131",
-    "P1344", "P84", "P86", "P710", "P112",
+    "P1344", "P84", "P86", "P710", "P112", "P286",
   ].filter((propertyId) => context.availablePropertyIds?.includes(propertyId));
   return selectConfiguredProperties(
-    [...new Set([...OUTGOING_PROPERTIES[domain], ...contextualPropertyIds])],
+    [
+      ...new Set([
+        ...(context.explicitTargetPropertyIds ?? []),
+        ...OUTGOING_PROPERTIES[domain],
+        ...contextualPropertyIds,
+      ]),
+    ],
     properties,
   );
 }

@@ -165,6 +165,14 @@ test("records expansion diagnostics and rejected candidate scores", async () => 
         relationshipsAdded: 3,
         relationshipsDiscovered: 5,
         reverseLookupComplete: true,
+        timings: {
+          entityFetchMs: 10,
+          hierarchyMs: 20,
+          reverseLookupMs: 30,
+          targetSummaryMs: 40,
+          neo4jWriteMs: 50,
+          totalMs: 150,
+        },
       }),
     }),
     { ...config, maxDepthPerSide: 1 },
@@ -174,6 +182,29 @@ test("records expansion diagnostics and rejected candidate scores", async () => 
   assert.equal(result.discovery.bestRejectedPathScore, 9);
   assert.equal(result.discovery.expandedBySide.source[0].relationshipsDiscovered, 5);
   assert.equal(result.discovery.expandedBySide.target[0].reverseLookupComplete, true);
+  assert.equal(result.discovery.expandedBySide.source[0].timings.totalMs, 150);
+});
+
+test("skips redundant path searches when ingestion discovers no relationships", async () => {
+  let pathSearches = 0;
+  await runDiscovery(
+    "Q1",
+    "Q2",
+    dependencies({
+      findPaths: async () => {
+        pathSearches += 1;
+        return noPaths;
+      },
+      ingest: async () => ({
+        entitiesAdded: 0,
+        relationshipsAdded: 0,
+        relationshipsDiscovered: 0,
+      }),
+    }),
+    { ...config, maxDepthPerSide: 1 },
+  );
+
+  assert.equal(pathSearches, 2);
 });
 
 test("refreshes only expanded roots for a source-verified direct statement", async () => {
@@ -313,6 +344,26 @@ test("terminates gracefully when the configured timeout expires", async () => {
   assert.ok(result.discovery.runtimeMs >= 100);
 });
 
+test("returns at the hard deadline when a dependency never settles", async () => {
+  const startedAt = performance.now();
+  const result = await runDiscovery(
+    "Q1",
+    "Q2",
+    dependencies({
+      findPaths: async () => new Promise(() => {}),
+    }),
+    { ...config, maxExecutionMs: 30 },
+  );
+  const elapsedMs = performance.now() - startedAt;
+
+  assert.equal(result.found, false);
+  assert.equal(result.discovery.timedOut, true);
+  assert.equal(result.discovery.terminationReason, "hard-deadline-exceeded");
+  assert.equal(result.discovery.stages[0].status, "timeout");
+  assert.ok(elapsedMs >= 20);
+  assert.ok(elapsedMs < 250);
+});
+
 test("reports strongest closest bridges on both sides", async () => {
   const result = await runDiscovery(
     "Q1",
@@ -396,6 +447,38 @@ test("uses bounded Wikipedia candidates only to prioritize semantic ingestion", 
   assert.equal(result.discovery.terminationReason, "assisted-connection-found");
 });
 
+test("does not start assisted discovery after the semantic budget is exhausted", async () => {
+  let clock = 0;
+  let assistedCalls = 0;
+  const result = await runDiscovery(
+    "Q1",
+    "Q2",
+    dependencies({
+      now: () => (clock += 100),
+      getAssistedCandidates: async () => {
+        assistedCalls += 1;
+        return {
+          source: [{ qid: "Q9", title: "Candidate", shared: true }],
+          target: [],
+          status: "ok",
+        };
+      },
+    }),
+    {
+      ...config,
+      maxExecutionMs: 1_000,
+      semanticStageMs: 300,
+      maxDepthPerSide: 1,
+    },
+  );
+
+  assert.equal(result.found, false);
+  assert.equal(result.discovery.timedOut, false);
+  assert.equal(result.discovery.terminationReason, "semantic-budget-exhausted");
+  assert.equal(result.discovery.stages.at(-1).stage, "B");
+  assert.equal(assistedCalls, 0);
+});
+
 test("uses the shortened total deadline across semantic and assisted stages", async () => {
   let clock = 0;
   const result = await runDiscovery(
@@ -413,7 +496,7 @@ test("uses the shortened total deadline across semantic and assisted stages", as
       ...config,
       maxExecutionMs: 600,
       semanticStageMs: 300,
-      maxDepthPerSide: 1,
+      maxDepthPerSide: 0,
       wikipediaCandidatesPerSide: 20,
       maxAssistedCandidates: 8,
     },

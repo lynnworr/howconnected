@@ -192,6 +192,7 @@ export function discoverConnection(fromQid: string, toQid: string) {
           relationshipsAdded: result.relationshipsAdded,
           relationshipsDiscovered: result.relationshipsDiscovered,
           reverseLookupComplete: result.reverseLookupComplete,
+          timings: result.timings,
         };
       },
     },

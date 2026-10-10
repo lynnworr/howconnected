@@ -1,6 +1,13 @@
-const BASE_URL = process.env.BENCHMARK_BASE_URL ?? "http://localhost:3000";
+import { PHASE2A_REGRESSION_PAIRS } from "./phase2a-regression-pairs.mjs";
+import { PHASE2A_STABILIZATION_PAIRS } from "./phase2a-stabilization-pairs.mjs";
 
-const pairs = [
+const baseUrlArgument = process.argv
+  .slice(2)
+  .find((argument) => argument.startsWith("--base-url="))
+  ?.slice("--base-url=".length);
+const BASE_URL = baseUrlArgument ?? process.env.BENCHMARK_BASE_URL ?? "http://localhost:3000";
+
+const generalPairs = [
   ["Kevin Bacon", "Q3454165", "Paw Patrol", "Q15106029"],
   ["Adam Sandler", "Q132952", "Los Angeles Lakers", "Q121783"],
   ["Bluey", "Q39071378", "Las Vegas Raiders", "Q324523"],
@@ -33,6 +40,13 @@ const pairs = [
   ["Mona Lisa", "Q12418", "Italy", "Q38"],
   ["Sydney Opera House", "Q45178", "Denmark", "Q35"],
 ];
+const phase2aOnly = process.argv.includes("--phase2a");
+const stabilizationOnly = process.argv.includes("--stabilization");
+const pairs = stabilizationOnly
+  ? PHASE2A_STABILIZATION_PAIRS
+  : phase2aOnly
+    ? PHASE2A_REGRESSION_PAIRS
+    : generalPairs;
 
 const results = [];
 for (const [source, fromQid, target, toQid] of pairs) {
@@ -111,8 +125,10 @@ function summarize(sample) {
 
 const summary = {
   overall: summarize(results),
-  originalCrossDomain: summarize(results.slice(0, 25)),
-  monumentAndArtwork: summarize(results.slice(25)),
+  ...(phase2aOnly || stabilizationOnly ? {} : {
+    originalCrossDomain: summarize(results.slice(0, 25)),
+    monumentAndArtwork: summarize(results.slice(25)),
+  }),
 };
 
 console.log(JSON.stringify({ summary, results }, null, 2));

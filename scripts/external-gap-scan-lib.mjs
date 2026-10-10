@@ -258,6 +258,14 @@ export function buildExternalReportSections(results, configs) {
 }
 
 export function compareExternalReports(before, after) {
+  const runtimePercentile = (report, summaryKey, percentile) => {
+    if (Number.isFinite(report.summary?.[summaryKey])) return report.summary[summaryKey];
+    const runtimes = (report.results ?? [])
+      .filter((result) => !result.inconclusive && Number.isFinite(result.runtimeMs))
+      .map((result) => result.runtimeMs)
+      .sort((left, right) => left - right);
+    return runtimes[Math.max(0, Math.ceil(runtimes.length * percentile) - 1)] ?? 0;
+  };
   const beforeResults = new Map(before.results.map((result) => [result.pairId, result]));
   const afterResults = new Map(after.results.map((result) => [result.pairId, result]));
   const falseNegativesFixed = [];
@@ -277,6 +285,9 @@ export function compareExternalReports(before, after) {
     afterRunId: after.runId,
     overallCoverageChange: (1 - after.summary.falseNegativeRate) - (1 - before.summary.falseNegativeRate),
     medianRuntimeChangeMs: (after.summary.medianRuntimeMs ?? 0) - (before.summary.medianRuntimeMs ?? 0),
+    p90RuntimeChangeMs:
+      runtimePercentile(after, "p90RuntimeMs", 0.9) -
+      runtimePercentile(before, "p90RuntimeMs", 0.9),
     p95RuntimeChangeMs: (after.summary.p95RuntimeMs ?? 0) - (before.summary.p95RuntimeMs ?? 0),
     timeoutRateChange: (after.summary.timeoutRate ?? 0) - (before.summary.timeoutRate ?? 0),
     suspiciousPathCountChange: (after.summary.suspiciousPathCount ?? 0) - (before.summary.suspiciousPathCount ?? 0),
@@ -288,7 +299,7 @@ export function compareExternalReports(before, after) {
 }
 
 export function externalResultsToCsv(results) {
-  const columns = ["pairId", "wikidataProperty", "expectedRelationship", "relationshipFamily", "supportStatus", "sourceQid", "sourceName", "sourceDomain", "targetQid", "targetName", "targetDomain", "found", "falseNegative", "inconclusive", "returnedPath", "returnedRelationships", "qualityBand", "score", "suspicious", "suspiciousPatterns", "runtimeMs", "stage", "terminationReason", "primaryFailureCause", "failureCauses"];
+  const columns = ["pairId", "wikidataProperty", "expectedRelationship", "relationshipFamily", "supportStatus", "sourceQid", "sourceName", "sourceDomain", "targetQid", "targetName", "targetDomain", "found", "falseNegative", "inconclusive", "returnedPath", "returnedRelationships", "qualityBand", "score", "suspicious", "suspiciousPatterns", "runtimeMs", "routeRuntimeMs", "clientOverheadMs", "stage", "terminationReason", "primaryFailureCause", "failureCauses"];
   return `${columns.join(",")}\n${results.map((result) => columns.map((column) => csvCell(Array.isArray(result[column]) ? result[column].join(" | ") : result[column])).join(",")).join("\n")}\n`;
 }
 

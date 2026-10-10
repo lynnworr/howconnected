@@ -31,14 +31,25 @@ export type PatternPenalty = {
     | "education-person-hop"
     | "membership-return-hop"
     | "association-return-hop"
+    | "shared-sport-hop"
     | "citizenship-return-hop"
     | "citizenship-geography-bounce"
     | "country-citizen-hop"
     | "geographic-return-hop"
     | "shared-organization-place-hop"
+    | "founder-geography-chain"
     | "repeated-association"
     | "generic-institution-chain"
-    | "investment-ownership-chain";
+    | "investment-ownership-chain"
+    | "geographic-peer-detour"
+    | "event-location-return-hop"
+    | "ownership-place-chain"
+    | "geographic-nonplace-detour"
+    | "event-organization-geography-chain"
+    | "founder-place-detour"
+    | "shared-participant-place-hop"
+    | "event-citizen-organization-detour"
+    | "multi-place-endpoint-detour";
   penalty: number;
 };
 
@@ -120,6 +131,20 @@ function isHistoricalState(node: ScoreablePath["nodes"][number]): boolean {
   );
 }
 
+function isPlaceNode(node: ScoreablePath["nodes"][number] | undefined): boolean {
+  return node?.type === "place";
+}
+
+function isOrganizationNode(
+  node: ScoreablePath["nodes"][number] | undefined,
+): boolean {
+  return node?.type?.includes("organization") === true;
+}
+
+function isEventNode(node: ScoreablePath["nodes"][number] | undefined): boolean {
+  return node?.type === "event" || node?.type === "historical event";
+}
+
 export function calculatePatternPenalties(
   path: ScoreablePath,
 ): PatternPenalty[] {
@@ -154,6 +179,14 @@ export function calculatePatternPenalties(
       next.direction === "reverse"
     ) {
       penalties.push({ kind: "association-return-hop", penalty: 3 });
+    }
+    if (
+      current.storedType === "SPORT" &&
+      next.storedType === "SPORT" &&
+      current.direction === "forward" &&
+      next.direction === "reverse"
+    ) {
+      penalties.push({ kind: "shared-sport-hop", penalty: 5 });
     }
     if (
       current.storedType === "COUNTRY_OF_CITIZENSHIP" &&
@@ -204,6 +237,49 @@ export function calculatePatternPenalties(
     ) {
       penalties.push({ kind: "shared-organization-place-hop", penalty: 4 });
     }
+    if (
+      path.relationships.length >= 3 &&
+      typeof current.storedType === "string" &&
+      typeof next.storedType === "string" &&
+      GEOGRAPHIC_CONTAINER_TYPES.has(current.storedType) &&
+      GEOGRAPHIC_CONTAINER_TYPES.has(next.storedType) &&
+      current.direction === "reverse" &&
+      next.direction === "forward"
+    ) {
+      penalties.push({ kind: "geographic-peer-detour", penalty: 4 });
+    }
+    if (
+      current.storedType === "SIGNIFICANT_EVENT" &&
+      current.direction === "reverse" &&
+      next.storedType === "LOCATION" &&
+      next.direction === "reverse"
+    ) {
+      penalties.push({ kind: "event-location-return-hop", penalty: 4 });
+    }
+    if (
+      path.relationships.length >= 3 &&
+      current.storedType === "PARTICIPANT" &&
+      next.storedType === "PARTICIPANT" &&
+      current.direction === "reverse" &&
+      next.direction === "forward" &&
+      isPlaceNode(path.nodes[index]) &&
+      isPlaceNode(path.nodes[index + 2])
+    ) {
+      penalties.push({ kind: "shared-participant-place-hop", penalty: 4 });
+    }
+    if (
+      path.relationships.length >= 4 &&
+      current.storedType === "PARTICIPANT" &&
+      current.direction === "forward" &&
+      next.storedType === "COUNTRY_OF_CITIZENSHIP" &&
+      next.direction === "reverse" &&
+      isEventNode(path.nodes[index]) &&
+      isPlaceNode(path.nodes[index + 1]) &&
+      isOrganizationNode(path.nodes[0]) &&
+      isOrganizationNode(path.nodes.at(-1))
+    ) {
+      penalties.push({ kind: "event-citizen-organization-detour", penalty: 4 });
+    }
   }
 
   const associationCount = types.filter((type) => ASSOCIATION_TYPES.has(type)).length;
@@ -212,6 +288,15 @@ export function calculatePatternPenalties(
       kind: "repeated-association",
       penalty: roundScore((associationCount - 1) * 1.25),
     });
+  }
+
+  const founderCount = types.filter((type) => type === "FOUNDED_BY").length;
+  const placeCount = path.nodes.filter((node) => node.type === "place").length;
+  const hasGeographicBridge = types.some((type) =>
+    ["LOCATION", "LOCATED_IN_ADMINISTRATIVE_ENTITY", "PART_OF"].includes(type),
+  );
+  if (founderCount >= 2 && placeCount >= 2 && hasGeographicBridge) {
+    penalties.push({ kind: "founder-geography-chain", penalty: 5 });
   }
 
   const genericInstitutions = path.nodes.slice(1, -1).filter(isGenericInstitution).length;
@@ -229,6 +314,61 @@ export function calculatePatternPenalties(
       kind: "investment-ownership-chain",
       penalty: roundScore(2 + (ownershipCount - 2) * 0.75),
     });
+  }
+
+  if (
+    ownershipCount >= 2 &&
+    path.nodes.filter(isPlaceNode).length >= 2
+  ) {
+    penalties.push({ kind: "ownership-place-chain", penalty: 4 });
+  }
+
+  const geographicCount = types.filter((type) =>
+    GEOGRAPHIC_CONTAINER_TYPES.has(type),
+  ).length;
+  if (
+    path.relationships.length >= 3 &&
+    geographicCount >= 2 &&
+    isPlaceNode(path.nodes[0]) &&
+    isPlaceNode(path.nodes.at(-1)) &&
+    path.nodes.slice(1, -1).some((node) => !isPlaceNode(node))
+  ) {
+    penalties.push({ kind: "geographic-nonplace-detour", penalty: 4 });
+  }
+
+  if (
+    path.relationships.length >= 4 &&
+    geographicCount >= 2 &&
+    path.nodes.slice(1, -1).some(isEventNode) &&
+    path.nodes.slice(1, -1).some(isOrganizationNode)
+  ) {
+    penalties.push({ kind: "event-organization-geography-chain", penalty: 4 });
+  }
+
+  if (
+    path.relationships.length >= 3 &&
+    path.relationships[0]?.storedType === "FOUNDED_BY" &&
+    path.relationships[0]?.direction === "forward" &&
+    isOrganizationNode(path.nodes[0]) &&
+    isPlaceNode(path.nodes[1]) &&
+    isPlaceNode(path.nodes.at(-1)) &&
+    path.nodes.slice(2, -1).some((node) => !isPlaceNode(node))
+  ) {
+    penalties.push({ kind: "founder-place-detour", penalty: 4 });
+  }
+
+  const hasConsecutiveIntermediatePlaces = path.nodes
+    .slice(1, -2)
+    .some((node, index) =>
+      isPlaceNode(node) && isPlaceNode(path.nodes[index + 2]),
+    );
+  if (
+    path.relationships.length >= 3 &&
+    !isPlaceNode(path.nodes[0]) &&
+    !isPlaceNode(path.nodes.at(-1)) &&
+    hasConsecutiveIntermediatePlaces
+  ) {
+    penalties.push({ kind: "multi-place-endpoint-detour", penalty: 3 });
   }
 
   return penalties;

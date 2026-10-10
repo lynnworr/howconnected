@@ -213,6 +213,40 @@ async function findRankedPaths(
   source: Selector,
   target: Selector,
 ): Promise<RankedPathResult> {
+  const directResult = await getNeo4jDriver().executeQuery(
+    `
+      MATCH (source:Entity {${source.field}: $source})
+      MATCH (target:Entity {${target.field}: $target})
+      MATCH path = (source)-[relationship]-(target)
+      WHERE type(relationship) IN $traversableRelationshipTypes
+      RETURN path
+      LIMIT $candidateLimit
+    `,
+    {
+      source: source.value,
+      target: target.value,
+      candidateLimit: neo4j.int(MAX_CANDIDATES),
+      traversableRelationshipTypes: TRAVERSABLE_RELATIONSHIP_TYPES,
+    },
+  );
+  const directCandidates = directResult.records.flatMap((record) => {
+    const value: unknown = record.get("path");
+    if (!neo4j.isPath(value)) return [];
+    const candidate = serializePath(value);
+    return candidate ? [candidate] : [];
+  });
+
+  if (directCandidates.length > 0) {
+    const rankedPaths = dedupeRankedPaths(rankPathCandidates(directCandidates))
+      .slice(0, MAX_RETURNED_PATHS)
+      .map(preparePathForResponse);
+    return {
+      bestPath: rankedPaths[0] ?? null,
+      alternatePaths: rankedPaths.slice(1),
+      candidatePathCount: directCandidates.length,
+    };
+  }
+
   const result = await getNeo4jDriver().executeQuery(
     `
       MATCH (source:Entity {${source.field}: $source})

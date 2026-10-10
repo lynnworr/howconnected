@@ -260,6 +260,10 @@ async function discover(pair) {
   }
   const bestPath = body?.bestPath ?? null;
   const suspiciousPatterns = detectSuspiciousPatterns(bestPath);
+  const runtimeMs = Math.round(performance.now() - startedAt);
+  const routeRuntimeMs = Number.isFinite(body?.diagnostics?.runtimeMs)
+    ? body.diagnostics.runtimeMs
+    : null;
   return {
     pairId: pair.id,
     wikidataProperty: pair.wikidataProperty,
@@ -281,7 +285,10 @@ async function discover(pair) {
     suspiciousPatterns,
     qualityBand: bestPath?.qualityBand ?? null,
     score: bestPath?.score ?? null,
-    runtimeMs: Math.round(performance.now() - startedAt),
+    runtimeMs,
+    routeRuntimeMs,
+    clientOverheadMs:
+      routeRuntimeMs === null ? null : Math.max(0, runtimeMs - routeRuntimeMs),
     stage: body?.diagnostics?.stage ?? null,
     terminationReason: body?.diagnostics?.terminationReason ?? body?.error ?? "unknown",
     httpStatus: response?.status ?? null,
@@ -393,6 +400,13 @@ await saveCheckpoint();
 const conclusiveResults = results.filter(({ inconclusive }) => !inconclusive);
 const runtimes = conclusiveResults.map(({ runtimeMs }) => runtimeMs).sort((a, b) => a - b);
 const falseNegatives = conclusiveResults.filter(({ falseNegative }) => falseNegative).length;
+const deadlineFailures = conclusiveResults.filter((result) =>
+  result.diagnostics?.timedOut === true ||
+  result.terminationReason === "hard-deadline-exceeded"
+);
+const clientOverheadOutliers = conclusiveResults.filter(
+  ({ clientOverheadMs }) => Number.isFinite(clientOverheadMs) && clientOverheadMs > 5_000,
+);
 const summary = {
   totalPairs: results.length,
   conclusivePairs: conclusiveResults.length,
@@ -402,9 +416,13 @@ const summary = {
   falseNegativeRate: conclusiveResults.length === 0 ? 0 : falseNegatives / conclusiveResults.length,
   averageRuntimeMs: conclusiveResults.length === 0 ? 0 : Math.round(runtimes.reduce((sum, runtime) => sum + runtime, 0) / conclusiveResults.length),
   medianRuntimeMs: runtimes[Math.floor(runtimes.length / 2)] ?? 0,
+  p90RuntimeMs: runtimes[Math.max(0, Math.ceil(runtimes.length * 0.9) - 1)] ?? 0,
   p95RuntimeMs: runtimes[Math.max(0, Math.ceil(runtimes.length * 0.95) - 1)] ?? 0,
   timeoutCount: conclusiveResults.filter((result) => result.failureCauses.includes("timeout")).length,
   timeoutRate: conclusiveResults.length === 0 ? 0 : conclusiveResults.filter((result) => result.failureCauses.includes("timeout")).length / conclusiveResults.length,
+  deadlineFailureCount: deadlineFailures.length,
+  clientOverheadOutlierCount: clientOverheadOutliers.length,
+  maxClientOverheadMs: Math.max(0, ...clientOverheadOutliers.map(({ clientOverheadMs }) => clientOverheadMs)),
   suspiciousPathCount: conclusiveResults.filter(({ found, suspicious }) => found && suspicious).length,
   suspiciousPathRate: conclusiveResults.length === 0 ? 0 : conclusiveResults.filter(({ found, suspicious }) => found && suspicious).length / conclusiveResults.length,
 };
@@ -450,8 +468,10 @@ function renderMarkdown(value) {
     `Inconclusive upstream failures: ${value.summary.inconclusivePairs}`,
     `False negatives: ${value.summary.falseNegatives} (${percent(value.summary.falseNegativeRate)})`,
     `Average runtime: ${value.summary.averageRuntimeMs} ms`,
-    `Median / p95 runtime: ${value.summary.medianRuntimeMs} / ${value.summary.p95RuntimeMs} ms`,
+    `Median / p90 / p95 runtime: ${value.summary.medianRuntimeMs} / ${value.summary.p90RuntimeMs} / ${value.summary.p95RuntimeMs} ms`,
     `Timeouts: ${value.summary.timeoutCount} (${percent(value.summary.timeoutRate)})`,
+    `Deadline failures: ${value.summary.deadlineFailureCount}`,
+    `Client overhead outliers (>5s): ${value.summary.clientOverheadOutlierCount}`,
     `Suspicious found paths: ${value.summary.suspiciousPathCount} (${percent(value.summary.suspiciousPathRate)})`,
     "",
     "## Property coverage",

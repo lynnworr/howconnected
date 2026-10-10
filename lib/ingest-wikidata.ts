@@ -59,6 +59,16 @@ export type WikidataIngestionResult = {
   relationshipsDiscovered: number;
   reverseLookupComplete: boolean;
   propertiesFound: IngestionPropertyResult[];
+  timings: WikidataIngestionTimings;
+};
+
+export type WikidataIngestionTimings = {
+  entityFetchMs: number;
+  hierarchyMs: number;
+  reverseLookupMs: number;
+  targetSummaryMs: number;
+  neo4jWriteMs: number;
+  totalMs: number;
 };
 
 export type WikidataIngestionOptions = {
@@ -123,10 +133,23 @@ function collectRelationships(
       : Math.max(0, options.maxNewEntities - 1),
   );
 
+  const approvedProperties = Object.values(APPROVED_WIKIDATA_PROPERTIES);
+  const explicitTargetPropertyIds = options.priorityTargetQid
+    ? approvedProperties.flatMap((property) =>
+        getEntityQids(entity.claims[property.wikidataProperty] ?? []).includes(
+          options.priorityTargetQid as string,
+        )
+          ? [property.wikidataProperty]
+          : [],
+      )
+    : [];
   const selectedProperties = selectOutgoingDiscoveryProperties(
     domain,
-    Object.values(APPROVED_WIKIDATA_PROPERTIES),
-    { availablePropertyIds: Object.keys(entity.claims) },
+    approvedProperties,
+    {
+      availablePropertyIds: Object.keys(entity.claims),
+      explicitTargetPropertyIds,
+    },
   ).sort((left, right) => {
     if (!options.priorityTargetQid) return 0;
     const hasPriorityTarget = (property: WikidataPropertyConfig) =>
@@ -189,14 +212,18 @@ export async function ingestWikidataEntityWithMetadata(
   qid: string,
   options: WikidataIngestionOptions = {},
 ): Promise<WikidataIngestionResult> {
+  const startedAt = Date.now();
   const entity = await fetchWikidataEntity(qid);
+  const entityFetchedAt = Date.now();
   const instanceOfQids = getEntityQids(entity.claims.P31 ?? []);
+  const hierarchyStartedAt = Date.now();
   const ancestorQids = options.resolveTypeHierarchy && !hasKnownEntityDomain(instanceOfQids)
     ? await resolveWikidataTypeHierarchy(instanceOfQids, {
         fetchEntities: fetchWikidataEntities,
         deadlineMs: options.deadlineMs,
       })
     : instanceOfQids;
+  const hierarchyFinishedAt = Date.now();
   const sourceType = classifyEntityDomain({
     instanceOfQids,
     ancestorQids,
@@ -214,6 +241,7 @@ export async function ingestWikidataEntityWithMetadata(
   );
   const incomingCandidates: RelationshipCandidate[] = [];
   let reverseLookupComplete = true;
+  const reverseLookupStartedAt = Date.now();
 
   for (const property of options.directTargetOnly ? [] : selectReverseDiscoveryProperties(
     { type: sourceType, description: entity.description },
@@ -251,8 +279,10 @@ export async function ingestWikidataEntityWithMetadata(
       linkedEntities: incomingQids.length,
     });
   }
+  const reverseLookupFinishedAt = Date.now();
 
   const candidates = [...outgoingCandidates, ...incomingCandidates];
+  const targetSummaryStartedAt = Date.now();
   const targetSummaries = (await fetchWikidataEntitySummaries(
     candidates.map((candidate) => candidate.targetQid),
   )).map((summary) => ({
@@ -262,8 +292,10 @@ export async function ingestWikidataEntityWithMetadata(
       description: summary.description,
     }),
   }));
+  const targetSummaryFinishedAt = Date.now();
   const driver = getNeo4jDriver();
   const session = driver.session();
+  const neo4jWriteStartedAt = Date.now();
 
   try {
     const counts = await session.executeWrite(async (transaction) => {
@@ -405,6 +437,14 @@ export async function ingestWikidataEntityWithMetadata(
       relationshipsDiscovered: candidates.length,
       reverseLookupComplete,
       propertiesFound,
+      timings: {
+        entityFetchMs: entityFetchedAt - startedAt,
+        hierarchyMs: hierarchyFinishedAt - hierarchyStartedAt,
+        reverseLookupMs: reverseLookupFinishedAt - reverseLookupStartedAt,
+        targetSummaryMs: targetSummaryFinishedAt - targetSummaryStartedAt,
+        neo4jWriteMs: Date.now() - neo4jWriteStartedAt,
+        totalMs: Date.now() - startedAt,
+      },
     };
   } finally {
     await session.close();

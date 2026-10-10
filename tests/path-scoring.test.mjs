@@ -150,6 +150,45 @@ test("treats a direct team-to-sport statement as a strong semantic path", () => 
   assert.equal(score.qualityBand, "strong");
 });
 
+test("rejects using a shared sport to connect an unrelated team and athlete", () => {
+  const score = scorePath({
+    nodes: [
+      { id: "team", type: "sports team" },
+      { id: "football", type: "entity" },
+      { id: "athlete", type: "sports person" },
+    ],
+    relationships: [
+      { weight: 1, storedType: "SPORT", direction: "forward" },
+      { weight: 1, storedType: "SPORT", direction: "reverse" },
+    ],
+  });
+
+  assert.deepEqual(score.patternPenalties, [
+    { kind: "shared-sport-hop", penalty: 5 },
+  ]);
+  assert.equal(score.qualityBand, "weak");
+});
+
+test("preserves direct athlete-team and team-league relationships", () => {
+  const athleteTeam = scorePath({
+    nodes: [node("athlete"), node("team")],
+    relationships: [
+      { weight: 1.2, storedType: "MEMBER_OF_SPORTS_TEAM", direction: "forward" },
+    ],
+  });
+  const teamLeague = scorePath({
+    nodes: [node("team"), node("league")],
+    relationships: [
+      { weight: 1.2, storedType: "LEAGUE", direction: "forward" },
+    ],
+  });
+
+  assert.equal(athleteTeam.patternPenalty, 0);
+  assert.equal(teamLeague.patternPenalty, 0);
+  assert.equal(athleteTeam.qualityBand, "strong");
+  assert.equal(teamLeague.qualityBand, "strong");
+});
+
 test("classifies quality bands and rejects non-semantic path edges", () => {
   assert.equal(classifyPathQuality(4, 0), "strong");
   assert.equal(classifyPathQuality(7, 1), "acceptable");
@@ -289,6 +328,40 @@ test("rejects countries joined only because they founded the same organization",
   assert.equal(score.qualityBand, "weak");
 });
 
+test("rejects a founder chain routed through countries and a geopolitical container", () => {
+  const score = scorePath({
+    nodes: [
+      { id: "group", type: "company/organization" },
+      { id: "denmark", type: "place" },
+      { id: "union", type: "company/organization" },
+      { id: "luxembourg", type: "place" },
+    ],
+    relationships: [
+      { weight: 1, storedType: "FOUNDED_BY", direction: "forward" },
+      { weight: 1.6, storedType: "PART_OF", direction: "forward" },
+      { weight: 1, storedType: "FOUNDED_BY", direction: "forward" },
+    ],
+  });
+
+  assert.ok(score.patternPenalties.some(({ kind }) => kind === "founder-geography-chain"));
+  assert.equal(score.qualityBand, "weak");
+});
+
+test("preserves direct organization-founder relationships", () => {
+  const score = scorePath({
+    nodes: [
+      { id: "organization", type: "company/organization" },
+      { id: "founder", type: "person" },
+    ],
+    relationships: [
+      { weight: 1, storedType: "FOUNDED_BY", direction: "forward" },
+    ],
+  });
+
+  assert.equal(score.patternPenalty, 0);
+  assert.equal(score.qualityBand, "strong");
+});
+
 test("rejects a country used to select an unrelated citizen", () => {
   const score = scorePath({
     nodes: [
@@ -365,4 +438,140 @@ test("prefers a direct domain relationship over a slightly cheaper indirect path
 
   assert.equal(ranked[0].name, "direct operator");
   assert.equal(ranked[0].directRelationshipBonus, 0.4);
+});
+
+test("rejects evidenced geographic, event, ownership, and place detours", () => {
+  const cases = [
+    {
+      expected: "geographic-nonplace-detour",
+      nodes: [
+        { id: "origin", type: "place" },
+        { id: "country", type: "place" },
+        { id: "station", type: "transportation" },
+        { id: "target", type: "place" },
+      ],
+      relationships: [
+        { weight: 1.3, storedType: "COUNTRY", direction: "forward" },
+        { weight: 1.5, storedType: "LOCATED_IN_ADMINISTRATIVE_ENTITY", direction: "reverse" },
+        { weight: 1.2, storedType: "PARTICIPANT_IN", direction: "reverse" },
+      ],
+    },
+    {
+      expected: "geographic-peer-detour",
+      nodes: [node("vehicle"), node("country-a"), node("feature"), { id: "country-b", type: "place" }],
+      relationships: [
+        { weight: 1.2, storedType: "OPERATOR", direction: "forward" },
+        { weight: 1.3, storedType: "COUNTRY", direction: "reverse" },
+        { weight: 1.3, storedType: "COUNTRY", direction: "forward" },
+      ],
+    },
+    {
+      expected: "event-organization-geography-chain",
+      nodes: [node("brewery"), { id: "country", type: "place" }, { id: "expo", type: "event" }, node("city"), { id: "producer", type: "company/organization" }, node("product")],
+      relationships: [
+        { weight: 1.3, storedType: "COUNTRY", direction: "forward" },
+        { weight: 1.15, storedType: "PARTICIPANT", direction: "reverse" },
+        { weight: 1.5, storedType: "LOCATED_IN_ADMINISTRATIVE_ENTITY", direction: "forward" },
+        { weight: 1.2, storedType: "LOCATION", direction: "reverse" },
+        { weight: 1.3, storedType: "PRODUCES", direction: "forward" },
+      ],
+    },
+    {
+      expected: "ownership-place-chain",
+      nodes: [{ id: "group", type: "company/organization" }, { id: "country-a", type: "place" }, { id: "rail", type: "company/organization" }, { id: "country-b", type: "place" }],
+      relationships: [
+        { weight: 1, storedType: "FOUNDED_BY", direction: "forward" },
+        { weight: 1.1, storedType: "OWNED_BY", direction: "reverse" },
+        { weight: 1.1, storedType: "OWNED_BY", direction: "forward" },
+      ],
+    },
+    {
+      expected: "event-location-return-hop",
+      nodes: [node("event-a"), { id: "city", type: "place" }, { id: "event-b", type: "historical event" }, { id: "country", type: "place" }],
+      relationships: [
+        { weight: 2, storedType: "SIGNIFICANT_EVENT", direction: "reverse" },
+        { weight: 1.2, storedType: "LOCATION", direction: "reverse" },
+        { weight: 1.3, storedType: "COUNTRY", direction: "forward" },
+      ],
+    },
+    {
+      expected: "shared-participant-place-hop",
+      nodes: [node("vehicle"), { id: "country-a", type: "place" }, node("event"), { id: "country-b", type: "place" }],
+      relationships: [
+        { weight: 1.2, storedType: "OPERATOR", direction: "forward" },
+        { weight: 1.15, storedType: "PARTICIPANT", direction: "reverse" },
+        { weight: 1.15, storedType: "PARTICIPANT", direction: "forward" },
+      ],
+    },
+    {
+      expected: "founder-place-detour",
+      nodes: [{ id: "group", type: "company/organization" }, { id: "country-a", type: "place" }, node("carrier"), { id: "rail", type: "company/organization" }, node("station"), { id: "country-b", type: "place" }],
+      relationships: [
+        { weight: 1, storedType: "FOUNDED_BY", direction: "forward" },
+        { weight: 1.3, storedType: "COUNTRY", direction: "reverse" },
+        { weight: 1.1, storedType: "PARENT_ORGANIZATION", direction: "forward" },
+        { weight: 1.2, storedType: "OPERATOR", direction: "reverse" },
+        { weight: 1.3, storedType: "COUNTRY", direction: "forward" },
+      ],
+    },
+    {
+      expected: "event-citizen-organization-detour",
+      nodes: [{ id: "agency", type: "company/organization" }, node("employee"), { id: "war", type: "historical event" }, { id: "country", type: "place" }, node("executive"), { id: "company", type: "company/organization" }],
+      relationships: [
+        { weight: 1.2, storedType: "EMPLOYER", direction: "reverse" },
+        { weight: 1.1, storedType: "CONFLICT", direction: "forward" },
+        { weight: 1.15, storedType: "PARTICIPANT", direction: "forward" },
+        { weight: 1.15, storedType: "COUNTRY_OF_CITIZENSHIP", direction: "reverse" },
+        { weight: 1.1, storedType: "CHIEF_EXECUTIVE_OFFICER", direction: "reverse" },
+      ],
+    },
+    {
+      expected: "multi-place-endpoint-detour",
+      nodes: [node("table"), { id: "city", type: "place" }, { id: "venue", type: "place" }, { id: "olympics", type: "event" }],
+      relationships: [
+        { weight: 1.2, storedType: "LOCATION", direction: "forward" },
+        { weight: 1.5, storedType: "LOCATED_IN_ADMINISTRATIVE_ENTITY", direction: "reverse" },
+        { weight: 2, storedType: "SIGNIFICANT_EVENT", direction: "forward" },
+      ],
+    },
+  ];
+
+  for (const fixture of cases) {
+    const score = scorePath(fixture);
+    assert.ok(score.patternPenalties.some(({ kind }) => kind === fixture.expected));
+    assert.equal(score.qualityBand, "weak");
+  }
+});
+
+test("preserves short direct geographic and historical chains", () => {
+  const fixtures = [
+    {
+      nodes: [node("event"), { id: "continent", type: "place" }, { id: "country", type: "place" }],
+      relationships: [
+        { weight: 1.2, storedType: "LOCATION", direction: "forward" },
+        { weight: 1.6, storedType: "PART_OF", direction: "reverse" },
+      ],
+    },
+    {
+      nodes: [node("prefecture"), { id: "city", type: "place" }, { id: "country", type: "place" }],
+      relationships: [
+        { weight: 1.5, storedType: "LOCATED_IN_ADMINISTRATIVE_ENTITY", direction: "reverse" },
+        { weight: 1.3, storedType: "COUNTRY", direction: "forward" },
+      ],
+    },
+    {
+      nodes: [node("event"), { id: "venue", type: "company/organization" }, { id: "city", type: "place" }, { id: "country", type: "place" }],
+      relationships: [
+        { weight: 1.2, storedType: "LOCATION", direction: "forward" },
+        { weight: 1.1, storedType: "OWNED_BY", direction: "forward" },
+        { weight: 1.3, storedType: "COUNTRY", direction: "forward" },
+      ],
+    },
+  ];
+
+  for (const fixture of fixtures) {
+    const score = scorePath(fixture);
+    assert.equal(score.patternPenalty, 0);
+    assert.equal(score.qualityBand, "strong");
+  }
 });

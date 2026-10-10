@@ -204,4 +204,5 @@ test("external reports aggregate properties and families and compare repeatable 
   assert.equal(sections.recommendations[0].expectedCoverageGain, 1);
   assert.deepEqual(comparison.falseNegativesFixed, ["p1"]);
   assert.equal(comparison.overallCoverageChange, 1);
+  assert.equal(comparison.p90RuntimeChangeMs, 0);
 });

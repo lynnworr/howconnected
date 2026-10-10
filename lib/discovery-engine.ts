@@ -50,6 +50,15 @@ export type BridgeSignals = {
   directToOpposite: boolean;
 };
 
+export type DiscoveryIngestionTimings = {
+  entityFetchMs: number;
+  hierarchyMs: number;
+  reverseLookupMs: number;
+  targetSummaryMs: number;
+  neo4jWriteMs: number;
+  totalMs: number;
+};
+
 export type DiscoveryDependencies = {
   findPaths: (fromQid: string, toQid: string) => Promise<DiscoveryPathResult>;
   getEntity: (qid: string) => Promise<DiscoveryEntity | null>;
@@ -71,6 +80,7 @@ export type DiscoveryDependencies = {
     relationshipsAdded: number;
     relationshipsDiscovered?: number;
     reverseLookupComplete?: boolean;
+    timings?: DiscoveryIngestionTimings;
   }>;
   getFrontier: (qid: string) => Promise<FrontierCandidate[]>;
   getBridgeSignals?: (
@@ -171,6 +181,7 @@ export type DiscoveryExpansionDiagnostic = {
   relationshipsAdded: number;
   relationshipsDiscovered: number;
   reverseLookupComplete: boolean | null;
+  timings: DiscoveryIngestionTimings | null;
 };
 
 type QueuedCandidate = FrontierCandidate & {
@@ -292,7 +303,7 @@ function isAcceptable(
   );
 }
 
-export async function runDiscovery(
+async function runDiscoveryWithinDeadline(
   fromQid: string,
   toQid: string,
   dependencies: DiscoveryDependencies,
@@ -521,6 +532,7 @@ export async function runDiscovery(
         relationshipsAdded: 0,
         relationshipsDiscovered: 0,
         reverseLookupComplete: null as boolean | null,
+        timings: null as DiscoveryIngestionTimings | null,
       };
       const shouldIngest = !state.expanded || candidate.depth === 0;
       if (shouldIngest) {
@@ -553,11 +565,15 @@ export async function runDiscovery(
           relationshipsDiscovered:
             ingestion.relationshipsDiscovered ?? ingestion.relationshipsAdded,
           reverseLookupComplete: ingestion.reverseLookupComplete ?? null,
+          timings: ingestion.timings ?? null,
         };
       }
       expandedBySide[candidate.side].push(expansion);
 
-      if (shouldIngest) {
+      if (
+        shouldIngest &&
+        (expansion.relationshipsAdded > 0 || expansion.relationshipsDiscovered > 0)
+      ) {
         paths = await dependencies.findPaths(fromQid, toQid);
         observePaths(paths);
         if (isAcceptable(paths, config)) {
@@ -569,10 +585,10 @@ export async function runDiscovery(
           });
           return finish(true, paths, "connection-found");
         }
-        if (now() >= semanticDeadline) {
-          semanticTimedOut = true;
-          break semanticSearch;
-        }
+      }
+      if (shouldIngest && now() >= semanticDeadline) {
+        semanticTimedOut = true;
+        break semanticSearch;
       }
 
       const nextDepth = candidate.depth + 1;
@@ -620,6 +636,10 @@ export async function runDiscovery(
   if (now() >= deadline) {
     timedOut = true;
     return finish(false, paths, "timeout");
+  }
+
+  if (semanticTimedOut) {
+    return finish(false, paths, "semantic-budget-exhausted");
   }
 
   const assistedStartedAt = now();
@@ -728,4 +748,76 @@ export async function runDiscovery(
     paths,
     timedOut ? "timeout" : "no-acceptable-semantic-path",
   );
+}
+
+function hardDeadlineResult(
+  fromQid: string,
+  toQid: string,
+  runtimeMs: number,
+  config: DiscoveryConfig,
+): DiscoveryResult {
+  return {
+    found: false,
+    source: null,
+    target: null,
+    bestPath: null,
+    alternatePaths: [],
+    discovery: {
+      depthReached: 0,
+      entitiesAdded: 0,
+      relationshipsAdded: 0,
+      expandedEntities: 0,
+      terminationReason: "hard-deadline-exceeded",
+      sourceQid: fromQid,
+      targetQid: toQid,
+      expandedBySide: { source: [], target: [] },
+      frontierConsidered: [],
+      frontierSkipped: [],
+      closestBridges: { source: [], target: [] },
+      limits: {
+        entities: { used: 0, limit: config.maxNewEntities },
+        relationships: { used: 0, limit: config.maxNewRelationships },
+      },
+      timedOut: true,
+      runtimeMs,
+      frontiersIntersected: false,
+      candidatePathCount: 0,
+      bestRejectedPathScore: null,
+      bestRejectedPath: null,
+      stage: null,
+      stages: [{ stage: "A", status: "timeout", runtimeMs }],
+      wikipediaCandidates: { source: [], target: [] },
+    },
+  };
+}
+
+export async function runDiscovery(
+  fromQid: string,
+  toQid: string,
+  dependencies: DiscoveryDependencies,
+  config: DiscoveryConfig,
+): Promise<DiscoveryResult> {
+  const wallStartedAt = Date.now();
+  let timeout: ReturnType<typeof setTimeout> | undefined;
+  const hardDeadline = new Promise<DiscoveryResult>((resolve) => {
+    timeout = setTimeout(() => {
+      resolve(
+        hardDeadlineResult(
+          fromQid,
+          toQid,
+          Date.now() - wallStartedAt,
+          config,
+        ),
+      );
+    }, config.maxExecutionMs);
+  });
+
+  try {
+    return await Promise.race([
+      runDiscoveryWithinDeadline(fromQid, toQid, dependencies, config),
+      hardDeadline,
+    ]);
+  } finally {
+    if (timeout) clearTimeout(timeout);
+  }
 }
