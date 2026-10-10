@@ -1,5 +1,6 @@
 import { PHASE2A_REGRESSION_PAIRS } from "./phase2a-regression-pairs.mjs";
 import { PHASE2A_STABILIZATION_PAIRS } from "./phase2a-stabilization-pairs.mjs";
+import { PHASE2B_REGRESSION_PAIRS } from "./phase2b-regression-pairs.mjs";
 
 const baseUrlArgument = process.argv
   .slice(2)
@@ -42,7 +43,10 @@ const generalPairs = [
 ];
 const phase2aOnly = process.argv.includes("--phase2a");
 const stabilizationOnly = process.argv.includes("--stabilization");
-const pairs = stabilizationOnly
+const phase2bOnly = process.argv.includes("--phase2b");
+const pairs = phase2bOnly
+  ? PHASE2B_REGRESSION_PAIRS
+  : stabilizationOnly
   ? PHASE2A_STABILIZATION_PAIRS
   : phase2aOnly
     ? PHASE2A_REGRESSION_PAIRS
@@ -71,6 +75,12 @@ for (const [source, fromQid, target, toQid] of pairs) {
       timedOut: body.diagnostics?.timedOut === true,
       terminationReason: body.diagnostics?.terminationReason ?? body.error ?? null,
       path: body.bestPath?.nodes?.map((node) => node.name) ?? [],
+      relationships: body.bestPath?.relationships?.map((relationship) => ({
+        type: relationship.storedType,
+        direction: relationship.direction,
+        label: relationship.label,
+      })) ?? [],
+      patternPenalties: body.bestPath?.patternPenalties ?? [],
     });
   } catch (error) {
     results.push({
@@ -86,6 +96,8 @@ for (const [source, fromQid, target, toQid] of pairs) {
       timedOut: error?.name === "TimeoutError",
       terminationReason: error instanceof Error ? error.message : "request failed",
       path: [],
+      relationships: [],
+      patternPenalties: [],
     });
   }
 }
@@ -125,7 +137,7 @@ function summarize(sample) {
 
 const summary = {
   overall: summarize(results),
-  ...(phase2aOnly || stabilizationOnly ? {} : {
+  ...(phase2aOnly || stabilizationOnly || phase2bOnly ? {} : {
     originalCrossDomain: summarize(results.slice(0, 25)),
     monumentAndArtwork: summarize(results.slice(25)),
   }),

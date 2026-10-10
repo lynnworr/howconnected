@@ -15,7 +15,8 @@ test("all public policy and information routes have page content", async () => {
   assert.match(pages[0], /Wikidata/);
   assert.match(pages[1], /Google.*Ads Settings/s);
   assert.match(pages[2], /informational and entertainment service/);
-  assert.match(pages[3], /CONTACT_EMAIL/);
+  assert.match(pages[3], /ContactForm/);
+  assert.match(pages[3], /incorrect connection/);
 });
 
 test("public footer links to public routes and never exposes admin", async () => {

@@ -22,7 +22,7 @@ type WikidataPropertyBase = Pick<
 
 export const MAX_LINKED_ENTITIES_PER_PROPERTY = 5;
 export const MAX_RELATIONSHIPS_PER_INGESTION = 30;
-export const WIKIDATA_EXPANSION_VERSION = 6;
+export const WIKIDATA_EXPANSION_VERSION = 7;
 
 const BASE_WIKIDATA_PROPERTIES = {
   P26: { wikidataProperty: "P26", label: "spouse", relationship: "SPOUSE", weight: 1.0 },
@@ -67,6 +67,9 @@ const BASE_WIKIDATA_PROPERTIES = {
   P156: { wikidataProperty: "P156", label: "followed by", relationship: "FOLLOWED_BY", weight: 1.8 },
   P176: { wikidataProperty: "P176", label: "manufacturer", relationship: "MANUFACTURER", weight: 1.2 },
   P178: { wikidataProperty: "P178", label: "developer", relationship: "DEVELOPER", weight: 1.0 },
+  P179: { wikidataProperty: "P179", label: "part of the series", relationship: "SERIES", weight: 1.1 },
+  P400: { wikidataProperty: "P400", label: "platform", relationship: "PLATFORM", weight: 1.1 },
+  P123: { wikidataProperty: "P123", label: "publisher", relationship: "PUBLISHER", weight: 1.1 },
   P1441: { wikidataProperty: "P1441", label: "present in work", relationship: "PRESENT_IN_WORK", weight: 1.4 },
   P800: { wikidataProperty: "P800", label: "notable work", relationship: "NOTABLE_WORK", weight: 1.2 },
   P54: { wikidataProperty: "P54", label: "member of sports team", relationship: "MEMBER_OF_SPORTS_TEAM", weight: 1.1 },
@@ -134,6 +137,9 @@ const WIKIDATA_PROPERTY_POLICIES = {
   P156: { label: "followed by", reverseLabel: "follows", weight: 1.8, traversable: true, maxFanout: 1 },
   P176: { label: "manufacturer", reverseLabel: "manufacturer of", weight: 1.4, traversable: true, maxFanout: 4, reverseDiscoveryEnabled: true, reverseDiscoveryLabel: "manufacturer of", reverseDiscoveryFanout: 5 },
   P178: { label: "developer", reverseLabel: "developer of", weight: 1.2, traversable: true, maxFanout: 4 },
+  P179: { label: "part of the series", reverseLabel: "series includes", weight: 1.1, traversable: true, maxFanout: 2 },
+  P400: { label: "platform", reverseLabel: "platform for", weight: 1.2, traversable: true, maxFanout: 3 },
+  P123: { label: "publisher", reverseLabel: "published", weight: 1.1, traversable: true, maxFanout: 3 },
   P1441: { label: "present in work", reverseLabel: "features", weight: 5.0, traversable: false, maxFanout: 3 },
   P800: { label: "notable work", reverseLabel: "notable work of", weight: 1.8, traversable: true, maxFanout: 5 },
   P54: { label: "member of sports team", reverseLabel: "has player", weight: 1.2, traversable: true, maxFanout: 8, reverseDiscoveryEnabled: true, reverseDiscoveryLabel: "has player", reverseDiscoveryFanout: 8 },

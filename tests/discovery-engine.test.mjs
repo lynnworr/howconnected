@@ -55,6 +55,7 @@ test("returns immediately when an acceptable connection already exists", async (
     "Q2",
     dependencies({
       findPaths: async () => goodPaths,
+      getExpansionState: async () => ({ exists: true, expanded: true }),
       ingest: async () => {
         ingestionCalls += 1;
         return { entitiesAdded: 0, relationshipsAdded: 0 };
@@ -66,6 +67,74 @@ test("returns immediately when an acceptable connection already exists", async (
   assert.equal(result.found, true);
   assert.equal(result.discovery.terminationReason, "already-connected");
   assert.equal(ingestionCalls, 0);
+});
+
+test("refreshes a stale source before accepting an existing path", async () => {
+  let ingestionCalls = 0;
+  const result = await runDiscovery(
+    "Q1",
+    "Q2",
+    dependencies({
+      findPaths: async () => goodPaths,
+      ingest: async () => {
+        ingestionCalls += 1;
+        return {
+          entitiesAdded: 0,
+          relationshipsAdded: 1,
+          relationshipsDiscovered: 1,
+        };
+      },
+    }),
+    config,
+  );
+
+  assert.equal(result.found, true);
+  assert.equal(result.discovery.stage, "B");
+  assert.equal(result.discovery.terminationReason, "connection-found");
+  assert.equal(ingestionCalls, 1);
+});
+
+test("does not let a target-side path preempt a stale source refresh", async () => {
+  const ingestionCalls = [];
+  let pathSearches = 0;
+  const result = await runDiscovery(
+    "Q1",
+    "Q2",
+    dependencies({
+      findPaths: async () => {
+        pathSearches += 1;
+        return pathSearches >= 2 ? goodPaths : noPaths;
+      },
+      getExpansionState: async (qid) => ({
+        exists: true,
+        expanded: qid === "Q2",
+      }),
+      getEntity: async (qid) => ({
+        ...entity(qid),
+        type: qid === "Q1" ? "transportation" : "entity",
+      }),
+      getBridgeSignals: async (candidates) =>
+        new Map(
+          candidates.map(({ qid, side }) => [
+            `${side}:${qid}`,
+            { degree: qid === "Q2" ? 2 : 1, directToOpposite: false },
+          ]),
+        ),
+      ingest: async (qid) => {
+        ingestionCalls.push(qid);
+        return {
+          entitiesAdded: 0,
+          relationshipsAdded: 1,
+          relationshipsDiscovered: 1,
+        };
+      },
+    }),
+    { ...config, maxDepthPerSide: 1 },
+  );
+
+  assert.equal(result.found, true);
+  assert.deepEqual(ingestionCalls, ["Q2", "Q1"]);
+  assert.equal(result.discovery.expandedBySide.source.length, 1);
 });
 
 test("prioritizes stronger relationships and skips generic entities", () => {

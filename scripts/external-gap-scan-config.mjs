@@ -57,9 +57,9 @@ export const EXTERNAL_GAP_SCAN_PROPERTIES = [
   property("P361", "part of", "transportation/operator", "partially-supported", { sourceDomains: ["transportation", "product", "place"], targetDomains: ["transportation", "company/organization", "place"], relevance: 3, complexity: "high", hubRisk: "high" }),
 
   property("P178", "developer", "software/games", "partially-supported", { sourceDomains: ["product"], targetDomains: ["company/organization", "person"], relevance: 5, complexity: "low", hubRisk: "low" }),
-  property("P123", "publisher", "software/games", "unsupported", { sourceDomains: ["product", "music/work"], targetDomains: ["company/organization"], relevance: 5, complexity: "low", hubRisk: "low" }),
-  property("P400", "platform", "software/games", "unsupported", { sourceDomains: ["product"], targetDomains: ["product"], relevance: 5, complexity: "medium", hubRisk: "high" }),
-  property("P179", "part of the series", "software/games", "unsupported", { sourceDomains: ["product", "film", "television series"], targetDomains: ["product", "television series"], relevance: 4, complexity: "medium", hubRisk: "medium" }),
+  property("P123", "publisher", "software/games", "supported", { sourceDomains: ["product", "music/work", "creative work", "film", "television series"], targetDomains: ["company/organization"], relevance: 5, complexity: "low", hubRisk: "low" }),
+  property("P400", "platform", "software/games", "supported", { sourceDomains: ["product", "creative work"], targetDomains: ["product"], relevance: 5, complexity: "medium", hubRisk: "high" }),
+  property("P179", "part of the series", "software/games", "supported", { sourceDomains: ["product", "creative work", "film", "television series", "music/work"], targetDomains: ["product", "television series", "creative work"], relevance: 4, complexity: "medium", hubRisk: "medium" }),
 ];
 
 export const EXTERNAL_GAP_SCAN_PROPERTY_IDS = EXTERNAL_GAP_SCAN_PROPERTIES.map(({ id }) => id);

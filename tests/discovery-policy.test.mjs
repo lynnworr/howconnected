@@ -188,16 +188,14 @@ test("adds only explicitly present supported contextual properties", () => {
   assert.ok(!contextual.includes("P179"));
 });
 
-test("prioritizes only approved properties that explicitly reach the requested target", () => {
+test("prioritizes approved properties that explicitly reach the requested target", () => {
   const selected = ids(selectOutgoingDiscoveryProperties("person", properties, {
     availablePropertyIds: ["P641", "P179", "P400", "P123"],
     explicitTargetPropertyIds: ["P641", "P179", "P400", "P123"],
   }));
 
   assert.equal(selected[0], "P641");
-  assert.ok(!selected.includes("P179"));
-  assert.ok(!selected.includes("P400"));
-  assert.ok(!selected.includes("P123"));
+  assert.deepEqual(selected.slice(0, 4), ["P641", "P179", "P400", "P123"]);
 });
 
 test("supports bounded sport taxonomy without broad reverse discovery", () => {
@@ -208,11 +206,29 @@ test("supports bounded sport taxonomy without broad reverse discovery", () => {
   assert.equal(sport.reverseLabel, "sport of");
   assert.equal(sport.maxFanout, 2);
   assert.notEqual(sport.reverseDiscoveryEnabled, true);
-  assert.equal(WIKIDATA_EXPANSION_VERSION, 6);
+  assert.equal(WIKIDATA_EXPANSION_VERSION, 7);
   assert.ok(ids(selectOutgoingDiscoveryProperties("sports person", properties)).includes("P641"));
   assert.ok(ids(selectOutgoingDiscoveryProperties("company/organization", properties)).includes("P641"));
   assert.ok(ids(selectOutgoingDiscoveryProperties("event", properties)).includes("P641"));
   assert.ok(ids(selectOutgoingDiscoveryProperties("entity", properties)).includes("P641"));
+});
+
+test("routes publisher, platform, and series claims by work domain with bounded fanout", () => {
+  const creativeWork = ids(selectOutgoingDiscoveryProperties("creative work", properties));
+  const product = ids(selectOutgoingDiscoveryProperties("product", properties));
+
+  for (const propertyId of ["P123", "P400", "P179"]) {
+    assert.ok(creativeWork.includes(propertyId));
+    assert.ok(product.includes(propertyId));
+    assert.equal(APPROVED_WIKIDATA_PROPERTIES[propertyId].reverseDiscoveryEnabled, undefined);
+    assert.ok(APPROVED_WIKIDATA_PROPERTIES[propertyId].maxFanout <= 3);
+  }
+  assert.equal(APPROVED_WIKIDATA_PROPERTIES.P179.relationship, "SERIES");
+  assert.equal(APPROVED_WIKIDATA_PROPERTIES.P179.reverseLabel, "series includes");
+  assert.equal(APPROVED_WIKIDATA_PROPERTIES.P400.relationship, "PLATFORM");
+  assert.equal(APPROVED_WIKIDATA_PROPERTIES.P400.reverseLabel, "platform for");
+  assert.equal(APPROVED_WIKIDATA_PROPERTIES.P123.relationship, "PUBLISHER");
+  assert.equal(APPROVED_WIKIDATA_PROPERTIES.P123.reverseLabel, "published");
 });
 
 test("uses domain-aware geographic weights without weakening unrelated entities", () => {

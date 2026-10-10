@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 export default function PrivacyPage() {
   return (
     <PublicPageShell
-      eyebrow="Last updated October 8, 2026"
+      eyebrow="Last updated October 10, 2026"
       title="Privacy Policy"
       intro="This policy explains the limited data HowConnected uses to understand and improve the service."
     >
@@ -27,6 +27,16 @@ export default function PrivacyPage() {
           Admin and internal diagnostic data is designed not to intentionally
           collect personally identifiable information. Please do not submit
           personal information through feedback controls.
+        </p>
+      </section>
+      <section>
+        <h2>Contact messages</h2>
+        <p>
+          When you use the contact form, HowConnected sends the name, email
+          address, subject, and message you provide to the site owner through
+          an email delivery provider. Contact messages are not stored in the
+          connection graph. This information is used to review and respond to
+          your request and to prevent abuse of the form.
         </p>
       </section>
       <section>

@@ -326,6 +326,7 @@ async function runDiscoveryWithinDeadline(
   let bestRejectedPathScore: number | null = null;
   let bestRejectedPath: DiscoveryPath | null = null;
   let successfulStage: "A" | "B" | "C" | null = null;
+  let sourceReadyForAcceptance: boolean | null = null;
   const stages: DiscoveryResult["discovery"]["stages"] = [];
   const wikipediaCandidates = { source: [] as string[], target: [] as string[] };
   const expandedBySide: DiscoveryResult["discovery"]["expandedBySide"] = {
@@ -405,9 +406,13 @@ async function runDiscoveryWithinDeadline(
   let paths = await dependencies.findPaths(fromQid, toQid);
   observePaths(paths);
   if (isAcceptable(paths, config)) {
-    successfulStage = "A";
-    stages.push({ stage: "A", status: "found", runtimeMs: now() - startedAt });
-    return finish(true, paths, "already-connected");
+    const sourceExpansion = await dependencies.getExpansionState(fromQid);
+    sourceReadyForAcceptance = sourceExpansion.expanded;
+    if (sourceExpansion.expanded) {
+      successfulStage = "A";
+      stages.push({ stage: "A", status: "found", runtimeMs: now() - startedAt });
+      return finish(true, paths, "already-connected");
+    }
   }
   stages.push({ stage: "A", status: "miss", runtimeMs: now() - startedAt });
   const semanticStartedAt = now();
@@ -567,6 +572,9 @@ async function runDiscoveryWithinDeadline(
           reverseLookupComplete: ingestion.reverseLookupComplete ?? null,
           timings: ingestion.timings ?? null,
         };
+        if (candidate.side === "source" && candidate.depth === 0) {
+          sourceReadyForAcceptance = true;
+        }
       }
       expandedBySide[candidate.side].push(expansion);
 
@@ -577,6 +585,12 @@ async function runDiscoveryWithinDeadline(
         paths = await dependencies.findPaths(fromQid, toQid);
         observePaths(paths);
         if (isAcceptable(paths, config)) {
+          if (sourceReadyForAcceptance === null) {
+            sourceReadyForAcceptance = (
+              await dependencies.getExpansionState(fromQid)
+            ).expanded;
+          }
+          if (!sourceReadyForAcceptance) continue;
           successfulStage = "B";
           stages.push({
             stage: "B",
@@ -618,6 +632,12 @@ async function runDiscoveryWithinDeadline(
     paths = await dependencies.findPaths(fromQid, toQid);
     observePaths(paths);
     if (isAcceptable(paths, config)) {
+      if (sourceReadyForAcceptance === null) {
+        sourceReadyForAcceptance = (
+          await dependencies.getExpansionState(fromQid)
+        ).expanded;
+      }
+      if (!sourceReadyForAcceptance) continue semanticSearch;
       successfulStage = "B";
       stages.push({
         stage: "B",

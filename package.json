@@ -12,6 +12,7 @@
     "benchmark:discovery": "node scripts/benchmark-discovery.mjs",
     "benchmark:phase2a": "node scripts/benchmark-discovery.mjs --phase2a",
     "benchmark:stabilization": "node scripts/benchmark-discovery.mjs --stabilization",
+    "benchmark:phase2b": "node scripts/benchmark-discovery.mjs --phase2b",
     "benchmark:domains": "node scripts/benchmark-domains.mjs",
     "benchmark:gaps": "node --env-file-if-exists=.env --env-file-if-exists=.env.local scripts/benchmark-gaps.mjs"
   },

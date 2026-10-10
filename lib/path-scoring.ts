@@ -49,6 +49,10 @@ export type PatternPenalty = {
     | "founder-place-detour"
     | "shared-participant-place-hop"
     | "event-citizen-organization-detour"
+    | "shared-series-hop"
+    | "shared-platform-hop"
+    | "shared-publisher-hop"
+    | "catalog-ownership-detour"
     | "multi-place-endpoint-detour";
   penalty: number;
 };
@@ -101,7 +105,20 @@ const DIRECT_DOMAIN_RELATIONSHIP_TYPES = new Set([
   "PARTICIPANT",
   "PARTICIPANT_IN",
   "CONFLICT",
+  "SERIES",
+  "PLATFORM",
+  "PUBLISHER",
 ]);
+
+const SHARED_CATALOG_PENALTIES = new Map<string, PatternPenalty["kind"]>([
+  ["SERIES", "shared-series-hop"],
+  ["PLATFORM", "shared-platform-hop"],
+  ["PUBLISHER", "shared-publisher-hop"],
+  // P750 often names the same storefront/platform represented by P400.
+  ["DISTRIBUTED_BY", "shared-platform-hop"],
+]);
+
+const PLATFORM_DISTRIBUTION_TYPES = new Set(["PLATFORM", "DISTRIBUTED_BY"]);
 
 const INVESTMENT_ADJACENT_TYPES = new Set([
   ...OWNERSHIP_TYPES,
@@ -154,6 +171,23 @@ export function calculatePatternPenalties(
   for (let index = 0; index < path.relationships.length - 1; index += 1) {
     const current = path.relationships[index];
     const next = path.relationships[index + 1];
+    const sharedCatalogPenalty = current.storedType
+      ? SHARED_CATALOG_PENALTIES.get(current.storedType)
+      : undefined;
+    const isSharedCatalogRelationship =
+      current.storedType === next.storedType ||
+      (typeof current.storedType === "string" &&
+        typeof next.storedType === "string" &&
+        PLATFORM_DISTRIBUTION_TYPES.has(current.storedType) &&
+        PLATFORM_DISTRIBUTION_TYPES.has(next.storedType));
+    if (
+      sharedCatalogPenalty &&
+      isSharedCatalogRelationship &&
+      current.direction === "forward" &&
+      next.direction === "reverse"
+    ) {
+      penalties.push({ kind: sharedCatalogPenalty, penalty: 5 });
+    }
     if (
       current.storedType === "EDUCATED_AT" &&
       current.direction === "forward" &&
@@ -308,6 +342,16 @@ export function calculatePatternPenalties(
   }
 
   const ownershipCount = types.filter((type) => OWNERSHIP_TYPES.has(type)).length;
+  const catalogCount = types.filter((type) =>
+    SHARED_CATALOG_PENALTIES.has(type),
+  ).length;
+  if (
+    path.relationships.length >= 4 &&
+    catalogCount >= 2 &&
+    ownershipCount >= 1
+  ) {
+    penalties.push({ kind: "catalog-ownership-detour", penalty: 5 });
+  }
   const investmentEntities = path.nodes.slice(1, -1).filter(isInvestmentEntity).length;
   if (ownershipCount >= 2 && investmentEntities > 0) {
     penalties.push({

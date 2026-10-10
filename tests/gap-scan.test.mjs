@@ -140,7 +140,7 @@ test("private admin source renders the latest coverage-gap summary", async () =>
 });
 
 test("external candidates come only from explicit Wikidata bindings and balance by property", () => {
-  const config = { id: "P123", label: "publisher", family: "software/games", supportStatus: "unsupported", sourceDomains: ["product"], targetDomains: ["company/organization"], relevance: 5, complexity: "low", hubRisk: "low", likelyCodeArea: "registry" };
+  const config = { id: "P123", label: "publisher", family: "software/games", supportStatus: "supported", sourceDomains: ["product"], targetDomains: ["company/organization"], relevance: 5, complexity: "low", hubRisk: "low", likelyCodeArea: "registry" };
   const bindings = [{
     source: { value: "http://www.wikidata.org/entity/Q1" },
     target: { value: "http://www.wikidata.org/entity/Q2" },

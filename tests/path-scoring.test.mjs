@@ -575,3 +575,66 @@ test("preserves short direct geographic and historical chains", () => {
     assert.equal(score.qualityBand, "strong");
   }
 });
+
+test("rejects shared series, platform, and publisher bridges while preserving direct claims", () => {
+  for (const [storedType, expectedPenalty] of [
+    ["SERIES", "shared-series-hop"],
+    ["PLATFORM", "shared-platform-hop"],
+    ["PUBLISHER", "shared-publisher-hop"],
+  ]) {
+    const bridge = scorePath({
+      nodes: [node("work-a"), node("catalog-hub"), node("work-b")],
+      relationships: [
+        { weight: 1.1, storedType, direction: "forward" },
+        { weight: 1.1, storedType, direction: "reverse" },
+      ],
+    });
+    const direct = scorePath({
+      nodes: [node("work"), node("catalog-target")],
+      relationships: [{ weight: 1.1, storedType, direction: "forward" }],
+    });
+
+    assert.ok(bridge.patternPenalties.some(({ kind }) => kind === expectedPenalty));
+    assert.equal(bridge.qualityBand, "weak");
+    assert.equal(direct.qualityBand, "strong");
+    assert.equal(direct.directRelationshipBonus, 0.4);
+  }
+
+  const storefrontBridge = scorePath({
+    nodes: [node("game-a"), node("storefront"), node("game-b")],
+    relationships: [
+      { weight: 1.4, storedType: "DISTRIBUTED_BY", direction: "forward" },
+      { weight: 1.2, storedType: "PLATFORM", direction: "reverse" },
+    ],
+  });
+  assert.equal(storefrontBridge.qualityBand, "weak");
+  assert.ok(
+    storefrontBridge.patternPenalties.some(
+      ({ kind }) => kind === "shared-platform-hop",
+    ),
+  );
+
+  const corporateCatalogDetour = scorePath({
+    nodes: [
+      node("game-a"),
+      node("storefront"),
+      node("publisher"),
+      node("owner"),
+      node("popular-game"),
+      node("platform"),
+    ],
+    relationships: [
+      { weight: 1.4, storedType: "DISTRIBUTED_BY", direction: "forward" },
+      { weight: 1, storedType: "CREATOR", direction: "forward" },
+      { weight: 1.1, storedType: "OWNED_BY", direction: "forward" },
+      { weight: 1.1, storedType: "PUBLISHER", direction: "reverse" },
+      { weight: 1.2, storedType: "PLATFORM", direction: "forward" },
+    ],
+  });
+  assert.equal(corporateCatalogDetour.qualityBand, "weak");
+  assert.ok(
+    corporateCatalogDetour.patternPenalties.some(
+      ({ kind }) => kind === "catalog-ownership-detour",
+    ),
+  );
+});
