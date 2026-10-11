@@ -1,4 +1,5 @@
 import Link from "next/link";
+import AnalyticsLink from "@/components/AnalyticsLink";
 import type { ConnectionPathData } from "@/components/connection-types";
 import type { EditorialPageDetails } from "@/lib/connection-page-state";
 import {
@@ -137,12 +138,17 @@ export default function ConnectionInsights({
                   {related.category}
                 </p>
                 <h3 className="mt-2 text-base font-bold leading-6 text-[#1d2944]">
-                  <Link
+                  <AnalyticsLink
                     href={related.href}
+                    event="related_connection_opened"
+                    eventProperties={{
+                      sourceConnection: editorial.slug,
+                      relatedConnection: related.slug,
+                    }}
                     className="rounded-sm underline decoration-[#e4b2a7] underline-offset-4 hover:text-[#b74a33] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#ff6846]"
                   >
                     {related.headline}
-                  </Link>
+                  </AnalyticsLink>
                 </h3>
                 <p className="mt-2 text-xs leading-5 text-[#657087]">{related.description}</p>
               </article>

@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { Suspense } from "react";
 import { connection } from "next/server";
 import ConnectionOutcomeAnalytics from "@/components/ConnectionOutcomeAnalytics";
+import ConnectionReferralAnalytics from "@/components/ConnectionReferralAnalytics";
 import ConnectionResult from "@/components/ConnectionResult";
 import PublicFooter from "@/components/PublicFooter";
 import NetworkBackdrop from "@/components/NetworkBackdrop";
@@ -13,9 +14,14 @@ import { getConnectionPageData } from "@/lib/connection-page-data";
 import { buildConnectionRouteMetadata } from "@/lib/connection-seo";
 import { getConnectionPath } from "@/lib/connection-share";
 import { isValidQid } from "@/lib/wikidata-id";
+import {
+  getConnectionOrigin,
+  type ConnectionOrigin,
+} from "@/lib/connection-attribution";
 
 type ConnectPageProps = {
   params: Promise<{ fromQid: string; toQid: string }>;
+  searchParams: Promise<{ source?: string | string[] }>;
 };
 
 export async function generateMetadata({
@@ -83,9 +89,11 @@ function FriendlyState({ data }: { data: ConnectionPageData }) {
 async function ConnectionPageContent({
   fromQid,
   toQid,
+  origin,
 }: {
   fromQid: string;
   toQid: string;
+  origin: ConnectionOrigin;
 }) {
   const data = await getConnectionPageData(fromQid, toQid);
 
@@ -106,7 +114,7 @@ async function ConnectionPageContent({
             event={event}
             fromQid={fromQid.trim().toUpperCase()}
             toQid={toQid.trim().toUpperCase()}
-            origin="shared_url"
+            origin={origin}
             failureCategory={
               data.status === "empty" ? data.result.failureCategory : undefined
             }
@@ -126,6 +134,7 @@ async function ConnectionPageContent({
         path: getConnectionPath(data.source.id, data.target.id),
       }}
       editorial={data.editorial}
+      origin={origin}
     />
   );
 }
@@ -147,16 +156,20 @@ function ConnectionLoading() {
   );
 }
 
-export default async function ConnectPage({ params }: ConnectPageProps) {
+export default async function ConnectPage({ params, searchParams }: ConnectPageProps) {
   const rawParams = await params;
+  const origin = getConnectionOrigin((await searchParams).source);
   const fromQid = rawParams.fromQid.trim().toUpperCase();
   const toQid = rawParams.toQid.trim().toUpperCase();
   if (!isValidQid(fromQid) || !isValidQid(toQid)) notFound();
 
   return (
     <PageFrame>
+      {origin === "extension" ? (
+        <ConnectionReferralAnalytics fromQid={fromQid} toQid={toQid} />
+      ) : null}
       <Suspense fallback={<ConnectionLoading />}>
-        <ConnectionPageContent fromQid={fromQid} toQid={toQid} />
+        <ConnectionPageContent fromQid={fromQid} toQid={toQid} origin={origin} />
       </Suspense>
     </PageFrame>
   );

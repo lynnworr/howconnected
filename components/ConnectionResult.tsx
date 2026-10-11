@@ -16,7 +16,12 @@ import {
   type EntityImageMap,
   type EntitySourceMap,
 } from "@/lib/connection-images";
-import { trackProductEvent } from "@/lib/product-analytics";
+import {
+  markSessionResultViewed,
+  trackProductEvent,
+} from "@/lib/product-analytics";
+import AnalyticsLink from "@/components/AnalyticsLink";
+import type { ConnectionOrigin } from "@/lib/connection-attribution";
 
 type ConnectionResultProps = {
   result: DiscoveryResult;
@@ -27,6 +32,7 @@ type ConnectionResultProps = {
     path: string;
   };
   editorial?: EditorialPageDetails;
+  origin?: ConnectionOrigin;
 };
 
 export default function ConnectionResult({
@@ -34,6 +40,7 @@ export default function ConnectionResult({
   onReset,
   share,
   editorial,
+  origin = onReset ? "homepage" : "shared_url",
 }: ConnectionResultProps) {
   const [imageState, setImageState] = useState<{
     key: string;
@@ -67,14 +74,15 @@ export default function ConnectionResult({
     const key = `${fromQid}:${toQid}:${steps}`;
     if (trackedSuccessKey.current === key) return;
     trackedSuccessKey.current = key;
+    markSessionResultViewed();
     trackProductEvent("search_succeeded", {
       fromQid,
       toQid,
       steps,
       alternatePathCount,
-      origin: onReset ? "homepage" : "shared_url",
+      origin,
     });
-  }, [alternatePathCount, fromQid, onReset, steps, toQid]);
+  }, [alternatePathCount, fromQid, origin, steps, toQid]);
 
   useEffect(() => {
     if (primaryQids.length === 0) return;
@@ -197,7 +205,7 @@ export default function ConnectionResult({
       <div className="mt-7 border-t border-[#e4e6e9] pt-6 text-center">
         <h3 className="text-lg font-bold text-[#192541]">Where will the next thread lead?</h3>
         <p className="mt-1 text-sm text-[#6f7889]">Pick two more people, places, or ideas to keep exploring.</p>
-        <div className="mt-4 flex justify-center">
+        <div className="mt-4 flex flex-wrap justify-center gap-3">
         {onReset ? (
           <button
             type="button"
@@ -213,7 +221,7 @@ export default function ConnectionResult({
               trackProductEvent("try_another_clicked", {
                 fromQid,
                 toQid,
-                origin: "shared_url",
+                origin,
               })
             }
             className="hc-primary-button rounded-full px-5 py-2.5 text-sm font-bold transition hover:-translate-y-0.5 hover:bg-[#ff6846] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#ff6846]"
@@ -221,6 +229,22 @@ export default function ConnectionResult({
             Try another connection
           </Link>
         )}
+          <AnalyticsLink
+            href="/explore"
+            event="result_next_action_clicked"
+            eventProperties={{ destination: "explore", fromQid, toQid }}
+            className="hc-secondary-button inline-flex min-h-10 items-center rounded-full border px-5 text-sm font-bold transition hover:-translate-y-0.5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#ff6846]"
+          >
+            Explore verified paths
+          </AnalyticsLink>
+          <AnalyticsLink
+            href="/#surprise-me"
+            event="result_next_action_clicked"
+            eventProperties={{ destination: "surprise_me", fromQid, toQid }}
+            className="hc-secondary-button inline-flex min-h-10 items-center rounded-full border px-5 text-sm font-bold transition hover:-translate-y-0.5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#ff6846]"
+          >
+            Surprise me
+          </AnalyticsLink>
         </div>
       </div>
     </section>

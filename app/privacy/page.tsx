@@ -20,8 +20,11 @@ export default function PrivacyPage() {
         <p>
           HowConnected uses basic analytics to understand page visits and
           broad product usage, including whether searches succeed, time out,
-          are shared, or begin from Surprise Me. Analytics events do not
-          include search text, contact-form contents, or email addresses. The
+          are shared, lead to another search, or begin from Explore, Surprise
+          Me, or the browser extension. Extension attribution uses only a
+          fixed source label; it does not include the Wikipedia page URL or a
+          persistent user identifier. Analytics events do not include search
+          text, full browsing URLs, contact-form contents, or email addresses. The
           site also accepts path-quality feedback,
           such as whether a result was useful and a selected reason. This
           feedback helps improve connection quality.

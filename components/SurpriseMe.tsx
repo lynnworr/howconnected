@@ -26,6 +26,10 @@ export default function SurpriseMe() {
     const recent = recentPairIds();
     const next = pickSurprisePair(pair.id, recent, Math.random());
     setPair(next);
+    trackProductEvent("surprise_me_shuffled", {
+      previousPairId: pair.id,
+      nextPairId: next.id,
+    });
     try {
       window.sessionStorage.setItem(
         RECENT_KEY,

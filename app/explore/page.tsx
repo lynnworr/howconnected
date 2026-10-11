@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { cacheLife } from "next/cache";
 import Link from "next/link";
+import AnalyticsLink from "@/components/AnalyticsLink";
 import NetworkBackdrop from "@/components/NetworkBackdrop";
 import PublicFooter from "@/components/PublicFooter";
 import PublicHeader from "@/components/PublicHeader";
@@ -96,12 +97,14 @@ function ConnectionCard({ connection }: { connection: ExploreConnection }) {
         <p className="text-xs text-[#818999]">
           <ReviewDate value={connection.verifiedAt} />
         </p>
-        <Link
+        <AnalyticsLink
           href={connection.href}
+          event="explore_connection_opened"
+          eventProperties={{ connection: connection.slug, placement: "card" }}
           className="rounded-full text-sm font-bold text-[#a4432d] underline decoration-[#e4b2a7] underline-offset-4 transition group-hover:text-[#ee6243] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#ff6846]"
         >
           Follow this connection <span aria-hidden="true">→</span>
-        </Link>
+        </AnalyticsLink>
       </div>
     </article>
   );
@@ -163,13 +166,15 @@ export default async function ExplorePage() {
             </p>
             <nav aria-label="Explore by theme" className="mt-7 flex flex-wrap gap-2">
               {categories.map((category) => (
-                <a
+                <AnalyticsLink
                   key={category}
                   href={`#${category.toLowerCase().replace(/[^a-z]+/g, "-")}`}
+                  event="explore_category_selected"
+                  eventProperties={{ category }}
                   className="hc-secondary-button rounded-full border px-3 py-2 text-xs font-bold focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#ff6846]"
                 >
                   {category}
-                </a>
+                </AnalyticsLink>
               ))}
             </nav>
           </header>
@@ -203,12 +208,14 @@ export default async function ExplorePage() {
                     {featured.description}
                   </p>
                   <div className="mt-7 flex flex-wrap items-center gap-4">
-                    <Link
+                    <AnalyticsLink
                       href={featured.href}
+                      event="explore_connection_opened"
+                      eventProperties={{ connection: featured.slug, placement: "featured" }}
                       className="hc-primary-button inline-flex min-h-11 items-center rounded-full px-5 text-sm font-bold transition hover:-translate-y-0.5 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#ff6846]"
                     >
                       See the evidence <span aria-hidden="true" className="ml-2">→</span>
-                    </Link>
+                    </AnalyticsLink>
                     <p className="text-xs text-[#818999] sm:hidden">
                       <ReviewDate value={featured.verifiedAt} />
                     </p>

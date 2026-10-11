@@ -6,6 +6,7 @@ import {
   type ProductEventName,
 } from "@/lib/product-analytics";
 import type { DiscoveryFailureCategory } from "@/lib/discovery-failure-category";
+import type { ConnectionOrigin } from "@/lib/connection-attribution";
 
 type ConnectionOutcomeAnalyticsProps = {
   event: Extract<
@@ -14,7 +15,7 @@ type ConnectionOutcomeAnalyticsProps = {
   >;
   fromQid: string;
   toQid: string;
-  origin: "homepage" | "shared_url";
+  origin: ConnectionOrigin;
   failureCategory?: DiscoveryFailureCategory;
 };
 

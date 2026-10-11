@@ -13,7 +13,14 @@ export type ProductEventName =
   | "result_shared"
   | "surprise_me_used"
   | "entity_source_opened"
-  | "try_another_clicked";
+  | "try_another_clicked"
+  | "additional_search_started"
+  | "surprise_me_shuffled"
+  | "explore_connection_opened"
+  | "explore_category_selected"
+  | "related_connection_opened"
+  | "result_next_action_clicked"
+  | "extension_referral_opened";
 
 type ProductEventProperties = Record<
   string,
@@ -21,6 +28,7 @@ type ProductEventProperties = Record<
 >;
 
 const SESSION_CONNECTION_COUNT_KEY = "connections-lab:connection-count";
+const SESSION_RESULT_VIEWED_KEY = "connections-lab:result-viewed";
 
 export function trackProductEvent(
   name: ProductEventName,
@@ -44,5 +52,21 @@ export function incrementSessionConnectionCount(): number {
     return next;
   } catch {
     return 1;
+  }
+}
+
+export function markSessionResultViewed() {
+  try {
+    window.sessionStorage.setItem(SESSION_RESULT_VIEWED_KEY, "1");
+  } catch {
+    // Repeat-use measurement is best-effort when session storage is unavailable.
+  }
+}
+
+export function hasViewedResultInSession(): boolean {
+  try {
+    return window.sessionStorage.getItem(SESSION_RESULT_VIEWED_KEY) === "1";
+  } catch {
+    return false;
   }
 }

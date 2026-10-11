@@ -7,6 +7,7 @@ import type { DiscoveryResult, SelectedEntity } from "@/components/connection-ty
 import { parseDiscoveryResult } from "@/lib/connection-response";
 import { getConnectionPath } from "@/lib/connection-share";
 import {
+  hasViewedResultInSession,
   incrementSessionConnectionCount,
   trackProductEvent,
 } from "@/lib/product-analytics";
@@ -68,6 +69,7 @@ const EXAMPLES: Array<{
 
 export default function ConnectionExplorer() {
   const firstInputRef = useRef<HTMLInputElement>(null);
+  const hasViewedResultRef = useRef(false);
   const [from, setFrom] = useState<SearchSelection>({ text: "", entity: null });
   const [to, setTo] = useState<SearchSelection>({ text: "", entity: null });
   const [status, setStatus] = useState<ExplorerStatus>("idle");
@@ -140,6 +142,13 @@ export default function ConnectionExplorer() {
       toQid: to.entity.id,
       sessionConnectionNumber,
     });
+    if (hasViewedResultRef.current || hasViewedResultInSession()) {
+      trackProductEvent("additional_search_started", {
+        fromQid: from.entity.id,
+        toQid: to.entity.id,
+        sessionConnectionNumber,
+      });
+    }
 
     try {
       const params = new URLSearchParams({
@@ -171,6 +180,7 @@ export default function ConnectionExplorer() {
 
       setResult(parsed);
       setStatus("success");
+      hasViewedResultRef.current = true;
       window.history.pushState(
         { connection: true },
         "",
