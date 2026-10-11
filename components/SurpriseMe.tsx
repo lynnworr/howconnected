@@ -37,7 +37,7 @@ export default function SurpriseMe() {
   }
 
   return (
-    <aside className="hc-surprise mx-auto mt-8 w-full max-w-3xl rounded-2xl border px-4 py-4 text-left sm:flex sm:items-center sm:justify-between sm:gap-5 sm:px-5">
+    <aside id="surprise-me" className="hc-surprise mx-auto mt-8 w-full max-w-3xl scroll-mt-6 rounded-2xl border px-4 py-4 text-left sm:flex sm:items-center sm:justify-between sm:gap-5 sm:px-5">
       <div className="min-w-0">
         <p className="text-[10px] font-extrabold uppercase tracking-[0.17em] text-[#ee6243]">
           Surprise me

@@ -197,6 +197,40 @@ html[data-theme="dark"] .hc-theme-icon-sun {
   box-shadow: 0 24px 80px var(--hc-shadow);
 }
 
+.hc-explore-feature,
+.hc-explore-card,
+.hc-explore-next {
+  border-color: var(--hc-border);
+  background: color-mix(in srgb, var(--hc-panel) 90%, transparent);
+  box-shadow: 0 22px 70px color-mix(in srgb, var(--hc-shadow) 78%, transparent);
+}
+
+.hc-explore-feature {
+  background:
+    radial-gradient(circle at 92% 12%, color-mix(in srgb, var(--hc-cyan) 13%, transparent), transparent 35%),
+    linear-gradient(135deg, color-mix(in srgb, var(--hc-panel-strong) 92%, transparent), color-mix(in srgb, var(--hc-coral) 5%, var(--hc-panel)));
+}
+
+.hc-explore-card {
+  transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+}
+
+.hc-explore-card:hover {
+  border-color: color-mix(in srgb, var(--hc-coral) 35%, var(--hc-border));
+  box-shadow: 0 26px 78px color-mix(in srgb, var(--hc-shadow) 95%, transparent);
+  transform: translateY(-2px);
+}
+
+.hc-explore-node {
+  border-color: color-mix(in srgb, var(--hc-border) 90%, transparent);
+  background: color-mix(in srgb, var(--hc-panel-strong) 86%, transparent);
+  color: var(--hc-text);
+}
+
+.hc-nav-link:hover {
+  background: color-mix(in srgb, var(--hc-panel-strong) 72%, transparent);
+}
+
 .hc-eyebrow {
   border-color: var(--hc-border);
   background: color-mix(in srgb, var(--hc-panel) 78%, transparent);

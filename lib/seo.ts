@@ -4,7 +4,7 @@ export const SITE_ORIGIN = "https://www.howconnected.app";
 
 export const ROBOTS_RULES = {
   userAgent: "*",
-  allow: ["/", "/connect/", "/about", "/privacy", "/terms", "/contact"],
+  allow: ["/", "/connect/", "/explore", "/about", "/privacy", "/terms", "/contact"],
   disallow: ["/admin", "/api/"],
 };
 
@@ -14,6 +14,7 @@ export const INDEXABLE_CONNECTIONS = getIndexableEditorialConnections().map(
 );
 
 export const PUBLIC_PAGE_PATHS = [
+  "/explore",
   "/about",
   "/privacy",
   "/terms",

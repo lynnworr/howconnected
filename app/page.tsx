@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import ConnectionExplorer from "@/components/ConnectionExplorer";
 import PublicFooter from "@/components/PublicFooter";
 import NetworkBackdrop from "@/components/NetworkBackdrop";
@@ -38,6 +39,16 @@ export default function Home() {
 
           <ConnectionExplorer />
           <SurpriseMe />
+          <p className="mt-7 text-sm text-[#657087]">
+            Looking for a reviewed starting point?{" "}
+            <Link
+              href="/explore"
+              className="rounded-sm font-bold text-[#a4432d] underline decoration-[#e4b2a7] underline-offset-4 focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-[#ff6846]"
+            >
+              Browse verified connections
+            </Link>
+            .
+          </p>
         </section>
 
         <PublicFooter />
