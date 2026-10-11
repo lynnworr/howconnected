@@ -1,13 +1,25 @@
 {
   "manifest_version": 3,
-  "name": "HowConnected",
-  "version": "0.1.0",
-  "description": "Find a HowConnected path from the English Wikipedia article you are reading.",
-  "action": {
-    "default_title": "Find a HowConnected path",
-    "default_popup": "popup.html"
+  "name": "HowConnected for Wikipedia",
+  "short_name": "HowConnected",
+  "version": "1.0.0",
+  "description": "Discover how an English Wikipedia subject connects to another person, place, work, organization, or idea.",
+  "icons": {
+    "16": "icons/icon-16.png",
+    "32": "icons/icon-32.png",
+    "48": "icons/icon-48.png",
+    "128": "icons/icon-128.png"
   },
-  "permissions": ["activeTab"],
+  "action": {
+    "default_title": "Find a connection from this Wikipedia article",
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon-16.png",
+      "32": "icons/icon-32.png",
+      "48": "icons/icon-48.png",
+      "128": "icons/icon-128.png"
+    }
+  },
   "host_permissions": [
     "https://en.wikipedia.org/*",
     "https://www.howconnected.app/*"

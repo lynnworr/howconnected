@@ -1,5 +1,6 @@
 export const HOWCONNECTED_ORIGIN = "https://www.howconnected.app";
 export const HOWCONNECTED_SEARCH_ENDPOINT = `${HOWCONNECTED_ORIGIN}/api/search`;
+export const HOWCONNECTED_EXTENSION_URL = `${HOWCONNECTED_ORIGIN}/extension`;
 export const WIKIPEDIA_API_ENDPOINT = "https://en.wikipedia.org/w/api.php";
 
 const QID_PATTERN = /^Q[1-9]\d*$/;

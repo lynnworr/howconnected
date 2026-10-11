@@ -17,21 +17,25 @@
           </span>
           <span>HowConnected</span>
         </div>
-        <span class="prototype">Prototype</span>
+        <span class="release-badge">Free extension</span>
       </header>
 
       <section class="intro" aria-labelledby="popup-title">
         <p class="eyebrow">Wikipedia companion</p>
-        <h1 id="popup-title">Follow this article somewhere unexpected.</h1>
-        <p id="detection-status" class="status" role="status" aria-live="polite">
-          Checking the current article…
-        </p>
+        <h1 id="popup-title">Connect this Wikipedia article.</h1>
+        <div class="detection-row">
+          <span id="detection-indicator" class="status-indicator" data-loading="true" aria-hidden="true"></span>
+          <p id="detection-status" class="status" role="status" aria-live="polite">
+            Checking the current article…
+          </p>
+        </div>
+        <p class="support-note">Works on standard English Wikipedia article pages. You can always search manually.</p>
       </section>
 
       <form id="connection-form" novalidate>
         <div class="field-group" data-field="source">
           <div class="label-row">
-            <label for="source-input">First entity</label>
+            <label for="source-input">From this article</label>
             <button id="change-source" class="text-button" type="button" hidden>Change</button>
           </div>
           <div class="input-shell">
@@ -74,14 +78,14 @@
 
         <p id="form-message" class="form-message" role="alert" aria-live="assertive"></p>
         <button id="find-button" class="primary-button" type="submit" disabled>
-          Find connection <span aria-hidden="true">→</span>
+          <span id="find-button-label">Find connection</span> <span aria-hidden="true">→</span>
         </button>
       </form>
 
       <footer>
         <button id="open-site" class="footer-link" type="button">Open HowConnected</button>
         <span aria-hidden="true">·</span>
-        <button id="open-privacy" class="footer-link" type="button">Privacy</button>
+        <button id="open-extension-info" class="footer-link" type="button">How it works &amp; privacy</button>
       </footer>
     </main>
     <script type="module" src="popup.js"></script>

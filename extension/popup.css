@@ -9,7 +9,7 @@
 
 body {
   width: 390px;
-  min-height: 520px;
+  min-height: 548px;
   margin: 0;
   background:
     radial-gradient(circle at 12% 5%, rgba(255, 104, 70, 0.18), transparent 32%),
@@ -52,11 +52,11 @@ main { padding: 20px; }
 .dot-coral { left: 6px; top: 14px; background: #ff6846; }
 .dot-teal { right: 6px; top: 11px; background: #42ad8d; }
 
-.prototype {
+.release-badge {
   border: 1px solid rgba(255, 255, 255, 0.13);
   border-radius: 999px;
   padding: 5px 8px;
-  color: #aab4c3;
+  color: #a9dfcf;
   font-size: 9px;
   font-weight: 750;
   letter-spacing: 0.12em;
@@ -67,9 +67,35 @@ main { padding: 20px; }
 .eyebrow { margin: 0; color: #ff8a70; font-size: 10px; font-weight: 800; letter-spacing: 0.16em; text-transform: uppercase; }
 h1 { margin: 7px 0 0; max-width: 330px; font-size: 24px; line-height: 1.12; letter-spacing: -0.035em; }
 
+.detection-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  min-height: 40px;
+  margin-top: 11px;
+}
+
+.status-indicator {
+  width: 8px;
+  height: 8px;
+  flex: 0 0 auto;
+  margin-top: 5px;
+  border-radius: 999px;
+  background: #778295;
+}
+
+.status-indicator[data-loading="true"] {
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-top-color: #ff8065;
+  background: transparent;
+  animation: spin 800ms linear infinite;
+}
+
+.status-indicator[data-tone="success"] { background: #42ad8d; }
+.status-indicator[data-tone="warning"] { background: #f3a86c; }
+
 .status {
-  min-height: 38px;
-  margin: 11px 0 0;
+  margin: 0;
   color: #aeb8c7;
   font-size: 12px;
   line-height: 1.55;
@@ -77,6 +103,13 @@ h1 { margin: 7px 0 0; max-width: 330px; font-size: 24px; line-height: 1.12; lett
 
 .status[data-tone="success"] { color: #91dfc6; }
 .status[data-tone="warning"] { color: #ffc18f; }
+
+.support-note {
+  margin: 3px 0 0 17px;
+  color: #768295;
+  font-size: 10px;
+  line-height: 1.45;
+}
 
 form { margin-top: 16px; }
 .field-group { position: relative; }
@@ -183,6 +216,7 @@ input::placeholder { color: #727e90; font-weight: 500; }
 }
 
 .primary-button:disabled { background: #262d37; color: #7e8999; box-shadow: none; cursor: not-allowed; }
+.primary-button[aria-busy="true"] { cursor: progress; }
 
 footer {
   justify-content: center;
@@ -199,4 +233,7 @@ button:focus-visible, input:focus-visible {
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { transition-duration: 0.01ms !important; }
+  .status-indicator[data-loading="true"] { animation: none; border-color: #ff8065; }
 }
+
+@keyframes spin { to { transform: rotate(360deg); } }

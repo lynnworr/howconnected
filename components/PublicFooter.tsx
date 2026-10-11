@@ -3,6 +3,7 @@ import Link from "next/link";
 export const PUBLIC_FOOTER_LINKS = [
   { href: "/explore", label: "Explore" },
   { href: "/methodology", label: "Methodology" },
+  { href: "/extension", label: "Chrome extension" },
   { href: "/about", label: "About" },
   { href: "/privacy", label: "Privacy" },
   { href: "/terms", label: "Terms" },

@@ -3,6 +3,7 @@ import { readFile } from "node:fs/promises";
 import test from "node:test";
 import {
   HOWCONNECTED_ORIGIN,
+  HOWCONNECTED_EXTENSION_URL,
   HOWCONNECTED_SEARCH_ENDPOINT,
   WIKIPEDIA_API_ENDPOINT,
   buildConnectionUrl,
@@ -15,6 +16,12 @@ import {
   selectedEntityAfterEdit,
 } from "../extension/core.mjs";
 import { handleSearchRequest } from "../lib/search-api.ts";
+import {
+  EXTENSION_RUNTIME_FILES,
+  createDeterministicZip,
+  readPngDimensions,
+  validateExtensionManifest,
+} from "../scripts/extension-release-lib.mjs";
 
 const jobs = { id: "Q19837", label: "Steve Jobs", description: "American entrepreneur" };
 const apple = { id: "Q312", label: "Apple Inc.", description: "Technology company" };
@@ -138,17 +145,61 @@ test("manifest uses minimal permissions and no background monitoring", async () 
     await readFile(new URL("../extension/manifest.json", import.meta.url), "utf8"),
   );
   assert.equal(manifest.manifest_version, 3);
-  assert.deepEqual(manifest.permissions, ["activeTab"]);
+  assert.equal(manifest.version, "1.0.0");
+  assert.equal(manifest.name, "HowConnected for Wikipedia");
+  assert.equal(manifest.permissions, undefined);
   assert.deepEqual(manifest.host_permissions, [
     "https://en.wikipedia.org/*",
     "https://www.howconnected.app/*",
   ]);
   assert.equal(manifest.background, undefined);
   assert.equal(manifest.content_scripts, undefined);
+  assert.deepEqual(validateExtensionManifest(manifest), []);
   const serialized = JSON.stringify(manifest);
   for (const forbidden of ["history", "storage", "cookies", "webRequest", "<all_urls>"]) {
     assert.ok(!serialized.includes(forbidden));
   }
+});
+
+test("manifest references valid PNG icons at every required size", async () => {
+  for (const size of [16, 32, 48, 128]) {
+    const icon = await readFile(new URL(`../extension/icons/icon-${size}.png`, import.meta.url));
+    assert.deepEqual(readPngDimensions(icon), { width: size, height: size });
+  }
+});
+
+test("release archive is deterministic and contains only runtime files", async () => {
+  const files = await Promise.all(
+    EXTENSION_RUNTIME_FILES.map(async (name) => ({
+      name,
+      data: await readFile(new URL(`../extension/${name}`, import.meta.url)),
+    })),
+  );
+  const first = createDeterministicZip(files);
+  const second = createDeterministicZip([...files].reverse());
+  assert.deepEqual(first, second);
+  assert.equal(first.subarray(0, 4).toString("hex"), "504b0304");
+  const serialized = first.toString("latin1");
+  for (const runtimeFile of EXTENSION_RUNTIME_FILES) assert.ok(serialized.includes(runtimeFile));
+  for (const excluded of ["PRIVACY.md", "README.md", ".env", "tests/", "server"]) {
+    assert.ok(!serialized.includes(excluded));
+  }
+});
+
+test("popup exposes accessible loading, fallback, and public privacy states", async () => {
+  const [html, popup] = await Promise.all([
+    readFile(new URL("../extension/popup.html", import.meta.url), "utf8"),
+    readFile(new URL("../extension/popup.js", import.meta.url), "utf8"),
+  ]);
+  assert.match(html, /role="status"/);
+  assert.match(html, /aria-live="assertive"/);
+  assert.match(html, /data-loading="true"/);
+  assert.match(html, /standard English Wikipedia article pages/i);
+  assert.match(popup, /disambiguation page/);
+  assert.match(popup, /search for both entities/);
+  assert.match(popup, /Searching…/);
+  assert.match(popup, /HOWCONNECTED_EXTENSION_URL/);
+  assert.doesNotMatch(html, /Prototype/);
 });
 
 test("extension requests are fixed, credential-free, and never send article content", async () => {
@@ -184,14 +235,17 @@ test("search API stays closed to CORS and bounds extension-origin queries", asyn
 });
 
 test("privacy disclosures match the implementation safeguards", async () => {
-  const [markdown, html] = await Promise.all([
+  const [markdown, html, publicPage] = await Promise.all([
     readFile(new URL("../extension/PRIVACY.md", import.meta.url), "utf8"),
     readFile(new URL("../extension/privacy.html", import.meta.url), "utf8"),
+    readFile(new URL("../app/extension/page.tsx", import.meta.url), "utf8"),
   ]);
-  for (const disclosure of [markdown, html]) {
+  for (const disclosure of [markdown, html, publicPage]) {
     assert.match(disclosure, /does not|never/i);
     assert.match(disclosure, /browsing history/i);
     assert.match(disclosure, /advertising/i);
     assert.match(disclosure, /stores? no|stores? nothing|no user data/i);
+    assert.match(disclosure, /Limited Use/i);
   }
+  assert.equal(HOWCONNECTED_EXTENSION_URL, "https://www.howconnected.app/extension");
 });

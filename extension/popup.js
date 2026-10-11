@@ -2,6 +2,7 @@
 
 import {
   HOWCONNECTED_ORIGIN,
+  HOWCONNECTED_EXTENSION_URL,
   buildConnectionUrl,
   buildSearchUrl,
   buildWikipediaLookupUrl,
@@ -23,7 +24,9 @@ const elements = {
   detectionStatus: document.querySelector("#detection-status"),
   formMessage: document.querySelector("#form-message"),
   openSite: document.querySelector("#open-site"),
-  openPrivacy: document.querySelector("#open-privacy"),
+  openExtensionInfo: document.querySelector("#open-extension-info"),
+  detectionIndicator: document.querySelector("#detection-indicator"),
+  findButtonLabel: document.querySelector("#find-button-label"),
 };
 
 const state = {
@@ -31,9 +34,11 @@ const state = {
   target: null,
 };
 
-function setDetectionStatus(message, tone = "neutral") {
+function setDetectionStatus(message, tone = "neutral", loading = false) {
   elements.detectionStatus.textContent = message;
   elements.detectionStatus.dataset.tone = tone;
+  elements.detectionIndicator.dataset.tone = tone;
+  elements.detectionIndicator.dataset.loading = String(loading);
 }
 
 function updateSubmitState() {
@@ -89,7 +94,7 @@ function setupAutocomplete(kind, input, list) {
     close();
   }
 
-  function render(nextResults, message = "") {
+  function render(nextResults, message = "", busy = false) {
     results = nextResults;
     list.replaceChildren();
     if (message) {
@@ -122,6 +127,7 @@ function setupAutocomplete(kind, input, list) {
       });
     }
     list.hidden = false;
+    list.setAttribute("aria-busy", String(busy));
     input.setAttribute("aria-expanded", "true");
     if (results.length) highlight(0);
   }
@@ -129,6 +135,7 @@ function setupAutocomplete(kind, input, list) {
   async function search(query, currentRequestId) {
     controller?.abort();
     controller = new AbortController();
+    render([], "Searching…", true);
     try {
       const response = await fetch(buildSearchUrl(query), {
         headers: { Accept: "application/json" },
@@ -182,6 +189,7 @@ function setupAutocomplete(kind, input, list) {
 }
 
 async function detectCurrentArticle() {
+  setDetectionStatus("Checking the current article…", "neutral", true);
   try {
     const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
     const parsed = parseWikipediaArticleUrl(tab?.url ?? "");
@@ -248,10 +256,20 @@ elements.form.addEventListener("submit", async (event) => {
     return;
   }
   const url = buildConnectionUrl(state.source.id, state.target.id);
-  await chrome.tabs.create({ url });
+  elements.findButton.disabled = true;
+  elements.findButton.setAttribute("aria-busy", "true");
+  elements.findButtonLabel.textContent = "Opening HowConnected…";
+  try {
+    await chrome.tabs.create({ url });
+  } catch {
+    elements.formMessage.textContent = "Chrome could not open the connection. Please try again.";
+    elements.findButton.disabled = false;
+    elements.findButton.removeAttribute("aria-busy");
+    elements.findButtonLabel.textContent = "Find connection";
+  }
 });
 
 elements.openSite.addEventListener("click", () => chrome.tabs.create({ url: HOWCONNECTED_ORIGIN }));
-elements.openPrivacy.addEventListener("click", () => chrome.tabs.create({ url: chrome.runtime.getURL("privacy.html") }));
+elements.openExtensionInfo.addEventListener("click", () => chrome.tabs.create({ url: HOWCONNECTED_EXTENSION_URL }));
 
 void detectCurrentArticle();
