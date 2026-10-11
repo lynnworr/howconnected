@@ -6,7 +6,7 @@ import {
   type EditorialConnection,
   type SnapshotValidation,
 } from "./editorial-connections.ts";
-import { getCanonicalConnectionUrl } from "./seo.ts";
+import { getCanonicalConnectionUrl, SITE_ORIGIN } from "./seo.ts";
 import { isValidQid } from "./wikidata-id.ts";
 
 export type EditorialRouteMatch = {
@@ -104,8 +104,10 @@ export function buildConnectionRouteMetadata(
       validation.status === "ready";
 
     if (canIndex && validation.status === "ready") {
-      const title = `How are ${validation.snapshot.source.label} and ${validation.snapshot.target.label} connected? | HowConnected`;
-      const description = validation.snapshot.editorialExplanation;
+      const title = `${validation.snapshot.headline ?? `${validation.snapshot.source.label} and ${validation.snapshot.target.label}`} | HowConnected`;
+      const description =
+        validation.snapshot.introduction ?? validation.snapshot.editorialExplanation;
+      const imageUrl = `${SITE_ORIGIN}/editorial-preview/${connection.canonicalFromQid}/${connection.canonicalToQid}`;
       return {
         title,
         description,
@@ -117,8 +119,14 @@ export function buildConnectionRouteMetadata(
           type: "website",
           siteName: "HowConnected",
           url: canonicalUrl,
+          images: [{ url: imageUrl, width: 1200, height: 630 }],
         },
-        twitter: { card: "summary", title, description },
+        twitter: {
+          card: "summary_large_image",
+          title,
+          description,
+          images: [imageUrl],
+        },
       };
     }
 

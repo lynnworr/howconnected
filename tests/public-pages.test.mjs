@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 import test from "node:test";
 
-const PUBLIC_ROUTES = ["about", "privacy", "terms", "contact"];
+const PUBLIC_ROUTES = ["about", "privacy", "terms", "contact", "methodology"];
 
 test("all public policy and information routes have page content", async () => {
   const pages = await Promise.all(
@@ -17,6 +17,8 @@ test("all public policy and information routes have page content", async () => {
   assert.match(pages[2], /informational and entertainment service/);
   assert.match(pages[3], /ContactForm/);
   assert.match(pages[3], /incorrect connection/);
+  assert.match(pages[4], /Reviewed editorial connections/);
+  assert.match(pages[4], /historical qualifiers/i);
 });
 
 test("public footer links to public routes and never exposes admin", async () => {

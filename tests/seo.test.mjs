@@ -44,7 +44,7 @@ test("publishes public information pages and bounded curated connections", () =>
 test("allows public discovery while excluding private and API routes", () => {
   assert.deepEqual(ROBOTS_RULES, {
     userAgent: "*",
-    allow: ["/", "/connect/", "/explore", "/about", "/privacy", "/terms", "/contact"],
+    allow: ["/", "/connect/", "/explore", "/methodology", "/about", "/privacy", "/terms", "/contact"],
     disallow: ["/admin", "/api/"],
   });
 });

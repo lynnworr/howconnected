@@ -7,17 +7,24 @@ import {
 } from "../lib/explore-connections.ts";
 import { EDITORIAL_CONNECTIONS } from "../lib/editorial-connections.ts";
 
-const REVIEW_TIME = new Date("2026-10-10T12:00:00.000Z");
+const REVIEW_TIME = new Date("2026-10-11T12:00:00.000Z");
 
 test("Explore derives exactly the approved, indexable, snapshot-ready collection", () => {
   const connections = getApprovedExploreConnections(REVIEW_TIME);
-  assert.equal(connections.length, 3);
+  assert.equal(connections.length, 10);
   assert.deepEqual(
     connections.map(({ slug }) => slug),
     [
       "steve-jobs-apple",
       "walt-disney-the-walt-disney-company",
       "nasa-dwight-eisenhower",
+      "studio-ghibli-hayao-miyazaki",
+      "star-wars-george-lucas",
+      "world-wide-web-tim-berners-lee",
+      "apollo-11-neil-armstrong",
+      "michael-jordan-chicago-bulls",
+      "google-larry-page",
+      "france-paris",
     ],
   );
   assert.equal(
@@ -31,6 +38,17 @@ test("Explore derives exactly the approved, indexable, snapshot-ready collection
           "approved" &&
         EDITORIAL_CONNECTIONS.find((item) => item.slug === slug)?.indexEligible,
     ),
+  );
+  assert.deepEqual(
+    [...new Set(connections.map(({ category }) => category))].sort(),
+    [
+      "Business & technology",
+      "Entertainment & media",
+      "History",
+      "Places & culture",
+      "Science & innovation",
+      "Sports",
+    ],
   );
 });
 
@@ -49,6 +67,7 @@ test("Explore links, metadata, and structured data are server-rendered and crawl
   assert.match(page, /<h1/);
   assert.equal((page.match(/<h1/g) ?? []).length, 1);
   assert.match(page, /getApprovedExploreConnections\(\)/);
+  assert.match(page, /Explore by theme/);
   assert.doesNotMatch(page, /discoverConnection|fetchWikidata|getNeo4jDriver/);
   for (const source of [header, footer, home, seo]) {
     assert.match(source, /\/explore/);

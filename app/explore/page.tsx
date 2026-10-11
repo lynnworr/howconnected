@@ -79,16 +79,14 @@ function ConnectionCard({ connection }: { connection: ExploreConnection }) {
     <article className="hc-explore-card group flex h-full flex-col rounded-[24px] border p-5 sm:p-6">
       <div className="flex items-center justify-between gap-3">
         <p className="text-[10px] font-extrabold uppercase tracking-[0.16em] text-[#ee6243]">
-          Verified connection
+          {connection.category}
         </p>
         <span className="text-[11px] font-semibold text-[#818999]">
           {connection.steps} {connection.steps === 1 ? "step" : "steps"}
         </span>
       </div>
       <h3 className="mt-3 text-balance text-xl font-bold tracking-[-0.025em] text-[#1d2944] sm:text-2xl">
-        {connection.sourceName}
-        <span aria-hidden="true" className="mx-2 text-[#ff6846]">↔</span>
-        {connection.targetName}
+        {connection.headline}
       </h3>
       <ConnectionThread connection={connection} />
       <p className="mt-5 flex-1 text-sm leading-6 text-[#657087]">
@@ -119,6 +117,7 @@ export default async function ExplorePage() {
   const connections = await getExplorePageConnections();
   const featured = getFeaturedExploreConnection(connections);
   const remaining = connections.filter(({ slug }) => slug !== featured?.slug);
+  const categories = [...new Set(remaining.map(({ category }) => category))];
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
@@ -162,6 +161,17 @@ export default async function ExplorePage() {
             <p className="mt-5 max-w-2xl text-base leading-7 text-[#657087] sm:text-lg sm:leading-8">
               Start with relationships reviewed against committed evidence. Each path below is a verified snapshot—not a claim inferred from a live search.
             </p>
+            <nav aria-label="Explore by theme" className="mt-7 flex flex-wrap gap-2">
+              {categories.map((category) => (
+                <a
+                  key={category}
+                  href={`#${category.toLowerCase().replace(/[^a-z]+/g, "-")}`}
+                  className="hc-secondary-button rounded-full border px-3 py-2 text-xs font-bold focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#ff6846]"
+                >
+                  {category}
+                </a>
+              ))}
+            </nav>
           </header>
 
           {featured ? (
@@ -182,11 +192,11 @@ export default async function ExplorePage() {
 
               <article className="hc-explore-feature relative overflow-hidden rounded-[30px] border p-6 sm:p-9">
                 <div className="relative z-10 max-w-4xl">
-                  <p className="text-xs font-bold text-[#177258]">Evidence-backed · {featured.steps} step</p>
+                  <p className="text-xs font-bold text-[#177258]">
+                    {featured.category} · Evidence-backed · {featured.steps} step
+                  </p>
                   <h3 className="mt-3 text-balance text-3xl font-extrabold tracking-[-0.04em] text-[#15213b] sm:text-5xl">
-                    {featured.sourceName}
-                    <span aria-hidden="true" className="mx-3 text-[#ff6846]">↔</span>
-                    {featured.targetName}
+                    {featured.headline}
                   </h3>
                   <ConnectionThread connection={featured} featured />
                   <p className="mt-6 max-w-3xl text-base leading-7 text-[#59647a] sm:text-lg sm:leading-8">
@@ -218,10 +228,24 @@ export default async function ExplorePage() {
                   Browse the current collection. New paths appear here only after their snapshots and wording pass editorial review.
                 </p>
               </div>
-              <div className="mt-6 grid gap-5 lg:grid-cols-2">
-                {remaining.map((connection) => (
-                  <ConnectionCard connection={connection} key={connection.slug} />
-                ))}
+              <div className="mt-8 space-y-10">
+                {categories.map((category) => {
+                  const id = category.toLowerCase().replace(/[^a-z]+/g, "-");
+                  return (
+                    <section key={category} aria-labelledby={id}>
+                      <h3 id={id} className="text-lg font-bold text-[#1d2944]">
+                        {category}
+                      </h3>
+                      <div className="mt-4 grid gap-5 lg:grid-cols-2">
+                        {remaining
+                          .filter((connection) => connection.category === category)
+                          .map((connection) => (
+                            <ConnectionCard connection={connection} key={connection.slug} />
+                          ))}
+                      </div>
+                    </section>
+                  );
+                })}
               </div>
             </section>
           ) : null}

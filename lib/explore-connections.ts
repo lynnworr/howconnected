@@ -1,6 +1,7 @@
 import {
   getIndexableEditorialConnections,
   validateEditorialSnapshot,
+  type EditorialCategory,
 } from "./editorial-connections.ts";
 import { getCanonicalConnectionUrl } from "./seo.ts";
 
@@ -10,6 +11,8 @@ export type ExploreConnection = {
   canonicalUrl: string;
   sourceName: string;
   targetName: string;
+  headline: string;
+  category: EditorialCategory;
   description: string;
   verifiedAt: string;
   steps: number;
@@ -41,7 +44,10 @@ export function getApprovedExploreConnections(
         ),
         sourceName: snapshot.source.label,
         targetName: snapshot.target.label,
-        description: snapshot.editorialExplanation,
+        headline:
+          snapshot.headline ?? `${snapshot.source.label} and ${snapshot.target.label}`,
+        category: connection.category,
+        description: snapshot.introduction ?? snapshot.editorialExplanation,
         verifiedAt: connection.verifiedAt,
         steps: snapshot.path.steps,
         path: snapshot.path.nodes.map((node, index) => ({

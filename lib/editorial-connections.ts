@@ -12,6 +12,19 @@ export const EDITORIAL_SNAPSHOT_MAX_AGE_DAYS = 365;
 
 export type EditorialReviewStatus = "approved" | "needs-review" | "rejected";
 export type StatementDirection = "forward" | "reverse";
+export type EditorialCategory =
+  | "Business & technology"
+  | "Entertainment & media"
+  | "History"
+  | "Places & culture"
+  | "Science & innovation"
+  | "Sports";
+
+export type EditorialSource = {
+  label: string;
+  publisher: string;
+  url: string;
+};
 
 export type ExpectedEditorialRelationship = {
   propertyId: string;
@@ -26,6 +39,11 @@ export type EditorialSnapshot = {
   source: SelectedEntity;
   target: SelectedEntity;
   path: ConnectionPathData;
+  headline?: string;
+  introduction?: string;
+  relationshipMeaning?: string;
+  context?: readonly string[];
+  verificationSources?: readonly EditorialSource[];
   editorialExplanation: string;
 };
 
@@ -33,12 +51,14 @@ export type EditorialConnection = {
   slug: string;
   canonicalFromQid: string;
   canonicalToQid: string;
+  category: EditorialCategory;
   pathFingerprint: string;
   expectedRelationships: readonly ExpectedEditorialRelationship[];
   reviewStatus: EditorialReviewStatus;
   verifiedAt: string;
   indexEligible: boolean;
   snapshot: EditorialSnapshot | null;
+  relatedSlugs?: readonly string[];
   reviewNotes?: string;
 };
 
@@ -110,6 +130,11 @@ function directSnapshot(input: {
   sourceNode: ConnectionNode;
   targetNode: ConnectionNode;
   relationship: ConnectionRelationship;
+  headline?: string;
+  introduction?: string;
+  relationshipMeaning?: string;
+  context?: readonly string[];
+  verificationSources?: readonly EditorialSource[];
   editorialExplanation: string;
 }): EditorialSnapshot {
   return {
@@ -121,6 +146,11 @@ function directSnapshot(input: {
       nodes: [input.sourceNode, input.targetNode],
       relationships: [input.relationship],
     },
+    headline: input.headline,
+    introduction: input.introduction,
+    relationshipMeaning: input.relationshipMeaning,
+    context: input.context,
+    verificationSources: input.verificationSources,
     editorialExplanation: input.editorialExplanation,
   };
 }
@@ -134,6 +164,7 @@ export const EDITORIAL_CONNECTIONS: readonly EditorialConnection[] = [
     slug: "steve-jobs-apple",
     canonicalFromQid: "Q19837",
     canonicalToQid: "Q312",
+    category: "Business & technology",
     pathFingerprint: "hc-v1-553e20db",
     expectedRelationships: [
       {
@@ -145,8 +176,9 @@ export const EDITORIAL_CONNECTIONS: readonly EditorialConnection[] = [
       },
     ],
     reviewStatus: "approved",
-    verifiedAt: "2026-10-10T00:00:00.000Z",
+    verifiedAt: "2026-10-11T00:00:00.000Z",
     indexEligible: true,
+    relatedSlugs: ["google-larry-page", "world-wide-web-tim-berners-lee", "walt-disney-the-walt-disney-company"],
     snapshot: directSnapshot({
       source: entity("Q19837", "Steve Jobs", "American entrepreneur and co-founder of Apple"),
       target: entity("Q312", "Apple Inc.", "American multinational technology company"),
@@ -160,6 +192,27 @@ export const EDITORIAL_CONNECTIONS: readonly EditorialConnection[] = [
         "reverse",
         [qualifier("P580", "start date", "1 April 1976")],
       ),
+      headline: "Steve Jobs helped start Apple in a family garage.",
+      introduction:
+        "Before Apple became a global technology company, Steve Jobs and Steve Wozniak built its earliest chapter from Jobs’s parents’ garage. The reviewed path connects Jobs to the company he co-founded.",
+      relationshipMeaning:
+        "Wikidata stores Apple as the subject of property P112, “founded by,” with Steve Jobs as the object. Because this page reads from Jobs to Apple, the displayed phrase is the accurate reverse: “co-founded.”",
+      context: [
+        "The founder statement carries a start date of 1 April 1976.",
+        "Jobs described starting Apple with Steve Wozniak when he was 20; this relationship does not imply he was Apple’s only founder.",
+      ],
+      verificationSources: [
+        {
+          label: "Steve Jobs’s 2005 Stanford commencement address",
+          publisher: "Stanford University",
+          url: "https://news.stanford.edu/stories/2005/06/youve-got-find-love-jobs-says",
+        },
+        {
+          label: "Apple founder statement (P112)",
+          publisher: "Wikidata",
+          url: "https://www.wikidata.org/wiki/Q312#P112",
+        },
+      ],
       editorialExplanation:
         "Apple Inc. identifies Steve Jobs as one of its founders, with the founding relationship dated 1 April 1976. The path is shown from Jobs to Apple, so it reads in the reverse direction of Wikidata property P112 (founded by).",
     }),
@@ -168,6 +221,7 @@ export const EDITORIAL_CONNECTIONS: readonly EditorialConnection[] = [
     slug: "walt-disney-the-walt-disney-company",
     canonicalFromQid: "Q8704",
     canonicalToQid: "Q7414",
+    category: "Entertainment & media",
     pathFingerprint: "hc-v1-c8b4a8da",
     expectedRelationships: [
       {
@@ -178,8 +232,9 @@ export const EDITORIAL_CONNECTIONS: readonly EditorialConnection[] = [
       },
     ],
     reviewStatus: "approved",
-    verifiedAt: "2026-10-10T00:00:00.000Z",
+    verifiedAt: "2026-10-11T00:00:00.000Z",
     indexEligible: true,
+    relatedSlugs: ["studio-ghibli-hayao-miyazaki", "star-wars-george-lucas", "steve-jobs-apple"],
     snapshot: directSnapshot({
       source: entity("Q8704", "Walt Disney", "American animator, producer, and entrepreneur"),
       target: entity("Q7414", "The Walt Disney Company", "American multinational mass media company"),
@@ -192,6 +247,27 @@ export const EDITORIAL_CONNECTIONS: readonly EditorialConnection[] = [
         "P112",
         "reverse",
       ),
+      headline: "Walt Disney co-founded the company that still bears his name.",
+      introduction:
+        "A short distribution contract for the Alice Comedies became the starting point for a century of Disney storytelling. This reviewed path connects Walt Disney to the company he established with his brother Roy.",
+      relationshipMeaning:
+        "The company’s Wikidata record uses P112, “founded by,” to point to Walt Disney. The page travels in the opposite direction, so the path correctly reads that Walt Disney “co-founded” The Walt Disney Company.",
+      context: [
+        "The Walt Disney Company dates its official beginning to 16 October 1923.",
+        "Walt and Roy Disney began the Disney Brothers Cartoon Studio together; the relationship is not a claim of sole authorship or ownership.",
+      ],
+      verificationSources: [
+        {
+          label: "How a four-page contract started The Walt Disney Company",
+          publisher: "The Walt Disney Company",
+          url: "https://thewaltdisneycompany.com/news/disney100-anniversary-disney-contract/",
+        },
+        {
+          label: "The Walt Disney Company founder statement (P112)",
+          publisher: "Wikidata",
+          url: "https://www.wikidata.org/wiki/Q7414#P112",
+        },
+      ],
       editorialExplanation:
         "The Walt Disney Company identifies Walt Disney as a founder. The displayed route runs from Walt Disney to the company, which is the reverse reading of Wikidata property P112 (founded by).",
     }),
@@ -200,6 +276,7 @@ export const EDITORIAL_CONNECTIONS: readonly EditorialConnection[] = [
     slug: "george-lucas-lucasfilm",
     canonicalFromQid: "Q38222",
     canonicalToQid: "Q242446",
+    category: "Entertainment & media",
     pathFingerprint: "hc-v1-b60a3367",
     expectedRelationships: [
       {
@@ -234,6 +311,7 @@ export const EDITORIAL_CONNECTIONS: readonly EditorialConnection[] = [
     slug: "nasa-dwight-eisenhower",
     canonicalFromQid: "Q23548",
     canonicalToQid: "Q9916",
+    category: "History",
     pathFingerprint: "hc-v1-8b265cba",
     expectedRelationships: [
       {
@@ -245,8 +323,9 @@ export const EDITORIAL_CONNECTIONS: readonly EditorialConnection[] = [
       },
     ],
     reviewStatus: "approved",
-    verifiedAt: "2026-10-10T00:00:00.000Z",
+    verifiedAt: "2026-10-11T00:00:00.000Z",
     indexEligible: true,
+    relatedSlugs: ["apollo-11-neil-armstrong", "world-wide-web-tim-berners-lee", "france-paris"],
     snapshot: directSnapshot({
       source: entity("Q23548", "National Aeronautics and Space Administration", "American space and aeronautics agency"),
       target: entity("Q9916", "Dwight D. Eisenhower", "34th president of the United States"),
@@ -263,6 +342,27 @@ export const EDITORIAL_CONNECTIONS: readonly EditorialConnection[] = [
           qualifier("P3831", "object has role", "President of the United States"),
         ],
       ),
+      headline: "NASA traces its founding to President Eisenhower’s signature.",
+      introduction:
+        "The agency that would lead the United States to the Moon began with legislation signed during the opening years of the Space Age. This path connects NASA to Dwight D. Eisenhower in his presidential role.",
+      relationshipMeaning:
+        "NASA’s Wikidata record uses P112, “founded by,” for Eisenhower. Its qualifiers make the claim specific: the statement is dated 29 July 1958 and identifies his role as President of the United States.",
+      context: [
+        "Eisenhower signed the National Aeronautics and Space Act into law on 29 July 1958.",
+        "NASA began operations on 1 October 1958; the relationship describes the legal creation of the agency, not a claim that one person built it alone.",
+      ],
+      verificationSources: [
+        {
+          label: "President Eisenhower signs NASA into existence",
+          publisher: "NASA",
+          url: "https://www.nasa.gov/history/president-eisenhower-signs-nasa-into-existence/",
+        },
+        {
+          label: "NASA founder statement (P112)",
+          publisher: "Wikidata",
+          url: "https://www.wikidata.org/wiki/Q23548#P112",
+        },
+      ],
       editorialExplanation:
         "NASA identifies Dwight D. Eisenhower as a founder in his role as President of the United States, with the statement dated 29 July 1958, when he signed the National Aeronautics and Space Act.",
     }),
@@ -271,6 +371,7 @@ export const EDITORIAL_CONNECTIONS: readonly EditorialConnection[] = [
     slug: "heroes-iii-android",
     canonicalFromQid: "Q220965",
     canonicalToQid: "Q94",
+    category: "Entertainment & media",
     pathFingerprint: "hc-v1-8e3cd2b9",
     expectedRelationships: [
       {
@@ -305,6 +406,7 @@ export const EDITORIAL_CONNECTIONS: readonly EditorialConnection[] = [
     slug: "freebase-data-dumps-google",
     canonicalFromQid: "Q15241312",
     canonicalToQid: "Q95",
+    category: "Business & technology",
     pathFingerprint: "hc-v1-7db1704e",
     expectedRelationships: [
       {
@@ -339,6 +441,7 @@ export const EDITORIAL_CONNECTIONS: readonly EditorialConnection[] = [
     slug: "statue-of-liberty-france-historical-location",
     canonicalFromQid: "Q9202",
     canonicalToQid: "Q142",
+    category: "Places & culture",
     pathFingerprint: "hc-v1-a50bd101",
     expectedRelationships: [
       {
@@ -371,6 +474,402 @@ export const EDITORIAL_CONNECTIONS: readonly EditorialConnection[] = [
         "Wikidata records France as a historical location of the Statue of Liberty only until June 1885, before the monument was shipped to the United States. France is not presented here as the monument's current location.",
     }),
   },
+  {
+    slug: "studio-ghibli-hayao-miyazaki",
+    canonicalFromQid: "Q55400",
+    canonicalToQid: "Q182950",
+    category: "Entertainment & media",
+    pathFingerprint: "hc-v1-7cc561ae",
+    expectedRelationships: [
+      {
+        propertyId: "P112",
+        subjectQid: "Q182950",
+        objectQid: "Q55400",
+        pathDirection: "reverse",
+      },
+    ],
+    reviewStatus: "approved",
+    verifiedAt: "2026-10-11T00:00:00.000Z",
+    indexEligible: true,
+    relatedSlugs: ["walt-disney-the-walt-disney-company", "star-wars-george-lucas"],
+    snapshot: directSnapshot({
+      source: entity("Q55400", "Hayao Miyazaki", "Japanese animator, filmmaker, and manga artist"),
+      target: entity("Q182950", "Studio Ghibli", "Japanese animation studio"),
+      sourceNode: node("Q55400", "Hayao Miyazaki", "person", "Hayao Miyazaki"),
+      targetNode: node("Q182950", "Studio Ghibli", "company/organization", "Studio Ghibli"),
+      relationship: relationship(
+        "co-founded",
+        "Hayao Miyazaki",
+        "Studio Ghibli",
+        "P112",
+        "reverse",
+      ),
+      headline: "Hayao Miyazaki helped establish Studio Ghibli in 1985.",
+      introduction:
+        "Studio Ghibli grew out of the creative partnership behind Nausicaä of the Valley of the Wind. This reviewed path connects director Hayao Miyazaki to the animation studio he helped establish.",
+      relationshipMeaning:
+        "Studio Ghibli’s Wikidata record names Miyazaki through P112, “founded by.” Because the page starts with Miyazaki, the relationship is displayed in reverse as “co-founded.”",
+      context: [
+        "Studio Ghibli’s official history dates the studio’s opening to June 1985.",
+        "The founder record also names Isao Takahata, Toshio Suzuki, and Yasuyoshi Tokuma, so this page does not present Miyazaki as the studio’s sole founder.",
+      ],
+      verificationSources: [
+        {
+          label: "Studio Ghibli history",
+          publisher: "Studio Ghibli",
+          url: "https://www.ghibli.jp/history/",
+        },
+        {
+          label: "Studio Ghibli founder statement (P112)",
+          publisher: "Wikidata",
+          url: "https://www.wikidata.org/wiki/Q182950#P112",
+        },
+      ],
+      editorialExplanation:
+        "Studio Ghibli identifies Hayao Miyazaki as one of its founders. The studio opened in June 1985 and was built around films directed by Miyazaki and Isao Takahata.",
+    }),
+  },
+  {
+    slug: "star-wars-george-lucas",
+    canonicalFromQid: "Q462",
+    canonicalToQid: "Q38222",
+    category: "Entertainment & media",
+    pathFingerprint: "hc-v1-42efc073",
+    expectedRelationships: [
+      {
+        propertyId: "P170",
+        subjectQid: "Q462",
+        objectQid: "Q38222",
+        pathDirection: "forward",
+      },
+    ],
+    reviewStatus: "approved",
+    verifiedAt: "2026-10-11T00:00:00.000Z",
+    indexEligible: true,
+    relatedSlugs: ["walt-disney-the-walt-disney-company", "studio-ghibli-hayao-miyazaki"],
+    snapshot: directSnapshot({
+      source: entity("Q462", "Star Wars", "Science-fiction media franchise"),
+      target: entity("Q38222", "George Lucas", "American filmmaker and entrepreneur"),
+      sourceNode: node("Q462", "Star Wars", "creative work", "Star Wars"),
+      targetNode: node("Q38222", "George Lucas", "person", "George Lucas"),
+      relationship: relationship(
+        "created by",
+        "Star Wars",
+        "George Lucas",
+        "P170",
+        "forward",
+      ),
+      headline: "Star Wars began with creator George Lucas.",
+      introduction:
+        "Long before Star Wars expanded across films, television, books, and games, it began as George Lucas’s imagined universe. This reviewed path records that creative origin without attributing every later story to him.",
+      relationshipMeaning:
+        "Wikidata uses P170, “creator,” from Star Wars to George Lucas. The edge describes authorship of the franchise’s originating concept, not sole authorship of every work released under the Star Wars name.",
+      context: [
+        "Lucasfilm’s official Star Wars site describes Lucas as the creator who opened the universe to later storytellers.",
+        "The relationship is intentionally narrower than ownership, direction, or production of every Star Wars title.",
+      ],
+      verificationSources: [
+        {
+          label: "The Legendary Star Wars Expanded Universe Turns a New Page",
+          publisher: "StarWars.com / Lucasfilm",
+          url: "https://www.starwars.com/news/the-legendary-star-wars-expanded-universe-turns-a-new-page",
+        },
+        {
+          label: "Star Wars creator statement (P170)",
+          publisher: "Wikidata",
+          url: "https://www.wikidata.org/wiki/Q462#P170",
+        },
+      ],
+      editorialExplanation:
+        "Wikidata identifies George Lucas as a creator of Star Wars, matching Lucasfilm’s description of him as the person who created the original universe and invited later storytellers into it.",
+    }),
+  },
+  {
+    slug: "world-wide-web-tim-berners-lee",
+    canonicalFromQid: "Q466",
+    canonicalToQid: "Q80",
+    category: "Science & innovation",
+    pathFingerprint: "hc-v1-6dbbd8fd",
+    expectedRelationships: [
+      {
+        propertyId: "P61",
+        subjectQid: "Q466",
+        objectQid: "Q80",
+        pathDirection: "forward",
+      },
+    ],
+    reviewStatus: "approved",
+    verifiedAt: "2026-10-11T00:00:00.000Z",
+    indexEligible: true,
+    relatedSlugs: ["google-larry-page", "steve-jobs-apple", "apollo-11-neil-armstrong"],
+    snapshot: directSnapshot({
+      source: entity("Q466", "World Wide Web", "Global system of interlinked hypertext documents"),
+      target: entity("Q80", "Tim Berners-Lee", "British computer scientist and inventor of the Web"),
+      sourceNode: node("Q466", "World Wide Web", "technology", "World Wide Web"),
+      targetNode: node("Q80", "Tim Berners-Lee", "person", "Tim Berners-Lee"),
+      relationship: relationship(
+        "invented by",
+        "World Wide Web",
+        "Tim Berners-Lee",
+        "P61",
+        "forward",
+      ),
+      headline: "The World Wide Web was invented by Tim Berners-Lee at CERN.",
+      introduction:
+        "The Web is not the Internet itself: it is the linked information system Tim Berners-Lee proposed while working at CERN. This path connects the system to one of the inventors named in its reviewed record.",
+      relationshipMeaning:
+        "Wikidata uses P61, “discoverer or inventor,” from the World Wide Web to Tim Berners-Lee. The same property also names Robert Cailliau, so the page does not erase the collaboration behind the Web’s early development.",
+      context: [
+        "Berners-Lee wrote his first Web proposal at CERN in March 1989.",
+        "By the end of 1990 he had implemented key pieces including HTML, HTTP, URLs, the first server, and the first browser-editor.",
+      ],
+      verificationSources: [
+        {
+          label: "The birth of the Web",
+          publisher: "CERN",
+          url: "https://home.cern/science/computing/the-birth-of-the-web/",
+        },
+        {
+          label: "World Wide Web inventor statement (P61)",
+          publisher: "Wikidata",
+          url: "https://www.wikidata.org/wiki/Q466#P61",
+        },
+      ],
+      editorialExplanation:
+        "The World Wide Web identifies Tim Berners-Lee as an inventor. He proposed the system at CERN in 1989 and implemented its foundational technologies in 1990.",
+    }),
+  },
+  {
+    slug: "apollo-11-neil-armstrong",
+    canonicalFromQid: "Q43653",
+    canonicalToQid: "Q1615",
+    category: "Science & innovation",
+    pathFingerprint: "hc-v1-89ee2628",
+    expectedRelationships: [
+      {
+        propertyId: "P1029",
+        subjectQid: "Q43653",
+        objectQid: "Q1615",
+        pathDirection: "forward",
+        qualifierPropertyIds: ["P39"],
+      },
+    ],
+    reviewStatus: "approved",
+    verifiedAt: "2026-10-11T00:00:00.000Z",
+    indexEligible: true,
+    relatedSlugs: ["nasa-dwight-eisenhower", "world-wide-web-tim-berners-lee", "france-paris"],
+    snapshot: directSnapshot({
+      source: entity("Q43653", "Apollo 11", "1969 crewed lunar landing mission"),
+      target: entity("Q1615", "Neil Armstrong", "American astronaut and Apollo 11 commander"),
+      sourceNode: node("Q43653", "Apollo 11", "historic mission", "Apollo 11"),
+      targetNode: node("Q1615", "Neil Armstrong", "person", "Neil Armstrong"),
+      relationship: relationship(
+        "crew member",
+        "Apollo 11",
+        "Neil Armstrong",
+        "P1029",
+        "forward",
+        [qualifier("P39", "position held", "spacecraft commander")],
+      ),
+      headline: "Neil Armstrong commanded Apollo 11’s lunar mission.",
+      introduction:
+        "Apollo 11 carried three astronauts, each with a distinct job. This reviewed path connects the mission to Neil Armstrong and preserves the qualifier that identifies him as spacecraft commander.",
+      relationshipMeaning:
+        "Wikidata uses P1029, “crew member,” from Apollo 11 to Armstrong. The position-held qualifier matters: it specifies his command role rather than merely associating him with the mission.",
+      context: [
+        "Apollo 11 launched on 16 July 1969 and returned on 24 July.",
+        "Armstrong commanded the mission and became the first human to step onto the Moon on 20 July 1969; Michael Collins and Buzz Aldrin were also crew members.",
+      ],
+      verificationSources: [
+        {
+          label: "Apollo 11 mission overview",
+          publisher: "NASA",
+          url: "https://www.nasa.gov/history/apollo-11-mission-overview/",
+        },
+        {
+          label: "Apollo 11 crew statement (P1029)",
+          publisher: "Wikidata",
+          url: "https://www.wikidata.org/wiki/Q43653#P1029",
+        },
+      ],
+      editorialExplanation:
+        "Apollo 11 identifies Neil Armstrong as a crew member with the role of spacecraft commander. NASA records the mission from its 16 July 1969 launch through its 24 July return.",
+    }),
+  },
+  {
+    slug: "michael-jordan-chicago-bulls",
+    canonicalFromQid: "Q41421",
+    canonicalToQid: "Q128109",
+    category: "Sports",
+    pathFingerprint: "hc-v1-bb24457c",
+    expectedRelationships: [
+      {
+        propertyId: "P54",
+        subjectQid: "Q41421",
+        objectQid: "Q128109",
+        pathDirection: "forward",
+        qualifierPropertyIds: ["P580", "P582"],
+      },
+    ],
+    reviewStatus: "approved",
+    verifiedAt: "2026-10-11T00:00:00.000Z",
+    indexEligible: true,
+    relatedSlugs: ["apollo-11-neil-armstrong", "steve-jobs-apple"],
+    snapshot: directSnapshot({
+      source: entity("Q41421", "Michael Jordan", "American basketball player"),
+      target: entity("Q128109", "Chicago Bulls", "National Basketball Association team"),
+      sourceNode: node("Q41421", "Michael Jordan", "athlete", "Michael Jordan"),
+      targetNode: node("Q128109", "Chicago Bulls", "sports team", "Chicago Bulls"),
+      relationship: relationship(
+        "played for",
+        "Michael Jordan",
+        "Chicago Bulls",
+        "P54",
+        "forward",
+        [
+          qualifier("P580", "first stint began", "1984"),
+          qualifier("P582", "first stint ended", "1993"),
+          qualifier("P580", "second stint began", "1995"),
+          qualifier("P582", "second stint ended", "1998"),
+        ],
+      ),
+      headline: "Michael Jordan’s Bulls career came in two defining stints.",
+      introduction:
+        "Michael Jordan’s connection to Chicago is not a timeless membership label. The reviewed record preserves two separate playing periods, divided by his first retirement from basketball.",
+      relationshipMeaning:
+        "Wikidata uses P54, “member of sports team,” from Jordan to the Chicago Bulls. Two statements cover 1984–1993 and 1995–1998, so both date ranges are carried into the displayed edge.",
+      context: [
+        "Jordan’s first Bulls stint ran from 1984 through 1993; he returned in 1995 and played through 1998.",
+        "The Bulls won six NBA championships during Jordan’s playing years: 1991–1993 and 1996–1998.",
+      ],
+      verificationSources: [
+        {
+          label: "Chicago Bulls franchise leaders and Hall of Fame players",
+          publisher: "NBA / Chicago Bulls",
+          url: "https://www.nba.com/team/1610612741/franchise-leaders",
+        },
+        {
+          label: "Michael Jordan team-membership statements (P54)",
+          publisher: "Wikidata",
+          url: "https://www.wikidata.org/wiki/Q41421#P54",
+        },
+      ],
+      editorialExplanation:
+        "Michael Jordan’s Wikidata record links him to the Chicago Bulls in two playing stints, 1984–1993 and 1995–1998. Those periods include all six of the Bulls championships won during his career.",
+    }),
+  },
+  {
+    slug: "google-larry-page",
+    canonicalFromQid: "Q4934",
+    canonicalToQid: "Q95",
+    category: "Business & technology",
+    pathFingerprint: "hc-v1-f728a666",
+    expectedRelationships: [
+      {
+        propertyId: "P112",
+        subjectQid: "Q95",
+        objectQid: "Q4934",
+        pathDirection: "reverse",
+      },
+    ],
+    reviewStatus: "approved",
+    verifiedAt: "2026-10-11T00:00:00.000Z",
+    indexEligible: true,
+    relatedSlugs: ["steve-jobs-apple", "world-wide-web-tim-berners-lee"],
+    snapshot: directSnapshot({
+      source: entity("Q4934", "Larry Page", "American computer scientist and Internet entrepreneur"),
+      target: entity("Q95", "Google", "American technology company"),
+      sourceNode: node("Q4934", "Larry Page", "person", "Larry Page"),
+      targetNode: node("Q95", "Google", "company/organization", "Google"),
+      relationship: relationship(
+        "co-founded",
+        "Larry Page",
+        "Google",
+        "P112",
+        "reverse",
+      ),
+      headline: "Larry Page co-founded Google after a Stanford research partnership.",
+      introduction:
+        "Google began as a search project built by Larry Page and Sergey Brin in Stanford dorm rooms. This reviewed path connects Page to the company that grew from that collaboration.",
+      relationshipMeaning:
+        "Google’s Wikidata record uses P112, “founded by,” for Larry Page. Since the page begins with Page, the relationship is displayed as the reverse phrase “co-founded.”",
+      context: [
+        "Page and Brin began working together in 1996 on the search engine first called Backrub.",
+        "Google Inc. was formally established in 1998; the relationship does not present Page as the company’s only founder.",
+      ],
+      verificationSources: [
+        {
+          label: "How Google started",
+          publisher: "Google",
+          url: "https://about.google/company-info/our-story/",
+        },
+        {
+          label: "Google founder statement (P112)",
+          publisher: "Wikidata",
+          url: "https://www.wikidata.org/wiki/Q95#P112",
+        },
+      ],
+      editorialExplanation:
+        "Google identifies Larry Page as a founder alongside Sergey Brin. Their Stanford search project became Google, and Google Inc. was formally established in 1998.",
+    }),
+  },
+  {
+    slug: "france-paris",
+    canonicalFromQid: "Q142",
+    canonicalToQid: "Q90",
+    category: "Places & culture",
+    pathFingerprint: "hc-v1-93b09122",
+    expectedRelationships: [
+      {
+        propertyId: "P36",
+        subjectQid: "Q142",
+        objectQid: "Q90",
+        pathDirection: "forward",
+        qualifierPropertyIds: ["P580"],
+      },
+    ],
+    reviewStatus: "approved",
+    verifiedAt: "2026-10-11T00:00:00.000Z",
+    indexEligible: true,
+    relatedSlugs: ["nasa-dwight-eisenhower", "apollo-11-neil-armstrong"],
+    snapshot: directSnapshot({
+      source: entity("Q142", "France", "Country in Western Europe and other continents"),
+      target: entity("Q90", "Paris", "Capital and largest city of France"),
+      sourceNode: node("Q142", "France", "country", "France"),
+      targetNode: node("Q90", "Paris", "place", "Paris"),
+      relationship: relationship(
+        "capital",
+        "France",
+        "Paris",
+        "P36",
+        "forward",
+        [qualifier("P580", "start date", "5 October 1789")],
+      ),
+      headline: "Paris is France’s capital, with a record shaped by history.",
+      introduction:
+        "Paris is France’s present capital and its best-known cultural center, but the underlying record also preserves changes in where French governments sat during earlier periods. This page shows the preferred current capital statement.",
+      relationshipMeaning:
+        "Wikidata uses P36, “capital,” from France to Paris. The preferred statement carries a start date of 5 October 1789; separate statements record earlier and wartime capitals rather than flattening them into the current relationship.",
+      context: [
+        "The displayed edge is the preferred current capital statement and includes its 5 October 1789 start qualifier.",
+        "Other Wikidata statements preserve historical exceptions and predecessor capitals; this page does not claim that every French government sat continuously in Paris after that date.",
+      ],
+      verificationSources: [
+        {
+          label: "Paris, France’s capital",
+          publisher: "Explore France / Atout France",
+          url: "https://www.france.fr/en/article/paris-city-lights-1/",
+        },
+        {
+          label: "France capital statement (P36)",
+          publisher: "Wikidata",
+          url: "https://www.wikidata.org/wiki/Q142#P36",
+        },
+      ],
+      editorialExplanation:
+        "France’s preferred Wikidata capital statement points to Paris and records a start date of 5 October 1789. Historical capital statements remain separate and are not presented as the current relationship.",
+    }),
+  },
 ] as const;
 
 function normalizeQid(value: string): string {
@@ -395,11 +894,24 @@ const CONNECTIONS_BY_REVERSED_PAIR = new Map(
   ]),
 );
 
+const CONNECTIONS_BY_SLUG = new Map(
+  EDITORIAL_CONNECTIONS.map((connection) => [connection.slug, connection]),
+);
+
 function safeUrl(value: string | undefined, hostname: string): boolean {
   if (!value) return false;
   try {
     const url = new URL(value);
     return url.protocol === "https:" && url.hostname === hostname;
+  } catch {
+    return false;
+  }
+}
+
+function safeHttpsUrl(value: string | undefined): boolean {
+  if (!value) return false;
+  try {
+    return new URL(value).protocol === "https:";
   } catch {
     return false;
   }
@@ -445,6 +957,12 @@ export function findReversedEditorialConnection(
   toQid: string,
 ): EditorialConnection | null {
   return CONNECTIONS_BY_REVERSED_PAIR.get(pairKey(fromQid, toQid)) ?? null;
+}
+
+export function findEditorialConnectionBySlug(
+  slug: string,
+): EditorialConnection | null {
+  return CONNECTIONS_BY_SLUG.get(slug) ?? null;
 }
 
 export function validateEditorialSnapshot(
@@ -531,6 +1049,40 @@ export function validateEditorialSnapshot(
   if (!snapshot.editorialExplanation.trim()) {
     errors.push("Snapshot is missing an editorial explanation.");
   }
+  if (connection.reviewStatus === "approved" && connection.indexEligible) {
+    if (!snapshot.headline?.trim()) errors.push("Approved snapshot is missing a headline.");
+    if (!snapshot.introduction?.trim()) {
+      errors.push("Approved snapshot is missing an introduction.");
+    }
+    if (!snapshot.relationshipMeaning?.trim()) {
+      errors.push("Approved snapshot is missing a relationship explanation.");
+    }
+    if (!snapshot.context?.length || snapshot.context.some((item) => !item.trim())) {
+      errors.push("Approved snapshot is missing reviewed historical context.");
+    }
+    if (
+      !snapshot.verificationSources?.length ||
+      snapshot.verificationSources.some(
+        (source) =>
+          !source.label.trim() ||
+          !source.publisher.trim() ||
+          !safeHttpsUrl(source.url),
+      )
+    ) {
+      errors.push("Approved snapshot has invalid verification sources.");
+    }
+    const relatedSlugs = connection.relatedSlugs ?? [];
+    if (
+      new Set(relatedSlugs).size !== relatedSlugs.length ||
+      relatedSlugs.includes(connection.slug) ||
+      relatedSlugs.some((slug) => {
+        const related = CONNECTIONS_BY_SLUG.get(slug);
+        return !related || related.reviewStatus !== "approved" || !related.indexEligible;
+      })
+    ) {
+      errors.push("Approved snapshot has invalid related connections.");
+    }
+  }
 
   const verifiedAt = new Date(connection.verifiedAt);
   if (Number.isNaN(verifiedAt.getTime())) {
@@ -557,6 +1109,21 @@ export function getIndexableEditorialConnections(
       connection.reviewStatus === "approved" &&
       validateEditorialSnapshot(connection, now).status === "ready",
   );
+}
+
+export function getRelatedEditorialConnections(
+  connection: EditorialConnection,
+  now = new Date(),
+): EditorialConnection[] {
+  return (connection.relatedSlugs ?? []).flatMap((slug) => {
+    const related = CONNECTIONS_BY_SLUG.get(slug);
+    return related &&
+      related.reviewStatus === "approved" &&
+      related.indexEligible &&
+      validateEditorialSnapshot(related, now).status === "ready"
+      ? [related]
+      : [];
+  });
 }
 
 export function snapshotToDiscoveryResult(snapshot: EditorialSnapshot): DiscoveryResult {

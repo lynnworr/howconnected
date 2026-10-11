@@ -6,8 +6,10 @@ import {
   createEditorialPathFingerprint,
   EDITORIAL_CONNECTIONS,
   getIndexableEditorialConnections,
+  getRelatedEditorialConnections,
   validateEditorialSnapshot,
 } from "../lib/editorial-connections.ts";
+import { getEditorialSocialPreview } from "../lib/editorial-social-preview.ts";
 import {
   resolveEditorialConnectionPageData,
   resolveEditorialSnapshotPageData,
@@ -18,7 +20,7 @@ import {
 } from "../lib/diagnostic-route-policy.ts";
 import { isMalformedConnectionPath } from "../lib/connection-route-policy.ts";
 
-const REVIEW_TIME = new Date("2026-10-10T12:00:00.000Z");
+const REVIEW_TIME = new Date("2026-10-11T12:00:00.000Z");
 
 test("approved editorial snapshots are valid and fingerprints are stable", () => {
   for (const connection of EDITORIAL_CONNECTIONS) {
@@ -31,7 +33,7 @@ test("approved editorial snapshots are valid and fingerprints are stable", () =>
   }
 
   const indexable = getIndexableEditorialConnections(REVIEW_TIME);
-  assert.equal(indexable.length, 3);
+  assert.equal(indexable.length, 10);
   assert.ok(
     indexable.every(
       ({ reviewStatus, indexEligible }) =>
@@ -48,6 +50,10 @@ test("only an approved canonical orientation is indexable", () => {
     approved.alternates?.canonical,
     "https://www.howconnected.app/connect/Q19837/Q312",
   );
+  assert.equal(approved.twitter?.card, "summary_large_image");
+  assert.deepEqual(approved.twitter?.images, [
+    "https://www.howconnected.app/editorial-preview/Q19837/Q312",
+  ]);
 
   const reversed = buildConnectionRouteMetadata("Q312", "Q19837", REVIEW_TIME);
   assert.deepEqual(reversed.robots, { index: false, follow: true });
@@ -55,10 +61,47 @@ test("only an approved canonical orientation is indexable", () => {
     reversed.alternates?.canonical,
     "https://www.howconnected.app/connect/Q19837/Q312",
   );
+  assert.equal(reversed.openGraph?.images, undefined);
+  assert.equal(reversed.twitter?.images, undefined);
 
   const arbitrary = buildConnectionRouteMetadata("Q1", "Q2", REVIEW_TIME);
   assert.deepEqual(arbitrary.robots, { index: false, follow: true });
   assert.equal(arbitrary.title, "Explore a connection | HowConnected");
+  assert.equal(arbitrary.openGraph?.images, undefined);
+  assert.equal(arbitrary.twitter?.images, undefined);
+});
+
+test("approved pages carry rich reviewed content and only approved related links", () => {
+  const approved = getIndexableEditorialConnections(REVIEW_TIME);
+  const approvedSlugs = new Set(approved.map(({ slug }) => slug));
+
+  for (const connection of approved) {
+    assert.ok(connection.snapshot.headline?.trim());
+    assert.ok(connection.snapshot.introduction?.trim());
+    assert.ok(connection.snapshot.relationshipMeaning?.trim());
+    assert.ok(connection.snapshot.context?.length);
+    assert.ok(connection.snapshot.verificationSources?.length);
+    assert.ok(
+      connection.snapshot.verificationSources.every(({ url }) =>
+        url.startsWith("https://"),
+      ),
+    );
+    assert.ok(
+      getRelatedEditorialConnections(connection, REVIEW_TIME).every(({ slug }) =>
+        approvedSlugs.has(slug),
+      ),
+    );
+  }
+});
+
+test("social previews exist only for approved canonical snapshots", () => {
+  const preview = getEditorialSocialPreview("Q43653", "Q1615", REVIEW_TIME);
+  assert.equal(preview?.sourceName, "Apollo 11");
+  assert.equal(preview?.relationship, "crew member");
+  assert.match(preview?.qualifierSummary ?? "", /spacecraft commander/);
+  assert.equal(getEditorialSocialPreview("Q1615", "Q43653", REVIEW_TIME), null);
+  assert.equal(getEditorialSocialPreview("Q9202", "Q142", REVIEW_TIME), null);
+  assert.equal(getEditorialSocialPreview("Q1", "Q2", REVIEW_TIME), null);
 });
 
 test("snapshot validation rejects missing, changed, and stale snapshots", () => {
@@ -156,6 +199,20 @@ test("editorial pages expose server-side entity and relationship evidence", asyn
   );
   assert.match(resultSource, /result=\{data\.result\}|enrichDiscoveryResult/);
   assert.match(pathSource, /href=\{node\.wikidataUrl\}/);
+});
+
+test("editorial social images use snapshots without discovery or ingestion", async () => {
+  const [imageSource, previewSource] = await Promise.all([
+    readFile(
+      new URL("../app/editorial-preview/[fromQid]/[toQid]/route.tsx", import.meta.url),
+      "utf8",
+    ),
+    readFile(new URL("../lib/editorial-social-preview.ts", import.meta.url), "utf8"),
+  ]);
+  assert.match(imageSource, /ImageResponse/);
+  assert.match(imageSource, /1200/);
+  assert.match(previewSource, /validateEditorialSnapshot/);
+  assert.doesNotMatch(`${imageSource}\n${previewSource}`, /discoverConnection|getNeo4jDriver|ingest/);
 });
 
 test("historical relationships retain qualifiers and stay unindexed pending review", () => {

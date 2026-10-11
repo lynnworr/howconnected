@@ -117,12 +117,23 @@ export default function ConnectionResult({
       <div className="mb-5 text-center">
         <span className="inline-flex items-center gap-2 rounded-full bg-[#dff5ec] px-3 py-1 text-xs font-bold uppercase tracking-[0.14em] text-[#177258]">
           <span className="size-1.5 rounded-full bg-[#22a77b]" />
-          Connection found
+          {editorial ? "Reviewed connection" : "Connection found"}
         </span>
         <h1 className="mt-3 text-2xl font-bold tracking-[-0.03em] text-[#15213b] md:text-3xl">
-          They&apos;re connected in {enrichedResult.bestPath.steps}{" "}
-          {enrichedResult.bestPath.steps === 1 ? "step" : "steps"}.
+          {editorial ? (
+            editorial.headline
+          ) : (
+            <>
+              They&apos;re connected in {enrichedResult.bestPath.steps}{" "}
+              {enrichedResult.bestPath.steps === 1 ? "step" : "steps"}.
+            </>
+          )}
         </h1>
+        {editorial ? (
+          <p className="mx-auto mt-3 max-w-3xl text-sm leading-6 text-[#59647a] sm:text-base sm:leading-7">
+            {editorial.introduction}
+          </p>
+        ) : null}
       </div>
 
       <ShareableConnectionCard
