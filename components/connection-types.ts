@@ -19,6 +19,17 @@ export type ConnectionRelationship = {
   label: string;
   from: string;
   to: string;
+  propertyId?: string;
+  propertyUrl?: string;
+  statementDirection?: "forward" | "reverse";
+  qualifiers?: ConnectionQualifier[];
+};
+
+export type ConnectionQualifier = {
+  propertyId: string;
+  label: string;
+  value: string;
+  sourceUrl?: string;
 };
 
 export type ConnectionPathData = {

@@ -9,6 +9,7 @@ import PathQualityFeedback from "@/components/PathQualityFeedback";
 import ShareableConnectionCard from "@/components/ShareableConnectionCard";
 import ShareControls from "@/components/ShareControls";
 import type { DiscoveryResult } from "@/components/connection-types";
+import type { EditorialPageDetails } from "@/lib/connection-page-state";
 import {
   enrichDiscoveryResult,
   parseEntityEnrichmentResponse,
@@ -25,12 +26,14 @@ type ConnectionResultProps = {
     targetName: string;
     path: string;
   };
+  editorial?: EditorialPageDetails;
 };
 
 export default function ConnectionResult({
   result,
   onReset,
   share,
+  editorial,
 }: ConnectionResultProps) {
   const [imageState, setImageState] = useState<{
     key: string;
@@ -116,10 +119,10 @@ export default function ConnectionResult({
           <span className="size-1.5 rounded-full bg-[#22a77b]" />
           Connection found
         </span>
-        <h2 className="mt-3 text-2xl font-bold tracking-[-0.03em] text-[#15213b] md:text-3xl">
+        <h1 className="mt-3 text-2xl font-bold tracking-[-0.03em] text-[#15213b] md:text-3xl">
           They&apos;re connected in {enrichedResult.bestPath.steps}{" "}
           {enrichedResult.bestPath.steps === 1 ? "step" : "steps"}.
-        </h2>
+        </h1>
       </div>
 
       <ShareableConnectionCard
@@ -129,7 +132,7 @@ export default function ConnectionResult({
         images={images}
       />
 
-      <ConnectionInsights path={enrichedResult.bestPath} />
+      <ConnectionInsights path={enrichedResult.bestPath} editorial={editorial} />
 
       <FutureAdPlacement placement="after-connection-content" />
 

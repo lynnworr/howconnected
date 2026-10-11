@@ -1,3 +1,5 @@
+import { getIndexableEditorialConnections } from "./editorial-connections.ts";
+
 export const SITE_ORIGIN = "https://www.howconnected.app";
 
 export const ROBOTS_RULES = {
@@ -6,16 +8,10 @@ export const ROBOTS_RULES = {
   disallow: ["/admin", "/api/"],
 };
 
-export const INDEXABLE_CONNECTIONS = [
-  ["Q19837", "Q8704"],
-  ["Q19837", "Q127552"],
-  ["Q19837", "Q312"],
-  ["Q8704", "Q7414"],
-  ["Q38222", "Q242446"],
-  ["Q242446", "Q462"],
-  ["Q265852", "Q312"],
-  ["Q532423", "Q7414"],
-] as const;
+export const INDEXABLE_CONNECTIONS = getIndexableEditorialConnections().map(
+  (connection) =>
+    [connection.canonicalFromQid, connection.canonicalToQid] as const,
+);
 
 export const PUBLIC_PAGE_PATHS = [
   "/about",

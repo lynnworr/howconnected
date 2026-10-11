@@ -1,26 +1,18 @@
 import "server-only";
 
 import { cache } from "react";
+import { connection } from "next/server";
 import type { SelectedEntity } from "@/components/connection-types";
+import {
+  resolveEditorialConnectionPageData,
+  type ConnectionPageData,
+} from "@/lib/connection-page-state";
 import { parseDiscoveryResult } from "@/lib/connection-response";
 import { discoverConnection } from "@/lib/discover-connection";
 import { isValidQid } from "@/lib/wikidata-id";
 import { fetchWikidataEntitySummaries } from "@/lib/wikidata";
 
-export type ConnectionPageData =
-  | { status: "invalid" }
-  | { status: "error" }
-  | {
-      status: "same";
-      source: SelectedEntity;
-      target: SelectedEntity;
-    }
-  | {
-      status: "success" | "empty";
-      source: SelectedEntity;
-      target: SelectedEntity;
-      result: NonNullable<ReturnType<typeof parseDiscoveryResult>>;
-    };
+export type { ConnectionPageData } from "@/lib/connection-page-state";
 
 function toSelectedEntity(entity: {
   qid: string;
@@ -36,12 +28,16 @@ function toSelectedEntity(entity: {
 
 export const getConnectionPageData = cache(
   async (rawFromQid: string, rawToQid: string): Promise<ConnectionPageData> => {
+    await connection();
     const fromQid = rawFromQid.trim().toUpperCase();
     const toQid = rawToQid.trim().toUpperCase();
 
     if (!isValidQid(fromQid) || !isValidQid(toQid)) {
       return { status: "invalid" };
     }
+
+    const editorialData = resolveEditorialConnectionPageData(fromQid, toQid);
+    if (editorialData) return editorialData;
 
     try {
       if (fromQid === toQid) {

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { notFound } from "next/navigation";
 import { Suspense } from "react";
 import { connection } from "next/server";
 import ConnectionOutcomeAnalytics from "@/components/ConnectionOutcomeAnalytics";
@@ -9,69 +10,20 @@ import NetworkBackdrop from "@/components/NetworkBackdrop";
 import PublicHeader from "@/components/PublicHeader";
 import type { ConnectionPageData } from "@/lib/connection-page-data";
 import { getConnectionPageData } from "@/lib/connection-page-data";
+import { buildConnectionRouteMetadata } from "@/lib/connection-seo";
 import { getConnectionPath } from "@/lib/connection-share";
-import { getCanonicalConnectionUrl } from "@/lib/seo";
-import { buildConnectionSeoDescription } from "@/lib/path-content";
+import { isValidQid } from "@/lib/wikidata-id";
 
 type ConnectPageProps = {
   params: Promise<{ fromQid: string; toQid: string }>;
 };
-
-function metadataForState(data: ConnectionPageData): Metadata {
-  if (data.status === "success" && data.result.bestPath) {
-    const title = `How are ${data.source.label} and ${data.target.label} connected? | HowConnected`;
-    const description = buildConnectionSeoDescription(
-      data.result.bestPath,
-      data.source.label,
-      data.target.label,
-    );
-    const canonicalUrl = getCanonicalConnectionUrl(
-      data.source.id,
-      data.target.id,
-    );
-
-    return {
-      title,
-      description,
-      alternates: { canonical: canonicalUrl },
-      robots: { index: true, follow: true },
-      openGraph: {
-        title,
-        description,
-        type: "website",
-        siteName: "HowConnected",
-        url: canonicalUrl,
-      },
-      twitter: {
-        card: "summary",
-        title,
-        description,
-      },
-    };
-  }
-
-  const namedPair =
-    data.status === "empty" || data.status === "same"
-      ? `${data.source.label} and ${data.target.label}`
-      : "this connection";
-  const title = `Explore ${namedPair} | HowConnected`;
-  const description = `No meaningful connection is currently available for ${namedPair}.`;
-
-  return {
-    title,
-    description,
-    robots: { index: false, follow: false },
-    openGraph: { title, description, type: "website", siteName: "HowConnected" },
-    twitter: { card: "summary", title, description },
-  };
-}
 
 export async function generateMetadata({
   params,
 }: ConnectPageProps): Promise<Metadata> {
   await connection();
   const { fromQid, toQid } = await params;
-  return metadataForState(await getConnectionPageData(fromQid, toQid));
+  return buildConnectionRouteMetadata(fromQid, toQid);
 }
 
 function PageFrame({ children }: { children: React.ReactNode }) {
@@ -96,6 +48,10 @@ function FriendlyState({ data }: { data: ConnectionPageData }) {
   if (data.status === "invalid") {
     title = "That connection link isn't valid.";
     message = "Choose two entities from the homepage to create a new connection link.";
+  } else if (data.status === "editorial-unavailable") {
+    title = "This verified connection is temporarily unavailable.";
+    message =
+      "Its reviewed snapshot needs attention before it can be published again. Try another connection for now.";
   } else if (data.status === "same") {
     title = "Choose two different entities.";
     message = `${data.source.label} can't be connected to itself here.`;
@@ -124,9 +80,13 @@ function FriendlyState({ data }: { data: ConnectionPageData }) {
   );
 }
 
-async function ConnectionPageContent({ params }: ConnectPageProps) {
-  await connection();
-  const { fromQid, toQid } = await params;
+async function ConnectionPageContent({
+  fromQid,
+  toQid,
+}: {
+  fromQid: string;
+  toQid: string;
+}) {
   const data = await getConnectionPageData(fromQid, toQid);
 
   if (data.status !== "success") {
@@ -162,6 +122,7 @@ async function ConnectionPageContent({ params }: ConnectPageProps) {
         targetName: data.target.label,
         path: getConnectionPath(data.source.id, data.target.id),
       }}
+      editorial={data.editorial}
     />
   );
 }
@@ -183,11 +144,16 @@ function ConnectionLoading() {
   );
 }
 
-export default function ConnectPage({ params }: ConnectPageProps) {
+export default async function ConnectPage({ params }: ConnectPageProps) {
+  const rawParams = await params;
+  const fromQid = rawParams.fromQid.trim().toUpperCase();
+  const toQid = rawParams.toQid.trim().toUpperCase();
+  if (!isValidQid(fromQid) || !isValidQid(toQid)) notFound();
+
   return (
     <PageFrame>
       <Suspense fallback={<ConnectionLoading />}>
-        <ConnectionPageContent params={params} />
+        <ConnectionPageContent fromQid={fromQid} toQid={toQid} />
       </Suspense>
     </PageFrame>
   );
