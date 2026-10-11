@@ -4,6 +4,10 @@ import type {
   ConnectionRelationship,
   DiscoveryResult,
 } from "@/components/connection-types";
+import {
+  classifyDiscoveryFailure,
+  isDiscoveryFailureCategory,
+} from "@/lib/discovery-failure-category";
 
 function isRecord(value: unknown): value is Record<string, unknown> {
   return typeof value === "object" && value !== null && !Array.isArray(value);
@@ -72,10 +76,25 @@ export function parseDiscoveryResult(value: unknown): DiscoveryResult | null {
     : isRecord(value.discovery)
       ? value.discovery
       : null;
+  const explicitFailureCategory = isDiscoveryFailureCategory(value.failureCategory)
+    ? value.failureCategory
+    : null;
 
   return {
     found: value.found,
     timedOut: value.timedOut === true || diagnosticSource?.timedOut === true,
+    failureCategory:
+      explicitFailureCategory ??
+      classifyDiscoveryFailure({
+        found: value.found,
+        timedOut:
+          value.timedOut === true || diagnosticSource?.timedOut === true,
+        terminationReason:
+          typeof diagnosticSource?.terminationReason === "string"
+            ? diagnosticSource.terminationReason
+            : undefined,
+        bestRejectedPath: diagnosticSource?.bestRejectedPath,
+      }),
     bestPath,
     alternatePaths,
   };

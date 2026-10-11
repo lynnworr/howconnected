@@ -14,6 +14,8 @@
 /coverage
 /benchmarks/domain-audit/*.json
 /benchmarks/domain-audit/*.csv
+/benchmarks/real-world-reliability/*.json
+/benchmarks/real-world-reliability/*.csv
 /benchmarks/gap-scan/reports/
 /benchmarks/gap-scan/.cache/
 

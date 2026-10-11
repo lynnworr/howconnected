@@ -162,6 +162,7 @@ export default function ConnectionExplorer() {
             toQid: to.entity.id,
             origin: "homepage",
             sessionConnectionNumber,
+            failureCategory: parsed.failureCategory,
           },
         );
         setStatus(parsed.timedOut ? "timeout" : "empty");

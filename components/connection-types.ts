@@ -41,6 +41,7 @@ export type ConnectionPathData = {
 export type DiscoveryResult = {
   found: boolean;
   timedOut: boolean;
+  failureCategory?: import("@/lib/discovery-failure-category").DiscoveryFailureCategory;
   bestPath: ConnectionPathData | null;
   alternatePaths: ConnectionPathData[];
 };

@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>HowConnected</title>
+    <link rel="stylesheet" href="popup.css">
+  </head>
+  <body>
+    <main>
+      <header class="brand-row">
+        <div class="brand" aria-label="HowConnected">
+          <span class="logo" aria-hidden="true">
+            <span class="logo-dot dot-coral"></span>
+            <span class="logo-line"></span>
+            <span class="logo-dot dot-teal"></span>
+          </span>
+          <span>HowConnected</span>
+        </div>
+        <span class="prototype">Prototype</span>
+      </header>
+
+      <section class="intro" aria-labelledby="popup-title">
+        <p class="eyebrow">Wikipedia companion</p>
+        <h1 id="popup-title">Follow this article somewhere unexpected.</h1>
+        <p id="detection-status" class="status" role="status" aria-live="polite">
+          Checking the current article…
+        </p>
+      </section>
+
+      <form id="connection-form" novalidate>
+        <div class="field-group" data-field="source">
+          <div class="label-row">
+            <label for="source-input">First entity</label>
+            <button id="change-source" class="text-button" type="button" hidden>Change</button>
+          </div>
+          <div class="input-shell">
+            <span class="node node-coral" aria-hidden="true"></span>
+            <input
+              id="source-input"
+              type="text"
+              role="combobox"
+              aria-autocomplete="list"
+              aria-controls="source-results"
+              aria-expanded="false"
+              autocomplete="off"
+              maxlength="100"
+              placeholder="Search for the first entity"
+            >
+          </div>
+          <ul id="source-results" class="results" role="listbox" aria-label="First entity suggestions" hidden></ul>
+        </div>
+
+        <div class="connector" aria-hidden="true"><span></span><b>to</b><span></span></div>
+
+        <div class="field-group" data-field="target">
+          <label for="target-input">Connect it to</label>
+          <div class="input-shell">
+            <span class="node node-teal" aria-hidden="true"></span>
+            <input
+              id="target-input"
+              type="text"
+              role="combobox"
+              aria-autocomplete="list"
+              aria-controls="target-results"
+              aria-expanded="false"
+              autocomplete="off"
+              maxlength="100"
+              placeholder="Search people, places, or ideas"
+            >
+          </div>
+          <ul id="target-results" class="results" role="listbox" aria-label="Second entity suggestions" hidden></ul>
+        </div>
+
+        <p id="form-message" class="form-message" role="alert" aria-live="assertive"></p>
+        <button id="find-button" class="primary-button" type="submit" disabled>
+          Find connection <span aria-hidden="true">→</span>
+        </button>
+      </form>
+
+      <footer>
+        <button id="open-site" class="footer-link" type="button">Open HowConnected</button>
+        <span aria-hidden="true">·</span>
+        <button id="open-privacy" class="footer-link" type="button">Privacy</button>
+      </footer>
+    </main>
+    <script type="module" src="popup.js"></script>
+  </body>
+</html>

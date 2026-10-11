@@ -6,6 +6,7 @@ import {
   WikidataEntityNotFoundError,
   WikidataFetchError,
 } from "@/lib/wikidata";
+import { classifyDiscoveryFailure } from "@/lib/discovery-failure-category";
 
 function toConsumerPath(path: {
   steps: number;
@@ -58,6 +59,12 @@ export async function GET(request: NextRequest) {
     return Response.json({
       found: consumerResult.found,
       timedOut: discovery.timedOut,
+      failureCategory: classifyDiscoveryFailure({
+        found: consumerResult.found,
+        timedOut: discovery.timedOut,
+        terminationReason: discovery.terminationReason,
+        bestRejectedPath: discovery.bestRejectedPath,
+      }),
       source: consumerResult.source,
       target: consumerResult.target,
       bestPath: toConsumerPath(consumerResult.bestPath),
@@ -66,7 +73,7 @@ export async function GET(request: NextRequest) {
   } catch (error: unknown) {
     if (error instanceof WikidataEntityNotFoundError) {
       return Response.json(
-        { found: false, error: error.message },
+        { found: false, failureCategory: "entity_not_found", error: error.message },
         { status: 404 },
       );
     }
@@ -74,7 +81,11 @@ export async function GET(request: NextRequest) {
     if (error instanceof WikidataFetchError) {
       console.error("Connection discovery Wikidata fetch failed", error);
       return Response.json(
-        { found: false, error: "Could not fetch a Wikidata entity." },
+        {
+          found: false,
+          failureCategory: "upstream_wikidata",
+          error: "Could not fetch a Wikidata entity.",
+        },
         { status: 502 },
       );
     }
@@ -83,6 +94,7 @@ export async function GET(request: NextRequest) {
       return Response.json(
         {
           found: false,
+          failureCategory: "neo4j_unavailable",
           error: "Neo4j is not configured.",
           missingVariables: error.missingVariables,
         },
@@ -94,6 +106,7 @@ export async function GET(request: NextRequest) {
     return Response.json(
       {
         found: false,
+        failureCategory: "discovery_service",
         error: "Could not discover a connection.",
         ...(process.env.NODE_ENV === "development" && error instanceof Error
           ? { details: error.message }

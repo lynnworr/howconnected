@@ -45,7 +45,9 @@ export type PatternPenalty = {
     | "event-location-return-hop"
     | "ownership-place-chain"
     | "geographic-nonplace-detour"
+    | "geographic-endpoint-detour"
     | "event-organization-geography-chain"
+    | "event-employer-return-detour"
     | "founder-place-detour"
     | "shared-participant-place-hop"
     | "event-citizen-organization-detour"
@@ -90,6 +92,7 @@ const OWNERSHIP_TYPES = new Set([
 
 const GEOGRAPHIC_CONTAINER_TYPES = new Set([
   "COUNTRY",
+  "COUNTRY_OF_ORIGIN",
   "LOCATION",
   "LOCATED_IN_ADMINISTRATIVE_ENTITY",
   "PART_OF",
@@ -253,11 +256,20 @@ export function calculatePatternPenalties(
       penalties.push({ kind: "country-citizen-hop", penalty: 4.5 });
     }
     if (
-      current.storedType === next.storedType &&
       typeof current.storedType === "string" &&
+      typeof next.storedType === "string" &&
       GEOGRAPHIC_CONTAINER_TYPES.has(current.storedType) &&
+      GEOGRAPHIC_CONTAINER_TYPES.has(next.storedType) &&
       current.direction === "forward" &&
-      next.direction === "reverse"
+      next.direction === "reverse" &&
+      (
+        current.storedType === next.storedType ||
+        path.relationships.length >= 3 ||
+        (
+          ["COUNTRY", "COUNTRY_OF_ORIGIN"].includes(current.storedType) &&
+          ["COUNTRY", "COUNTRY_OF_ORIGIN"].includes(next.storedType)
+        )
+      )
     ) {
       penalties.push({ kind: "geographic-return-hop", penalty: 4 });
     }
@@ -313,6 +325,21 @@ export function calculatePatternPenalties(
       isOrganizationNode(path.nodes.at(-1))
     ) {
       penalties.push({ kind: "event-citizen-organization-detour", penalty: 4 });
+    }
+    if (
+      path.relationships.length >= 4 &&
+      current.storedType === "EMPLOYER" &&
+      current.direction === "forward" &&
+      next.storedType === "EMPLOYER" &&
+      next.direction === "reverse" &&
+      (
+        path.nodes.slice(1, -1).some(isEventNode) ||
+        types.some((type) =>
+          ["PARTICIPANT", "PARTICIPANT_IN", "SIGNIFICANT_EVENT"].includes(type),
+        )
+      )
+    ) {
+      penalties.push({ kind: "event-employer-return-detour", penalty: 4 });
     }
   }
 
@@ -370,6 +397,23 @@ export function calculatePatternPenalties(
   const geographicCount = types.filter((type) =>
     GEOGRAPHIC_CONTAINER_TYPES.has(type),
   ).length;
+  const endpointGeographicCount = types.filter(
+    (type) =>
+      GEOGRAPHIC_CONTAINER_TYPES.has(type) ||
+      type === "COUNTRY_OF_CITIZENSHIP",
+  ).length;
+  const hasHistoricalTransition = types.some((type) =>
+    ["REPLACES", "REPLACED_BY"].includes(type),
+  );
+  const hasForwardGeographicHop = path.relationships.some(
+    ({ storedType, direction }) =>
+      typeof storedType === "string" &&
+      (
+        GEOGRAPHIC_CONTAINER_TYPES.has(storedType) ||
+        storedType === "COUNTRY_OF_CITIZENSHIP"
+      ) &&
+      direction === "forward",
+  );
   if (
     path.relationships.length >= 3 &&
     geographicCount >= 2 &&
@@ -378,6 +422,31 @@ export function calculatePatternPenalties(
     path.nodes.slice(1, -1).some((node) => !isPlaceNode(node))
   ) {
     penalties.push({ kind: "geographic-nonplace-detour", penalty: 4 });
+  }
+
+  const hasGeographicEndpointReturn =
+    endpointGeographicCount >= 2 &&
+    typeof path.relationships.at(-1)?.storedType === "string" &&
+    GEOGRAPHIC_CONTAINER_TYPES.has(path.relationships.at(-1)?.storedType ?? "");
+  const hasHistoricalEventTail =
+    path.relationships.length >= 4 &&
+    geographicCount >= 1 &&
+    hasHistoricalTransition &&
+    types.some((type) => ["PARTICIPANT", "PARTICIPANT_IN", "SIGNIFICANT_EVENT"].includes(type));
+
+  if (
+    path.relationships.length >= 3 &&
+    isPlaceNode(path.nodes[0]) !== isPlaceNode(path.nodes.at(-1)) &&
+    hasForwardGeographicHop &&
+    (
+      hasHistoricalEventTail ||
+      (
+        (path.relationships.length >= 4 || hasHistoricalTransition) &&
+        hasGeographicEndpointReturn
+      )
+    )
+  ) {
+    penalties.push({ kind: "geographic-endpoint-detour", penalty: 4 });
   }
 
   if (

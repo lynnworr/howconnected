@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>HowConnected Extension Privacy</title>
+    <style>
+      :root { color-scheme: dark; font: 16px/1.65 system-ui, sans-serif; background: #0d131d; color: #e8edf5; }
+      body { margin: 0; padding: 32px 20px; }
+      main { max-width: 720px; margin: 0 auto; }
+      h1, h2 { line-height: 1.2; }
+      h1 { font-size: 2rem; }
+      h2 { margin-top: 2rem; font-size: 1.25rem; }
+      p, li { color: #b6c0cf; }
+      a { color: #ff9b84; }
+      .tag { color: #8edcc3; font-size: .75rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; }
+    </style>
+  </head>
+  <body>
+    <main>
+      <p class="tag">Local prototype · Version 0.1.0</p>
+      <h1>HowConnected extension privacy</h1>
+      <p>
+        The extension uses the current tab only after you click its toolbar icon. It does not
+        monitor browsing in the background, read browsing history, or store a history of the
+        pages you visit.
+      </p>
+
+      <h2>Information used</h2>
+      <ul>
+        <li>The URL of the active tab is inspected locally to confirm it is an English Wikipedia article.</li>
+        <li>The article title is sent to English Wikipedia’s structured API to retrieve its Wikidata identifier and detect disambiguation pages.</li>
+        <li>Search text you type is sent to HowConnected’s entity-search endpoint.</li>
+        <li>The two selected Wikidata identifiers are placed in the HowConnected URL opened in a new tab.</li>
+      </ul>
+
+      <h2>Information not collected</h2>
+      <p>
+        The extension does not transmit article content, collect browsing history, access
+        cookies, save personal data, run analytics, create advertising profiles, or use
+        browsing activity for advertising. It has no background service worker or content
+        script and makes no requests while the popup is closed.
+      </p>
+
+      <h2>Retention and sharing</h2>
+      <p>
+        The extension itself stores nothing. Requests are made only to English Wikipedia and
+        HowConnected to provide the feature you requested. HowConnected does not receive the
+        full active-tab URL or article text from the extension.
+      </p>
+
+      <h2>Limited use</h2>
+      <p>
+        Information accessed by this extension is used only to provide its single,
+        user-initiated connection-finding feature. It is not sold, transferred for advertising,
+        or used for personalized, retargeted, or interest-based advertising.
+      </p>
+
+      <p><a href="https://www.howconnected.app/contact">Report a privacy or accuracy concern</a></p>
+    </main>
+  </body>
+</html>

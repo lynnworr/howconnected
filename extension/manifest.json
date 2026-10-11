@@ -1,0 +1,15 @@
+{
+  "manifest_version": 3,
+  "name": "HowConnected",
+  "version": "0.1.0",
+  "description": "Find a HowConnected path from the English Wikipedia article you are reading.",
+  "action": {
+    "default_title": "Find a HowConnected path",
+    "default_popup": "popup.html"
+  },
+  "permissions": ["activeTab"],
+  "host_permissions": [
+    "https://en.wikipedia.org/*",
+    "https://www.howconnected.app/*"
+  ]
+}

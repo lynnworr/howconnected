@@ -271,6 +271,118 @@ test("rejects a geographic container used only to jump between countries", () =>
   assert.equal(score.qualityBand, "weak");
 });
 
+test("rejects mixed country properties used as a shared-origin shortcut", () => {
+  const result = scorePath({
+    nodes: [
+      { id: "painting-a", type: "monument/artifact" },
+      { id: "country", type: "place" },
+      { id: "painting-b", type: "monument/artifact" },
+    ],
+    relationships: [
+      { weight: 1, storedType: "COUNTRY", direction: "forward" },
+      { weight: 1, storedType: "COUNTRY_OF_ORIGIN", direction: "reverse" },
+    ],
+  });
+
+  assert.ok(result.patternPenalties.some(({ kind }) => kind === "geographic-return-hop"));
+  assert.equal(result.qualityBand, "weak");
+});
+
+test("rejects long place-container detours between an artifact and a city", () => {
+  const result = scorePath({
+    nodes: [
+      { id: "artifact", type: "monument/artifact" },
+      { id: "country", type: "place" },
+      { id: "historical-country", type: "place" },
+      { id: "city", type: "place" },
+    ],
+    relationships: [
+      { weight: 1, storedType: "COUNTRY", direction: "forward" },
+      { weight: 1.1, storedType: "REPLACED_BY", direction: "reverse" },
+      { weight: 1.15, storedType: "COUNTRY", direction: "reverse" },
+    ],
+  });
+
+  assert.ok(result.patternPenalties.some(({ kind }) => kind === "geographic-endpoint-detour"));
+  assert.equal(result.qualityBand, "weak");
+
+  const citizenshipDetour = scorePath({
+    nodes: [
+      { id: "artifact", type: "monument/artifact" },
+      { id: "creator", type: "person" },
+      { id: "country", type: "place" },
+      { id: "historical-country", type: "place" },
+      { id: "city", type: "place" },
+    ],
+    relationships: [
+      { weight: 1.8, storedType: "NOTABLE_WORK", direction: "reverse" },
+      { weight: 1.15, storedType: "COUNTRY_OF_CITIZENSHIP", direction: "forward" },
+      { weight: 1.1, storedType: "REPLACES", direction: "forward" },
+      { weight: 1.15, storedType: "COUNTRY", direction: "reverse" },
+    ],
+  });
+
+  assert.ok(citizenshipDetour.patternPenalties.some(({ kind }) => kind === "geographic-endpoint-detour"));
+  assert.equal(citizenshipDetour.qualityBand, "weak");
+
+  const historicalEventDetour = scorePath({
+    nodes: [
+      { id: "artifact", type: "monument/artifact" },
+      { id: "country", type: "place" },
+      { id: "historical-country", type: "place" },
+      { id: "event", type: "event" },
+      { id: "city", type: "place" },
+    ],
+    relationships: [
+      { weight: 1, storedType: "COUNTRY", direction: "forward" },
+      { weight: 1.1, storedType: "REPLACES", direction: "forward" },
+      { weight: 1.15, storedType: "PARTICIPANT", direction: "reverse" },
+      { weight: 2, storedType: "SIGNIFICANT_EVENT", direction: "reverse" },
+    ],
+  });
+
+  assert.ok(historicalEventDetour.patternPenalties.some(({ kind }) => kind === "geographic-endpoint-detour"));
+  assert.equal(historicalEventDetour.qualityBand, "weak");
+});
+
+test("rejects an event chain that returns through a shared employer", () => {
+  const result = scorePath({
+    nodes: [
+      { id: "athlete-a", type: "sports person" },
+      // Cached entities can have a stale coarse type; explicit event
+      // relationships must still protect this shape.
+      { id: "event", type: "place" },
+      { id: "athlete-b", type: "sports person" },
+      { id: "organization", type: "company/organization" },
+      { id: "athlete-c", type: "sports person" },
+    ],
+    relationships: [
+      { weight: 1.15, storedType: "PARTICIPANT_IN", direction: "forward" },
+      { weight: 2, storedType: "SIGNIFICANT_EVENT", direction: "reverse" },
+      { weight: 1.2, storedType: "EMPLOYER", direction: "forward" },
+      { weight: 1.2, storedType: "EMPLOYER", direction: "reverse" },
+    ],
+  });
+
+  assert.ok(result.patternPenalties.some(({ kind }) => kind === "event-employer-return-detour"));
+  assert.equal(result.qualityBand, "weak");
+});
+
+test("preserves a direct employment relationship", () => {
+  const result = scorePath({
+    nodes: [
+      { id: "person", type: "person" },
+      { id: "organization", type: "company/organization" },
+    ],
+    relationships: [
+      { weight: 1.2, storedType: "EMPLOYER", direction: "forward" },
+    ],
+  });
+
+  assert.equal(result.patternPenalty, 0);
+  assert.equal(result.qualityBand, "strong");
+});
+
 test("rejects citizenship used to jump into an unrelated geographic entity", () => {
   const score = scorePath({
     nodes: [node("person"), node("country"), node("monument")],

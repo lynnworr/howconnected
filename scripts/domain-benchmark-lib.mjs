@@ -3,7 +3,7 @@ const BROAD_ORGANIZATIONS = /\b(united nations|european union|european economic 
 const ASSOCIATION_NAMES = /\b(association|guild|trade union|federation|chamber of commerce)\b/i;
 const EDUCATION_NAMES = /\b(university|college|school|academy)\b/i;
 const OWNERSHIP_TYPES = new Set(["OWNED_BY", "PARENT_ORGANIZATION", "SUBSIDIARY", "ACQUIRED_BY"]);
-const GEOGRAPHIC_TYPES = new Set(["COUNTRY", "LOCATION", "LOCATED_IN_ADMINISTRATIVE_ENTITY", "PART_OF"]);
+const GEOGRAPHIC_TYPES = new Set(["COUNTRY", "COUNTRY_OF_ORIGIN", "LOCATION", "LOCATED_IN_ADMINISTRATIVE_ENTITY", "PART_OF"]);
 const MEMBERSHIP_TYPES = new Set(["MEMBER_OF", "MEMBER_OF_POLITICAL_PARTY", "MEMBER_OF_SPORTS_TEAM"]);
 
 function intermediateNames(path) {
@@ -38,7 +38,13 @@ export function detectSuspiciousPatterns(path) {
   if (types.filter((type) => OWNERSHIP_TYPES.has(type)).length >= 2) {
     patterns.add("generic-corporate-parent-chain");
   }
-  if (types.filter((type) => GEOGRAPHIC_TYPES.has(type)).length >= 2) {
+  const geographicRelationships = relationships.filter(({ storedType }) =>
+    GEOGRAPHIC_TYPES.has(storedType),
+  );
+  if (
+    geographicRelationships.length >= 2 &&
+    new Set(geographicRelationships.map(({ direction }) => direction)).size > 1
+  ) {
     patterns.add("generic-geographic-container");
   }
 

@@ -173,7 +173,22 @@ test("selects domain-specific outgoing property families", () => {
   ]);
   assert.ok(artifact.includes("P793"));
   assert.ok(person.includes("P27"));
+  assert.ok(person.includes("P737"));
   assert.ok(!organization.includes("P17"));
+});
+
+test("keeps direct scientific influence available without broad field-of-work traversal", () => {
+  const person = ids(selectOutgoingDiscoveryProperties("person", properties, {
+    availablePropertyIds: ["P101", "P737"],
+    explicitTargetPropertyIds: ["P737"],
+  }));
+  const influence = APPROVED_WIKIDATA_PROPERTIES.P737;
+
+  assert.equal(person[0], "P737");
+  assert.ok(!person.includes("P101"));
+  assert.equal(influence.relationship, "INFLUENCED_BY");
+  assert.equal(influence.traversable, true);
+  assert.equal(influence.maxFanout, 5);
 });
 
 test("adds only explicitly present supported contextual properties", () => {

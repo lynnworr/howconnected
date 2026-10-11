@@ -107,6 +107,9 @@ async function ConnectionPageContent({
             fromQid={fromQid.trim().toUpperCase()}
             toQid={toQid.trim().toUpperCase()}
             origin="shared_url"
+            failureCategory={
+              data.status === "empty" ? data.result.failureCategory : undefined
+            }
           />
         ) : null}
         <FriendlyState data={data} />

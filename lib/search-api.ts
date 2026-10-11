@@ -7,6 +7,7 @@ export type SearchApiResult = {
 
 type SearchFunction = (query: string) => Promise<SearchApiResult[]>;
 type ErrorLogger = (message: string, error: unknown) => void;
+const MAX_SEARCH_QUERY_LENGTH = 100;
 
 export async function handleSearchRequest(
   request: Request,
@@ -15,7 +16,9 @@ export async function handleSearchRequest(
 ): Promise<Response> {
   const query = new URL(request.url).searchParams.get("q")?.trim() ?? "";
 
-  if (query.length < 2) return Response.json({ results: [] });
+  if (query.length < 2 || query.length > MAX_SEARCH_QUERY_LENGTH) {
+    return Response.json({ results: [] });
+  }
 
   try {
     return Response.json({ results: await search(query) });

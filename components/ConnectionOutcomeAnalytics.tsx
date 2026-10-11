@@ -5,6 +5,7 @@ import {
   trackProductEvent,
   type ProductEventName,
 } from "@/lib/product-analytics";
+import type { DiscoveryFailureCategory } from "@/lib/discovery-failure-category";
 
 type ConnectionOutcomeAnalyticsProps = {
   event: Extract<
@@ -14,6 +15,7 @@ type ConnectionOutcomeAnalyticsProps = {
   fromQid: string;
   toQid: string;
   origin: "homepage" | "shared_url";
+  failureCategory?: DiscoveryFailureCategory;
 };
 
 export default function ConnectionOutcomeAnalytics({
@@ -21,14 +23,15 @@ export default function ConnectionOutcomeAnalytics({
   fromQid,
   toQid,
   origin,
+  failureCategory,
 }: ConnectionOutcomeAnalyticsProps) {
   const tracked = useRef(false);
 
   useEffect(() => {
     if (tracked.current) return;
     tracked.current = true;
-    trackProductEvent(event, { fromQid, toQid, origin });
-  }, [event, fromQid, origin, toQid]);
+    trackProductEvent(event, { fromQid, toQid, origin, failureCategory });
+  }, [event, failureCategory, fromQid, origin, toQid]);
 
   return null;
 }

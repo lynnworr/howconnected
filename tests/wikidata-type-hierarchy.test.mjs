@@ -42,9 +42,9 @@ test("walks and caches a bounded P279 hierarchy", async () => {
 });
 
 test("keeps fanout caps while moving an explicitly asserted endpoint first", () => {
-  const claims = ["Q1", "Q2", "Q3", "Q4", "Q5", "Q6", "Q7"];
-  assert.deepEqual(prioritizeClaimTargets(claims, "Q7").slice(0, 3), [
-    "Q7", "Q1", "Q2",
+  const claims = ["Q991", "Q57246", "Q35802", "Q1001", "Q38193", "Q41688", "Q19185", "Q935"];
+  assert.deepEqual(prioritizeClaimTargets(claims, "Q935").slice(0, 5), [
+    "Q935", "Q991", "Q57246", "Q35802", "Q1001",
   ]);
   assert.deepEqual(prioritizeClaimTargets(claims, "Q99"), claims);
 });
