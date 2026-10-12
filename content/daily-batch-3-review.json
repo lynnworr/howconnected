@@ -1,0 +1,1338 @@
+{
+  "batchId": "phase-6c-batch-3",
+  "verifiedAt": "2026-10-12T00:00:00.000Z",
+  "scope": "Twenty bounded candidates in the requested 6/6/3/2/2/1 category mix; Neo4j and Wikidata discovery were lead sources only, and promotion required current claim, qualifier, historical, source, sitelink, uniqueness, prior-registry, and distractor review.",
+  "counts": {
+    "candidates": 20,
+    "approved": 19,
+    "rejected": 1,
+    "priorApproved": 37,
+    "cumulativeApproved": 56,
+    "remainingTo100": 44,
+    "scheduled": 0
+  },
+  "categoryTargets": {
+    "Sports": 6,
+    "Geography and culture": 6,
+    "History and politics": 3,
+    "Science and innovation": 2,
+    "Music": 2,
+    "Entertainment and film": 1
+  },
+  "candidates": [
+    {
+      "id": "rush-lauda-ferrari",
+      "decision": "approved",
+      "reason": "Both current Wikidata statements and direction were confirmed; relationship-specific supporting sources cover the material claims; the bounded exact-property query returned only the intended intermediary.",
+      "exactPath": "Rush (Q1768437) —P921→ Niki Lauda (Q78489) —P54→ Scuderia Ferrari (Q169898)",
+      "qualifierConcerns": "Reviewed: P54/P580 start time: 1974; P54/P582 end time: 1977. Editorial wording preserves the dated or historical scope.",
+      "sourceEvidence": [
+        {
+          "label": "Q1768437 P921 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q1768437#P921",
+          "kind": "wikidata"
+        },
+        {
+          "label": "The 1976 season that inspired Rush",
+          "publisher": "Formula 1",
+          "url": "https://www.formula1.com/en/latest/article/on-this-day-50-years-ago-the-iconic-1976-formula-1-season-that-inspired-rush.Otn39lw7ILaJlV0jR0KOo.Otn39lw7ILaJlV0jR0KOo",
+          "kind": "supporting"
+        },
+        {
+          "label": "Q78489 P54 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q78489#P54",
+          "kind": "wikidata"
+        },
+        {
+          "label": "The 1976 season that inspired Rush",
+          "publisher": "Formula 1",
+          "url": "https://www.formula1.com/en/latest/article/on-this-day-50-years-ago-the-iconic-1976-formula-1-season-that-inspired-rush.Otn39lw7ILaJlV0jR0KOo.Otn39lw7ILaJlV0jR0KOo",
+          "kind": "supporting"
+        }
+      ],
+      "wikipediaLinks": [
+        {
+          "qid": "Q1768437",
+          "url": "https://en.wikipedia.org/wiki/Rush_(2013_film)"
+        },
+        {
+          "qid": "Q78489",
+          "url": "https://en.wikipedia.org/wiki/Niki_Lauda"
+        },
+        {
+          "qid": "Q169898",
+          "url": "https://en.wikipedia.org/wiki/Scuderia_Ferrari"
+        }
+      ],
+      "distractors": [
+        {
+          "qid": "Q140393",
+          "label": "James Hunt",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q10494",
+          "label": "Alain Prost",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q10490",
+          "label": "Ayrton Senna",
+          "exactPathMatch": false
+        }
+      ],
+      "distractorValidationOutcome": "Passed: all three alternatives are plausible in context, but none satisfies both exact relationships in the bounded live query.",
+      "uniqueIntermediaryCount": 1
+    },
+    {
+      "id": "pele-film-pele-cosmos",
+      "decision": "approved",
+      "reason": "Both current Wikidata statements and direction were confirmed; relationship-specific supporting sources cover the material claims; the bounded exact-property query returned only the intended intermediary.",
+      "exactPath": "Pelé (Q105694930) —P921→ Pelé (Q12897) —P54→ New York Cosmos (Q646135)",
+      "qualifierConcerns": "Reviewed: P54/P580 start time: 1975; P54/P582 end time: 1977. Editorial wording preserves the dated or historical scope.",
+      "sourceEvidence": [
+        {
+          "label": "Q105694930 P921 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q105694930#P921",
+          "kind": "wikidata"
+        },
+        {
+          "label": "Pelé documentary",
+          "publisher": "Netflix",
+          "url": "https://www.netflix.com/title/81074673",
+          "kind": "supporting"
+        },
+        {
+          "label": "Q12897 P54 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q12897#P54",
+          "kind": "wikidata"
+        },
+        {
+          "label": "New York Cosmos history",
+          "publisher": "New York Cosmos",
+          "url": "https://www.nycosmos.com/history/",
+          "kind": "supporting"
+        }
+      ],
+      "wikipediaLinks": [
+        {
+          "qid": "Q105694930",
+          "url": "https://en.wikipedia.org/wiki/Pel%C3%A9_(2021_film)"
+        },
+        {
+          "qid": "Q12897",
+          "url": "https://en.wikipedia.org/wiki/Pel%C3%A9"
+        },
+        {
+          "qid": "Q646135",
+          "url": "https://en.wikipedia.org/wiki/New_York_Cosmos_(1971%E2%80%931985)"
+        }
+      ],
+      "distractors": [
+        {
+          "qid": "Q17515",
+          "label": "Diego Maradona",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q142794",
+          "label": "Neymar",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q615",
+          "label": "Lionel Messi",
+          "exactPathMatch": false
+        }
+      ],
+      "distractorValidationOutcome": "Passed: all three alternatives are plausible in context, but none satisfies both exact relationships in the bounded live query.",
+      "uniqueIntermediaryCount": 1
+    },
+    {
+      "id": "last-dance-jordan-medal-freedom",
+      "decision": "approved",
+      "reason": "Both current Wikidata statements and direction were confirmed; relationship-specific supporting sources cover the material claims; the bounded exact-property query returned only the intended intermediary.",
+      "exactPath": "The Last Dance (Q85807688) —P921→ Michael Jordan (Q41421) —P166→ Presidential Medal of Freedom (Q17144)",
+      "qualifierConcerns": "Reviewed: P166/P585 point in time: 2016. Editorial wording preserves the dated or historical scope.",
+      "sourceEvidence": [
+        {
+          "label": "Q85807688 P921 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q85807688#P921",
+          "kind": "wikidata"
+        },
+        {
+          "label": "The Last Dance",
+          "publisher": "Netflix",
+          "url": "https://media.netflix.com/en/only-on-netflix/80203144",
+          "kind": "supporting"
+        },
+        {
+          "label": "Q41421 P166 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q41421#P166",
+          "kind": "wikidata"
+        },
+        {
+          "label": "Presidential Medal of Freedom recipients",
+          "publisher": "Obama White House Archives",
+          "url": "https://obamawhitehouse.archives.gov/campaign/medal-of-freedom",
+          "kind": "supporting"
+        }
+      ],
+      "wikipediaLinks": [
+        {
+          "qid": "Q85807688",
+          "url": "https://en.wikipedia.org/wiki/The_Last_Dance_(miniseries)"
+        },
+        {
+          "qid": "Q41421",
+          "url": "https://en.wikipedia.org/wiki/Michael_Jordan"
+        },
+        {
+          "qid": "Q17144",
+          "url": "https://en.wikipedia.org/wiki/Presidential_Medal_of_Freedom"
+        }
+      ],
+      "distractors": [
+        {
+          "qid": "Q193637",
+          "label": "Scottie Pippen",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q201608",
+          "label": "Dennis Rodman",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q36159",
+          "label": "LeBron James",
+          "exactPathMatch": false
+        }
+      ],
+      "distractorValidationOutcome": "Passed: all three alternatives are plausible in context, but none satisfies both exact relationships in the bounded live query.",
+      "uniqueIntermediaryCount": 1
+    },
+    {
+      "id": "milan-weah-liberia-president",
+      "decision": "approved",
+      "reason": "Both current Wikidata statements and direction were confirmed; relationship-specific supporting sources cover the material claims; the bounded exact-property query returned only the intended intermediary.",
+      "exactPath": "AC Milan (Q1543) ←P54— George Weah (Q173139) —P39→ President of Liberia (Q19161825)",
+      "qualifierConcerns": "Reviewed: P54/P580 start time: 1995; P54/P582 end time: 2000; P39/P580 start time: 22 January 2018; P39/P582 end time: 22 January 2024. Editorial wording preserves the dated or historical scope.",
+      "sourceEvidence": [
+        {
+          "label": "Q173139 P54 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q173139#P54",
+          "kind": "wikidata"
+        },
+        {
+          "label": "George Weah biography",
+          "publisher": "Executive Mansion of Liberia",
+          "url": "https://www.weah.emansion.gov.lr/general/biography-liberias-24th-president",
+          "kind": "supporting"
+        },
+        {
+          "label": "Q173139 P39 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q173139#P39",
+          "kind": "wikidata"
+        },
+        {
+          "label": "George Weah biography",
+          "publisher": "Executive Mansion of Liberia",
+          "url": "https://www.weah.emansion.gov.lr/general/biography-liberias-24th-president",
+          "kind": "supporting"
+        }
+      ],
+      "wikipediaLinks": [
+        {
+          "qid": "Q1543",
+          "url": "https://en.wikipedia.org/wiki/AC_Milan"
+        },
+        {
+          "qid": "Q173139",
+          "url": "https://en.wikipedia.org/wiki/George_Weah"
+        },
+        {
+          "qid": "Q19161825",
+          "url": "https://en.wikipedia.org/wiki/President_of_Liberia"
+        }
+      ],
+      "distractors": [
+        {
+          "qid": "Q483027",
+          "label": "Paolo Maldini",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q531814",
+          "label": "Kaká",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q41244",
+          "label": "Andriy Shevchenko",
+          "exactPathMatch": false
+        }
+      ],
+      "distractorValidationOutcome": "Passed: all three alternatives are plausible in context, but none satisfies both exact relationships in the bounded live query.",
+      "uniqueIntermediaryCount": 1
+    },
+    {
+      "id": "lombardi-trophy-lombardi-fordham",
+      "decision": "approved",
+      "reason": "Both current Wikidata statements and direction were confirmed; relationship-specific supporting sources cover the material claims; the bounded exact-property query returned only the intended intermediary.",
+      "exactPath": "Vince Lombardi Trophy (Q2526532) —P138→ Vince Lombardi (Q553321) —P54→ Fordham Rams football (Q5468071)",
+      "qualifierConcerns": "No material qualifiers on either current statement.",
+      "sourceEvidence": [
+        {
+          "label": "Q2526532 P138 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q2526532#P138",
+          "kind": "wikidata"
+        },
+        {
+          "label": "Super Bowl facts and the Lombardi Trophy",
+          "publisher": "NFL",
+          "url": "https://www.nfl.com/news/super-bowl-facts-and-figures-09000d5d8267aa7f",
+          "kind": "supporting"
+        },
+        {
+          "label": "Q553321 P54 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q553321#P54",
+          "kind": "wikidata"
+        },
+        {
+          "label": "Vincent T. Lombardi",
+          "publisher": "Green Bay Packers",
+          "url": "https://static.www.nfl.com/league/apps/league-site/media-guides/2025/GB.pdf",
+          "kind": "supporting"
+        }
+      ],
+      "wikipediaLinks": [
+        {
+          "qid": "Q2526532",
+          "url": "https://en.wikipedia.org/wiki/Vince_Lombardi_Trophy"
+        },
+        {
+          "qid": "Q553321",
+          "url": "https://en.wikipedia.org/wiki/Vince_Lombardi"
+        },
+        {
+          "qid": "Q5468071",
+          "url": "https://en.wikipedia.org/wiki/Fordham_Rams_football"
+        }
+      ],
+      "distractors": [
+        {
+          "qid": "Q720027",
+          "label": "Bill Belichick",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q311974",
+          "label": "Andy Reid",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q1374361",
+          "label": "Tom Landry",
+          "exactPathMatch": false
+        }
+      ],
+      "distractorValidationOutcome": "Passed: all three alternatives are plausible in context, but none satisfies both exact relationships in the bounded live query.",
+      "uniqueIntermediaryCount": 1
+    },
+    {
+      "id": "everest-george-everest-royal-society",
+      "decision": "approved",
+      "reason": "Both current Wikidata statements and direction were confirmed; relationship-specific supporting sources cover the material claims; the bounded exact-property query returned only the intended intermediary.",
+      "exactPath": "Mount Everest (Q513) —P138→ George Everest (Q217119) —P463→ Royal Society (Q123885)",
+      "qualifierConcerns": "Reviewed: P138/P580 name adopted: 1865. Editorial wording preserves the dated or historical scope.",
+      "sourceEvidence": [
+        {
+          "label": "Q513 P138 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q513#P138",
+          "kind": "wikidata"
+        },
+        {
+          "label": "Mount Everest",
+          "publisher": "National Geographic Society",
+          "url": "https://education.nationalgeographic.org/resource/mount-everest/",
+          "kind": "supporting"
+        },
+        {
+          "label": "Q217119 P463 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q217119#P463",
+          "kind": "wikidata"
+        },
+        {
+          "label": "George Everest certificate of election",
+          "publisher": "Royal Society",
+          "url": "https://catalogues.royalsociety.org/CalmView/Record.aspx?id=EC%2F1826%2F23&src=CalmView.Catalog",
+          "kind": "supporting"
+        }
+      ],
+      "wikipediaLinks": [
+        {
+          "qid": "Q513",
+          "url": "https://en.wikipedia.org/wiki/Mount_Everest"
+        },
+        {
+          "qid": "Q217119",
+          "url": "https://en.wikipedia.org/wiki/George_Everest"
+        },
+        {
+          "qid": "Q123885",
+          "url": "https://en.wikipedia.org/wiki/Royal_Society"
+        }
+      ],
+      "distractors": [
+        {
+          "qid": "Q33817",
+          "label": "Edmund Hillary",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q311604",
+          "label": "George Mallory",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q80732",
+          "label": "Tenzing Norgay",
+          "exactPathMatch": false
+        }
+      ],
+      "distractorValidationOutcome": "Passed: all three alternatives are plausible in context, but none satisfies both exact relationships in the bounded live query.",
+      "uniqueIntermediaryCount": 1
+    },
+    {
+      "id": "lake-victoria-queen-va",
+      "decision": "approved",
+      "reason": "Both current Wikidata statements and direction were confirmed; relationship-specific supporting sources cover the material claims; the bounded exact-property query returned only the intended intermediary.",
+      "exactPath": "Lake Victoria (Q5505) —P138→ Queen Victoria (Q9439) ←P138— Victoria and Albert Museum (Q213322)",
+      "qualifierConcerns": "No material qualifiers on either current statement.",
+      "sourceEvidence": [
+        {
+          "label": "Q5505 P138 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q5505#P138",
+          "kind": "wikidata"
+        },
+        {
+          "label": "Lake Victoria naming history",
+          "publisher": "Livingstone Online",
+          "url": "https://livingstoneonline.org/node/162",
+          "kind": "supporting"
+        },
+        {
+          "label": "Q213322 P138 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q213322#P138",
+          "kind": "wikidata"
+        },
+        {
+          "label": "Building the V&A",
+          "publisher": "Victoria and Albert Museum",
+          "url": "https://www.vam.ac.uk/articles/building-the-museum",
+          "kind": "supporting"
+        }
+      ],
+      "wikipediaLinks": [
+        {
+          "qid": "Q5505",
+          "url": "https://en.wikipedia.org/wiki/Lake_Victoria"
+        },
+        {
+          "qid": "Q9439",
+          "url": "https://en.wikipedia.org/wiki/Queen_Victoria"
+        },
+        {
+          "qid": "Q213322",
+          "url": "https://en.wikipedia.org/wiki/Victoria_and_Albert_Museum"
+        }
+      ],
+      "distractors": [
+        {
+          "qid": "Q9682",
+          "label": "Elizabeth II",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q152245",
+          "label": "Prince Albert",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q125084",
+          "label": "John Hanning Speke",
+          "exactPathMatch": false
+        }
+      ],
+      "distractorValidationOutcome": "Passed: all three alternatives are plausible in context, but none satisfies both exact relationships in the bounded live query.",
+      "uniqueIntermediaryCount": 1
+    },
+    {
+      "id": "bolivia-bolivar-currency",
+      "decision": "approved",
+      "reason": "Both current Wikidata statements and direction were confirmed; relationship-specific supporting sources cover the material claims; the bounded exact-property query returned only the intended intermediary.",
+      "exactPath": "Bolivia (Q750) —P138→ Simón Bolívar (Q8605) ←P138— Venezuelan bolívar (Q203757)",
+      "qualifierConcerns": "No material qualifiers on either current statement.",
+      "sourceEvidence": [
+        {
+          "label": "Q750 P138 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q750#P138",
+          "kind": "wikidata"
+        },
+        {
+          "label": "Simón Bolívar",
+          "publisher": "Banco de la República Cultural Encyclopedia",
+          "url": "https://enciclopedia.banrepcultural.org/Sim%C3%B3n_Bol%C3%ADvar",
+          "kind": "supporting"
+        },
+        {
+          "label": "Q203757 P138 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q203757#P138",
+          "kind": "wikidata"
+        },
+        {
+          "label": "Bolívar currency",
+          "publisher": "Collins Dictionary",
+          "url": "https://www.collinsdictionary.com/us/dictionary/english/bolivar",
+          "kind": "supporting"
+        }
+      ],
+      "wikipediaLinks": [
+        {
+          "qid": "Q750",
+          "url": "https://en.wikipedia.org/wiki/Bolivia"
+        },
+        {
+          "qid": "Q8605",
+          "url": "https://en.wikipedia.org/wiki/Sim%C3%B3n_Bol%C3%ADvar"
+        },
+        {
+          "qid": "Q203757",
+          "url": "https://en.wikipedia.org/wiki/Venezuelan_bol%C3%ADvar"
+        }
+      ],
+      "distractors": [
+        {
+          "qid": "Q8440",
+          "label": "Hugo Chávez",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q134160",
+          "label": "José de San Martín",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q189779",
+          "label": "Antonio José de Sucre",
+          "exactPathMatch": false
+        }
+      ],
+      "distractorValidationOutcome": "Passed: all three alternatives are plausible in context, but none satisfies both exact relationships in the bounded live query.",
+      "uniqueIntermediaryCount": 1
+    },
+    {
+      "id": "gregorian-calendar-gregory-university",
+      "decision": "approved",
+      "reason": "Both current Wikidata statements and direction were confirmed; relationship-specific supporting sources cover the material claims; the bounded exact-property query returned only the intended intermediary.",
+      "exactPath": "Gregorian calendar (Q12138) —P138→ Pope Gregory XIII (Q83029) ←P138— Pontifical Gregorian University (Q467025)",
+      "qualifierConcerns": "No material qualifiers on either current statement.",
+      "sourceEvidence": [
+        {
+          "label": "Q12138 P138 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q12138#P138",
+          "kind": "wikidata"
+        },
+        {
+          "label": "The Gregorian calendar",
+          "publisher": "Royal Observatory of Belgium",
+          "url": "https://robinfo.oma.be/en/astro-info/calendar/the-gregorian-calendar/",
+          "kind": "supporting"
+        },
+        {
+          "label": "Q467025 P138 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q467025#P138",
+          "kind": "wikidata"
+        },
+        {
+          "label": "Serving the Church and the World",
+          "publisher": "Pontifical Gregorian University",
+          "url": "https://www.unigre.it/en/serving-the-church-and-the-world/",
+          "kind": "supporting"
+        }
+      ],
+      "wikipediaLinks": [
+        {
+          "qid": "Q12138",
+          "url": "https://en.wikipedia.org/wiki/Gregorian_calendar"
+        },
+        {
+          "qid": "Q83029",
+          "url": "https://en.wikipedia.org/wiki/Pope_Gregory_XIII"
+        },
+        {
+          "qid": "Q467025",
+          "url": "https://en.wikipedia.org/wiki/Pontifical_Gregorian_University"
+        }
+      ],
+      "distractors": [
+        {
+          "qid": "Q1048",
+          "label": "Julius Caesar",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q42827",
+          "label": "Pope Gregory I",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q44281",
+          "label": "Ignatius of Loyola",
+          "exactPathMatch": false
+        }
+      ],
+      "distractorValidationOutcome": "Passed: all three alternatives are plausible in context, but none satisfies both exact relationships in the bounded live query.",
+      "uniqueIntermediaryCount": 1
+    },
+    {
+      "id": "rosetta-bouchard-polytechnique",
+      "decision": "approved",
+      "reason": "Both current Wikidata statements and direction were confirmed; relationship-specific supporting sources cover the material claims; the bounded exact-property query returned only the intended intermediary.",
+      "exactPath": "Rosetta Stone (Q48584) —P61→ Pierre-François Bouchard (Q1386062) —P69→ École polytechnique (Q273626)",
+      "qualifierConcerns": "Reviewed: P61/P1344 during event: French campaign in Egypt and Syria. Editorial wording preserves the dated or historical scope.",
+      "sourceEvidence": [
+        {
+          "label": "Q48584 P61 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q48584#P61",
+          "kind": "wikidata"
+        },
+        {
+          "label": "The Rosetta Stone",
+          "publisher": "British Museum",
+          "url": "https://www.britishmuseum.org/blog/everything-you-ever-wanted-know-about-rosetta-stone",
+          "kind": "supporting"
+        },
+        {
+          "label": "Q1386062 P69 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q1386062#P69",
+          "kind": "wikidata"
+        },
+        {
+          "label": "Pierre-François Bouchard biography",
+          "publisher": "ASPHOR",
+          "url": "https://www.asphor.org/bibliotheque/bulletins/bulletin_liaison_ASPHOR_18.pdf",
+          "kind": "supporting"
+        }
+      ],
+      "wikipediaLinks": [
+        {
+          "qid": "Q48584",
+          "url": "https://en.wikipedia.org/wiki/Rosetta_Stone"
+        },
+        {
+          "qid": "Q1386062",
+          "url": "https://en.wikipedia.org/wiki/Pierre-Fran%C3%A7ois_Bouchard"
+        },
+        {
+          "qid": "Q273626",
+          "url": "https://en.wikipedia.org/wiki/%C3%89cole_polytechnique"
+        }
+      ],
+      "distractors": [
+        {
+          "qid": "Q260",
+          "label": "Jean-François Champollion",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q517",
+          "label": "Napoleon",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q159499",
+          "label": "Thomas Young",
+          "exactPathMatch": false
+        }
+      ],
+      "distractorValidationOutcome": "Passed: all three alternatives are plausible in context, but none satisfies both exact relationships in the bounded live query.",
+      "uniqueIntermediaryCount": 1
+    },
+    {
+      "id": "tasmania-tasman-voc",
+      "decision": "approved",
+      "reason": "Both current Wikidata statements and direction were confirmed; relationship-specific supporting sources cover the material claims; the bounded exact-property query returned only the intended intermediary.",
+      "exactPath": "Tasmania (Q34366) —P138→ Abel Tasman (Q42188) —P108→ Dutch East India Company (Q159766)",
+      "qualifierConcerns": "No material qualifiers on either current statement.",
+      "sourceEvidence": [
+        {
+          "label": "Q34366 P138 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q34366#P138",
+          "kind": "wikidata"
+        },
+        {
+          "label": "Tasmania historical timeline",
+          "publisher": "Australian Bureau of Statistics",
+          "url": "https://www.abs.gov.au/ausstats/abs%40.nsf/2f762f95845417aeca25706c00834efa/F6FA372655DCC15FCA256C3200241893",
+          "kind": "supporting"
+        },
+        {
+          "label": "Q42188 P108 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q42188#P108",
+          "kind": "wikidata"
+        },
+        {
+          "label": "Abel Tasman",
+          "publisher": "New Zealand History",
+          "url": "https://nzhistory.govt.nz/people/abel-tasman",
+          "kind": "supporting"
+        }
+      ],
+      "wikipediaLinks": [
+        {
+          "qid": "Q34366",
+          "url": "https://en.wikipedia.org/wiki/Tasmania"
+        },
+        {
+          "qid": "Q42188",
+          "url": "https://en.wikipedia.org/wiki/Abel_Tasman"
+        },
+        {
+          "qid": "Q159766",
+          "url": "https://en.wikipedia.org/wiki/Dutch_East_India_Company"
+        }
+      ],
+      "distractors": [
+        {
+          "qid": "Q7324",
+          "label": "James Cook",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q219895",
+          "label": "Matthew Flinders",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q174085",
+          "label": "Willem Janszoon",
+          "exactPathMatch": false
+        }
+      ],
+      "distractorValidationOutcome": "Passed: all three alternatives are plausible in context, but none satisfies both exact relationships in the bounded live query.",
+      "uniqueIntermediaryCount": 1
+    },
+    {
+      "id": "iran-crisis-carter-nobel-peace",
+      "decision": "approved",
+      "reason": "Both current Wikidata statements and direction were confirmed; relationship-specific supporting sources cover the material claims; the bounded exact-property query returned only the intended intermediary.",
+      "exactPath": "Iran hostage crisis (Q589673) —P710→ Jimmy Carter (Q23685) —P166→ Nobel Peace Prize (Q35637)",
+      "qualifierConcerns": "Reviewed: P166/P585 point in time: 10 December 2002. Editorial wording preserves the dated or historical scope.",
+      "sourceEvidence": [
+        {
+          "label": "Q589673 P710 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q589673#P710",
+          "kind": "wikidata"
+        },
+        {
+          "label": "The Iranian Hostage Crisis",
+          "publisher": "U.S. Department of State Office of the Historian",
+          "url": "https://history.state.gov/departmenthistory/short-history/iraniancrises",
+          "kind": "supporting"
+        },
+        {
+          "label": "Q23685 P166 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q23685#P166",
+          "kind": "wikidata"
+        },
+        {
+          "label": "Nobel Peace Prize 2002",
+          "publisher": "Nobel Prize",
+          "url": "https://www.nobelprize.org/prizes/peace/2002/summary/",
+          "kind": "supporting"
+        }
+      ],
+      "wikipediaLinks": [
+        {
+          "qid": "Q589673",
+          "url": "https://en.wikipedia.org/wiki/Iran_hostage_crisis"
+        },
+        {
+          "qid": "Q23685",
+          "url": "https://en.wikipedia.org/wiki/Jimmy_Carter"
+        },
+        {
+          "qid": "Q35637",
+          "url": "https://en.wikipedia.org/wiki/Nobel_Peace_Prize"
+        }
+      ],
+      "distractors": [
+        {
+          "qid": "Q38823",
+          "label": "Ruhollah Khomeini",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q9960",
+          "label": "Ronald Reagan",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q49216",
+          "label": "Walter Mondale",
+          "exactPathMatch": false
+        }
+      ],
+      "distractorValidationOutcome": "Passed: all three alternatives are plausible in context, but none satisfies both exact relationships in the bounded live query.",
+      "uniqueIntermediaryCount": 1
+    },
+    {
+      "id": "churchill-college-churchill-nobel",
+      "decision": "approved",
+      "reason": "Both current Wikidata statements and direction were confirmed; relationship-specific supporting sources cover the material claims; the bounded exact-property query returned only the intended intermediary.",
+      "exactPath": "Churchill College (Q714740) —P138→ Winston Churchill (Q8016) —P166→ Nobel Prize in Literature (Q37922)",
+      "qualifierConcerns": "Reviewed: P166/P585 point in time: 1953. Editorial wording preserves the dated or historical scope.",
+      "sourceEvidence": [
+        {
+          "label": "Q714740 P138 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q714740#P138",
+          "kind": "wikidata"
+        },
+        {
+          "label": "The project goes public",
+          "publisher": "Churchill College",
+          "url": "https://www.chu.cam.ac.uk/timeline/the-project-goes-public/",
+          "kind": "supporting"
+        },
+        {
+          "label": "Q8016 P166 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q8016#P166",
+          "kind": "wikidata"
+        },
+        {
+          "label": "Nobel Prize in Literature 1953",
+          "publisher": "Nobel Prize",
+          "url": "https://www.nobelprize.org/prizes/literature/1953/summary/",
+          "kind": "supporting"
+        }
+      ],
+      "wikipediaLinks": [
+        {
+          "qid": "Q714740",
+          "url": "https://en.wikipedia.org/wiki/Churchill_College,_Cambridge"
+        },
+        {
+          "qid": "Q8016",
+          "url": "https://en.wikipedia.org/wiki/Winston_Churchill"
+        },
+        {
+          "qid": "Q37922",
+          "url": "https://en.wikipedia.org/wiki/Nobel_Prize_in_Literature"
+        }
+      ],
+      "distractors": [
+        {
+          "qid": "Q129006",
+          "label": "Clement Attlee",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q7416",
+          "label": "Margaret Thatcher",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q10664",
+          "label": "Neville Chamberlain",
+          "exactPathMatch": false
+        }
+      ],
+      "distractorValidationOutcome": "Passed: all three alternatives are plausible in context, but none satisfies both exact relationships in the bounded live query.",
+      "uniqueIntermediaryCount": 1
+    },
+    {
+      "id": "roosevelt-park-roosevelt-nobel",
+      "decision": "approved",
+      "reason": "Both current Wikidata statements and direction were confirmed; relationship-specific supporting sources cover the material claims; the bounded exact-property query returned only the intended intermediary.",
+      "exactPath": "Theodore Roosevelt National Park (Q1137669) —P138→ Theodore Roosevelt (Q33866) —P166→ Nobel Peace Prize (Q35637)",
+      "qualifierConcerns": "Reviewed: P166/P585 point in time: 1906. Editorial wording preserves the dated or historical scope.",
+      "sourceEvidence": [
+        {
+          "label": "Q1137669 P138 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q1137669#P138",
+          "kind": "wikidata"
+        },
+        {
+          "label": "Theodore Roosevelt and conservation",
+          "publisher": "National Park Service",
+          "url": "https://www.nps.gov/thro/learn/historyculture/theodore-roosevelt-and-conservation.htm",
+          "kind": "supporting"
+        },
+        {
+          "label": "Q33866 P166 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q33866#P166",
+          "kind": "wikidata"
+        },
+        {
+          "label": "Theodore Roosevelt biography",
+          "publisher": "National Park Service",
+          "url": "https://www.nps.gov/articles/000/theodore-roosevelt-biography.htm",
+          "kind": "supporting"
+        }
+      ],
+      "wikipediaLinks": [
+        {
+          "qid": "Q1137669",
+          "url": "https://en.wikipedia.org/wiki/Theodore_Roosevelt_National_Park"
+        },
+        {
+          "qid": "Q33866",
+          "url": "https://en.wikipedia.org/wiki/Theodore_Roosevelt"
+        },
+        {
+          "qid": "Q35637",
+          "url": "https://en.wikipedia.org/wiki/Nobel_Peace_Prize"
+        }
+      ],
+      "distractors": [
+        {
+          "qid": "Q8007",
+          "label": "Franklin D. Roosevelt",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q35648",
+          "label": "William Howard Taft",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q34296",
+          "label": "Woodrow Wilson",
+          "exactPathMatch": false
+        }
+      ],
+      "distractorValidationOutcome": "Passed: all three alternatives are plausible in context, but none satisfies both exact relationships in the bounded live query.",
+      "uniqueIntermediaryCount": 1
+    },
+    {
+      "id": "webb-telescope-webb-nasa",
+      "decision": "approved",
+      "reason": "Both current Wikidata statements and direction were confirmed; relationship-specific supporting sources cover the material claims; the bounded exact-property query returned only the intended intermediary.",
+      "exactPath": "James Webb Space Telescope (Q186447) —P138→ James E. Webb (Q537520) —P108→ NASA (Q23548)",
+      "qualifierConcerns": "No material qualifiers on either current statement.",
+      "sourceEvidence": [
+        {
+          "label": "Q186447 P138 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q186447#P138",
+          "kind": "wikidata"
+        },
+        {
+          "label": "Who is James Webb?",
+          "publisher": "NASA",
+          "url": "https://science.nasa.gov/mission/webb/who-is-james-webb/",
+          "kind": "supporting"
+        },
+        {
+          "label": "Q537520 P108 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q537520#P108",
+          "kind": "wikidata"
+        },
+        {
+          "label": "James E. Webb",
+          "publisher": "NASA",
+          "url": "https://www.nasa.gov/people/james-e-webb/",
+          "kind": "supporting"
+        }
+      ],
+      "wikipediaLinks": [
+        {
+          "qid": "Q186447",
+          "url": "https://en.wikipedia.org/wiki/James_Webb_Space_Telescope"
+        },
+        {
+          "qid": "Q537520",
+          "url": "https://en.wikipedia.org/wiki/James_E._Webb"
+        },
+        {
+          "qid": "Q23548",
+          "url": "https://en.wikipedia.org/wiki/NASA"
+        }
+      ],
+      "distractors": [
+        {
+          "qid": "Q43027",
+          "label": "Edwin Hubble",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q3335602",
+          "label": "Nancy Grace Roman",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q410",
+          "label": "Carl Sagan",
+          "exactPathMatch": false
+        }
+      ],
+      "distractorValidationOutcome": "Passed: all three alternatives are plausible in context, but none satisfies both exact relationships in the bounded live query.",
+      "uniqueIntermediaryCount": 1
+    },
+    {
+      "id": "higgs-boson-higgs-edinburgh",
+      "decision": "approved",
+      "reason": "Both current Wikidata statements and direction were confirmed; relationship-specific supporting sources cover the material claims; the bounded exact-property query returned only the intended intermediary.",
+      "exactPath": "Higgs boson (Q402) —P138→ Peter Higgs (Q192112) —P108→ University of Edinburgh (Q160302)",
+      "qualifierConcerns": "Reviewed: P108/P580 later appointment began: 1960; P108/P582 retired: 1996. Editorial wording preserves the dated or historical scope.",
+      "sourceEvidence": [
+        {
+          "label": "Q402 P138 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q402#P138",
+          "kind": "wikidata"
+        },
+        {
+          "label": "Higgs research at Edinburgh",
+          "publisher": "University of Edinburgh",
+          "url": "https://www.ph.ed.ac.uk/particle-physics-theory/research",
+          "kind": "supporting"
+        },
+        {
+          "label": "Q192112 P108 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q192112#P108",
+          "kind": "wikidata"
+        },
+        {
+          "label": "Peter Higgs curriculum vitae",
+          "publisher": "University of Edinburgh",
+          "url": "https://www.ph.ed.ac.uk/higgs/peter-higgs",
+          "kind": "supporting"
+        }
+      ],
+      "wikipediaLinks": [
+        {
+          "qid": "Q402",
+          "url": "https://en.wikipedia.org/wiki/Higgs_boson"
+        },
+        {
+          "qid": "Q192112",
+          "url": "https://en.wikipedia.org/wiki/Peter_Higgs"
+        },
+        {
+          "qid": "Q160302",
+          "url": "https://en.wikipedia.org/wiki/University_of_Edinburgh"
+        }
+      ],
+      "distractors": [
+        {
+          "qid": "Q937",
+          "label": "Albert Einstein",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q17714",
+          "label": "Stephen Hawking",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q39246",
+          "label": "Richard Feynman",
+          "exactPathMatch": false
+        }
+      ],
+      "distractorValidationOutcome": "Passed: all three alternatives are plausible in context, but none satisfies both exact relationships in the bounded live query.",
+      "uniqueIntermediaryCount": 1
+    },
+    {
+      "id": "thriller-jones-color-purple",
+      "decision": "approved",
+      "reason": "Both current Wikidata statements and direction were confirmed; relationship-specific supporting sources cover the material claims; the bounded exact-property query returned only the intended intermediary.",
+      "exactPath": "Thriller (Q44320) —P162→ Quincy Jones (Q193645) ←P86— The Color Purple (Q223299)",
+      "qualifierConcerns": "No material qualifiers on either current statement.",
+      "sourceEvidence": [
+        {
+          "label": "Q44320 P162 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q44320#P162",
+          "kind": "wikidata"
+        },
+        {
+          "label": "Quincy Jones, producer of Thriller",
+          "publisher": "Associated Press",
+          "url": "https://apnews.com/article/a9e31c7e39c448d8971519f47a22dd21",
+          "kind": "supporting"
+        },
+        {
+          "label": "Q223299 P86 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q223299#P86",
+          "kind": "wikidata"
+        },
+        {
+          "label": "The Color Purple",
+          "publisher": "Amblin",
+          "url": "https://amblin.com/movie/the-color-purple/",
+          "kind": "supporting"
+        }
+      ],
+      "wikipediaLinks": [
+        {
+          "qid": "Q44320",
+          "url": "https://en.wikipedia.org/wiki/Thriller_(album)"
+        },
+        {
+          "qid": "Q193645",
+          "url": "https://en.wikipedia.org/wiki/Quincy_Jones"
+        },
+        {
+          "qid": "Q223299",
+          "url": "https://en.wikipedia.org/wiki/The_Color_Purple_(1985_film)"
+        }
+      ],
+      "distractors": [
+        {
+          "qid": "Q2831",
+          "label": "Michael Jackson",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q931723",
+          "label": "Rod Temperton",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q8877",
+          "label": "Steven Spielberg",
+          "exactPathMatch": false
+        }
+      ],
+      "distractorValidationOutcome": "Passed: all three alternatives are plausible in context, but none satisfies both exact relationships in the bounded live query.",
+      "uniqueIntermediaryCount": 1
+    },
+    {
+      "id": "back-black-winehouse-brit-school",
+      "decision": "approved",
+      "reason": "Both current Wikidata statements and direction were confirmed; relationship-specific supporting sources cover the material claims; the bounded exact-property query returned only the intended intermediary.",
+      "exactPath": "Back to Black (Q156670) —P175→ Amy Winehouse (Q15897) —P69→ BRIT School (Q796940)",
+      "qualifierConcerns": "No material qualifiers on either current statement.",
+      "sourceEvidence": [
+        {
+          "label": "Q156670 P175 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q156670#P175",
+          "kind": "wikidata"
+        },
+        {
+          "label": "Amy Winehouse official site",
+          "publisher": "Amy Winehouse Estate",
+          "url": "https://www.amywinehouse.com/",
+          "kind": "supporting"
+        },
+        {
+          "label": "Q15897 P69 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q15897#P69",
+          "kind": "wikidata"
+        },
+        {
+          "label": "The BRIT School",
+          "publisher": "BRIT School",
+          "url": "https://www.brits.co.uk/brit-school/",
+          "kind": "supporting"
+        }
+      ],
+      "wikipediaLinks": [
+        {
+          "qid": "Q156670",
+          "url": "https://en.wikipedia.org/wiki/Back_to_Black"
+        },
+        {
+          "qid": "Q15897",
+          "url": "https://en.wikipedia.org/wiki/Amy_Winehouse"
+        },
+        {
+          "qid": "Q796940",
+          "url": "https://en.wikipedia.org/wiki/BRIT_School"
+        }
+      ],
+      "distractors": [
+        {
+          "qid": "Q23215",
+          "label": "Adele",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q184644",
+          "label": "Duffy",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q58735",
+          "label": "Lily Allen",
+          "exactPathMatch": false
+        }
+      ],
+      "distractorValidationOutcome": "Passed: all three alternatives are plausible in context, but none satisfies both exact relationships in the bounded live query.",
+      "uniqueIntermediaryCount": 1
+    },
+    {
+      "id": "et-spielberg-csu-long-beach",
+      "decision": "approved",
+      "reason": "Both current Wikidata statements and direction were confirmed; relationship-specific supporting sources cover the material claims; the bounded exact-property query returned only the intended intermediary.",
+      "exactPath": "E.T. the Extra-Terrestrial (Q11621) —P57→ Steven Spielberg (Q8877) —P69→ California State University, Long Beach (Q1026926)",
+      "qualifierConcerns": "Reviewed: P69/P582 degree completed: 2002. Editorial wording preserves the dated or historical scope.",
+      "sourceEvidence": [
+        {
+          "label": "Q11621 P57 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q11621#P57",
+          "kind": "wikidata"
+        },
+        {
+          "label": "E.T. the Extra-Terrestrial",
+          "publisher": "Amblin",
+          "url": "https://amblin.com/movie/e-t/",
+          "kind": "supporting"
+        },
+        {
+          "label": "Q8877 P69 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q8877#P69",
+          "kind": "wikidata"
+        },
+        {
+          "label": "Steven Spielberg",
+          "publisher": "California State University",
+          "url": "https://www.calstate.edu/impact-of-the-csu/alumni/made-in-the-csu/long-beach/Pages/spielberg.aspx",
+          "kind": "supporting"
+        }
+      ],
+      "wikipediaLinks": [
+        {
+          "qid": "Q11621",
+          "url": "https://en.wikipedia.org/wiki/E.T._the_Extra-Terrestrial"
+        },
+        {
+          "qid": "Q8877",
+          "url": "https://en.wikipedia.org/wiki/Steven_Spielberg"
+        },
+        {
+          "qid": "Q1026926",
+          "url": "https://en.wikipedia.org/wiki/California_State_University,_Long_Beach"
+        }
+      ],
+      "distractors": [
+        {
+          "qid": "Q38222",
+          "label": "George Lucas",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q42574",
+          "label": "James Cameron",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q187364",
+          "label": "Robert Zemeckis",
+          "exactPathMatch": false
+        }
+      ],
+      "distractorValidationOutcome": "Passed: all three alternatives are plausible in context, but none satisfies both exact relationships in the bounded live query.",
+      "uniqueIntermediaryCount": 1
+    },
+    {
+      "id": "paris-1924-liddell-edinburgh",
+      "decision": "rejected",
+      "reason": "Rejected as ambiguous: the bounded exact-property query returned both Eric Liddell (Q317422) and tennis player Pat Spence (Q685157), each with a P1344 link to the 1924 Summer Olympics and a P69 link to the University of Edinburgh.",
+      "exactPath": "1924 Summer Olympics (Q8132) ←P1344— Eric Liddell (Q317422) —P69→ University of Edinburgh (Q160302)",
+      "qualifierConcerns": "No material qualifiers distinguish Eric Liddell from the second current exact-path intermediary.",
+      "sourceEvidence": [
+        {
+          "label": "Q317422 P1344 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q317422#P1344",
+          "kind": "wikidata"
+        },
+        {
+          "label": "Q317422 P69 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q317422#P69",
+          "kind": "wikidata"
+        },
+        {
+          "label": "Eric Liddell's medals and university history",
+          "publisher": "University of Edinburgh",
+          "url": "https://open.ed.ac.uk/eric-liddells-medals-and-other-items/",
+          "kind": "supporting"
+        }
+      ],
+      "wikipediaLinks": [
+        {
+          "qid": "Q8132",
+          "url": "https://en.wikipedia.org/wiki/1924_Summer_Olympics"
+        },
+        {
+          "qid": "Q317422",
+          "url": "https://en.wikipedia.org/wiki/Eric_Liddell"
+        },
+        {
+          "qid": "Q160302",
+          "url": "https://en.wikipedia.org/wiki/University_of_Edinburgh"
+        }
+      ],
+      "distractors": [
+        {
+          "qid": "Q101942",
+          "label": "Paavo Nurmi",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q380887",
+          "label": "Harold Abrahams",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q685157",
+          "label": "Pat Spence",
+          "exactPathMatch": true
+        }
+      ],
+      "distractorValidationOutcome": "Failed: Pat Spence is a plausible Olympic-era distractor and satisfies both exact relationships, so the hidden intermediary is not unique.",
+      "uniqueIntermediaryCount": 2
+    }
+  ]
+}

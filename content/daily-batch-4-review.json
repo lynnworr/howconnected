@@ -1,0 +1,1338 @@
+{
+  "batchId": "phase-6c-batch-4",
+  "verifiedAt": "2026-10-12T00:00:00.000Z",
+  "scope": "Twenty bounded candidates in the requested 5/4/3/3/3/2 category mix; discovery leads were not promoted unless current claims, direction, material qualifiers, history, relationship-specific sources, sitelinks, exact-path uniqueness, prior-registry uniqueness, and three distractors passed review.",
+  "counts": {
+    "candidates": 20,
+    "approved": 19,
+    "rejected": 1,
+    "priorApproved": 56,
+    "cumulativeApproved": 75,
+    "remainingTo100": 25,
+    "scheduled": 0
+  },
+  "categoryTargets": {
+    "Technology": 5,
+    "Business": 4,
+    "Music": 3,
+    "Sports": 3,
+    "Science and innovation": 3,
+    "World history or culture": 2
+  },
+  "candidates": [
+    {
+      "id": "java-gosling-sun",
+      "decision": "approved",
+      "reason": "Both current Wikidata statements and direction were confirmed; relationship-specific sources support the material claims; the bounded exact-property query returned only the intended intermediary.",
+      "exactPath": "Java (Q251) —P178→ James Gosling (Q92622) —P108→ Sun Microsystems (Q14647)",
+      "qualifierConcerns": "No material qualifiers on either current statement.",
+      "sourceEvidence": [
+        {
+          "label": "Q251 P178 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q251#P178",
+          "kind": "wikidata"
+        },
+        {
+          "label": "25 Years of Java",
+          "publisher": "Oracle",
+          "url": "https://blogs.oracle.com/connect/25-years-java-technology-community-family",
+          "kind": "supporting"
+        },
+        {
+          "label": "Q92622 P108 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q92622#P108",
+          "kind": "wikidata"
+        },
+        {
+          "label": "Java Turns 25",
+          "publisher": "Oracle",
+          "url": "https://www.oracle.com/asean/a/ocom/docs/corporate/analystrelations/omdia-java-turns-25.pdf",
+          "kind": "supporting"
+        }
+      ],
+      "wikipediaLinks": [
+        {
+          "qid": "Q251",
+          "url": "https://en.wikipedia.org/wiki/Java_(programming_language)"
+        },
+        {
+          "qid": "Q92622",
+          "url": "https://en.wikipedia.org/wiki/James_Gosling"
+        },
+        {
+          "qid": "Q14647",
+          "url": "https://en.wikipedia.org/wiki/Sun_Microsystems"
+        }
+      ],
+      "distractors": [
+        {
+          "qid": "Q105815",
+          "label": "Guido van Rossum",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q34290",
+          "label": "Linus Torvalds",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q92620",
+          "label": "Bjarne Stroustrup",
+          "exactPathMatch": false
+        }
+      ],
+      "distractorValidationOutcome": "Passed: all three alternatives are plausible in context, but none satisfies both exact relationships in the bounded live query.",
+      "uniqueIntermediaryCount": 1
+    },
+    {
+      "id": "rust-hoare-mozilla",
+      "decision": "approved",
+      "reason": "Both current Wikidata statements and direction were confirmed; relationship-specific sources support the material claims; the bounded exact-property query returned only the intended intermediary.",
+      "exactPath": "Rust (Q575650) —P61→ Graydon Hoare (Q28937563) —P108→ Mozilla Corporation (Q169925)",
+      "qualifierConcerns": "No material qualifiers on either current statement.",
+      "sourceEvidence": [
+        {
+          "label": "Q575650 P61 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q575650#P61",
+          "kind": "wikidata"
+        },
+        {
+          "label": "Mozilla welcomes the Rust Foundation",
+          "publisher": "Mozilla",
+          "url": "https://blog.mozilla.org/blogarchive/blog/2021/02/08/mozilla-welcomes-the-rust-foundation/",
+          "kind": "supporting"
+        },
+        {
+          "label": "Q28937563 P108 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q28937563#P108",
+          "kind": "wikidata"
+        },
+        {
+          "label": "Mozilla welcomes the Rust Foundation",
+          "publisher": "Mozilla",
+          "url": "https://blog.mozilla.org/blogarchive/blog/2021/02/08/mozilla-welcomes-the-rust-foundation/",
+          "kind": "supporting"
+        }
+      ],
+      "wikipediaLinks": [
+        {
+          "qid": "Q575650",
+          "url": "https://en.wikipedia.org/wiki/Rust_(programming_language)"
+        },
+        {
+          "qid": "Q28937563",
+          "url": "https://en.wikipedia.org/wiki/Graydon_Hoare"
+        },
+        {
+          "qid": "Q169925",
+          "url": "https://en.wikipedia.org/wiki/Mozilla_Corporation"
+        }
+      ],
+      "distractors": [
+        {
+          "qid": "Q92648",
+          "label": "Brendan Eich",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q105815",
+          "label": "Guido van Rossum",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q92622",
+          "label": "James Gosling",
+          "exactPathMatch": false
+        }
+      ],
+      "distractorValidationOutcome": "Passed: all three alternatives are plausible in context, but none satisfies both exact relationships in the bounded live query.",
+      "uniqueIntermediaryCount": 1
+    },
+    {
+      "id": "cpp-stroustrup-bell-labs",
+      "decision": "approved",
+      "reason": "Both current Wikidata statements and direction were confirmed; relationship-specific sources support the material claims; the bounded exact-property query returned only the intended intermediary.",
+      "exactPath": "C++ (Q2407) —P178→ Bjarne Stroustrup (Q92620) —P108→ Bell Labs (Q217365)",
+      "qualifierConcerns": "Reviewed: P108/P580 start time: 1979; P108/P582 end time: 2002. Editorial wording preserves the dated or historical scope.",
+      "sourceEvidence": [
+        {
+          "label": "Q2407 P178 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q2407#P178",
+          "kind": "wikidata"
+        },
+        {
+          "label": "Bjarne Stroustrup biography",
+          "publisher": "Bjarne Stroustrup",
+          "url": "https://www.stroustrup.com/bio.html",
+          "kind": "supporting"
+        },
+        {
+          "label": "Q92620 P108 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q92620#P108",
+          "kind": "wikidata"
+        },
+        {
+          "label": "Bjarne Stroustrup biography",
+          "publisher": "Bjarne Stroustrup",
+          "url": "https://www.stroustrup.com/bio.html",
+          "kind": "supporting"
+        }
+      ],
+      "wikipediaLinks": [
+        {
+          "qid": "Q2407",
+          "url": "https://en.wikipedia.org/wiki/C%2B%2B"
+        },
+        {
+          "qid": "Q92620",
+          "url": "https://en.wikipedia.org/wiki/Bjarne_Stroustrup"
+        },
+        {
+          "qid": "Q217365",
+          "url": "https://en.wikipedia.org/wiki/Bell_Labs"
+        }
+      ],
+      "distractors": [
+        {
+          "qid": "Q92739",
+          "label": "Dennis Ritchie",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q92743",
+          "label": "Ken Thompson",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q92622",
+          "label": "James Gosling",
+          "exactPathMatch": false
+        }
+      ],
+      "distractorValidationOutcome": "Passed: all three alternatives are plausible in context, but none satisfies both exact relationships in the bounded live query.",
+      "uniqueIntermediaryCount": 1
+    },
+    {
+      "id": "swift-lattner-apple",
+      "decision": "approved",
+      "reason": "Both current Wikidata statements and direction were confirmed; relationship-specific sources support the material claims; the bounded exact-property query returned only the intended intermediary.",
+      "exactPath": "Swift (Q17118377) —P178→ Chris Lattner (Q2964778) —P108→ Apple Inc. (Q312)",
+      "qualifierConcerns": "Reviewed: P108/P580 start time: 1 June 2005; P108/P582 end time: 30 January 2017. Editorial wording preserves the dated or historical scope.",
+      "sourceEvidence": [
+        {
+          "label": "Q17118377 P178 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q17118377#P178",
+          "kind": "wikidata"
+        },
+        {
+          "label": "Swift project lead transition",
+          "publisher": "Swift.org",
+          "url": "https://lists.swift.org/pipermail/swift-dev/Week-of-Mon-20170109/003808.html",
+          "kind": "supporting"
+        },
+        {
+          "label": "Q2964778 P108 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q2964778#P108",
+          "kind": "wikidata"
+        },
+        {
+          "label": "Swift project lead transition",
+          "publisher": "Swift.org",
+          "url": "https://lists.swift.org/pipermail/swift-dev/Week-of-Mon-20170109/003808.html",
+          "kind": "supporting"
+        }
+      ],
+      "wikipediaLinks": [
+        {
+          "qid": "Q17118377",
+          "url": "https://en.wikipedia.org/wiki/Swift_(programming_language)"
+        },
+        {
+          "qid": "Q2964778",
+          "url": "https://en.wikipedia.org/wiki/Chris_Lattner"
+        },
+        {
+          "qid": "Q312",
+          "url": "https://en.wikipedia.org/wiki/Apple_Inc."
+        }
+      ],
+      "distractors": [
+        {
+          "qid": "Q92648",
+          "label": "Brendan Eich",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q105815",
+          "label": "Guido van Rossum",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q92622",
+          "label": "James Gosling",
+          "exactPathMatch": false
+        }
+      ],
+      "distractorValidationOutcome": "Passed: all three alternatives are plausible in context, but none satisfies both exact relationships in the bounded live query.",
+      "uniqueIntermediaryCount": 1
+    },
+    {
+      "id": "typescript-hejlsberg-microsoft",
+      "decision": "approved",
+      "reason": "Both current Wikidata statements and direction were confirmed; relationship-specific sources support the material claims; the bounded exact-property query returned only the intended intermediary.",
+      "exactPath": "TypeScript (Q978185) —P170→ Anders Hejlsberg (Q316544) —P108→ Microsoft (Q2283)",
+      "qualifierConcerns": "No material qualifiers on either current statement.",
+      "sourceEvidence": [
+        {
+          "label": "Q978185 P170 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q978185#P170",
+          "kind": "wikidata"
+        },
+        {
+          "label": "TypeScript for the new programmer",
+          "publisher": "Microsoft",
+          "url": "https://www.typescriptlang.org/docs/handbook/typescript-from-scratch.html",
+          "kind": "supporting"
+        },
+        {
+          "label": "Q316544 P108 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q316544#P108",
+          "kind": "wikidata"
+        },
+        {
+          "label": "Anders Hejlsberg speaker biography",
+          "publisher": "Microsoft",
+          "url": "https://learn.microsoft.com/en-us/events/speakers/anders-hejlsberg",
+          "kind": "supporting"
+        }
+      ],
+      "wikipediaLinks": [
+        {
+          "qid": "Q978185",
+          "url": "https://en.wikipedia.org/wiki/TypeScript"
+        },
+        {
+          "qid": "Q316544",
+          "url": "https://en.wikipedia.org/wiki/Anders_Hejlsberg"
+        },
+        {
+          "qid": "Q2283",
+          "url": "https://en.wikipedia.org/wiki/Microsoft"
+        }
+      ],
+      "distractors": [
+        {
+          "qid": "Q92648",
+          "label": "Brendan Eich",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q2964778",
+          "label": "Chris Lattner",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q92622",
+          "label": "James Gosling",
+          "exactPathMatch": false
+        }
+      ],
+      "distractorValidationOutcome": "Passed: all three alternatives are plausible in context, but none satisfies both exact relationships in the bounded live query.",
+      "uniqueIntermediaryCount": 1
+    },
+    {
+      "id": "amazon-bezos-blue-origin",
+      "decision": "approved",
+      "reason": "Both current Wikidata statements and direction were confirmed; relationship-specific sources support the material claims; the bounded exact-property query returned only the intended intermediary.",
+      "exactPath": "Amazon (Q3884) —P112→ Jeff Bezos (Q312556) ←P112— Blue Origin (Q885836)",
+      "qualifierConcerns": "No material qualifiers on either current statement.",
+      "sourceEvidence": [
+        {
+          "label": "Q3884 P112 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q3884#P112",
+          "kind": "wikidata"
+        },
+        {
+          "label": "Jeff Bezos biography",
+          "publisher": "Amazon Investor Relations",
+          "url": "https://ir.aboutamazon.com/officers-and-directors/person-details/",
+          "kind": "supporting"
+        },
+        {
+          "label": "Q885836 P112 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q885836#P112",
+          "kind": "wikidata"
+        },
+        {
+          "label": "Jeff Bezos biography",
+          "publisher": "Amazon Investor Relations",
+          "url": "https://ir.aboutamazon.com/officers-and-directors/person-details/",
+          "kind": "supporting"
+        }
+      ],
+      "wikipediaLinks": [
+        {
+          "qid": "Q3884",
+          "url": "https://en.wikipedia.org/wiki/Amazon_(company)"
+        },
+        {
+          "qid": "Q312556",
+          "url": "https://en.wikipedia.org/wiki/Jeff_Bezos"
+        },
+        {
+          "qid": "Q885836",
+          "url": "https://en.wikipedia.org/wiki/Blue_Origin"
+        }
+      ],
+      "distractors": [
+        {
+          "qid": "Q5284",
+          "label": "Bill Gates",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q317521",
+          "label": "Elon Musk",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q194419",
+          "label": "Richard Branson",
+          "exactPathMatch": false
+        }
+      ],
+      "distractorValidationOutcome": "Passed: all three alternatives are plausible in context, but none satisfies both exact relationships in the bounded live query.",
+      "uniqueIntermediaryCount": 1
+    },
+    {
+      "id": "alibaba-ma-hangzhou-normal",
+      "decision": "approved",
+      "reason": "Both current Wikidata statements and direction were confirmed; relationship-specific sources support the material claims; the bounded exact-property query returned only the intended intermediary.",
+      "exactPath": "Alibaba Group (Q1359568) —P112→ Jack Ma (Q1137062) —P69→ Hangzhou Normal University (Q5648125)",
+      "qualifierConcerns": "No material qualifiers on either current statement.",
+      "sourceEvidence": [
+        {
+          "label": "Q1359568 P112 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q1359568#P112",
+          "kind": "wikidata"
+        },
+        {
+          "label": "Jack Ma biography",
+          "publisher": "HKU Business School",
+          "url": "https://www.hkubs.hku.hk/people/jack-ma/",
+          "kind": "supporting"
+        },
+        {
+          "label": "Q1137062 P69 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q1137062#P69",
+          "kind": "wikidata"
+        },
+        {
+          "label": "Jack Ma biography",
+          "publisher": "HKU Business School",
+          "url": "https://www.hkubs.hku.hk/people/jack-ma/",
+          "kind": "supporting"
+        }
+      ],
+      "wikipediaLinks": [
+        {
+          "qid": "Q1359568",
+          "url": "https://en.wikipedia.org/wiki/Alibaba_Group"
+        },
+        {
+          "qid": "Q1137062",
+          "url": "https://en.wikipedia.org/wiki/Jack_Ma"
+        },
+        {
+          "qid": "Q5648125",
+          "url": "https://en.wikipedia.org/wiki/Hangzhou_Normal_University"
+        }
+      ],
+      "distractors": [
+        {
+          "qid": "Q312556",
+          "label": "Jeff Bezos",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q607",
+          "label": "Michael Bloomberg",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q194419",
+          "label": "Richard Branson",
+          "exactPathMatch": false
+        }
+      ],
+      "distractorValidationOutcome": "Passed: all three alternatives are plausible in context, but none satisfies both exact relationships in the bounded live query.",
+      "uniqueIntermediaryCount": 1
+    },
+    {
+      "id": "virgin-group-branson-galactic",
+      "decision": "approved",
+      "reason": "Both current Wikidata statements and direction were confirmed; relationship-specific sources support the material claims; the bounded exact-property query returned only the intended intermediary.",
+      "exactPath": "Virgin Group (Q494917) —P112→ Richard Branson (Q194419) ←P112— Virgin Galactic (Q373225)",
+      "qualifierConcerns": "No material qualifiers on either current statement.",
+      "sourceEvidence": [
+        {
+          "label": "Q494917 P112 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q494917#P112",
+          "kind": "wikidata"
+        },
+        {
+          "label": "Richard Branson biography",
+          "publisher": "Virgin Galactic",
+          "url": "https://www.virgingalactic.com/richard-branson",
+          "kind": "supporting"
+        },
+        {
+          "label": "Q373225 P112 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q373225#P112",
+          "kind": "wikidata"
+        },
+        {
+          "label": "Richard Branson biography",
+          "publisher": "Virgin Galactic",
+          "url": "https://www.virgingalactic.com/richard-branson",
+          "kind": "supporting"
+        }
+      ],
+      "wikipediaLinks": [
+        {
+          "qid": "Q494917",
+          "url": "https://en.wikipedia.org/wiki/Virgin_Group"
+        },
+        {
+          "qid": "Q194419",
+          "url": "https://en.wikipedia.org/wiki/Richard_Branson"
+        },
+        {
+          "qid": "Q373225",
+          "url": "https://en.wikipedia.org/wiki/Virgin_Galactic"
+        }
+      ],
+      "distractors": [
+        {
+          "qid": "Q312556",
+          "label": "Jeff Bezos",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q607",
+          "label": "Michael Bloomberg",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q352268",
+          "label": "Yvon Chouinard",
+          "exactPathMatch": false
+        }
+      ],
+      "distractorValidationOutcome": "Passed: all three alternatives are plausible in context, but none satisfies both exact relationships in the bounded live query.",
+      "uniqueIntermediaryCount": 1
+    },
+    {
+      "id": "bloomberg-company-founder-philanthropies",
+      "decision": "approved",
+      "reason": "Both current Wikidata statements and direction were confirmed; relationship-specific sources support the material claims; the bounded exact-property query returned only the intended intermediary.",
+      "exactPath": "Bloomberg L.P. (Q13977) —P112→ Michael Bloomberg (Q607) ←P112— Bloomberg Philanthropies (Q16987920)",
+      "qualifierConcerns": "No material qualifiers on either current statement.",
+      "sourceEvidence": [
+        {
+          "label": "Q13977 P112 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q13977#P112",
+          "kind": "wikidata"
+        },
+        {
+          "label": "Michael Bloomberg biography",
+          "publisher": "Bloomberg CityLab",
+          "url": "https://citylab.bloomberg.org/people/michael-r-bloomberg/",
+          "kind": "supporting"
+        },
+        {
+          "label": "Q16987920 P112 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q16987920#P112",
+          "kind": "wikidata"
+        },
+        {
+          "label": "Michael Bloomberg biography",
+          "publisher": "Bloomberg CityLab",
+          "url": "https://citylab.bloomberg.org/people/michael-r-bloomberg/",
+          "kind": "supporting"
+        }
+      ],
+      "wikipediaLinks": [
+        {
+          "qid": "Q13977",
+          "url": "https://en.wikipedia.org/wiki/Bloomberg_L.P."
+        },
+        {
+          "qid": "Q607",
+          "url": "https://en.wikipedia.org/wiki/Michael_Bloomberg"
+        },
+        {
+          "qid": "Q16987920",
+          "url": "https://en.wikipedia.org/wiki/Bloomberg_Philanthropies"
+        }
+      ],
+      "distractors": [
+        {
+          "qid": "Q312556",
+          "label": "Jeff Bezos",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q194419",
+          "label": "Richard Branson",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q1137062",
+          "label": "Jack Ma",
+          "exactPathMatch": false
+        }
+      ],
+      "distractorValidationOutcome": "Passed: all three alternatives are plausible in context, but none satisfies both exact relationships in the bounded live query.",
+      "uniqueIntermediaryCount": 1
+    },
+    {
+      "id": "sgt-pepper-martin-air",
+      "decision": "approved",
+      "reason": "Both current Wikidata statements and direction were confirmed; relationship-specific sources support the material claims; the bounded exact-property query returned only the intended intermediary.",
+      "exactPath": "Sgt. Pepper's Lonely Hearts Club Band (Q169226) —P162→ George Martin (Q191819) ←P112— AIR Studios (Q743026)",
+      "qualifierConcerns": "No material qualifiers on either current statement.",
+      "sourceEvidence": [
+        {
+          "label": "Q169226 P162 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q169226#P162",
+          "kind": "wikidata"
+        },
+        {
+          "label": "George Martin and AIR history",
+          "publisher": "AIR Studios",
+          "url": "https://www.airstudios.com/history/",
+          "kind": "supporting"
+        },
+        {
+          "label": "Q743026 P112 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q743026#P112",
+          "kind": "wikidata"
+        },
+        {
+          "label": "George Martin and AIR history",
+          "publisher": "AIR Studios",
+          "url": "https://www.airstudios.com/history/",
+          "kind": "supporting"
+        }
+      ],
+      "wikipediaLinks": [
+        {
+          "qid": "Q169226",
+          "url": "https://en.wikipedia.org/wiki/Sgt._Pepper%27s_Lonely_Hearts_Club_Band"
+        },
+        {
+          "qid": "Q191819",
+          "url": "https://en.wikipedia.org/wiki/George_Martin"
+        },
+        {
+          "qid": "Q743026",
+          "url": "https://en.wikipedia.org/wiki/Associated_Independent_Recording"
+        }
+      ],
+      "distractors": [
+        {
+          "qid": "Q193645",
+          "label": "Quincy Jones",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q208121",
+          "label": "Brian Eno",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q2643",
+          "label": "George Harrison",
+          "exactPathMatch": false
+        }
+      ],
+      "distractorValidationOutcome": "Passed: all three alternatives are plausible in context, but none satisfies both exact relationships in the bounded live query.",
+      "uniqueIntermediaryCount": 1
+    },
+    {
+      "id": "songs-key-life-wonder-medal-freedom",
+      "decision": "approved",
+      "reason": "Both current Wikidata statements and direction were confirmed; relationship-specific sources support the material claims; the bounded exact-property query returned only the intended intermediary.",
+      "exactPath": "Songs in the Key of Life (Q845040) —P175→ Stevie Wonder (Q714) —P166→ Presidential Medal of Freedom (Q17144)",
+      "qualifierConcerns": "Reviewed: P166/P585 point in time: 2014. Editorial wording preserves the dated or historical scope.",
+      "sourceEvidence": [
+        {
+          "label": "Q845040 P175 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q845040#P175",
+          "kind": "wikidata"
+        },
+        {
+          "label": "Stevie Wonder artist profile",
+          "publisher": "Recording Academy",
+          "url": "https://www.grammy.com/artists/stevie-wonder/8257",
+          "kind": "supporting"
+        },
+        {
+          "label": "Q714 P166 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q714#P166",
+          "kind": "wikidata"
+        },
+        {
+          "label": "2014 Medal of Freedom recipients",
+          "publisher": "Obama White House Archives",
+          "url": "https://obamawhitehouse.archives.gov/campaign/medal-of-freedom",
+          "kind": "supporting"
+        }
+      ],
+      "wikipediaLinks": [
+        {
+          "qid": "Q845040",
+          "url": "https://en.wikipedia.org/wiki/Songs_in_the_Key_of_Life"
+        },
+        {
+          "qid": "Q714",
+          "url": "https://en.wikipedia.org/wiki/Stevie_Wonder"
+        },
+        {
+          "qid": "Q17144",
+          "url": "https://en.wikipedia.org/wiki/Presidential_Medal_of_Freedom"
+        }
+      ],
+      "distractors": [
+        {
+          "qid": "Q2831",
+          "label": "Michael Jackson",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q4028",
+          "label": "Paul Simon",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q125121",
+          "label": "Aretha Franklin",
+          "exactPathMatch": false
+        }
+      ],
+      "distractorValidationOutcome": "Passed: all three alternatives are plausible in context, but none satisfies both exact relationships in the bounded live query.",
+      "uniqueIntermediaryCount": 1
+    },
+    {
+      "id": "graceland-simon-gershwin",
+      "decision": "approved",
+      "reason": "Both current Wikidata statements and direction were confirmed; relationship-specific sources support the material claims; the bounded exact-property query returned only the intended intermediary.",
+      "exactPath": "Graceland (Q1027822) —P175→ Paul Simon (Q4028) —P166→ Gershwin Prize (Q2422622)",
+      "qualifierConcerns": "Reviewed: P166/P585 point in time: 2007. Editorial wording preserves the dated or historical scope.",
+      "sourceEvidence": [
+        {
+          "label": "Q1027822 P175 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q1027822#P175",
+          "kind": "wikidata"
+        },
+        {
+          "label": "Paul Simon Gershwin Prize honoree profile",
+          "publisher": "Library of Congress",
+          "url": "https://www.loc.gov/events/gershwin-prize/honorees/2007-paul-simon/",
+          "kind": "supporting"
+        },
+        {
+          "label": "Q4028 P166 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q4028#P166",
+          "kind": "wikidata"
+        },
+        {
+          "label": "Gershwin Prize history",
+          "publisher": "Library of Congress",
+          "url": "https://www.loc.gov/events/gershwin-prize/about/",
+          "kind": "supporting"
+        }
+      ],
+      "wikipediaLinks": [
+        {
+          "qid": "Q1027822",
+          "url": "https://en.wikipedia.org/wiki/Graceland_(album)"
+        },
+        {
+          "qid": "Q4028",
+          "url": "https://en.wikipedia.org/wiki/Paul_Simon"
+        },
+        {
+          "qid": "Q2422622",
+          "url": "https://en.wikipedia.org/wiki/Gershwin_Prize"
+        }
+      ],
+      "distractors": [
+        {
+          "qid": "Q714",
+          "label": "Stevie Wonder",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q392",
+          "label": "Bob Dylan",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q19660",
+          "label": "Joni Mitchell",
+          "exactPathMatch": false
+        }
+      ],
+      "distractorValidationOutcome": "Passed: all three alternatives are plausible in context, but none satisfies both exact relationships in the bounded live query.",
+      "uniqueIntermediaryCount": 1
+    },
+    {
+      "id": "ashe-stadium-ashe-medal-freedom",
+      "decision": "approved",
+      "reason": "Both current Wikidata statements and direction were confirmed; relationship-specific sources support the material claims; the bounded exact-property query returned only the intended intermediary.",
+      "exactPath": "Arthur Ashe Stadium (Q609551) —P138→ Arthur Ashe (Q53325) —P166→ Presidential Medal of Freedom (Q17144)",
+      "qualifierConcerns": "Reviewed: P166/P585 point in time: 1993. Editorial wording preserves the dated or historical scope.",
+      "sourceEvidence": [
+        {
+          "label": "Q609551 P138 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q609551#P138",
+          "kind": "wikidata"
+        },
+        {
+          "label": "Arthur Ashe Stadium",
+          "publisher": "US Open",
+          "url": "https://www.usopen.org/en_US/visit/arthur_ashe_stadium.html",
+          "kind": "supporting"
+        },
+        {
+          "label": "Q53325 P166 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q53325#P166",
+          "kind": "wikidata"
+        },
+        {
+          "label": "President presents Medal of Freedom to Ashe",
+          "publisher": "Clinton White House Archives",
+          "url": "https://clintonwhitehouse6.archives.gov/1993/06/1993-06-20-president-presents-medal-of-freedom-to-arthur-ashe.html",
+          "kind": "supporting"
+        }
+      ],
+      "wikipediaLinks": [
+        {
+          "qid": "Q609551",
+          "url": "https://en.wikipedia.org/wiki/Arthur_Ashe_Stadium"
+        },
+        {
+          "qid": "Q53325",
+          "url": "https://en.wikipedia.org/wiki/Arthur_Ashe"
+        },
+        {
+          "qid": "Q17144",
+          "url": "https://en.wikipedia.org/wiki/Presidential_Medal_of_Freedom"
+        }
+      ],
+      "distractors": [
+        {
+          "qid": "Q233177",
+          "label": "Billie Jean King",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q11459",
+          "label": "Serena Williams",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q1426",
+          "label": "Roger Federer",
+          "exactPathMatch": false
+        }
+      ],
+      "distractorValidationOutcome": "Passed: all three alternatives are plausible in context, but none satisfies both exact relationships in the bounded live query.",
+      "uniqueIntermediaryCount": 1
+    },
+    {
+      "id": "maradona-stadium-maradona-napoli",
+      "decision": "approved",
+      "reason": "Both current Wikidata statements and direction were confirmed; relationship-specific sources support the material claims; the bounded exact-property query returned only the intended intermediary.",
+      "exactPath": "Stadio Diego Armando Maradona (Q82709) —P138→ Diego Maradona (Q17515) —P54→ SSC Napoli (Q2641)",
+      "qualifierConcerns": "Reviewed: P138/P580 name adopted: 4 December 2020; P54/P580 start time: 1984; P54/P582 end time: 1991. Editorial wording preserves the dated or historical scope.",
+      "sourceEvidence": [
+        {
+          "label": "Q82709 P138 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q82709#P138",
+          "kind": "wikidata"
+        },
+        {
+          "label": "Stadium history",
+          "publisher": "SSC Napoli",
+          "url": "https://sscnapoli.it/storia-dello-stadio/",
+          "kind": "supporting"
+        },
+        {
+          "label": "Q17515 P54 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q17515#P54",
+          "kind": "wikidata"
+        },
+        {
+          "label": "Diego Maradona biography",
+          "publisher": "Italian Football Federation",
+          "url": "https://www.figc.it/it/full-html?path=%2Fmuseo-del-calcio%2Fhall-of-fame%2Fle-stelle%2Fdiego-armando-maradona",
+          "kind": "supporting"
+        }
+      ],
+      "wikipediaLinks": [
+        {
+          "qid": "Q82709",
+          "url": "https://en.wikipedia.org/wiki/Stadio_Diego_Armando_Maradona"
+        },
+        {
+          "qid": "Q17515",
+          "url": "https://en.wikipedia.org/wiki/Diego_Maradona"
+        },
+        {
+          "qid": "Q2641",
+          "url": "https://en.wikipedia.org/wiki/SSC_Napoli"
+        }
+      ],
+      "distractors": [
+        {
+          "qid": "Q12897",
+          "label": "Pele",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q615",
+          "label": "Lionel Messi",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q11571",
+          "label": "Cristiano Ronaldo",
+          "exactPathMatch": false
+        }
+      ],
+      "distractorValidationOutcome": "Passed: all three alternatives are plausible in context, but none satisfies both exact relationships in the bounded live query.",
+      "uniqueIntermediaryCount": 1
+    },
+    {
+      "id": "madeira-airport-ronaldo-man-united",
+      "decision": "approved",
+      "reason": "Both current Wikidata statements and direction were confirmed; relationship-specific sources support the material claims; the bounded exact-property query returned only the intended intermediary.",
+      "exactPath": "Madeira Airport (Q639161) —P138→ Cristiano Ronaldo (Q11571) —P54→ Manchester United F.C. (Q18656)",
+      "qualifierConcerns": "Reviewed: P138/P580 name adopted: 29 March 2017; the selected P54 statement covers Ronaldo's first Manchester United spell, P580 2003 through P582 2009. A separate current P54 statement covers his 2021–2022 return; the explanation distinguishes the two spells.",
+      "sourceEvidence": [
+        {
+          "label": "Q639161 P138 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q639161#P138",
+          "kind": "wikidata"
+        },
+        {
+          "label": "Madeira airport naming announcement",
+          "publisher": "Regional Government of Madeira",
+          "url": "https://www.madeira.gov.pt/presidencia/GovernoRegional/OGoverno/Structure/PGR/ctl/Read/mid/7041/InformacaoId/12887/UnidadeOrganicaId/2/CatalogoId/68",
+          "kind": "supporting"
+        },
+        {
+          "label": "Q11571 P54 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q11571#P54",
+          "kind": "wikidata"
+        },
+        {
+          "label": "United's World Cup links: Group H",
+          "publisher": "Manchester United",
+          "url": "https://www.manutd.com/en/news/man-utd-links-with-group-h-at-the-2022-world-cup-of-ghana-portugal-south-korea-uruguay",
+          "kind": "supporting"
+        }
+      ],
+      "wikipediaLinks": [
+        {
+          "qid": "Q639161",
+          "url": "https://en.wikipedia.org/wiki/Madeira_Airport"
+        },
+        {
+          "qid": "Q11571",
+          "url": "https://en.wikipedia.org/wiki/Cristiano_Ronaldo"
+        },
+        {
+          "qid": "Q18656",
+          "url": "https://en.wikipedia.org/wiki/Manchester_United_F.C."
+        }
+      ],
+      "distractors": [
+        {
+          "qid": "Q615",
+          "label": "Lionel Messi",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q142794",
+          "label": "Neymar",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q12897",
+          "label": "Pele",
+          "exactPathMatch": false
+        }
+      ],
+      "distractorValidationOutcome": "Passed: all three alternatives are plausible in context, but none satisfies both exact relationships in the bounded live query.",
+      "uniqueIntermediaryCount": 1
+    },
+    {
+      "id": "turing-award-turing-princeton",
+      "decision": "approved",
+      "reason": "Both current Wikidata statements and direction were confirmed; relationship-specific sources support the material claims; the bounded exact-property query returned only the intended intermediary.",
+      "exactPath": "Turing Award (Q185667) —P138→ Alan Turing (Q7251) —P69→ Princeton University (Q21578)",
+      "qualifierConcerns": "Reviewed: P69/P582 doctorate completed: 1938. Editorial wording preserves the dated or historical scope.",
+      "sourceEvidence": [
+        {
+          "label": "Q185667 P138 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q185667#P138",
+          "kind": "wikidata"
+        },
+        {
+          "label": "About the A.M. Turing Award",
+          "publisher": "Association for Computing Machinery",
+          "url": "https://amturing.acm.org/?pg=awards.html",
+          "kind": "supporting"
+        },
+        {
+          "label": "Q7251 P69 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q7251#P69",
+          "kind": "wikidata"
+        },
+        {
+          "label": "Alan Turing and Princeton",
+          "publisher": "Princeton University Library",
+          "url": "https://manuscripts.blogs.princeton.edu/2015/01/29/alan-m-turing-and-princeton/",
+          "kind": "supporting"
+        }
+      ],
+      "wikipediaLinks": [
+        {
+          "qid": "Q185667",
+          "url": "https://en.wikipedia.org/wiki/Turing_Award"
+        },
+        {
+          "qid": "Q7251",
+          "url": "https://en.wikipedia.org/wiki/Alan_Turing"
+        },
+        {
+          "qid": "Q21578",
+          "url": "https://en.wikipedia.org/wiki/Princeton_University"
+        }
+      ],
+      "distractors": [
+        {
+          "qid": "Q17455",
+          "label": "John von Neumann",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q92760",
+          "label": "Claude Shannon",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q937",
+          "label": "Albert Einstein",
+          "exactPathMatch": false
+        }
+      ],
+      "distractorValidationOutcome": "Passed: all three alternatives are plausible in context, but none satisfies both exact relationships in the bounded live query.",
+      "uniqueIntermediaryCount": 1
+    },
+    {
+      "id": "salk-institute-salk-pittsburgh",
+      "decision": "approved",
+      "reason": "Both current Wikidata statements and direction were confirmed; relationship-specific sources support the material claims; the bounded exact-property query returned only the intended intermediary.",
+      "exactPath": "Salk Institute for Biological Studies (Q1351061) —P112→ Jonas Salk (Q200101) —P108→ University of Pittsburgh (Q235034)",
+      "qualifierConcerns": "No material qualifiers on either current statement. The supporting Salk Institute history dates his Pittsburgh appointment to 1947.",
+      "sourceEvidence": [
+        {
+          "label": "Q1351061 P112 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q1351061#P112",
+          "kind": "wikidata"
+        },
+        {
+          "label": "About Jonas Salk",
+          "publisher": "Salk Institute",
+          "url": "https://www.salk.edu/about/history-of-salk/jonas-salk/",
+          "kind": "supporting"
+        },
+        {
+          "label": "Q200101 P108 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q200101#P108",
+          "kind": "wikidata"
+        },
+        {
+          "label": "About Jonas Salk",
+          "publisher": "Salk Institute",
+          "url": "https://www.salk.edu/about/history-of-salk/jonas-salk/",
+          "kind": "supporting"
+        }
+      ],
+      "wikipediaLinks": [
+        {
+          "qid": "Q1351061",
+          "url": "https://en.wikipedia.org/wiki/Salk_Institute_for_Biological_Studies"
+        },
+        {
+          "qid": "Q200101",
+          "url": "https://en.wikipedia.org/wiki/Jonas_Salk"
+        },
+        {
+          "qid": "Q235034",
+          "url": "https://en.wikipedia.org/wiki/University_of_Pittsburgh"
+        }
+      ],
+      "distractors": [
+        {
+          "qid": "Q123913",
+          "label": "Alexander Fleming",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q52929",
+          "label": "Louis Pasteur",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q180691",
+          "label": "Edward Jenner",
+          "exactPathMatch": false
+        }
+      ],
+      "distractorValidationOutcome": "Passed: all three alternatives are plausible in context, but none satisfies both exact relationships in the bounded live query.",
+      "uniqueIntermediaryCount": 1
+    },
+    {
+      "id": "franklin-rover-franklin-kings",
+      "decision": "approved",
+      "reason": "Both current Wikidata statements and direction were confirmed; relationship-specific sources support the material claims; the bounded exact-property query returned only the intended intermediary.",
+      "exactPath": "Rosalind Franklin rover (Q3445540) —P138→ Rosalind Franklin (Q7474) —P108→ King's College London (Q245247)",
+      "qualifierConcerns": "Reviewed: P108/P580 start time: 1951; P108/P582 end time: 1953. Editorial wording preserves the dated or historical scope.",
+      "sourceEvidence": [
+        {
+          "label": "Q3445540 P138 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q3445540#P138",
+          "kind": "wikidata"
+        },
+        {
+          "label": "ESA's Mars rover has a name",
+          "publisher": "European Space Agency",
+          "url": "https://www.esa.int/Science_Exploration/Human_and_Robotic_Exploration/Exploration/ExoMars/ESA_s_Mars_rover_has_a_name_Rosalind_Franklin",
+          "kind": "supporting"
+        },
+        {
+          "label": "Q7474 P108 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q7474#P108",
+          "kind": "wikidata"
+        },
+        {
+          "label": "Rosalind Franklin biography",
+          "publisher": "King's College London",
+          "url": "https://www.kcl.ac.uk/people/rosalind-franklin",
+          "kind": "supporting"
+        }
+      ],
+      "wikipediaLinks": [
+        {
+          "qid": "Q3445540",
+          "url": "https://en.wikipedia.org/wiki/Rosalind_Franklin_(rover)"
+        },
+        {
+          "qid": "Q7474",
+          "url": "https://en.wikipedia.org/wiki/Rosalind_Franklin"
+        },
+        {
+          "qid": "Q245247",
+          "url": "https://en.wikipedia.org/wiki/King%27s_College_London"
+        }
+      ],
+      "distractors": [
+        {
+          "qid": "Q7186",
+          "label": "Marie Curie",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q52896",
+          "label": "James Watson",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q123022",
+          "label": "Francis Crick",
+          "exactPathMatch": false
+        }
+      ],
+      "distractorValidationOutcome": "Passed: all three alternatives are plausible in context, but none satisfies both exact relationships in the bounded live query.",
+      "uniqueIntermediaryCount": 1
+    },
+    {
+      "id": "erasmus-programme-erasmus-folly",
+      "decision": "approved",
+      "reason": "Both current Wikidata statements and direction were confirmed; relationship-specific sources support the material claims; the bounded exact-property query returned only the intended intermediary.",
+      "exactPath": "Erasmus Programme (Q254168) —P138→ Erasmus (Q43499) ←P50— In Praise of Folly (Q569869)",
+      "qualifierConcerns": "No material qualifiers on either current statement.",
+      "sourceEvidence": [
+        {
+          "label": "Q254168 P138 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q254168#P138",
+          "kind": "wikidata"
+        },
+        {
+          "label": "Erasmus programme history",
+          "publisher": "European Commission",
+          "url": "https://erasmus-plus.ec.europa.eu/about-erasmus/history-funding-and-future",
+          "kind": "supporting"
+        },
+        {
+          "label": "Q569869 P50 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q569869#P50",
+          "kind": "wikidata"
+        },
+        {
+          "label": "In Praise of Folly",
+          "publisher": "Encyclopaedia Britannica",
+          "url": "https://www.britannica.com/topic/Praise-of-Folly-by-Erasmus",
+          "kind": "supporting"
+        }
+      ],
+      "wikipediaLinks": [
+        {
+          "qid": "Q254168",
+          "url": "https://en.wikipedia.org/wiki/Erasmus_Programme"
+        },
+        {
+          "qid": "Q43499",
+          "url": "https://en.wikipedia.org/wiki/Erasmus"
+        },
+        {
+          "qid": "Q569869",
+          "url": "https://en.wikipedia.org/wiki/In_Praise_of_Folly"
+        }
+      ],
+      "distractors": [
+        {
+          "qid": "Q7198",
+          "label": "Thomas More",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q7322",
+          "label": "Martin Luther",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q5879",
+          "label": "Voltaire",
+          "exactPathMatch": false
+        }
+      ],
+      "distractorValidationOutcome": "Passed: all three alternatives are plausible in context, but none satisfies both exact relationships in the bounded live query.",
+      "uniqueIntermediaryCount": 1
+    },
+    {
+      "id": "machu-picchu-bingham-yale",
+      "decision": "rejected",
+      "reason": "Rejected for misleading historical framing. Wikidata currently uses P61 ('discoverer or inventor') for Hiram Bingham III, but local residents already knew and occupied the site; Wikidata also lists Agustín Lizárraga (Q106864521) as another discoverer. A puzzle phrased around 'discovery' would reproduce a contested colonial narrative even though the exact two-edge query to Yale is unique.",
+      "exactPath": "Machu Picchu (Q676203) —P61→ Hiram Bingham III (Q237220) —P69→ Yale University (Q49112)",
+      "qualifierConcerns": "P61 has no qualifier that narrows the claim to Bingham's 1911 international or scholarly publicity; the unqualified property is materially broader than the defensible historical wording.",
+      "sourceEvidence": [
+        {
+          "label": "Q676203 P61 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q676203#P61",
+          "kind": "wikidata"
+        },
+        {
+          "label": "Q237220 P69 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q237220#P69",
+          "kind": "wikidata"
+        },
+        {
+          "label": "Machu Picchu research and Bingham's 1911 'rediscovery'",
+          "publisher": "Yale News",
+          "url": "https://news.yale.edu/2021/08/04/machu-picchu-older-expected-study-reveals",
+          "kind": "supporting"
+        }
+      ],
+      "wikipediaLinks": [
+        {
+          "qid": "Q676203",
+          "url": "https://en.wikipedia.org/wiki/Machu_Picchu"
+        },
+        {
+          "qid": "Q237220",
+          "url": "https://en.wikipedia.org/wiki/Hiram_Bingham_III"
+        },
+        {
+          "qid": "Q49112",
+          "url": "https://en.wikipedia.org/wiki/Yale_University"
+        }
+      ],
+      "distractors": [
+        {
+          "qid": "Q106864521",
+          "label": "Agustín Lizárraga",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q517",
+          "label": "Napoleon",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q7324",
+          "label": "James Cook",
+          "exactPathMatch": false
+        }
+      ],
+      "distractorValidationOutcome": "The exact two-edge query is unique because the other Wikidata-listed discoverer did not attend Yale, but editorial ambiguity still fails: the first edge itself overstates Bingham's role.",
+      "uniqueIntermediaryCount": 1
+    }
+  ]
+}

@@ -10,7 +10,7 @@ import {
 
 test("approved Missing Link registry validates exact paths, evidence, links, and distractors", () => {
   assert.deepEqual(validateDailyPuzzleRegistry(), []);
-  assert.equal(MISSING_LINK_PUZZLES.length, 37);
+  assert.equal(MISSING_LINK_PUZZLES.length, 75);
   const puzzle = MISSING_LINK_PUZZLES[0];
   assert.equal(puzzle.id, "web-berners-lee-cern");
   assert.equal(puzzle.options.length, 4);
@@ -20,7 +20,33 @@ test("approved Missing Link registry validates exact paths, evidence, links, and
   assert.ok(puzzle.path.every((node) => node.wikipediaUrl?.startsWith("https://en.wikipedia.org/wiki/")));
   assert.ok(MISSING_LINK_PUZZLES.every((item) => item.status === "approved"));
   assert.ok(MISSING_LINK_PUZZLES.every((item) => item.schedulePosition === undefined && item.scheduledDate === undefined));
-  assert.equal(new Set(MISSING_LINK_PUZZLES.map((item) => item.path[1].qid)).size, 37);
+  assert.equal(new Set(MISSING_LINK_PUZZLES.map((item) => item.path[1].qid)).size, 75);
+});
+
+test("Phase 6C batch 4 audit accounts for every approval, rejection, source, qualifier review, and distractor", async () => {
+  const audit = JSON.parse(await readFile(new URL("../content/daily-batch-4-review.json", import.meta.url), "utf8"));
+  assert.deepEqual(audit.counts, { candidates: 20, approved: 19, rejected: 1, priorApproved: 56, cumulativeApproved: 75, remainingTo100: 25, scheduled: 0 });
+  assert.deepEqual(audit.categoryTargets, { Technology: 5, Business: 4, Music: 3, Sports: 3, "Science and innovation": 3, "World history or culture": 2 });
+  assert.equal(audit.candidates.length, 20);
+  assert.deepEqual(audit.candidates.filter((item) => item.decision === "rejected").map((item) => item.id), ["machu-picchu-bingham-yale"]);
+  assert.ok(audit.candidates.every((item) => item.exactPath && item.reason && item.qualifierConcerns && item.sourceEvidence.length >= 2));
+  assert.ok(audit.candidates.every((item) => item.distractors.length === 3 && item.distractorValidationOutcome));
+  const batchIds = new Set(audit.candidates.filter((item) => item.decision === "approved").map((item) => item.id));
+  assert.equal(MISSING_LINK_PUZZLES.filter((item) => batchIds.has(item.id)).length, 19);
+  assert.ok(MISSING_LINK_PUZZLES.filter((item) => batchIds.has(item.id)).every((item) => item.reviewedAt === "2026-10-12T00:00:00.000Z" && item.verificationDate === "2026-10-12"));
+});
+
+test("Phase 6C batch 3 audit accounts for every approval, rejection, source, qualifier review, and distractor", async () => {
+  const audit = JSON.parse(await readFile(new URL("../content/daily-batch-3-review.json", import.meta.url), "utf8"));
+  assert.deepEqual(audit.counts, { candidates: 20, approved: 19, rejected: 1, priorApproved: 37, cumulativeApproved: 56, remainingTo100: 44, scheduled: 0 });
+  assert.deepEqual(audit.categoryTargets, { Sports: 6, "Geography and culture": 6, "History and politics": 3, "Science and innovation": 2, Music: 2, "Entertainment and film": 1 });
+  assert.equal(audit.candidates.length, 20);
+  assert.deepEqual(audit.candidates.filter((item) => item.decision === "rejected").map((item) => item.id), ["paris-1924-liddell-edinburgh"]);
+  assert.ok(audit.candidates.every((item) => item.exactPath && item.reason && item.qualifierConcerns && item.sourceEvidence.length >= 2));
+  assert.ok(audit.candidates.every((item) => item.distractors.length === 3 && item.distractorValidationOutcome));
+  const batchIds = new Set(audit.candidates.filter((item) => item.decision === "approved").map((item) => item.id));
+  assert.equal(MISSING_LINK_PUZZLES.filter((item) => batchIds.has(item.id)).length, 19);
+  assert.ok(MISSING_LINK_PUZZLES.filter((item) => batchIds.has(item.id)).every((item) => item.reviewedAt === "2026-10-12T00:00:00.000Z" && item.verificationDate === "2026-10-12"));
 });
 
 test("Phase 6C batch 2 audit accounts for every approval, rejection, source, qualifier review, and distractor", async () => {

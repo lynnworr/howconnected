@@ -4637,5 +4637,4677 @@
         "note": "Current Wikidata statements, qualifiers, English Wikipedia links, independent supporting sources, path uniqueness, and three distractors reviewed."
       }
     ]
+  },
+  {
+    "id": "rush-lauda-ferrari",
+    "format": "missing-link",
+    "title": "A rivalry forged in red",
+    "prompt": "Who is the missing link between Rush and Scuderia Ferrari?",
+    "category": "Sports",
+    "status": "approved",
+    "path": [
+      {
+        "qid": "Q1768437",
+        "name": "Rush",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Rush_(2013_film)",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q1768437"
+      },
+      {
+        "qid": "Q78489",
+        "name": "Niki Lauda",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Niki_Lauda",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q78489"
+      },
+      {
+        "qid": "Q169898",
+        "name": "Scuderia Ferrari",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Scuderia_Ferrari",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q169898"
+      }
+    ],
+    "hiddenNodeIndex": 1,
+    "relationships": [
+      {
+        "propertyId": "P921",
+        "subjectQid": "Q1768437",
+        "objectQid": "Q78489",
+        "direction": "forward",
+        "label": "main subject",
+        "qualifiers": [],
+        "expectedClaim": "Q1768437 P921 Q78489",
+        "evidence": [
+          {
+            "label": "Q1768437 P921 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q1768437#P921",
+            "kind": "wikidata"
+          },
+          {
+            "label": "The 1976 season that inspired Rush",
+            "publisher": "Formula 1",
+            "url": "https://www.formula1.com/en/latest/article/on-this-day-50-years-ago-the-iconic-1976-formula-1-season-that-inspired-rush.Otn39lw7ILaJlV0jR0KOo.Otn39lw7ILaJlV0jR0KOo",
+            "kind": "supporting"
+          }
+        ]
+      },
+      {
+        "propertyId": "P54",
+        "subjectQid": "Q78489",
+        "objectQid": "Q169898",
+        "direction": "forward",
+        "label": "raced for",
+        "qualifiers": [
+          {
+            "propertyId": "P580",
+            "label": "start time",
+            "value": "1974"
+          },
+          {
+            "propertyId": "P582",
+            "label": "end time",
+            "value": "1977"
+          }
+        ],
+        "expectedClaim": "Q78489 P54 Q169898",
+        "evidence": [
+          {
+            "label": "Q78489 P54 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q78489#P54",
+            "kind": "wikidata"
+          },
+          {
+            "label": "The 1976 season that inspired Rush",
+            "publisher": "Formula 1",
+            "url": "https://www.formula1.com/en/latest/article/on-this-day-50-years-ago-the-iconic-1976-formula-1-season-that-inspired-rush.Otn39lw7ILaJlV0jR0KOo.Otn39lw7ILaJlV0jR0KOo",
+            "kind": "supporting"
+          }
+        ]
+      }
+    ],
+    "options": [
+      {
+        "id": "niki-lauda",
+        "label": "Niki Lauda",
+        "qid": "Q78489"
+      },
+      {
+        "id": "james-hunt",
+        "label": "James Hunt",
+        "qid": "Q140393"
+      },
+      {
+        "id": "alain-prost",
+        "label": "Alain Prost",
+        "qid": "Q10494"
+      },
+      {
+        "id": "ayrton-senna",
+        "label": "Ayrton Senna",
+        "qid": "Q10490"
+      }
+    ],
+    "correctOptionId": "niki-lauda",
+    "explanation": "Rush dramatizes Niki Lauda's 1976 rivalry with James Hunt. Lauda raced for Ferrari from 1974 through 1977, winning two of his three Formula One world titles with the team.",
+    "pathFingerprint": "Q1768437|P921:forward:Q78489|P54:forward:Q169898",
+    "reviewedAt": "2026-10-12T00:00:00.000Z",
+    "verificationDate": "2026-10-12",
+    "reviewHistory": [
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": null,
+        "to": "under-review",
+        "note": "Selected for bounded Phase 6C batch 3 independent verification."
+      },
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": "under-review",
+        "to": "approved",
+        "note": "Current Wikidata statements, material qualifiers, English Wikipedia links, independent supporting sources, exact-path uniqueness, prior-registry uniqueness, and three distractors reviewed."
+      }
+    ]
+  },
+  {
+    "id": "pele-film-pele-cosmos",
+    "format": "missing-link",
+    "title": "A global icon crosses the Atlantic",
+    "prompt": "Who is the missing link between Pelé and the New York Cosmos?",
+    "category": "Sports",
+    "status": "approved",
+    "path": [
+      {
+        "qid": "Q105694930",
+        "name": "Pelé",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Pel%C3%A9_(2021_film)",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q105694930"
+      },
+      {
+        "qid": "Q12897",
+        "name": "Pelé",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Pel%C3%A9",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q12897"
+      },
+      {
+        "qid": "Q646135",
+        "name": "New York Cosmos",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/New_York_Cosmos_(1971%E2%80%931985)",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q646135"
+      }
+    ],
+    "hiddenNodeIndex": 1,
+    "relationships": [
+      {
+        "propertyId": "P921",
+        "subjectQid": "Q105694930",
+        "objectQid": "Q12897",
+        "direction": "forward",
+        "label": "main subject",
+        "qualifiers": [],
+        "expectedClaim": "Q105694930 P921 Q12897",
+        "evidence": [
+          {
+            "label": "Q105694930 P921 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q105694930#P921",
+            "kind": "wikidata"
+          },
+          {
+            "label": "Pelé documentary",
+            "publisher": "Netflix",
+            "url": "https://www.netflix.com/title/81074673",
+            "kind": "supporting"
+          }
+        ]
+      },
+      {
+        "propertyId": "P54",
+        "subjectQid": "Q12897",
+        "objectQid": "Q646135",
+        "direction": "forward",
+        "label": "played for",
+        "qualifiers": [
+          {
+            "propertyId": "P580",
+            "label": "start time",
+            "value": "1975"
+          },
+          {
+            "propertyId": "P582",
+            "label": "end time",
+            "value": "1977"
+          }
+        ],
+        "expectedClaim": "Q12897 P54 Q646135",
+        "evidence": [
+          {
+            "label": "Q12897 P54 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q12897#P54",
+            "kind": "wikidata"
+          },
+          {
+            "label": "New York Cosmos history",
+            "publisher": "New York Cosmos",
+            "url": "https://www.nycosmos.com/history/",
+            "kind": "supporting"
+          }
+        ]
+      }
+    ],
+    "options": [
+      {
+        "id": "pele",
+        "label": "Pelé",
+        "qid": "Q12897"
+      },
+      {
+        "id": "diego-maradona",
+        "label": "Diego Maradona",
+        "qid": "Q17515"
+      },
+      {
+        "id": "neymar",
+        "label": "Neymar",
+        "qid": "Q142794"
+      },
+      {
+        "id": "lionel-messi",
+        "label": "Lionel Messi",
+        "qid": "Q615"
+      }
+    ],
+    "correctOptionId": "pele",
+    "explanation": "The 2021 documentary follows Pelé's life and career. Pelé later played for the New York Cosmos from 1975 to 1977, helping draw international attention to professional soccer in the United States.",
+    "pathFingerprint": "Q105694930|P921:forward:Q12897|P54:forward:Q646135",
+    "reviewedAt": "2026-10-12T00:00:00.000Z",
+    "verificationDate": "2026-10-12",
+    "reviewHistory": [
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": null,
+        "to": "under-review",
+        "note": "Selected for bounded Phase 6C batch 3 independent verification."
+      },
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": "under-review",
+        "to": "approved",
+        "note": "Current Wikidata statements, material qualifiers, English Wikipedia links, independent supporting sources, exact-path uniqueness, prior-registry uniqueness, and three distractors reviewed."
+      }
+    ]
+  },
+  {
+    "id": "last-dance-jordan-medal-freedom",
+    "format": "missing-link",
+    "title": "From the last dance to the White House",
+    "prompt": "Who is the missing link between The Last Dance and the Presidential Medal of Freedom?",
+    "category": "Sports",
+    "status": "approved",
+    "path": [
+      {
+        "qid": "Q85807688",
+        "name": "The Last Dance",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/The_Last_Dance_(miniseries)",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q85807688"
+      },
+      {
+        "qid": "Q41421",
+        "name": "Michael Jordan",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Michael_Jordan",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q41421"
+      },
+      {
+        "qid": "Q17144",
+        "name": "Presidential Medal of Freedom",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Presidential_Medal_of_Freedom",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q17144"
+      }
+    ],
+    "hiddenNodeIndex": 1,
+    "relationships": [
+      {
+        "propertyId": "P921",
+        "subjectQid": "Q85807688",
+        "objectQid": "Q41421",
+        "direction": "forward",
+        "label": "main subject",
+        "qualifiers": [],
+        "expectedClaim": "Q85807688 P921 Q41421",
+        "evidence": [
+          {
+            "label": "Q85807688 P921 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q85807688#P921",
+            "kind": "wikidata"
+          },
+          {
+            "label": "The Last Dance",
+            "publisher": "Netflix",
+            "url": "https://media.netflix.com/en/only-on-netflix/80203144",
+            "kind": "supporting"
+          }
+        ]
+      },
+      {
+        "propertyId": "P166",
+        "subjectQid": "Q41421",
+        "objectQid": "Q17144",
+        "direction": "forward",
+        "label": "received award",
+        "qualifiers": [
+          {
+            "propertyId": "P585",
+            "label": "point in time",
+            "value": "2016"
+          }
+        ],
+        "expectedClaim": "Q41421 P166 Q17144",
+        "evidence": [
+          {
+            "label": "Q41421 P166 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q41421#P166",
+            "kind": "wikidata"
+          },
+          {
+            "label": "Presidential Medal of Freedom recipients",
+            "publisher": "Obama White House Archives",
+            "url": "https://obamawhitehouse.archives.gov/campaign/medal-of-freedom",
+            "kind": "supporting"
+          }
+        ]
+      }
+    ],
+    "options": [
+      {
+        "id": "michael-jordan",
+        "label": "Michael Jordan",
+        "qid": "Q41421"
+      },
+      {
+        "id": "scottie-pippen",
+        "label": "Scottie Pippen",
+        "qid": "Q193637"
+      },
+      {
+        "id": "dennis-rodman",
+        "label": "Dennis Rodman",
+        "qid": "Q201608"
+      },
+      {
+        "id": "lebron-james",
+        "label": "LeBron James",
+        "qid": "Q36159"
+      }
+    ],
+    "correctOptionId": "michael-jordan",
+    "explanation": "The Last Dance centers on Michael Jordan and the Chicago Bulls dynasty. President Barack Obama awarded Jordan the Presidential Medal of Freedom in 2016.",
+    "pathFingerprint": "Q85807688|P921:forward:Q41421|P166:forward:Q17144",
+    "reviewedAt": "2026-10-12T00:00:00.000Z",
+    "verificationDate": "2026-10-12",
+    "reviewHistory": [
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": null,
+        "to": "under-review",
+        "note": "Selected for bounded Phase 6C batch 3 independent verification."
+      },
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": "under-review",
+        "to": "approved",
+        "note": "Current Wikidata statements, material qualifiers, English Wikipedia links, independent supporting sources, exact-path uniqueness, prior-registry uniqueness, and three distractors reviewed."
+      }
+    ]
+  },
+  {
+    "id": "milan-weah-liberia-president",
+    "format": "missing-link",
+    "title": "From San Siro to the presidency",
+    "prompt": "Who is the missing link between AC Milan and the office of President of Liberia?",
+    "category": "Sports",
+    "status": "approved",
+    "path": [
+      {
+        "qid": "Q1543",
+        "name": "AC Milan",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/AC_Milan",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q1543"
+      },
+      {
+        "qid": "Q173139",
+        "name": "George Weah",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/George_Weah",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q173139"
+      },
+      {
+        "qid": "Q19161825",
+        "name": "President of Liberia",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/President_of_Liberia",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q19161825"
+      }
+    ],
+    "hiddenNodeIndex": 1,
+    "relationships": [
+      {
+        "propertyId": "P54",
+        "subjectQid": "Q173139",
+        "objectQid": "Q1543",
+        "direction": "reverse",
+        "label": "played for",
+        "qualifiers": [
+          {
+            "propertyId": "P580",
+            "label": "start time",
+            "value": "1995"
+          },
+          {
+            "propertyId": "P582",
+            "label": "end time",
+            "value": "2000"
+          }
+        ],
+        "expectedClaim": "Q173139 P54 Q1543 (displayed in reverse)",
+        "evidence": [
+          {
+            "label": "Q173139 P54 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q173139#P54",
+            "kind": "wikidata"
+          },
+          {
+            "label": "George Weah biography",
+            "publisher": "Executive Mansion of Liberia",
+            "url": "https://www.weah.emansion.gov.lr/general/biography-liberias-24th-president",
+            "kind": "supporting"
+          }
+        ]
+      },
+      {
+        "propertyId": "P39",
+        "subjectQid": "Q173139",
+        "objectQid": "Q19161825",
+        "direction": "forward",
+        "label": "served as",
+        "qualifiers": [
+          {
+            "propertyId": "P580",
+            "label": "start time",
+            "value": "22 January 2018"
+          },
+          {
+            "propertyId": "P582",
+            "label": "end time",
+            "value": "22 January 2024"
+          }
+        ],
+        "expectedClaim": "Q173139 P39 Q19161825",
+        "evidence": [
+          {
+            "label": "Q173139 P39 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q173139#P39",
+            "kind": "wikidata"
+          },
+          {
+            "label": "George Weah biography",
+            "publisher": "Executive Mansion of Liberia",
+            "url": "https://www.weah.emansion.gov.lr/general/biography-liberias-24th-president",
+            "kind": "supporting"
+          }
+        ]
+      }
+    ],
+    "options": [
+      {
+        "id": "george-weah",
+        "label": "George Weah",
+        "qid": "Q173139"
+      },
+      {
+        "id": "paolo-maldini",
+        "label": "Paolo Maldini",
+        "qid": "Q483027"
+      },
+      {
+        "id": "kaka",
+        "label": "Kaká",
+        "qid": "Q531814"
+      },
+      {
+        "id": "andriy-shevchenko",
+        "label": "Andriy Shevchenko",
+        "qid": "Q41244"
+      }
+    ],
+    "correctOptionId": "george-weah",
+    "explanation": "George Weah starred for AC Milan in the 1990s before entering politics. He served as Liberia's president from January 2018 to January 2024, an unusual journey from elite football to national office.",
+    "pathFingerprint": "Q1543|P54:reverse:Q173139|P39:forward:Q19161825",
+    "reviewedAt": "2026-10-12T00:00:00.000Z",
+    "verificationDate": "2026-10-12",
+    "reviewHistory": [
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": null,
+        "to": "under-review",
+        "note": "Selected for bounded Phase 6C batch 3 independent verification."
+      },
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": "under-review",
+        "to": "approved",
+        "note": "Current Wikidata statements, material qualifiers, English Wikipedia links, independent supporting sources, exact-path uniqueness, prior-registry uniqueness, and three distractors reviewed."
+      }
+    ]
+  },
+  {
+    "id": "lombardi-trophy-lombardi-fordham",
+    "format": "missing-link",
+    "title": "The student behind the trophy",
+    "prompt": "Who is the missing link between the Vince Lombardi Trophy and Fordham Rams football?",
+    "category": "Sports",
+    "status": "approved",
+    "path": [
+      {
+        "qid": "Q2526532",
+        "name": "Vince Lombardi Trophy",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Vince_Lombardi_Trophy",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q2526532"
+      },
+      {
+        "qid": "Q553321",
+        "name": "Vince Lombardi",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Vince_Lombardi",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q553321"
+      },
+      {
+        "qid": "Q5468071",
+        "name": "Fordham Rams football",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Fordham_Rams_football",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q5468071"
+      }
+    ],
+    "hiddenNodeIndex": 1,
+    "relationships": [
+      {
+        "propertyId": "P138",
+        "subjectQid": "Q2526532",
+        "objectQid": "Q553321",
+        "direction": "forward",
+        "label": "named after",
+        "qualifiers": [],
+        "expectedClaim": "Q2526532 P138 Q553321",
+        "evidence": [
+          {
+            "label": "Q2526532 P138 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q2526532#P138",
+            "kind": "wikidata"
+          },
+          {
+            "label": "Super Bowl facts and the Lombardi Trophy",
+            "publisher": "NFL",
+            "url": "https://www.nfl.com/news/super-bowl-facts-and-figures-09000d5d8267aa7f",
+            "kind": "supporting"
+          }
+        ]
+      },
+      {
+        "propertyId": "P54",
+        "subjectQid": "Q553321",
+        "objectQid": "Q5468071",
+        "direction": "forward",
+        "label": "played for",
+        "qualifiers": [],
+        "expectedClaim": "Q553321 P54 Q5468071",
+        "evidence": [
+          {
+            "label": "Q553321 P54 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q553321#P54",
+            "kind": "wikidata"
+          },
+          {
+            "label": "Vincent T. Lombardi",
+            "publisher": "Green Bay Packers",
+            "url": "https://static.www.nfl.com/league/apps/league-site/media-guides/2025/GB.pdf",
+            "kind": "supporting"
+          }
+        ]
+      }
+    ],
+    "options": [
+      {
+        "id": "vince-lombardi",
+        "label": "Vince Lombardi",
+        "qid": "Q553321"
+      },
+      {
+        "id": "bill-belichick",
+        "label": "Bill Belichick",
+        "qid": "Q720027"
+      },
+      {
+        "id": "andy-reid",
+        "label": "Andy Reid",
+        "qid": "Q311974"
+      },
+      {
+        "id": "tom-landry",
+        "label": "Tom Landry",
+        "qid": "Q1374361"
+      }
+    ],
+    "correctOptionId": "vince-lombardi",
+    "explanation": "The Super Bowl trophy is named for coach Vince Lombardi. Before his celebrated coaching career, Lombardi played on Fordham's famed offensive line, the Seven Blocks of Granite.",
+    "pathFingerprint": "Q2526532|P138:forward:Q553321|P54:forward:Q5468071",
+    "reviewedAt": "2026-10-12T00:00:00.000Z",
+    "verificationDate": "2026-10-12",
+    "reviewHistory": [
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": null,
+        "to": "under-review",
+        "note": "Selected for bounded Phase 6C batch 3 independent verification."
+      },
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": "under-review",
+        "to": "approved",
+        "note": "Current Wikidata statements, material qualifiers, English Wikipedia links, independent supporting sources, exact-path uniqueness, prior-registry uniqueness, and three distractors reviewed."
+      }
+    ]
+  },
+  {
+    "id": "everest-george-everest-royal-society",
+    "format": "missing-link",
+    "title": "The geographer behind the summit",
+    "prompt": "Who is the missing link between Mount Everest and the Royal Society?",
+    "category": "Geography and culture",
+    "status": "approved",
+    "path": [
+      {
+        "qid": "Q513",
+        "name": "Mount Everest",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Mount_Everest",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q513"
+      },
+      {
+        "qid": "Q217119",
+        "name": "George Everest",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/George_Everest",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q217119"
+      },
+      {
+        "qid": "Q123885",
+        "name": "Royal Society",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Royal_Society",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q123885"
+      }
+    ],
+    "hiddenNodeIndex": 1,
+    "relationships": [
+      {
+        "propertyId": "P138",
+        "subjectQid": "Q513",
+        "objectQid": "Q217119",
+        "direction": "forward",
+        "label": "named after",
+        "qualifiers": [
+          {
+            "propertyId": "P580",
+            "label": "name adopted",
+            "value": "1865"
+          }
+        ],
+        "expectedClaim": "Q513 P138 Q217119",
+        "evidence": [
+          {
+            "label": "Q513 P138 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q513#P138",
+            "kind": "wikidata"
+          },
+          {
+            "label": "Mount Everest",
+            "publisher": "National Geographic Society",
+            "url": "https://education.nationalgeographic.org/resource/mount-everest/",
+            "kind": "supporting"
+          }
+        ]
+      },
+      {
+        "propertyId": "P463",
+        "subjectQid": "Q217119",
+        "objectQid": "Q123885",
+        "direction": "forward",
+        "label": "member of",
+        "qualifiers": [],
+        "expectedClaim": "Q217119 P463 Q123885",
+        "evidence": [
+          {
+            "label": "Q217119 P463 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q217119#P463",
+            "kind": "wikidata"
+          },
+          {
+            "label": "George Everest certificate of election",
+            "publisher": "Royal Society",
+            "url": "https://catalogues.royalsociety.org/CalmView/Record.aspx?id=EC%2F1826%2F23&src=CalmView.Catalog",
+            "kind": "supporting"
+          }
+        ]
+      }
+    ],
+    "options": [
+      {
+        "id": "george-everest",
+        "label": "George Everest",
+        "qid": "Q217119"
+      },
+      {
+        "id": "edmund-hillary",
+        "label": "Edmund Hillary",
+        "qid": "Q33817"
+      },
+      {
+        "id": "george-mallory",
+        "label": "George Mallory",
+        "qid": "Q311604"
+      },
+      {
+        "id": "tenzing-norgay",
+        "label": "Tenzing Norgay",
+        "qid": "Q80732"
+      }
+    ],
+    "correctOptionId": "george-everest",
+    "explanation": "Mount Everest received its English name in 1865 in honor of surveyor George Everest. Everest had been elected a Fellow of the Royal Society in 1827, although he objected to the mountain being named for him.",
+    "pathFingerprint": "Q513|P138:forward:Q217119|P463:forward:Q123885",
+    "reviewedAt": "2026-10-12T00:00:00.000Z",
+    "verificationDate": "2026-10-12",
+    "reviewHistory": [
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": null,
+        "to": "under-review",
+        "note": "Selected for bounded Phase 6C batch 3 independent verification."
+      },
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": "under-review",
+        "to": "approved",
+        "note": "Current Wikidata statements, material qualifiers, English Wikipedia links, independent supporting sources, exact-path uniqueness, prior-registry uniqueness, and three distractors reviewed."
+      }
+    ]
+  },
+  {
+    "id": "lake-victoria-queen-va",
+    "format": "missing-link",
+    "title": "One queen, two landmarks",
+    "prompt": "Who is the missing link between Lake Victoria and the Victoria and Albert Museum?",
+    "category": "Geography and culture",
+    "status": "approved",
+    "path": [
+      {
+        "qid": "Q5505",
+        "name": "Lake Victoria",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Lake_Victoria",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q5505"
+      },
+      {
+        "qid": "Q9439",
+        "name": "Queen Victoria",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Queen_Victoria",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q9439"
+      },
+      {
+        "qid": "Q213322",
+        "name": "Victoria and Albert Museum",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Victoria_and_Albert_Museum",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q213322"
+      }
+    ],
+    "hiddenNodeIndex": 1,
+    "relationships": [
+      {
+        "propertyId": "P138",
+        "subjectQid": "Q5505",
+        "objectQid": "Q9439",
+        "direction": "forward",
+        "label": "named after",
+        "qualifiers": [],
+        "expectedClaim": "Q5505 P138 Q9439",
+        "evidence": [
+          {
+            "label": "Q5505 P138 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q5505#P138",
+            "kind": "wikidata"
+          },
+          {
+            "label": "Lake Victoria naming history",
+            "publisher": "Livingstone Online",
+            "url": "https://livingstoneonline.org/node/162",
+            "kind": "supporting"
+          }
+        ]
+      },
+      {
+        "propertyId": "P138",
+        "subjectQid": "Q213322",
+        "objectQid": "Q9439",
+        "direction": "reverse",
+        "label": "namesake of",
+        "qualifiers": [],
+        "expectedClaim": "Q213322 P138 Q9439 (displayed in reverse)",
+        "evidence": [
+          {
+            "label": "Q213322 P138 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q213322#P138",
+            "kind": "wikidata"
+          },
+          {
+            "label": "Building the V&A",
+            "publisher": "Victoria and Albert Museum",
+            "url": "https://www.vam.ac.uk/articles/building-the-museum",
+            "kind": "supporting"
+          }
+        ]
+      }
+    ],
+    "options": [
+      {
+        "id": "queen-victoria",
+        "label": "Queen Victoria",
+        "qid": "Q9439"
+      },
+      {
+        "id": "elizabeth-ii",
+        "label": "Elizabeth II",
+        "qid": "Q9682"
+      },
+      {
+        "id": "prince-albert",
+        "label": "Prince Albert",
+        "qid": "Q152245"
+      },
+      {
+        "id": "john-hanning-speke",
+        "label": "John Hanning Speke",
+        "qid": "Q125084"
+      }
+    ],
+    "correctOptionId": "queen-victoria",
+    "explanation": "John Hanning Speke gave Lake Victoria its colonial English name in Queen Victoria's honor. The South Kensington Museum was later renamed for Victoria and her husband Albert in 1899.",
+    "pathFingerprint": "Q5505|P138:forward:Q9439|P138:reverse:Q213322",
+    "reviewedAt": "2026-10-12T00:00:00.000Z",
+    "verificationDate": "2026-10-12",
+    "reviewHistory": [
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": null,
+        "to": "under-review",
+        "note": "Selected for bounded Phase 6C batch 3 independent verification."
+      },
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": "under-review",
+        "to": "approved",
+        "note": "Current Wikidata statements, material qualifiers, English Wikipedia links, independent supporting sources, exact-path uniqueness, prior-registry uniqueness, and three distractors reviewed."
+      }
+    ]
+  },
+  {
+    "id": "bolivia-bolivar-currency",
+    "format": "missing-link",
+    "title": "A liberator on the map and the money",
+    "prompt": "Who is the missing link between Bolivia and the Venezuelan bolívar?",
+    "category": "Geography and culture",
+    "status": "approved",
+    "path": [
+      {
+        "qid": "Q750",
+        "name": "Bolivia",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Bolivia",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q750"
+      },
+      {
+        "qid": "Q8605",
+        "name": "Simón Bolívar",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Sim%C3%B3n_Bol%C3%ADvar",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q8605"
+      },
+      {
+        "qid": "Q203757",
+        "name": "Venezuelan bolívar",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Venezuelan_bol%C3%ADvar",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q203757"
+      }
+    ],
+    "hiddenNodeIndex": 1,
+    "relationships": [
+      {
+        "propertyId": "P138",
+        "subjectQid": "Q750",
+        "objectQid": "Q8605",
+        "direction": "forward",
+        "label": "named after",
+        "qualifiers": [],
+        "expectedClaim": "Q750 P138 Q8605",
+        "evidence": [
+          {
+            "label": "Q750 P138 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q750#P138",
+            "kind": "wikidata"
+          },
+          {
+            "label": "Simón Bolívar",
+            "publisher": "Banco de la República Cultural Encyclopedia",
+            "url": "https://enciclopedia.banrepcultural.org/Sim%C3%B3n_Bol%C3%ADvar",
+            "kind": "supporting"
+          }
+        ]
+      },
+      {
+        "propertyId": "P138",
+        "subjectQid": "Q203757",
+        "objectQid": "Q8605",
+        "direction": "reverse",
+        "label": "namesake of",
+        "qualifiers": [],
+        "expectedClaim": "Q203757 P138 Q8605 (displayed in reverse)",
+        "evidence": [
+          {
+            "label": "Q203757 P138 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q203757#P138",
+            "kind": "wikidata"
+          },
+          {
+            "label": "Bolívar currency",
+            "publisher": "Collins Dictionary",
+            "url": "https://www.collinsdictionary.com/us/dictionary/english/bolivar",
+            "kind": "supporting"
+          }
+        ]
+      }
+    ],
+    "options": [
+      {
+        "id": "simon-bolivar",
+        "label": "Simón Bolívar",
+        "qid": "Q8605"
+      },
+      {
+        "id": "hugo-chavez",
+        "label": "Hugo Chávez",
+        "qid": "Q8440"
+      },
+      {
+        "id": "jose-de-san-martin",
+        "label": "José de San Martín",
+        "qid": "Q134160"
+      },
+      {
+        "id": "antonio-jose-de-sucre",
+        "label": "Antonio José de Sucre",
+        "qid": "Q189779"
+      }
+    ],
+    "correctOptionId": "simon-bolivar",
+    "explanation": "Both Bolivia and Venezuela's bolívar currency honor independence leader Simón Bolívar. The shared namesake reflects his central place in the political memory of northern and western South America.",
+    "pathFingerprint": "Q750|P138:forward:Q8605|P138:reverse:Q203757",
+    "reviewedAt": "2026-10-12T00:00:00.000Z",
+    "verificationDate": "2026-10-12",
+    "reviewHistory": [
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": null,
+        "to": "under-review",
+        "note": "Selected for bounded Phase 6C batch 3 independent verification."
+      },
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": "under-review",
+        "to": "approved",
+        "note": "Current Wikidata statements, material qualifiers, English Wikipedia links, independent supporting sources, exact-path uniqueness, prior-registry uniqueness, and three distractors reviewed."
+      }
+    ]
+  },
+  {
+    "id": "gregorian-calendar-gregory-university",
+    "format": "missing-link",
+    "title": "A pope's name across time and learning",
+    "prompt": "Who is the missing link between the Gregorian calendar and the Pontifical Gregorian University?",
+    "category": "Geography and culture",
+    "status": "approved",
+    "path": [
+      {
+        "qid": "Q12138",
+        "name": "Gregorian calendar",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Gregorian_calendar",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q12138"
+      },
+      {
+        "qid": "Q83029",
+        "name": "Pope Gregory XIII",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Pope_Gregory_XIII",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q83029"
+      },
+      {
+        "qid": "Q467025",
+        "name": "Pontifical Gregorian University",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Pontifical_Gregorian_University",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q467025"
+      }
+    ],
+    "hiddenNodeIndex": 1,
+    "relationships": [
+      {
+        "propertyId": "P138",
+        "subjectQid": "Q12138",
+        "objectQid": "Q83029",
+        "direction": "forward",
+        "label": "named after",
+        "qualifiers": [],
+        "expectedClaim": "Q12138 P138 Q83029",
+        "evidence": [
+          {
+            "label": "Q12138 P138 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q12138#P138",
+            "kind": "wikidata"
+          },
+          {
+            "label": "The Gregorian calendar",
+            "publisher": "Royal Observatory of Belgium",
+            "url": "https://robinfo.oma.be/en/astro-info/calendar/the-gregorian-calendar/",
+            "kind": "supporting"
+          }
+        ]
+      },
+      {
+        "propertyId": "P138",
+        "subjectQid": "Q467025",
+        "objectQid": "Q83029",
+        "direction": "reverse",
+        "label": "namesake of",
+        "qualifiers": [],
+        "expectedClaim": "Q467025 P138 Q83029 (displayed in reverse)",
+        "evidence": [
+          {
+            "label": "Q467025 P138 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q467025#P138",
+            "kind": "wikidata"
+          },
+          {
+            "label": "Serving the Church and the World",
+            "publisher": "Pontifical Gregorian University",
+            "url": "https://www.unigre.it/en/serving-the-church-and-the-world/",
+            "kind": "supporting"
+          }
+        ]
+      }
+    ],
+    "options": [
+      {
+        "id": "pope-gregory-xiii",
+        "label": "Pope Gregory XIII",
+        "qid": "Q83029"
+      },
+      {
+        "id": "julius-caesar",
+        "label": "Julius Caesar",
+        "qid": "Q1048"
+      },
+      {
+        "id": "pope-gregory-i",
+        "label": "Pope Gregory I",
+        "qid": "Q42827"
+      },
+      {
+        "id": "ignatius-of-loyola",
+        "label": "Ignatius of Loyola",
+        "qid": "Q44281"
+      }
+    ],
+    "correctOptionId": "pope-gregory-xiii",
+    "explanation": "The calendar introduced in 1582 bears the name of Pope Gregory XIII. The Pontifical Gregorian University adopted its present name in 1873 to honor the same pope as its founder and protector.",
+    "pathFingerprint": "Q12138|P138:forward:Q83029|P138:reverse:Q467025",
+    "reviewedAt": "2026-10-12T00:00:00.000Z",
+    "verificationDate": "2026-10-12",
+    "reviewHistory": [
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": null,
+        "to": "under-review",
+        "note": "Selected for bounded Phase 6C batch 3 independent verification."
+      },
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": "under-review",
+        "to": "approved",
+        "note": "Current Wikidata statements, material qualifiers, English Wikipedia links, independent supporting sources, exact-path uniqueness, prior-registry uniqueness, and three distractors reviewed."
+      }
+    ]
+  },
+  {
+    "id": "rosetta-bouchard-polytechnique",
+    "format": "missing-link",
+    "title": "The officer who recognized a key",
+    "prompt": "Who is the missing link between the Rosetta Stone and École polytechnique?",
+    "category": "Geography and culture",
+    "status": "approved",
+    "path": [
+      {
+        "qid": "Q48584",
+        "name": "Rosetta Stone",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Rosetta_Stone",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q48584"
+      },
+      {
+        "qid": "Q1386062",
+        "name": "Pierre-François Bouchard",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Pierre-Fran%C3%A7ois_Bouchard",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q1386062"
+      },
+      {
+        "qid": "Q273626",
+        "name": "École polytechnique",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/%C3%89cole_polytechnique",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q273626"
+      }
+    ],
+    "hiddenNodeIndex": 1,
+    "relationships": [
+      {
+        "propertyId": "P61",
+        "subjectQid": "Q48584",
+        "objectQid": "Q1386062",
+        "direction": "forward",
+        "label": "discovered by",
+        "qualifiers": [
+          {
+            "propertyId": "P1344",
+            "label": "during event",
+            "value": "French campaign in Egypt and Syria"
+          }
+        ],
+        "expectedClaim": "Q48584 P61 Q1386062",
+        "evidence": [
+          {
+            "label": "Q48584 P61 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q48584#P61",
+            "kind": "wikidata"
+          },
+          {
+            "label": "The Rosetta Stone",
+            "publisher": "British Museum",
+            "url": "https://www.britishmuseum.org/blog/everything-you-ever-wanted-know-about-rosetta-stone",
+            "kind": "supporting"
+          }
+        ]
+      },
+      {
+        "propertyId": "P69",
+        "subjectQid": "Q1386062",
+        "objectQid": "Q273626",
+        "direction": "forward",
+        "label": "educated at",
+        "qualifiers": [],
+        "expectedClaim": "Q1386062 P69 Q273626",
+        "evidence": [
+          {
+            "label": "Q1386062 P69 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q1386062#P69",
+            "kind": "wikidata"
+          },
+          {
+            "label": "Pierre-François Bouchard biography",
+            "publisher": "ASPHOR",
+            "url": "https://www.asphor.org/bibliotheque/bulletins/bulletin_liaison_ASPHOR_18.pdf",
+            "kind": "supporting"
+          }
+        ]
+      }
+    ],
+    "options": [
+      {
+        "id": "pierre-francois-bouchard",
+        "label": "Pierre-François Bouchard",
+        "qid": "Q1386062"
+      },
+      {
+        "id": "jean-francois-champollion",
+        "label": "Jean-François Champollion",
+        "qid": "Q260"
+      },
+      {
+        "id": "napoleon",
+        "label": "Napoleon",
+        "qid": "Q517"
+      },
+      {
+        "id": "thomas-young",
+        "label": "Thomas Young",
+        "qid": "Q159499"
+      }
+    ],
+    "correctOptionId": "pierre-francois-bouchard",
+    "explanation": "French officer Pierre-François Bouchard recognized the importance of the Rosetta Stone when troops uncovered it in 1799. Bouchard had trained at the newly founded École polytechnique.",
+    "pathFingerprint": "Q48584|P61:forward:Q1386062|P69:forward:Q273626",
+    "reviewedAt": "2026-10-12T00:00:00.000Z",
+    "verificationDate": "2026-10-12",
+    "reviewHistory": [
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": null,
+        "to": "under-review",
+        "note": "Selected for bounded Phase 6C batch 3 independent verification."
+      },
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": "under-review",
+        "to": "approved",
+        "note": "Current Wikidata statements, material qualifiers, English Wikipedia links, independent supporting sources, exact-path uniqueness, prior-registry uniqueness, and three distractors reviewed."
+      }
+    ]
+  },
+  {
+    "id": "tasmania-tasman-voc",
+    "format": "missing-link",
+    "title": "An island and a company voyage",
+    "prompt": "Who is the missing link between Tasmania and the Dutch East India Company?",
+    "category": "Geography and culture",
+    "status": "approved",
+    "path": [
+      {
+        "qid": "Q34366",
+        "name": "Tasmania",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Tasmania",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q34366"
+      },
+      {
+        "qid": "Q42188",
+        "name": "Abel Tasman",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Abel_Tasman",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q42188"
+      },
+      {
+        "qid": "Q159766",
+        "name": "Dutch East India Company",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Dutch_East_India_Company",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q159766"
+      }
+    ],
+    "hiddenNodeIndex": 1,
+    "relationships": [
+      {
+        "propertyId": "P138",
+        "subjectQid": "Q34366",
+        "objectQid": "Q42188",
+        "direction": "forward",
+        "label": "named after",
+        "qualifiers": [],
+        "expectedClaim": "Q34366 P138 Q42188",
+        "evidence": [
+          {
+            "label": "Q34366 P138 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q34366#P138",
+            "kind": "wikidata"
+          },
+          {
+            "label": "Tasmania historical timeline",
+            "publisher": "Australian Bureau of Statistics",
+            "url": "https://www.abs.gov.au/ausstats/abs%40.nsf/2f762f95845417aeca25706c00834efa/F6FA372655DCC15FCA256C3200241893",
+            "kind": "supporting"
+          }
+        ]
+      },
+      {
+        "propertyId": "P108",
+        "subjectQid": "Q42188",
+        "objectQid": "Q159766",
+        "direction": "forward",
+        "label": "worked for",
+        "qualifiers": [],
+        "expectedClaim": "Q42188 P108 Q159766",
+        "evidence": [
+          {
+            "label": "Q42188 P108 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q42188#P108",
+            "kind": "wikidata"
+          },
+          {
+            "label": "Abel Tasman",
+            "publisher": "New Zealand History",
+            "url": "https://nzhistory.govt.nz/people/abel-tasman",
+            "kind": "supporting"
+          }
+        ]
+      }
+    ],
+    "options": [
+      {
+        "id": "abel-tasman",
+        "label": "Abel Tasman",
+        "qid": "Q42188"
+      },
+      {
+        "id": "james-cook",
+        "label": "James Cook",
+        "qid": "Q7324"
+      },
+      {
+        "id": "matthew-flinders",
+        "label": "Matthew Flinders",
+        "qid": "Q219895"
+      },
+      {
+        "id": "willem-janszoon",
+        "label": "Willem Janszoon",
+        "qid": "Q174085"
+      }
+    ],
+    "correctOptionId": "abel-tasman",
+    "explanation": "Tasmania is named for Dutch navigator Abel Tasman. Tasman sailed in the service of the Dutch East India Company when he reached the island in 1642, initially naming it Van Diemen's Land.",
+    "pathFingerprint": "Q34366|P138:forward:Q42188|P108:forward:Q159766",
+    "reviewedAt": "2026-10-12T00:00:00.000Z",
+    "verificationDate": "2026-10-12",
+    "reviewHistory": [
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": null,
+        "to": "under-review",
+        "note": "Selected for bounded Phase 6C batch 3 independent verification."
+      },
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": "under-review",
+        "to": "approved",
+        "note": "Current Wikidata statements, material qualifiers, English Wikipedia links, independent supporting sources, exact-path uniqueness, prior-registry uniqueness, and three distractors reviewed."
+      }
+    ]
+  },
+  {
+    "id": "iran-crisis-carter-nobel-peace",
+    "format": "missing-link",
+    "title": "A presidency tested, a lifetime honored",
+    "prompt": "Who is the missing link between the Iran hostage crisis and the Nobel Peace Prize?",
+    "category": "History and politics",
+    "status": "approved",
+    "path": [
+      {
+        "qid": "Q589673",
+        "name": "Iran hostage crisis",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Iran_hostage_crisis",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q589673"
+      },
+      {
+        "qid": "Q23685",
+        "name": "Jimmy Carter",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Jimmy_Carter",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q23685"
+      },
+      {
+        "qid": "Q35637",
+        "name": "Nobel Peace Prize",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Nobel_Peace_Prize",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q35637"
+      }
+    ],
+    "hiddenNodeIndex": 1,
+    "relationships": [
+      {
+        "propertyId": "P710",
+        "subjectQid": "Q589673",
+        "objectQid": "Q23685",
+        "direction": "forward",
+        "label": "participant",
+        "qualifiers": [],
+        "expectedClaim": "Q589673 P710 Q23685",
+        "evidence": [
+          {
+            "label": "Q589673 P710 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q589673#P710",
+            "kind": "wikidata"
+          },
+          {
+            "label": "The Iranian Hostage Crisis",
+            "publisher": "U.S. Department of State Office of the Historian",
+            "url": "https://history.state.gov/departmenthistory/short-history/iraniancrises",
+            "kind": "supporting"
+          }
+        ]
+      },
+      {
+        "propertyId": "P166",
+        "subjectQid": "Q23685",
+        "objectQid": "Q35637",
+        "direction": "forward",
+        "label": "received award",
+        "qualifiers": [
+          {
+            "propertyId": "P585",
+            "label": "point in time",
+            "value": "10 December 2002"
+          }
+        ],
+        "expectedClaim": "Q23685 P166 Q35637",
+        "evidence": [
+          {
+            "label": "Q23685 P166 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q23685#P166",
+            "kind": "wikidata"
+          },
+          {
+            "label": "Nobel Peace Prize 2002",
+            "publisher": "Nobel Prize",
+            "url": "https://www.nobelprize.org/prizes/peace/2002/summary/",
+            "kind": "supporting"
+          }
+        ]
+      }
+    ],
+    "options": [
+      {
+        "id": "jimmy-carter",
+        "label": "Jimmy Carter",
+        "qid": "Q23685"
+      },
+      {
+        "id": "ruhollah-khomeini",
+        "label": "Ruhollah Khomeini",
+        "qid": "Q38823"
+      },
+      {
+        "id": "ronald-reagan",
+        "label": "Ronald Reagan",
+        "qid": "Q9960"
+      },
+      {
+        "id": "walter-mondale",
+        "label": "Walter Mondale",
+        "qid": "Q49216"
+      }
+    ],
+    "correctOptionId": "jimmy-carter",
+    "explanation": "Jimmy Carter was president throughout the Iran hostage crisis, a defining test of his administration. More than two decades later he received the 2002 Nobel Peace Prize for sustained work on peace, democracy, and human rights.",
+    "pathFingerprint": "Q589673|P710:forward:Q23685|P166:forward:Q35637",
+    "reviewedAt": "2026-10-12T00:00:00.000Z",
+    "verificationDate": "2026-10-12",
+    "reviewHistory": [
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": null,
+        "to": "under-review",
+        "note": "Selected for bounded Phase 6C batch 3 independent verification."
+      },
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": "under-review",
+        "to": "approved",
+        "note": "Current Wikidata statements, material qualifiers, English Wikipedia links, independent supporting sources, exact-path uniqueness, prior-registry uniqueness, and three distractors reviewed."
+      }
+    ]
+  },
+  {
+    "id": "churchill-college-churchill-nobel",
+    "format": "missing-link",
+    "title": "A memorial to a literary laureate",
+    "prompt": "Who is the missing link between Churchill College and the Nobel Prize in Literature?",
+    "category": "History and politics",
+    "status": "approved",
+    "path": [
+      {
+        "qid": "Q714740",
+        "name": "Churchill College",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Churchill_College,_Cambridge",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q714740"
+      },
+      {
+        "qid": "Q8016",
+        "name": "Winston Churchill",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Winston_Churchill",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q8016"
+      },
+      {
+        "qid": "Q37922",
+        "name": "Nobel Prize in Literature",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Nobel_Prize_in_Literature",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q37922"
+      }
+    ],
+    "hiddenNodeIndex": 1,
+    "relationships": [
+      {
+        "propertyId": "P138",
+        "subjectQid": "Q714740",
+        "objectQid": "Q8016",
+        "direction": "forward",
+        "label": "named after",
+        "qualifiers": [],
+        "expectedClaim": "Q714740 P138 Q8016",
+        "evidence": [
+          {
+            "label": "Q714740 P138 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q714740#P138",
+            "kind": "wikidata"
+          },
+          {
+            "label": "The project goes public",
+            "publisher": "Churchill College",
+            "url": "https://www.chu.cam.ac.uk/timeline/the-project-goes-public/",
+            "kind": "supporting"
+          }
+        ]
+      },
+      {
+        "propertyId": "P166",
+        "subjectQid": "Q8016",
+        "objectQid": "Q37922",
+        "direction": "forward",
+        "label": "received award",
+        "qualifiers": [
+          {
+            "propertyId": "P585",
+            "label": "point in time",
+            "value": "1953"
+          }
+        ],
+        "expectedClaim": "Q8016 P166 Q37922",
+        "evidence": [
+          {
+            "label": "Q8016 P166 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q8016#P166",
+            "kind": "wikidata"
+          },
+          {
+            "label": "Nobel Prize in Literature 1953",
+            "publisher": "Nobel Prize",
+            "url": "https://www.nobelprize.org/prizes/literature/1953/summary/",
+            "kind": "supporting"
+          }
+        ]
+      }
+    ],
+    "options": [
+      {
+        "id": "winston-churchill",
+        "label": "Winston Churchill",
+        "qid": "Q8016"
+      },
+      {
+        "id": "clement-attlee",
+        "label": "Clement Attlee",
+        "qid": "Q129006"
+      },
+      {
+        "id": "margaret-thatcher",
+        "label": "Margaret Thatcher",
+        "qid": "Q7416"
+      },
+      {
+        "id": "neville-chamberlain",
+        "label": "Neville Chamberlain",
+        "qid": "Q10664"
+      }
+    ],
+    "correctOptionId": "winston-churchill",
+    "explanation": "Churchill College was conceived as a national memorial to Winston Churchill with a strong science and technology mission. Churchill had received the 1953 Nobel Prize in Literature for his historical writing and oratory.",
+    "pathFingerprint": "Q714740|P138:forward:Q8016|P166:forward:Q37922",
+    "reviewedAt": "2026-10-12T00:00:00.000Z",
+    "verificationDate": "2026-10-12",
+    "reviewHistory": [
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": null,
+        "to": "under-review",
+        "note": "Selected for bounded Phase 6C batch 3 independent verification."
+      },
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": "under-review",
+        "to": "approved",
+        "note": "Current Wikidata statements, material qualifiers, English Wikipedia links, independent supporting sources, exact-path uniqueness, prior-registry uniqueness, and three distractors reviewed."
+      }
+    ]
+  },
+  {
+    "id": "roosevelt-park-roosevelt-nobel",
+    "format": "missing-link",
+    "title": "A conservation legacy and a peace prize",
+    "prompt": "Who is the missing link between Theodore Roosevelt National Park and the Nobel Peace Prize?",
+    "category": "History and politics",
+    "status": "approved",
+    "path": [
+      {
+        "qid": "Q1137669",
+        "name": "Theodore Roosevelt National Park",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Theodore_Roosevelt_National_Park",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q1137669"
+      },
+      {
+        "qid": "Q33866",
+        "name": "Theodore Roosevelt",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Theodore_Roosevelt",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q33866"
+      },
+      {
+        "qid": "Q35637",
+        "name": "Nobel Peace Prize",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Nobel_Peace_Prize",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q35637"
+      }
+    ],
+    "hiddenNodeIndex": 1,
+    "relationships": [
+      {
+        "propertyId": "P138",
+        "subjectQid": "Q1137669",
+        "objectQid": "Q33866",
+        "direction": "forward",
+        "label": "named after",
+        "qualifiers": [],
+        "expectedClaim": "Q1137669 P138 Q33866",
+        "evidence": [
+          {
+            "label": "Q1137669 P138 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q1137669#P138",
+            "kind": "wikidata"
+          },
+          {
+            "label": "Theodore Roosevelt and conservation",
+            "publisher": "National Park Service",
+            "url": "https://www.nps.gov/thro/learn/historyculture/theodore-roosevelt-and-conservation.htm",
+            "kind": "supporting"
+          }
+        ]
+      },
+      {
+        "propertyId": "P166",
+        "subjectQid": "Q33866",
+        "objectQid": "Q35637",
+        "direction": "forward",
+        "label": "received award",
+        "qualifiers": [
+          {
+            "propertyId": "P585",
+            "label": "point in time",
+            "value": "1906"
+          }
+        ],
+        "expectedClaim": "Q33866 P166 Q35637",
+        "evidence": [
+          {
+            "label": "Q33866 P166 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q33866#P166",
+            "kind": "wikidata"
+          },
+          {
+            "label": "Theodore Roosevelt biography",
+            "publisher": "National Park Service",
+            "url": "https://www.nps.gov/articles/000/theodore-roosevelt-biography.htm",
+            "kind": "supporting"
+          }
+        ]
+      }
+    ],
+    "options": [
+      {
+        "id": "theodore-roosevelt",
+        "label": "Theodore Roosevelt",
+        "qid": "Q33866"
+      },
+      {
+        "id": "franklin-d-roosevelt",
+        "label": "Franklin D. Roosevelt",
+        "qid": "Q8007"
+      },
+      {
+        "id": "william-howard-taft",
+        "label": "William Howard Taft",
+        "qid": "Q35648"
+      },
+      {
+        "id": "woodrow-wilson",
+        "label": "Woodrow Wilson",
+        "qid": "Q34296"
+      }
+    ],
+    "correctOptionId": "theodore-roosevelt",
+    "explanation": "The North Dakota national park bears Theodore Roosevelt's name and preserves a landscape central to his conservation outlook. Roosevelt received the 1906 Nobel Peace Prize for mediating the Russo-Japanese War.",
+    "pathFingerprint": "Q1137669|P138:forward:Q33866|P166:forward:Q35637",
+    "reviewedAt": "2026-10-12T00:00:00.000Z",
+    "verificationDate": "2026-10-12",
+    "reviewHistory": [
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": null,
+        "to": "under-review",
+        "note": "Selected for bounded Phase 6C batch 3 independent verification."
+      },
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": "under-review",
+        "to": "approved",
+        "note": "Current Wikidata statements, material qualifiers, English Wikipedia links, independent supporting sources, exact-path uniqueness, prior-registry uniqueness, and three distractors reviewed."
+      }
+    ]
+  },
+  {
+    "id": "webb-telescope-webb-nasa",
+    "format": "missing-link",
+    "title": "The administrator in the telescope's name",
+    "prompt": "Who is the missing link between the James Webb Space Telescope and NASA?",
+    "category": "Science and innovation",
+    "status": "approved",
+    "path": [
+      {
+        "qid": "Q186447",
+        "name": "James Webb Space Telescope",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/James_Webb_Space_Telescope",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q186447"
+      },
+      {
+        "qid": "Q537520",
+        "name": "James E. Webb",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/James_E._Webb",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q537520"
+      },
+      {
+        "qid": "Q23548",
+        "name": "NASA",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/NASA",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q23548"
+      }
+    ],
+    "hiddenNodeIndex": 1,
+    "relationships": [
+      {
+        "propertyId": "P138",
+        "subjectQid": "Q186447",
+        "objectQid": "Q537520",
+        "direction": "forward",
+        "label": "named after",
+        "qualifiers": [],
+        "expectedClaim": "Q186447 P138 Q537520",
+        "evidence": [
+          {
+            "label": "Q186447 P138 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q186447#P138",
+            "kind": "wikidata"
+          },
+          {
+            "label": "Who is James Webb?",
+            "publisher": "NASA",
+            "url": "https://science.nasa.gov/mission/webb/who-is-james-webb/",
+            "kind": "supporting"
+          }
+        ]
+      },
+      {
+        "propertyId": "P108",
+        "subjectQid": "Q537520",
+        "objectQid": "Q23548",
+        "direction": "forward",
+        "label": "worked for",
+        "qualifiers": [],
+        "expectedClaim": "Q537520 P108 Q23548",
+        "evidence": [
+          {
+            "label": "Q537520 P108 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q537520#P108",
+            "kind": "wikidata"
+          },
+          {
+            "label": "James E. Webb",
+            "publisher": "NASA",
+            "url": "https://www.nasa.gov/people/james-e-webb/",
+            "kind": "supporting"
+          }
+        ]
+      }
+    ],
+    "options": [
+      {
+        "id": "james-e-webb",
+        "label": "James E. Webb",
+        "qid": "Q537520"
+      },
+      {
+        "id": "edwin-hubble",
+        "label": "Edwin Hubble",
+        "qid": "Q43027"
+      },
+      {
+        "id": "nancy-grace-roman",
+        "label": "Nancy Grace Roman",
+        "qid": "Q3335602"
+      },
+      {
+        "id": "carl-sagan",
+        "label": "Carl Sagan",
+        "qid": "Q410"
+      }
+    ],
+    "correctOptionId": "james-e-webb",
+    "explanation": "NASA named its infrared space telescope for James E. Webb, the agency's second administrator. Webb led NASA from 1961 to 1968 while Apollo and a broader space-science program took shape.",
+    "pathFingerprint": "Q186447|P138:forward:Q537520|P108:forward:Q23548",
+    "reviewedAt": "2026-10-12T00:00:00.000Z",
+    "verificationDate": "2026-10-12",
+    "reviewHistory": [
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": null,
+        "to": "under-review",
+        "note": "Selected for bounded Phase 6C batch 3 independent verification."
+      },
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": "under-review",
+        "to": "approved",
+        "note": "Current Wikidata statements, material qualifiers, English Wikipedia links, independent supporting sources, exact-path uniqueness, prior-registry uniqueness, and three distractors reviewed."
+      }
+    ]
+  },
+  {
+    "id": "higgs-boson-higgs-edinburgh",
+    "format": "missing-link",
+    "title": "A particle and its academic home",
+    "prompt": "Who is the missing link between the Higgs boson and the University of Edinburgh?",
+    "category": "Science and innovation",
+    "status": "approved",
+    "path": [
+      {
+        "qid": "Q402",
+        "name": "Higgs boson",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Higgs_boson",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q402"
+      },
+      {
+        "qid": "Q192112",
+        "name": "Peter Higgs",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Peter_Higgs",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q192112"
+      },
+      {
+        "qid": "Q160302",
+        "name": "University of Edinburgh",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/University_of_Edinburgh",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q160302"
+      }
+    ],
+    "hiddenNodeIndex": 1,
+    "relationships": [
+      {
+        "propertyId": "P138",
+        "subjectQid": "Q402",
+        "objectQid": "Q192112",
+        "direction": "forward",
+        "label": "named after",
+        "qualifiers": [],
+        "expectedClaim": "Q402 P138 Q192112",
+        "evidence": [
+          {
+            "label": "Q402 P138 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q402#P138",
+            "kind": "wikidata"
+          },
+          {
+            "label": "Higgs research at Edinburgh",
+            "publisher": "University of Edinburgh",
+            "url": "https://www.ph.ed.ac.uk/particle-physics-theory/research",
+            "kind": "supporting"
+          }
+        ]
+      },
+      {
+        "propertyId": "P108",
+        "subjectQid": "Q192112",
+        "objectQid": "Q160302",
+        "direction": "forward",
+        "label": "worked at",
+        "qualifiers": [
+          {
+            "propertyId": "P580",
+            "label": "later appointment began",
+            "value": "1960"
+          },
+          {
+            "propertyId": "P582",
+            "label": "retired",
+            "value": "1996"
+          }
+        ],
+        "expectedClaim": "Q192112 P108 Q160302",
+        "evidence": [
+          {
+            "label": "Q192112 P108 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q192112#P108",
+            "kind": "wikidata"
+          },
+          {
+            "label": "Peter Higgs curriculum vitae",
+            "publisher": "University of Edinburgh",
+            "url": "https://www.ph.ed.ac.uk/higgs/peter-higgs",
+            "kind": "supporting"
+          }
+        ]
+      }
+    ],
+    "options": [
+      {
+        "id": "peter-higgs",
+        "label": "Peter Higgs",
+        "qid": "Q192112"
+      },
+      {
+        "id": "albert-einstein",
+        "label": "Albert Einstein",
+        "qid": "Q937"
+      },
+      {
+        "id": "stephen-hawking",
+        "label": "Stephen Hawking",
+        "qid": "Q17714"
+      },
+      {
+        "id": "richard-feynman",
+        "label": "Richard Feynman",
+        "qid": "Q39246"
+      }
+    ],
+    "correctOptionId": "peter-higgs",
+    "explanation": "The Higgs boson is named for theorist Peter Higgs, one of the physicists who proposed the mechanism predicting it. Higgs joined the University of Edinburgh in 1960 and remained there through his retirement in 1996.",
+    "pathFingerprint": "Q402|P138:forward:Q192112|P108:forward:Q160302",
+    "reviewedAt": "2026-10-12T00:00:00.000Z",
+    "verificationDate": "2026-10-12",
+    "reviewHistory": [
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": null,
+        "to": "under-review",
+        "note": "Selected for bounded Phase 6C batch 3 independent verification."
+      },
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": "under-review",
+        "to": "approved",
+        "note": "Current Wikidata statements, material qualifiers, English Wikipedia links, independent supporting sources, exact-path uniqueness, prior-registry uniqueness, and three distractors reviewed."
+      }
+    ]
+  },
+  {
+    "id": "thriller-jones-color-purple",
+    "format": "missing-link",
+    "title": "From a landmark album to a film score",
+    "prompt": "Who is the missing link between Thriller and The Color Purple?",
+    "category": "Music",
+    "status": "approved",
+    "path": [
+      {
+        "qid": "Q44320",
+        "name": "Thriller",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Thriller_(album)",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q44320"
+      },
+      {
+        "qid": "Q193645",
+        "name": "Quincy Jones",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Quincy_Jones",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q193645"
+      },
+      {
+        "qid": "Q223299",
+        "name": "The Color Purple",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/The_Color_Purple_(1985_film)",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q223299"
+      }
+    ],
+    "hiddenNodeIndex": 1,
+    "relationships": [
+      {
+        "propertyId": "P162",
+        "subjectQid": "Q44320",
+        "objectQid": "Q193645",
+        "direction": "forward",
+        "label": "produced by",
+        "qualifiers": [],
+        "expectedClaim": "Q44320 P162 Q193645",
+        "evidence": [
+          {
+            "label": "Q44320 P162 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q44320#P162",
+            "kind": "wikidata"
+          },
+          {
+            "label": "Quincy Jones, producer of Thriller",
+            "publisher": "Associated Press",
+            "url": "https://apnews.com/article/a9e31c7e39c448d8971519f47a22dd21",
+            "kind": "supporting"
+          }
+        ]
+      },
+      {
+        "propertyId": "P86",
+        "subjectQid": "Q223299",
+        "objectQid": "Q193645",
+        "direction": "reverse",
+        "label": "composer for",
+        "qualifiers": [],
+        "expectedClaim": "Q223299 P86 Q193645 (displayed in reverse)",
+        "evidence": [
+          {
+            "label": "Q223299 P86 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q223299#P86",
+            "kind": "wikidata"
+          },
+          {
+            "label": "The Color Purple",
+            "publisher": "Amblin",
+            "url": "https://amblin.com/movie/the-color-purple/",
+            "kind": "supporting"
+          }
+        ]
+      }
+    ],
+    "options": [
+      {
+        "id": "quincy-jones",
+        "label": "Quincy Jones",
+        "qid": "Q193645"
+      },
+      {
+        "id": "michael-jackson",
+        "label": "Michael Jackson",
+        "qid": "Q2831"
+      },
+      {
+        "id": "rod-temperton",
+        "label": "Rod Temperton",
+        "qid": "Q931723"
+      },
+      {
+        "id": "steven-spielberg",
+        "label": "Steven Spielberg",
+        "qid": "Q8877"
+      }
+    ],
+    "correctOptionId": "quincy-jones",
+    "explanation": "Quincy Jones produced Michael Jackson's Thriller and composed music for Steven Spielberg's 1985 film The Color Purple. The path joins two very different landmarks in Jones's unusually broad career.",
+    "pathFingerprint": "Q44320|P162:forward:Q193645|P86:reverse:Q223299",
+    "reviewedAt": "2026-10-12T00:00:00.000Z",
+    "verificationDate": "2026-10-12",
+    "reviewHistory": [
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": null,
+        "to": "under-review",
+        "note": "Selected for bounded Phase 6C batch 3 independent verification."
+      },
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": "under-review",
+        "to": "approved",
+        "note": "Current Wikidata statements, material qualifiers, English Wikipedia links, independent supporting sources, exact-path uniqueness, prior-registry uniqueness, and three distractors reviewed."
+      }
+    ]
+  },
+  {
+    "id": "back-black-winehouse-brit-school",
+    "format": "missing-link",
+    "title": "An album and an arts-school alumna",
+    "prompt": "Who is the missing link between Back to Black and the BRIT School?",
+    "category": "Music",
+    "status": "approved",
+    "path": [
+      {
+        "qid": "Q156670",
+        "name": "Back to Black",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Back_to_Black",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q156670"
+      },
+      {
+        "qid": "Q15897",
+        "name": "Amy Winehouse",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Amy_Winehouse",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q15897"
+      },
+      {
+        "qid": "Q796940",
+        "name": "BRIT School",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/BRIT_School",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q796940"
+      }
+    ],
+    "hiddenNodeIndex": 1,
+    "relationships": [
+      {
+        "propertyId": "P175",
+        "subjectQid": "Q156670",
+        "objectQid": "Q15897",
+        "direction": "forward",
+        "label": "performed by",
+        "qualifiers": [],
+        "expectedClaim": "Q156670 P175 Q15897",
+        "evidence": [
+          {
+            "label": "Q156670 P175 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q156670#P175",
+            "kind": "wikidata"
+          },
+          {
+            "label": "Amy Winehouse official site",
+            "publisher": "Amy Winehouse Estate",
+            "url": "https://www.amywinehouse.com/",
+            "kind": "supporting"
+          }
+        ]
+      },
+      {
+        "propertyId": "P69",
+        "subjectQid": "Q15897",
+        "objectQid": "Q796940",
+        "direction": "forward",
+        "label": "educated at",
+        "qualifiers": [],
+        "expectedClaim": "Q15897 P69 Q796940",
+        "evidence": [
+          {
+            "label": "Q15897 P69 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q15897#P69",
+            "kind": "wikidata"
+          },
+          {
+            "label": "The BRIT School",
+            "publisher": "BRIT School",
+            "url": "https://www.brits.co.uk/brit-school/",
+            "kind": "supporting"
+          }
+        ]
+      }
+    ],
+    "options": [
+      {
+        "id": "amy-winehouse",
+        "label": "Amy Winehouse",
+        "qid": "Q15897"
+      },
+      {
+        "id": "adele",
+        "label": "Adele",
+        "qid": "Q23215"
+      },
+      {
+        "id": "duffy",
+        "label": "Duffy",
+        "qid": "Q184644"
+      },
+      {
+        "id": "lily-allen",
+        "label": "Lily Allen",
+        "qid": "Q58735"
+      }
+    ],
+    "correctOptionId": "amy-winehouse",
+    "explanation": "Amy Winehouse recorded Back to Black and attended the BRIT School in London. The album became her defining work, while the school is known for educating a wide range of British performing artists.",
+    "pathFingerprint": "Q156670|P175:forward:Q15897|P69:forward:Q796940",
+    "reviewedAt": "2026-10-12T00:00:00.000Z",
+    "verificationDate": "2026-10-12",
+    "reviewHistory": [
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": null,
+        "to": "under-review",
+        "note": "Selected for bounded Phase 6C batch 3 independent verification."
+      },
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": "under-review",
+        "to": "approved",
+        "note": "Current Wikidata statements, material qualifiers, English Wikipedia links, independent supporting sources, exact-path uniqueness, prior-registry uniqueness, and three distractors reviewed."
+      }
+    ]
+  },
+  {
+    "id": "et-spielberg-csu-long-beach",
+    "format": "missing-link",
+    "title": "A blockbuster and a belated degree",
+    "prompt": "Who is the missing link between E.T. the Extra-Terrestrial and California State University, Long Beach?",
+    "category": "Entertainment and film",
+    "status": "approved",
+    "path": [
+      {
+        "qid": "Q11621",
+        "name": "E.T. the Extra-Terrestrial",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/E.T._the_Extra-Terrestrial",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q11621"
+      },
+      {
+        "qid": "Q8877",
+        "name": "Steven Spielberg",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Steven_Spielberg",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q8877"
+      },
+      {
+        "qid": "Q1026926",
+        "name": "California State University, Long Beach",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/California_State_University,_Long_Beach",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q1026926"
+      }
+    ],
+    "hiddenNodeIndex": 1,
+    "relationships": [
+      {
+        "propertyId": "P57",
+        "subjectQid": "Q11621",
+        "objectQid": "Q8877",
+        "direction": "forward",
+        "label": "directed by",
+        "qualifiers": [],
+        "expectedClaim": "Q11621 P57 Q8877",
+        "evidence": [
+          {
+            "label": "Q11621 P57 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q11621#P57",
+            "kind": "wikidata"
+          },
+          {
+            "label": "E.T. the Extra-Terrestrial",
+            "publisher": "Amblin",
+            "url": "https://amblin.com/movie/e-t/",
+            "kind": "supporting"
+          }
+        ]
+      },
+      {
+        "propertyId": "P69",
+        "subjectQid": "Q8877",
+        "objectQid": "Q1026926",
+        "direction": "forward",
+        "label": "educated at",
+        "qualifiers": [
+          {
+            "propertyId": "P582",
+            "label": "degree completed",
+            "value": "2002"
+          }
+        ],
+        "expectedClaim": "Q8877 P69 Q1026926",
+        "evidence": [
+          {
+            "label": "Q8877 P69 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q8877#P69",
+            "kind": "wikidata"
+          },
+          {
+            "label": "Steven Spielberg",
+            "publisher": "California State University",
+            "url": "https://www.calstate.edu/impact-of-the-csu/alumni/made-in-the-csu/long-beach/Pages/spielberg.aspx",
+            "kind": "supporting"
+          }
+        ]
+      }
+    ],
+    "options": [
+      {
+        "id": "steven-spielberg",
+        "label": "Steven Spielberg",
+        "qid": "Q8877"
+      },
+      {
+        "id": "george-lucas",
+        "label": "George Lucas",
+        "qid": "Q38222"
+      },
+      {
+        "id": "james-cameron",
+        "label": "James Cameron",
+        "qid": "Q42574"
+      },
+      {
+        "id": "robert-zemeckis",
+        "label": "Robert Zemeckis",
+        "qid": "Q187364"
+      }
+    ],
+    "correctOptionId": "steven-spielberg",
+    "explanation": "Steven Spielberg directed E.T. the Extra-Terrestrial. Decades after leaving college for filmmaking, he completed his bachelor's degree at California State University, Long Beach in 2002.",
+    "pathFingerprint": "Q11621|P57:forward:Q8877|P69:forward:Q1026926",
+    "reviewedAt": "2026-10-12T00:00:00.000Z",
+    "verificationDate": "2026-10-12",
+    "reviewHistory": [
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": null,
+        "to": "under-review",
+        "note": "Selected for bounded Phase 6C batch 3 independent verification."
+      },
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": "under-review",
+        "to": "approved",
+        "note": "Current Wikidata statements, material qualifiers, English Wikipedia links, independent supporting sources, exact-path uniqueness, prior-registry uniqueness, and three distractors reviewed."
+      }
+    ]
+  },
+  {
+    "id": "java-gosling-sun",
+    "format": "missing-link",
+    "title": "The language born at Sun",
+    "prompt": "Who is the missing link between Java and Sun Microsystems?",
+    "category": "Technology",
+    "status": "approved",
+    "path": [
+      {
+        "qid": "Q251",
+        "name": "Java",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Java_(programming_language)",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q251"
+      },
+      {
+        "qid": "Q92622",
+        "name": "James Gosling",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/James_Gosling",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q92622"
+      },
+      {
+        "qid": "Q14647",
+        "name": "Sun Microsystems",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Sun_Microsystems",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q14647"
+      }
+    ],
+    "hiddenNodeIndex": 1,
+    "relationships": [
+      {
+        "propertyId": "P178",
+        "subjectQid": "Q251",
+        "objectQid": "Q92622",
+        "direction": "forward",
+        "label": "created by",
+        "qualifiers": [],
+        "expectedClaim": "Q251 P178 Q92622",
+        "evidence": [
+          {
+            "label": "Q251 P178 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q251#P178",
+            "kind": "wikidata"
+          },
+          {
+            "label": "25 Years of Java",
+            "publisher": "Oracle",
+            "url": "https://blogs.oracle.com/connect/25-years-java-technology-community-family",
+            "kind": "supporting"
+          }
+        ]
+      },
+      {
+        "propertyId": "P108",
+        "subjectQid": "Q92622",
+        "objectQid": "Q14647",
+        "direction": "forward",
+        "label": "worked for",
+        "qualifiers": [],
+        "expectedClaim": "Q92622 P108 Q14647",
+        "evidence": [
+          {
+            "label": "Q92622 P108 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q92622#P108",
+            "kind": "wikidata"
+          },
+          {
+            "label": "Java Turns 25",
+            "publisher": "Oracle",
+            "url": "https://www.oracle.com/asean/a/ocom/docs/corporate/analystrelations/omdia-java-turns-25.pdf",
+            "kind": "supporting"
+          }
+        ]
+      }
+    ],
+    "options": [
+      {
+        "id": "james-gosling",
+        "label": "James Gosling",
+        "qid": "Q92622"
+      },
+      {
+        "id": "guido-van-rossum",
+        "label": "Guido van Rossum",
+        "qid": "Q105815"
+      },
+      {
+        "id": "linus-torvalds",
+        "label": "Linus Torvalds",
+        "qid": "Q34290"
+      },
+      {
+        "id": "bjarne-stroustrup",
+        "label": "Bjarne Stroustrup",
+        "qid": "Q92620"
+      }
+    ],
+    "correctOptionId": "james-gosling",
+    "explanation": "James Gosling designed Java while working at Sun Microsystems. The language emerged from Sun's Green project and was publicly introduced in 1995.",
+    "pathFingerprint": "Q251|P178:forward:Q92622|P108:forward:Q14647",
+    "reviewedAt": "2026-10-12T00:00:00.000Z",
+    "verificationDate": "2026-10-12",
+    "reviewHistory": [
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": null,
+        "to": "under-review",
+        "note": "Selected for bounded Phase 6C batch 4 independent verification."
+      },
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": "under-review",
+        "to": "approved",
+        "note": "Current Wikidata statements, material qualifiers, English Wikipedia links, relationship-specific sources, exact-path uniqueness, prior-registry uniqueness, and three distractors reviewed."
+      }
+    ]
+  },
+  {
+    "id": "rust-hoare-mozilla",
+    "format": "missing-link",
+    "title": "A safer language at Mozilla",
+    "prompt": "Who is the missing link between Rust and Mozilla Corporation?",
+    "category": "Technology",
+    "status": "approved",
+    "path": [
+      {
+        "qid": "Q575650",
+        "name": "Rust",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Rust_(programming_language)",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q575650"
+      },
+      {
+        "qid": "Q28937563",
+        "name": "Graydon Hoare",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Graydon_Hoare",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q28937563"
+      },
+      {
+        "qid": "Q169925",
+        "name": "Mozilla Corporation",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Mozilla_Corporation",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q169925"
+      }
+    ],
+    "hiddenNodeIndex": 1,
+    "relationships": [
+      {
+        "propertyId": "P61",
+        "subjectQid": "Q575650",
+        "objectQid": "Q28937563",
+        "direction": "forward",
+        "label": "invented by",
+        "qualifiers": [],
+        "expectedClaim": "Q575650 P61 Q28937563",
+        "evidence": [
+          {
+            "label": "Q575650 P61 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q575650#P61",
+            "kind": "wikidata"
+          },
+          {
+            "label": "Mozilla welcomes the Rust Foundation",
+            "publisher": "Mozilla",
+            "url": "https://blog.mozilla.org/blogarchive/blog/2021/02/08/mozilla-welcomes-the-rust-foundation/",
+            "kind": "supporting"
+          }
+        ]
+      },
+      {
+        "propertyId": "P108",
+        "subjectQid": "Q28937563",
+        "objectQid": "Q169925",
+        "direction": "forward",
+        "label": "worked for",
+        "qualifiers": [],
+        "expectedClaim": "Q28937563 P108 Q169925",
+        "evidence": [
+          {
+            "label": "Q28937563 P108 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q28937563#P108",
+            "kind": "wikidata"
+          },
+          {
+            "label": "Mozilla welcomes the Rust Foundation",
+            "publisher": "Mozilla",
+            "url": "https://blog.mozilla.org/blogarchive/blog/2021/02/08/mozilla-welcomes-the-rust-foundation/",
+            "kind": "supporting"
+          }
+        ]
+      }
+    ],
+    "options": [
+      {
+        "id": "graydon-hoare",
+        "label": "Graydon Hoare",
+        "qid": "Q28937563"
+      },
+      {
+        "id": "brendan-eich",
+        "label": "Brendan Eich",
+        "qid": "Q92648"
+      },
+      {
+        "id": "guido-van-rossum",
+        "label": "Guido van Rossum",
+        "qid": "Q105815"
+      },
+      {
+        "id": "james-gosling",
+        "label": "James Gosling",
+        "qid": "Q92622"
+      }
+    ],
+    "correctOptionId": "graydon-hoare",
+    "explanation": "Graydon Hoare began Rust as a personal project before Mozilla sponsored its development. Hoare worked for Mozilla, where the language grew into a major systems-programming project.",
+    "pathFingerprint": "Q575650|P61:forward:Q28937563|P108:forward:Q169925",
+    "reviewedAt": "2026-10-12T00:00:00.000Z",
+    "verificationDate": "2026-10-12",
+    "reviewHistory": [
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": null,
+        "to": "under-review",
+        "note": "Selected for bounded Phase 6C batch 4 independent verification."
+      },
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": "under-review",
+        "to": "approved",
+        "note": "Current Wikidata statements, material qualifiers, English Wikipedia links, relationship-specific sources, exact-path uniqueness, prior-registry uniqueness, and three distractors reviewed."
+      }
+    ]
+  },
+  {
+    "id": "cpp-stroustrup-bell-labs",
+    "format": "missing-link",
+    "title": "From Bell Labs to C++",
+    "prompt": "Who is the missing link between C++ and Bell Labs?",
+    "category": "Technology",
+    "status": "approved",
+    "path": [
+      {
+        "qid": "Q2407",
+        "name": "C++",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/C%2B%2B",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q2407"
+      },
+      {
+        "qid": "Q92620",
+        "name": "Bjarne Stroustrup",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Bjarne_Stroustrup",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q92620"
+      },
+      {
+        "qid": "Q217365",
+        "name": "Bell Labs",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Bell_Labs",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q217365"
+      }
+    ],
+    "hiddenNodeIndex": 1,
+    "relationships": [
+      {
+        "propertyId": "P178",
+        "subjectQid": "Q2407",
+        "objectQid": "Q92620",
+        "direction": "forward",
+        "label": "created by",
+        "qualifiers": [],
+        "expectedClaim": "Q2407 P178 Q92620",
+        "evidence": [
+          {
+            "label": "Q2407 P178 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q2407#P178",
+            "kind": "wikidata"
+          },
+          {
+            "label": "Bjarne Stroustrup biography",
+            "publisher": "Bjarne Stroustrup",
+            "url": "https://www.stroustrup.com/bio.html",
+            "kind": "supporting"
+          }
+        ]
+      },
+      {
+        "propertyId": "P108",
+        "subjectQid": "Q92620",
+        "objectQid": "Q217365",
+        "direction": "forward",
+        "label": "worked at",
+        "qualifiers": [
+          {
+            "propertyId": "P580",
+            "label": "start time",
+            "value": "1979"
+          },
+          {
+            "propertyId": "P582",
+            "label": "end time",
+            "value": "2002"
+          }
+        ],
+        "expectedClaim": "Q92620 P108 Q217365",
+        "evidence": [
+          {
+            "label": "Q92620 P108 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q92620#P108",
+            "kind": "wikidata"
+          },
+          {
+            "label": "Bjarne Stroustrup biography",
+            "publisher": "Bjarne Stroustrup",
+            "url": "https://www.stroustrup.com/bio.html",
+            "kind": "supporting"
+          }
+        ]
+      }
+    ],
+    "options": [
+      {
+        "id": "bjarne-stroustrup",
+        "label": "Bjarne Stroustrup",
+        "qid": "Q92620"
+      },
+      {
+        "id": "dennis-ritchie",
+        "label": "Dennis Ritchie",
+        "qid": "Q92739"
+      },
+      {
+        "id": "ken-thompson",
+        "label": "Ken Thompson",
+        "qid": "Q92743"
+      },
+      {
+        "id": "james-gosling",
+        "label": "James Gosling",
+        "qid": "Q92622"
+      }
+    ],
+    "correctOptionId": "bjarne-stroustrup",
+    "explanation": "Bjarne Stroustrup created C++ while working at Bell Labs. His Bell Labs tenure ran from 1979 to 2002, spanning the language's early development and standardization.",
+    "pathFingerprint": "Q2407|P178:forward:Q92620|P108:forward:Q217365",
+    "reviewedAt": "2026-10-12T00:00:00.000Z",
+    "verificationDate": "2026-10-12",
+    "reviewHistory": [
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": null,
+        "to": "under-review",
+        "note": "Selected for bounded Phase 6C batch 4 independent verification."
+      },
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": "under-review",
+        "to": "approved",
+        "note": "Current Wikidata statements, material qualifiers, English Wikipedia links, relationship-specific sources, exact-path uniqueness, prior-registry uniqueness, and three distractors reviewed."
+      }
+    ]
+  },
+  {
+    "id": "swift-lattner-apple",
+    "format": "missing-link",
+    "title": "Swift's original project lead",
+    "prompt": "Who is the missing link between Swift and Apple?",
+    "category": "Technology",
+    "status": "approved",
+    "path": [
+      {
+        "qid": "Q17118377",
+        "name": "Swift",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Swift_(programming_language)",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q17118377"
+      },
+      {
+        "qid": "Q2964778",
+        "name": "Chris Lattner",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Chris_Lattner",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q2964778"
+      },
+      {
+        "qid": "Q312",
+        "name": "Apple Inc.",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Apple_Inc.",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q312"
+      }
+    ],
+    "hiddenNodeIndex": 1,
+    "relationships": [
+      {
+        "propertyId": "P178",
+        "subjectQid": "Q17118377",
+        "objectQid": "Q2964778",
+        "direction": "forward",
+        "label": "created by",
+        "qualifiers": [],
+        "expectedClaim": "Q17118377 P178 Q2964778",
+        "evidence": [
+          {
+            "label": "Q17118377 P178 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q17118377#P178",
+            "kind": "wikidata"
+          },
+          {
+            "label": "Swift project lead transition",
+            "publisher": "Swift.org",
+            "url": "https://lists.swift.org/pipermail/swift-dev/Week-of-Mon-20170109/003808.html",
+            "kind": "supporting"
+          }
+        ]
+      },
+      {
+        "propertyId": "P108",
+        "subjectQid": "Q2964778",
+        "objectQid": "Q312",
+        "direction": "forward",
+        "label": "worked for",
+        "qualifiers": [
+          {
+            "propertyId": "P580",
+            "label": "start time",
+            "value": "1 June 2005"
+          },
+          {
+            "propertyId": "P582",
+            "label": "end time",
+            "value": "30 January 2017"
+          }
+        ],
+        "expectedClaim": "Q2964778 P108 Q312",
+        "evidence": [
+          {
+            "label": "Q2964778 P108 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q2964778#P108",
+            "kind": "wikidata"
+          },
+          {
+            "label": "Swift project lead transition",
+            "publisher": "Swift.org",
+            "url": "https://lists.swift.org/pipermail/swift-dev/Week-of-Mon-20170109/003808.html",
+            "kind": "supporting"
+          }
+        ]
+      }
+    ],
+    "options": [
+      {
+        "id": "chris-lattner",
+        "label": "Chris Lattner",
+        "qid": "Q2964778"
+      },
+      {
+        "id": "brendan-eich",
+        "label": "Brendan Eich",
+        "qid": "Q92648"
+      },
+      {
+        "id": "guido-van-rossum",
+        "label": "Guido van Rossum",
+        "qid": "Q105815"
+      },
+      {
+        "id": "james-gosling",
+        "label": "James Gosling",
+        "qid": "Q92622"
+      }
+    ],
+    "correctOptionId": "chris-lattner",
+    "explanation": "Chris Lattner started Swift at Apple and served as its original project lead. He worked at Apple from 2005 until January 2017, after Swift's public launch and open-source release.",
+    "pathFingerprint": "Q17118377|P178:forward:Q2964778|P108:forward:Q312",
+    "reviewedAt": "2026-10-12T00:00:00.000Z",
+    "verificationDate": "2026-10-12",
+    "reviewHistory": [
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": null,
+        "to": "under-review",
+        "note": "Selected for bounded Phase 6C batch 4 independent verification."
+      },
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": "under-review",
+        "to": "approved",
+        "note": "Current Wikidata statements, material qualifiers, English Wikipedia links, relationship-specific sources, exact-path uniqueness, prior-registry uniqueness, and three distractors reviewed."
+      }
+    ]
+  },
+  {
+    "id": "typescript-hejlsberg-microsoft",
+    "format": "missing-link",
+    "title": "Typing the web at Microsoft",
+    "prompt": "Who is the missing link between TypeScript and Microsoft?",
+    "category": "Technology",
+    "status": "approved",
+    "path": [
+      {
+        "qid": "Q978185",
+        "name": "TypeScript",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/TypeScript",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q978185"
+      },
+      {
+        "qid": "Q316544",
+        "name": "Anders Hejlsberg",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Anders_Hejlsberg",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q316544"
+      },
+      {
+        "qid": "Q2283",
+        "name": "Microsoft",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Microsoft",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q2283"
+      }
+    ],
+    "hiddenNodeIndex": 1,
+    "relationships": [
+      {
+        "propertyId": "P170",
+        "subjectQid": "Q978185",
+        "objectQid": "Q316544",
+        "direction": "forward",
+        "label": "created by",
+        "qualifiers": [],
+        "expectedClaim": "Q978185 P170 Q316544",
+        "evidence": [
+          {
+            "label": "Q978185 P170 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q978185#P170",
+            "kind": "wikidata"
+          },
+          {
+            "label": "TypeScript for the new programmer",
+            "publisher": "Microsoft",
+            "url": "https://www.typescriptlang.org/docs/handbook/typescript-from-scratch.html",
+            "kind": "supporting"
+          }
+        ]
+      },
+      {
+        "propertyId": "P108",
+        "subjectQid": "Q316544",
+        "objectQid": "Q2283",
+        "direction": "forward",
+        "label": "worked for",
+        "qualifiers": [],
+        "expectedClaim": "Q316544 P108 Q2283",
+        "evidence": [
+          {
+            "label": "Q316544 P108 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q316544#P108",
+            "kind": "wikidata"
+          },
+          {
+            "label": "Anders Hejlsberg speaker biography",
+            "publisher": "Microsoft",
+            "url": "https://learn.microsoft.com/en-us/events/speakers/anders-hejlsberg",
+            "kind": "supporting"
+          }
+        ]
+      }
+    ],
+    "options": [
+      {
+        "id": "anders-hejlsberg",
+        "label": "Anders Hejlsberg",
+        "qid": "Q316544"
+      },
+      {
+        "id": "brendan-eich",
+        "label": "Brendan Eich",
+        "qid": "Q92648"
+      },
+      {
+        "id": "chris-lattner",
+        "label": "Chris Lattner",
+        "qid": "Q2964778"
+      },
+      {
+        "id": "james-gosling",
+        "label": "James Gosling",
+        "qid": "Q92622"
+      }
+    ],
+    "correctOptionId": "anders-hejlsberg",
+    "explanation": "Microsoft technical fellow Anders Hejlsberg created TypeScript, adding optional static typing to JavaScript. The project was developed and released by Microsoft.",
+    "pathFingerprint": "Q978185|P170:forward:Q316544|P108:forward:Q2283",
+    "reviewedAt": "2026-10-12T00:00:00.000Z",
+    "verificationDate": "2026-10-12",
+    "reviewHistory": [
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": null,
+        "to": "under-review",
+        "note": "Selected for bounded Phase 6C batch 4 independent verification."
+      },
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": "under-review",
+        "to": "approved",
+        "note": "Current Wikidata statements, material qualifiers, English Wikipedia links, relationship-specific sources, exact-path uniqueness, prior-registry uniqueness, and three distractors reviewed."
+      }
+    ]
+  },
+  {
+    "id": "amazon-bezos-blue-origin",
+    "format": "missing-link",
+    "title": "From online books to rockets",
+    "prompt": "Who is the missing link between Amazon and Blue Origin?",
+    "category": "Business",
+    "status": "approved",
+    "path": [
+      {
+        "qid": "Q3884",
+        "name": "Amazon",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Amazon_(company)",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q3884"
+      },
+      {
+        "qid": "Q312556",
+        "name": "Jeff Bezos",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Jeff_Bezos",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q312556"
+      },
+      {
+        "qid": "Q885836",
+        "name": "Blue Origin",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Blue_Origin",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q885836"
+      }
+    ],
+    "hiddenNodeIndex": 1,
+    "relationships": [
+      {
+        "propertyId": "P112",
+        "subjectQid": "Q3884",
+        "objectQid": "Q312556",
+        "direction": "forward",
+        "label": "founded by",
+        "qualifiers": [],
+        "expectedClaim": "Q3884 P112 Q312556",
+        "evidence": [
+          {
+            "label": "Q3884 P112 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q3884#P112",
+            "kind": "wikidata"
+          },
+          {
+            "label": "Jeff Bezos biography",
+            "publisher": "Amazon Investor Relations",
+            "url": "https://ir.aboutamazon.com/officers-and-directors/person-details/",
+            "kind": "supporting"
+          }
+        ]
+      },
+      {
+        "propertyId": "P112",
+        "subjectQid": "Q885836",
+        "objectQid": "Q312556",
+        "direction": "reverse",
+        "label": "founder of",
+        "qualifiers": [],
+        "expectedClaim": "Q885836 P112 Q312556 (displayed in reverse)",
+        "evidence": [
+          {
+            "label": "Q885836 P112 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q885836#P112",
+            "kind": "wikidata"
+          },
+          {
+            "label": "Jeff Bezos biography",
+            "publisher": "Amazon Investor Relations",
+            "url": "https://ir.aboutamazon.com/officers-and-directors/person-details/",
+            "kind": "supporting"
+          }
+        ]
+      }
+    ],
+    "options": [
+      {
+        "id": "jeff-bezos",
+        "label": "Jeff Bezos",
+        "qid": "Q312556"
+      },
+      {
+        "id": "bill-gates",
+        "label": "Bill Gates",
+        "qid": "Q5284"
+      },
+      {
+        "id": "elon-musk",
+        "label": "Elon Musk",
+        "qid": "Q317521"
+      },
+      {
+        "id": "richard-branson",
+        "label": "Richard Branson",
+        "qid": "Q194419"
+      }
+    ],
+    "correctOptionId": "jeff-bezos",
+    "explanation": "Jeff Bezos founded Amazon in 1994 and later founded Blue Origin. The connection traces one entrepreneur from online retail to private spaceflight.",
+    "pathFingerprint": "Q3884|P112:forward:Q312556|P112:reverse:Q885836",
+    "reviewedAt": "2026-10-12T00:00:00.000Z",
+    "verificationDate": "2026-10-12",
+    "reviewHistory": [
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": null,
+        "to": "under-review",
+        "note": "Selected for bounded Phase 6C batch 4 independent verification."
+      },
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": "under-review",
+        "to": "approved",
+        "note": "Current Wikidata statements, material qualifiers, English Wikipedia links, relationship-specific sources, exact-path uniqueness, prior-registry uniqueness, and three distractors reviewed."
+      }
+    ]
+  },
+  {
+    "id": "alibaba-ma-hangzhou-normal",
+    "format": "missing-link",
+    "title": "An English teacher builds Alibaba",
+    "prompt": "Who is the missing link between Alibaba Group and Hangzhou Normal University?",
+    "category": "Business",
+    "status": "approved",
+    "path": [
+      {
+        "qid": "Q1359568",
+        "name": "Alibaba Group",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Alibaba_Group",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q1359568"
+      },
+      {
+        "qid": "Q1137062",
+        "name": "Jack Ma",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Jack_Ma",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q1137062"
+      },
+      {
+        "qid": "Q5648125",
+        "name": "Hangzhou Normal University",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Hangzhou_Normal_University",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q5648125"
+      }
+    ],
+    "hiddenNodeIndex": 1,
+    "relationships": [
+      {
+        "propertyId": "P112",
+        "subjectQid": "Q1359568",
+        "objectQid": "Q1137062",
+        "direction": "forward",
+        "label": "founded by",
+        "qualifiers": [],
+        "expectedClaim": "Q1359568 P112 Q1137062",
+        "evidence": [
+          {
+            "label": "Q1359568 P112 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q1359568#P112",
+            "kind": "wikidata"
+          },
+          {
+            "label": "Jack Ma biography",
+            "publisher": "HKU Business School",
+            "url": "https://www.hkubs.hku.hk/people/jack-ma/",
+            "kind": "supporting"
+          }
+        ]
+      },
+      {
+        "propertyId": "P69",
+        "subjectQid": "Q1137062",
+        "objectQid": "Q5648125",
+        "direction": "forward",
+        "label": "educated at",
+        "qualifiers": [],
+        "expectedClaim": "Q1137062 P69 Q5648125",
+        "evidence": [
+          {
+            "label": "Q1137062 P69 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q1137062#P69",
+            "kind": "wikidata"
+          },
+          {
+            "label": "Jack Ma biography",
+            "publisher": "HKU Business School",
+            "url": "https://www.hkubs.hku.hk/people/jack-ma/",
+            "kind": "supporting"
+          }
+        ]
+      }
+    ],
+    "options": [
+      {
+        "id": "jack-ma",
+        "label": "Jack Ma",
+        "qid": "Q1137062"
+      },
+      {
+        "id": "jeff-bezos",
+        "label": "Jeff Bezos",
+        "qid": "Q312556"
+      },
+      {
+        "id": "michael-bloomberg",
+        "label": "Michael Bloomberg",
+        "qid": "Q607"
+      },
+      {
+        "id": "richard-branson",
+        "label": "Richard Branson",
+        "qid": "Q194419"
+      }
+    ],
+    "correctOptionId": "jack-ma",
+    "explanation": "Jack Ma founded Alibaba Group after studying English at Hangzhou Normal University. His path from teacher training to global e-commerce is central to Alibaba's origin story.",
+    "pathFingerprint": "Q1359568|P112:forward:Q1137062|P69:forward:Q5648125",
+    "reviewedAt": "2026-10-12T00:00:00.000Z",
+    "verificationDate": "2026-10-12",
+    "reviewHistory": [
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": null,
+        "to": "under-review",
+        "note": "Selected for bounded Phase 6C batch 4 independent verification."
+      },
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": "under-review",
+        "to": "approved",
+        "note": "Current Wikidata statements, material qualifiers, English Wikipedia links, relationship-specific sources, exact-path uniqueness, prior-registry uniqueness, and three distractors reviewed."
+      }
+    ]
+  },
+  {
+    "id": "virgin-group-branson-galactic",
+    "format": "missing-link",
+    "title": "The Virgin brand reaches space",
+    "prompt": "Who is the missing link between Virgin Group and Virgin Galactic?",
+    "category": "Business",
+    "status": "approved",
+    "path": [
+      {
+        "qid": "Q494917",
+        "name": "Virgin Group",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Virgin_Group",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q494917"
+      },
+      {
+        "qid": "Q194419",
+        "name": "Richard Branson",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Richard_Branson",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q194419"
+      },
+      {
+        "qid": "Q373225",
+        "name": "Virgin Galactic",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Virgin_Galactic",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q373225"
+      }
+    ],
+    "hiddenNodeIndex": 1,
+    "relationships": [
+      {
+        "propertyId": "P112",
+        "subjectQid": "Q494917",
+        "objectQid": "Q194419",
+        "direction": "forward",
+        "label": "founded by",
+        "qualifiers": [],
+        "expectedClaim": "Q494917 P112 Q194419",
+        "evidence": [
+          {
+            "label": "Q494917 P112 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q494917#P112",
+            "kind": "wikidata"
+          },
+          {
+            "label": "Richard Branson biography",
+            "publisher": "Virgin Galactic",
+            "url": "https://www.virgingalactic.com/richard-branson",
+            "kind": "supporting"
+          }
+        ]
+      },
+      {
+        "propertyId": "P112",
+        "subjectQid": "Q373225",
+        "objectQid": "Q194419",
+        "direction": "reverse",
+        "label": "founder of",
+        "qualifiers": [],
+        "expectedClaim": "Q373225 P112 Q194419 (displayed in reverse)",
+        "evidence": [
+          {
+            "label": "Q373225 P112 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q373225#P112",
+            "kind": "wikidata"
+          },
+          {
+            "label": "Richard Branson biography",
+            "publisher": "Virgin Galactic",
+            "url": "https://www.virgingalactic.com/richard-branson",
+            "kind": "supporting"
+          }
+        ]
+      }
+    ],
+    "options": [
+      {
+        "id": "richard-branson",
+        "label": "Richard Branson",
+        "qid": "Q194419"
+      },
+      {
+        "id": "jeff-bezos",
+        "label": "Jeff Bezos",
+        "qid": "Q312556"
+      },
+      {
+        "id": "michael-bloomberg",
+        "label": "Michael Bloomberg",
+        "qid": "Q607"
+      },
+      {
+        "id": "yvon-chouinard",
+        "label": "Yvon Chouinard",
+        "qid": "Q352268"
+      }
+    ],
+    "correctOptionId": "richard-branson",
+    "explanation": "Richard Branson founded Virgin Group and later helped create Virgin Galactic. The path connects the broad Virgin business family to its commercial-space venture.",
+    "pathFingerprint": "Q494917|P112:forward:Q194419|P112:reverse:Q373225",
+    "reviewedAt": "2026-10-12T00:00:00.000Z",
+    "verificationDate": "2026-10-12",
+    "reviewHistory": [
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": null,
+        "to": "under-review",
+        "note": "Selected for bounded Phase 6C batch 4 independent verification."
+      },
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": "under-review",
+        "to": "approved",
+        "note": "Current Wikidata statements, material qualifiers, English Wikipedia links, relationship-specific sources, exact-path uniqueness, prior-registry uniqueness, and three distractors reviewed."
+      }
+    ]
+  },
+  {
+    "id": "bloomberg-company-founder-philanthropies",
+    "format": "missing-link",
+    "title": "Data profits into philanthropy",
+    "prompt": "Who is the missing link between Bloomberg L.P. and Bloomberg Philanthropies?",
+    "category": "Business",
+    "status": "approved",
+    "path": [
+      {
+        "qid": "Q13977",
+        "name": "Bloomberg L.P.",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Bloomberg_L.P.",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q13977"
+      },
+      {
+        "qid": "Q607",
+        "name": "Michael Bloomberg",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Michael_Bloomberg",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q607"
+      },
+      {
+        "qid": "Q16987920",
+        "name": "Bloomberg Philanthropies",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Bloomberg_Philanthropies",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q16987920"
+      }
+    ],
+    "hiddenNodeIndex": 1,
+    "relationships": [
+      {
+        "propertyId": "P112",
+        "subjectQid": "Q13977",
+        "objectQid": "Q607",
+        "direction": "forward",
+        "label": "founded by",
+        "qualifiers": [],
+        "expectedClaim": "Q13977 P112 Q607",
+        "evidence": [
+          {
+            "label": "Q13977 P112 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q13977#P112",
+            "kind": "wikidata"
+          },
+          {
+            "label": "Michael Bloomberg biography",
+            "publisher": "Bloomberg CityLab",
+            "url": "https://citylab.bloomberg.org/people/michael-r-bloomberg/",
+            "kind": "supporting"
+          }
+        ]
+      },
+      {
+        "propertyId": "P112",
+        "subjectQid": "Q16987920",
+        "objectQid": "Q607",
+        "direction": "reverse",
+        "label": "founder of",
+        "qualifiers": [],
+        "expectedClaim": "Q16987920 P112 Q607 (displayed in reverse)",
+        "evidence": [
+          {
+            "label": "Q16987920 P112 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q16987920#P112",
+            "kind": "wikidata"
+          },
+          {
+            "label": "Michael Bloomberg biography",
+            "publisher": "Bloomberg CityLab",
+            "url": "https://citylab.bloomberg.org/people/michael-r-bloomberg/",
+            "kind": "supporting"
+          }
+        ]
+      }
+    ],
+    "options": [
+      {
+        "id": "michael-bloomberg",
+        "label": "Michael Bloomberg",
+        "qid": "Q607"
+      },
+      {
+        "id": "jeff-bezos",
+        "label": "Jeff Bezos",
+        "qid": "Q312556"
+      },
+      {
+        "id": "richard-branson",
+        "label": "Richard Branson",
+        "qid": "Q194419"
+      },
+      {
+        "id": "jack-ma",
+        "label": "Jack Ma",
+        "qid": "Q1137062"
+      }
+    ],
+    "correctOptionId": "michael-bloomberg",
+    "explanation": "Michael Bloomberg founded the financial-data company Bloomberg L.P. and Bloomberg Philanthropies. Much of the company's profit supports the philanthropic organization's work.",
+    "pathFingerprint": "Q13977|P112:forward:Q607|P112:reverse:Q16987920",
+    "reviewedAt": "2026-10-12T00:00:00.000Z",
+    "verificationDate": "2026-10-12",
+    "reviewHistory": [
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": null,
+        "to": "under-review",
+        "note": "Selected for bounded Phase 6C batch 4 independent verification."
+      },
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": "under-review",
+        "to": "approved",
+        "note": "Current Wikidata statements, material qualifiers, English Wikipedia links, relationship-specific sources, exact-path uniqueness, prior-registry uniqueness, and three distractors reviewed."
+      }
+    ]
+  },
+  {
+    "id": "sgt-pepper-martin-air",
+    "format": "missing-link",
+    "title": "The producer behind Pepper and AIR",
+    "prompt": "Who is the missing link between Sgt. Pepper's Lonely Hearts Club Band and AIR Studios?",
+    "category": "Music",
+    "status": "approved",
+    "path": [
+      {
+        "qid": "Q169226",
+        "name": "Sgt. Pepper's Lonely Hearts Club Band",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Sgt._Pepper%27s_Lonely_Hearts_Club_Band",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q169226"
+      },
+      {
+        "qid": "Q191819",
+        "name": "George Martin",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/George_Martin",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q191819"
+      },
+      {
+        "qid": "Q743026",
+        "name": "AIR Studios",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Associated_Independent_Recording",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q743026"
+      }
+    ],
+    "hiddenNodeIndex": 1,
+    "relationships": [
+      {
+        "propertyId": "P162",
+        "subjectQid": "Q169226",
+        "objectQid": "Q191819",
+        "direction": "forward",
+        "label": "produced by",
+        "qualifiers": [],
+        "expectedClaim": "Q169226 P162 Q191819",
+        "evidence": [
+          {
+            "label": "Q169226 P162 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q169226#P162",
+            "kind": "wikidata"
+          },
+          {
+            "label": "George Martin and AIR history",
+            "publisher": "AIR Studios",
+            "url": "https://www.airstudios.com/history/",
+            "kind": "supporting"
+          }
+        ]
+      },
+      {
+        "propertyId": "P112",
+        "subjectQid": "Q743026",
+        "objectQid": "Q191819",
+        "direction": "reverse",
+        "label": "founder of",
+        "qualifiers": [],
+        "expectedClaim": "Q743026 P112 Q191819 (displayed in reverse)",
+        "evidence": [
+          {
+            "label": "Q743026 P112 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q743026#P112",
+            "kind": "wikidata"
+          },
+          {
+            "label": "George Martin and AIR history",
+            "publisher": "AIR Studios",
+            "url": "https://www.airstudios.com/history/",
+            "kind": "supporting"
+          }
+        ]
+      }
+    ],
+    "options": [
+      {
+        "id": "george-martin",
+        "label": "George Martin",
+        "qid": "Q191819"
+      },
+      {
+        "id": "quincy-jones",
+        "label": "Quincy Jones",
+        "qid": "Q193645"
+      },
+      {
+        "id": "brian-eno",
+        "label": "Brian Eno",
+        "qid": "Q208121"
+      },
+      {
+        "id": "george-harrison",
+        "label": "George Harrison",
+        "qid": "Q2643"
+      }
+    ],
+    "correctOptionId": "george-martin",
+    "explanation": "George Martin produced the Beatles' Sgt. Pepper album. In 1965 he and three fellow producers established Associated Independent Recording, better known as AIR Studios.",
+    "pathFingerprint": "Q169226|P162:forward:Q191819|P112:reverse:Q743026",
+    "reviewedAt": "2026-10-12T00:00:00.000Z",
+    "verificationDate": "2026-10-12",
+    "reviewHistory": [
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": null,
+        "to": "under-review",
+        "note": "Selected for bounded Phase 6C batch 4 independent verification."
+      },
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": "under-review",
+        "to": "approved",
+        "note": "Current Wikidata statements, material qualifiers, English Wikipedia links, relationship-specific sources, exact-path uniqueness, prior-registry uniqueness, and three distractors reviewed."
+      }
+    ]
+  },
+  {
+    "id": "songs-key-life-wonder-medal-freedom",
+    "format": "missing-link",
+    "title": "A landmark album and a national honor",
+    "prompt": "Who is the missing link between Songs in the Key of Life and the Presidential Medal of Freedom?",
+    "category": "Music",
+    "status": "approved",
+    "path": [
+      {
+        "qid": "Q845040",
+        "name": "Songs in the Key of Life",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Songs_in_the_Key_of_Life",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q845040"
+      },
+      {
+        "qid": "Q714",
+        "name": "Stevie Wonder",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Stevie_Wonder",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q714"
+      },
+      {
+        "qid": "Q17144",
+        "name": "Presidential Medal of Freedom",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Presidential_Medal_of_Freedom",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q17144"
+      }
+    ],
+    "hiddenNodeIndex": 1,
+    "relationships": [
+      {
+        "propertyId": "P175",
+        "subjectQid": "Q845040",
+        "objectQid": "Q714",
+        "direction": "forward",
+        "label": "performed by",
+        "qualifiers": [],
+        "expectedClaim": "Q845040 P175 Q714",
+        "evidence": [
+          {
+            "label": "Q845040 P175 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q845040#P175",
+            "kind": "wikidata"
+          },
+          {
+            "label": "Stevie Wonder artist profile",
+            "publisher": "Recording Academy",
+            "url": "https://www.grammy.com/artists/stevie-wonder/8257",
+            "kind": "supporting"
+          }
+        ]
+      },
+      {
+        "propertyId": "P166",
+        "subjectQid": "Q714",
+        "objectQid": "Q17144",
+        "direction": "forward",
+        "label": "received award",
+        "qualifiers": [
+          {
+            "propertyId": "P585",
+            "label": "point in time",
+            "value": "2014"
+          }
+        ],
+        "expectedClaim": "Q714 P166 Q17144",
+        "evidence": [
+          {
+            "label": "Q714 P166 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q714#P166",
+            "kind": "wikidata"
+          },
+          {
+            "label": "2014 Medal of Freedom recipients",
+            "publisher": "Obama White House Archives",
+            "url": "https://obamawhitehouse.archives.gov/campaign/medal-of-freedom",
+            "kind": "supporting"
+          }
+        ]
+      }
+    ],
+    "options": [
+      {
+        "id": "stevie-wonder",
+        "label": "Stevie Wonder",
+        "qid": "Q714"
+      },
+      {
+        "id": "michael-jackson",
+        "label": "Michael Jackson",
+        "qid": "Q2831"
+      },
+      {
+        "id": "paul-simon",
+        "label": "Paul Simon",
+        "qid": "Q4028"
+      },
+      {
+        "id": "aretha-franklin",
+        "label": "Aretha Franklin",
+        "qid": "Q125121"
+      }
+    ],
+    "correctOptionId": "stevie-wonder",
+    "explanation": "Stevie Wonder recorded Songs in the Key of Life, released in 1976. President Barack Obama awarded Wonder the Presidential Medal of Freedom in 2014.",
+    "pathFingerprint": "Q845040|P175:forward:Q714|P166:forward:Q17144",
+    "reviewedAt": "2026-10-12T00:00:00.000Z",
+    "verificationDate": "2026-10-12",
+    "reviewHistory": [
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": null,
+        "to": "under-review",
+        "note": "Selected for bounded Phase 6C batch 4 independent verification."
+      },
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": "under-review",
+        "to": "approved",
+        "note": "Current Wikidata statements, material qualifiers, English Wikipedia links, relationship-specific sources, exact-path uniqueness, prior-registry uniqueness, and three distractors reviewed."
+      }
+    ]
+  },
+  {
+    "id": "graceland-simon-gershwin",
+    "format": "missing-link",
+    "title": "Graceland's first Gershwin laureate",
+    "prompt": "Who is the missing link between Graceland and the Gershwin Prize?",
+    "category": "Music",
+    "status": "approved",
+    "path": [
+      {
+        "qid": "Q1027822",
+        "name": "Graceland",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Graceland_(album)",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q1027822"
+      },
+      {
+        "qid": "Q4028",
+        "name": "Paul Simon",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Paul_Simon",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q4028"
+      },
+      {
+        "qid": "Q2422622",
+        "name": "Gershwin Prize",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Gershwin_Prize",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q2422622"
+      }
+    ],
+    "hiddenNodeIndex": 1,
+    "relationships": [
+      {
+        "propertyId": "P175",
+        "subjectQid": "Q1027822",
+        "objectQid": "Q4028",
+        "direction": "forward",
+        "label": "performed by",
+        "qualifiers": [],
+        "expectedClaim": "Q1027822 P175 Q4028",
+        "evidence": [
+          {
+            "label": "Q1027822 P175 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q1027822#P175",
+            "kind": "wikidata"
+          },
+          {
+            "label": "Paul Simon Gershwin Prize honoree profile",
+            "publisher": "Library of Congress",
+            "url": "https://www.loc.gov/events/gershwin-prize/honorees/2007-paul-simon/",
+            "kind": "supporting"
+          }
+        ]
+      },
+      {
+        "propertyId": "P166",
+        "subjectQid": "Q4028",
+        "objectQid": "Q2422622",
+        "direction": "forward",
+        "label": "received award",
+        "qualifiers": [
+          {
+            "propertyId": "P585",
+            "label": "point in time",
+            "value": "2007"
+          }
+        ],
+        "expectedClaim": "Q4028 P166 Q2422622",
+        "evidence": [
+          {
+            "label": "Q4028 P166 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q4028#P166",
+            "kind": "wikidata"
+          },
+          {
+            "label": "Gershwin Prize history",
+            "publisher": "Library of Congress",
+            "url": "https://www.loc.gov/events/gershwin-prize/about/",
+            "kind": "supporting"
+          }
+        ]
+      }
+    ],
+    "options": [
+      {
+        "id": "paul-simon",
+        "label": "Paul Simon",
+        "qid": "Q4028"
+      },
+      {
+        "id": "stevie-wonder",
+        "label": "Stevie Wonder",
+        "qid": "Q714"
+      },
+      {
+        "id": "bob-dylan",
+        "label": "Bob Dylan",
+        "qid": "Q392"
+      },
+      {
+        "id": "joni-mitchell",
+        "label": "Joni Mitchell",
+        "qid": "Q19660"
+      }
+    ],
+    "correctOptionId": "paul-simon",
+    "explanation": "Paul Simon recorded the album Graceland and became the first recipient of the Library of Congress Gershwin Prize in 2007.",
+    "pathFingerprint": "Q1027822|P175:forward:Q4028|P166:forward:Q2422622",
+    "reviewedAt": "2026-10-12T00:00:00.000Z",
+    "verificationDate": "2026-10-12",
+    "reviewHistory": [
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": null,
+        "to": "under-review",
+        "note": "Selected for bounded Phase 6C batch 4 independent verification."
+      },
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": "under-review",
+        "to": "approved",
+        "note": "Current Wikidata statements, material qualifiers, English Wikipedia links, relationship-specific sources, exact-path uniqueness, prior-registry uniqueness, and three distractors reviewed."
+      }
+    ]
+  },
+  {
+    "id": "ashe-stadium-ashe-medal-freedom",
+    "format": "missing-link",
+    "title": "A stadium honors a champion",
+    "prompt": "Who is the missing link between Arthur Ashe Stadium and the Presidential Medal of Freedom?",
+    "category": "Sports",
+    "status": "approved",
+    "path": [
+      {
+        "qid": "Q609551",
+        "name": "Arthur Ashe Stadium",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Arthur_Ashe_Stadium",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q609551"
+      },
+      {
+        "qid": "Q53325",
+        "name": "Arthur Ashe",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Arthur_Ashe",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q53325"
+      },
+      {
+        "qid": "Q17144",
+        "name": "Presidential Medal of Freedom",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Presidential_Medal_of_Freedom",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q17144"
+      }
+    ],
+    "hiddenNodeIndex": 1,
+    "relationships": [
+      {
+        "propertyId": "P138",
+        "subjectQid": "Q609551",
+        "objectQid": "Q53325",
+        "direction": "forward",
+        "label": "named after",
+        "qualifiers": [],
+        "expectedClaim": "Q609551 P138 Q53325",
+        "evidence": [
+          {
+            "label": "Q609551 P138 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q609551#P138",
+            "kind": "wikidata"
+          },
+          {
+            "label": "Arthur Ashe Stadium",
+            "publisher": "US Open",
+            "url": "https://www.usopen.org/en_US/visit/arthur_ashe_stadium.html",
+            "kind": "supporting"
+          }
+        ]
+      },
+      {
+        "propertyId": "P166",
+        "subjectQid": "Q53325",
+        "objectQid": "Q17144",
+        "direction": "forward",
+        "label": "received award",
+        "qualifiers": [
+          {
+            "propertyId": "P585",
+            "label": "point in time",
+            "value": "1993"
+          }
+        ],
+        "expectedClaim": "Q53325 P166 Q17144",
+        "evidence": [
+          {
+            "label": "Q53325 P166 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q53325#P166",
+            "kind": "wikidata"
+          },
+          {
+            "label": "President presents Medal of Freedom to Ashe",
+            "publisher": "Clinton White House Archives",
+            "url": "https://clintonwhitehouse6.archives.gov/1993/06/1993-06-20-president-presents-medal-of-freedom-to-arthur-ashe.html",
+            "kind": "supporting"
+          }
+        ]
+      }
+    ],
+    "options": [
+      {
+        "id": "arthur-ashe",
+        "label": "Arthur Ashe",
+        "qid": "Q53325"
+      },
+      {
+        "id": "billie-jean-king",
+        "label": "Billie Jean King",
+        "qid": "Q233177"
+      },
+      {
+        "id": "serena-williams",
+        "label": "Serena Williams",
+        "qid": "Q11459"
+      },
+      {
+        "id": "roger-federer",
+        "label": "Roger Federer",
+        "qid": "Q1426"
+      }
+    ],
+    "correctOptionId": "arthur-ashe",
+    "explanation": "The US Open's main stadium is named for tennis champion and activist Arthur Ashe. Ashe received the Presidential Medal of Freedom posthumously in 1993.",
+    "pathFingerprint": "Q609551|P138:forward:Q53325|P166:forward:Q17144",
+    "reviewedAt": "2026-10-12T00:00:00.000Z",
+    "verificationDate": "2026-10-12",
+    "reviewHistory": [
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": null,
+        "to": "under-review",
+        "note": "Selected for bounded Phase 6C batch 4 independent verification."
+      },
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": "under-review",
+        "to": "approved",
+        "note": "Current Wikidata statements, material qualifiers, English Wikipedia links, relationship-specific sources, exact-path uniqueness, prior-registry uniqueness, and three distractors reviewed."
+      }
+    ]
+  },
+  {
+    "id": "maradona-stadium-maradona-napoli",
+    "format": "missing-link",
+    "title": "The player in the stadium's name",
+    "prompt": "Who is the missing link between Stadio Diego Armando Maradona and SSC Napoli?",
+    "category": "Sports",
+    "status": "approved",
+    "path": [
+      {
+        "qid": "Q82709",
+        "name": "Stadio Diego Armando Maradona",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Stadio_Diego_Armando_Maradona",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q82709"
+      },
+      {
+        "qid": "Q17515",
+        "name": "Diego Maradona",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Diego_Maradona",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q17515"
+      },
+      {
+        "qid": "Q2641",
+        "name": "SSC Napoli",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/SSC_Napoli",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q2641"
+      }
+    ],
+    "hiddenNodeIndex": 1,
+    "relationships": [
+      {
+        "propertyId": "P138",
+        "subjectQid": "Q82709",
+        "objectQid": "Q17515",
+        "direction": "forward",
+        "label": "named after",
+        "qualifiers": [
+          {
+            "propertyId": "P580",
+            "label": "name adopted",
+            "value": "4 December 2020"
+          }
+        ],
+        "expectedClaim": "Q82709 P138 Q17515",
+        "evidence": [
+          {
+            "label": "Q82709 P138 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q82709#P138",
+            "kind": "wikidata"
+          },
+          {
+            "label": "Stadium history",
+            "publisher": "SSC Napoli",
+            "url": "https://sscnapoli.it/storia-dello-stadio/",
+            "kind": "supporting"
+          }
+        ]
+      },
+      {
+        "propertyId": "P54",
+        "subjectQid": "Q17515",
+        "objectQid": "Q2641",
+        "direction": "forward",
+        "label": "played for",
+        "qualifiers": [
+          {
+            "propertyId": "P580",
+            "label": "start time",
+            "value": "1984"
+          },
+          {
+            "propertyId": "P582",
+            "label": "end time",
+            "value": "1991"
+          }
+        ],
+        "expectedClaim": "Q17515 P54 Q2641",
+        "evidence": [
+          {
+            "label": "Q17515 P54 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q17515#P54",
+            "kind": "wikidata"
+          },
+          {
+            "label": "Diego Maradona biography",
+            "publisher": "Italian Football Federation",
+            "url": "https://www.figc.it/it/full-html?path=%2Fmuseo-del-calcio%2Fhall-of-fame%2Fle-stelle%2Fdiego-armando-maradona",
+            "kind": "supporting"
+          }
+        ]
+      }
+    ],
+    "options": [
+      {
+        "id": "diego-maradona",
+        "label": "Diego Maradona",
+        "qid": "Q17515"
+      },
+      {
+        "id": "pele",
+        "label": "Pele",
+        "qid": "Q12897"
+      },
+      {
+        "id": "lionel-messi",
+        "label": "Lionel Messi",
+        "qid": "Q615"
+      },
+      {
+        "id": "cristiano-ronaldo",
+        "label": "Cristiano Ronaldo",
+        "qid": "Q11571"
+      }
+    ],
+    "correctOptionId": "diego-maradona",
+    "explanation": "Naples renamed its stadium for Diego Maradona in 2020. Maradona played for Napoli from 1984 to 1991 and led the club to its first two Italian league titles.",
+    "pathFingerprint": "Q82709|P138:forward:Q17515|P54:forward:Q2641",
+    "reviewedAt": "2026-10-12T00:00:00.000Z",
+    "verificationDate": "2026-10-12",
+    "reviewHistory": [
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": null,
+        "to": "under-review",
+        "note": "Selected for bounded Phase 6C batch 4 independent verification."
+      },
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": "under-review",
+        "to": "approved",
+        "note": "Current Wikidata statements, material qualifiers, English Wikipedia links, relationship-specific sources, exact-path uniqueness, prior-registry uniqueness, and three distractors reviewed."
+      }
+    ]
+  },
+  {
+    "id": "madeira-airport-ronaldo-man-united",
+    "format": "missing-link",
+    "title": "From Madeira's runway to Old Trafford",
+    "prompt": "Who is the missing link between Madeira Airport and Manchester United?",
+    "category": "Sports",
+    "status": "approved",
+    "path": [
+      {
+        "qid": "Q639161",
+        "name": "Madeira Airport",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Madeira_Airport",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q639161"
+      },
+      {
+        "qid": "Q11571",
+        "name": "Cristiano Ronaldo",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Cristiano_Ronaldo",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q11571"
+      },
+      {
+        "qid": "Q18656",
+        "name": "Manchester United F.C.",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Manchester_United_F.C.",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q18656"
+      }
+    ],
+    "hiddenNodeIndex": 1,
+    "relationships": [
+      {
+        "propertyId": "P138",
+        "subjectQid": "Q639161",
+        "objectQid": "Q11571",
+        "direction": "forward",
+        "label": "named after",
+        "qualifiers": [
+          {
+            "propertyId": "P580",
+            "label": "name adopted",
+            "value": "29 March 2017"
+          }
+        ],
+        "expectedClaim": "Q639161 P138 Q11571",
+        "evidence": [
+          {
+            "label": "Q639161 P138 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q639161#P138",
+            "kind": "wikidata"
+          },
+          {
+            "label": "Madeira airport naming announcement",
+            "publisher": "Regional Government of Madeira",
+            "url": "https://www.madeira.gov.pt/presidencia/GovernoRegional/OGoverno/Structure/PGR/ctl/Read/mid/7041/InformacaoId/12887/UnidadeOrganicaId/2/CatalogoId/68",
+            "kind": "supporting"
+          }
+        ]
+      },
+      {
+        "propertyId": "P54",
+        "subjectQid": "Q11571",
+        "objectQid": "Q18656",
+        "direction": "forward",
+        "label": "played for",
+        "qualifiers": [
+          {
+            "propertyId": "P580",
+            "label": "first spell began",
+            "value": "2003"
+          },
+          {
+            "propertyId": "P582",
+            "label": "first spell ended",
+            "value": "2009"
+          }
+        ],
+        "expectedClaim": "Q11571 P54 Q18656",
+        "evidence": [
+          {
+            "label": "Q11571 P54 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q11571#P54",
+            "kind": "wikidata"
+          },
+          {
+            "label": "United's World Cup links: Group H",
+            "publisher": "Manchester United",
+            "url": "https://www.manutd.com/en/news/man-utd-links-with-group-h-at-the-2022-world-cup-of-ghana-portugal-south-korea-uruguay",
+            "kind": "supporting"
+          }
+        ]
+      }
+    ],
+    "options": [
+      {
+        "id": "cristiano-ronaldo",
+        "label": "Cristiano Ronaldo",
+        "qid": "Q11571"
+      },
+      {
+        "id": "lionel-messi",
+        "label": "Lionel Messi",
+        "qid": "Q615"
+      },
+      {
+        "id": "neymar",
+        "label": "Neymar",
+        "qid": "Q142794"
+      },
+      {
+        "id": "pele",
+        "label": "Pele",
+        "qid": "Q12897"
+      }
+    ],
+    "correctOptionId": "cristiano-ronaldo",
+    "explanation": "Madeira's airport adopted Cristiano Ronaldo's name in 2017. The Madeira-born forward played two spells for Manchester United, from 2003–2009 and 2021–2022.",
+    "pathFingerprint": "Q639161|P138:forward:Q11571|P54:forward:Q18656",
+    "reviewedAt": "2026-10-12T00:00:00.000Z",
+    "verificationDate": "2026-10-12",
+    "reviewHistory": [
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": null,
+        "to": "under-review",
+        "note": "Selected for bounded Phase 6C batch 4 independent verification."
+      },
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": "under-review",
+        "to": "approved",
+        "note": "Current Wikidata statements, material qualifiers, English Wikipedia links, relationship-specific sources, exact-path uniqueness, prior-registry uniqueness, and three distractors reviewed."
+      }
+    ]
+  },
+  {
+    "id": "turing-award-turing-princeton",
+    "format": "missing-link",
+    "title": "Computing's highest honor and a doctorate",
+    "prompt": "Who is the missing link between the Turing Award and Princeton University?",
+    "category": "Science and innovation",
+    "status": "approved",
+    "path": [
+      {
+        "qid": "Q185667",
+        "name": "Turing Award",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Turing_Award",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q185667"
+      },
+      {
+        "qid": "Q7251",
+        "name": "Alan Turing",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Alan_Turing",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q7251"
+      },
+      {
+        "qid": "Q21578",
+        "name": "Princeton University",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Princeton_University",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q21578"
+      }
+    ],
+    "hiddenNodeIndex": 1,
+    "relationships": [
+      {
+        "propertyId": "P138",
+        "subjectQid": "Q185667",
+        "objectQid": "Q7251",
+        "direction": "forward",
+        "label": "named after",
+        "qualifiers": [],
+        "expectedClaim": "Q185667 P138 Q7251",
+        "evidence": [
+          {
+            "label": "Q185667 P138 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q185667#P138",
+            "kind": "wikidata"
+          },
+          {
+            "label": "About the A.M. Turing Award",
+            "publisher": "Association for Computing Machinery",
+            "url": "https://amturing.acm.org/?pg=awards.html",
+            "kind": "supporting"
+          }
+        ]
+      },
+      {
+        "propertyId": "P69",
+        "subjectQid": "Q7251",
+        "objectQid": "Q21578",
+        "direction": "forward",
+        "label": "educated at",
+        "qualifiers": [
+          {
+            "propertyId": "P582",
+            "label": "doctorate completed",
+            "value": "1938"
+          }
+        ],
+        "expectedClaim": "Q7251 P69 Q21578",
+        "evidence": [
+          {
+            "label": "Q7251 P69 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q7251#P69",
+            "kind": "wikidata"
+          },
+          {
+            "label": "Alan Turing and Princeton",
+            "publisher": "Princeton University Library",
+            "url": "https://manuscripts.blogs.princeton.edu/2015/01/29/alan-m-turing-and-princeton/",
+            "kind": "supporting"
+          }
+        ]
+      }
+    ],
+    "options": [
+      {
+        "id": "alan-turing",
+        "label": "Alan Turing",
+        "qid": "Q7251"
+      },
+      {
+        "id": "john-von-neumann",
+        "label": "John von Neumann",
+        "qid": "Q17455"
+      },
+      {
+        "id": "claude-shannon",
+        "label": "Claude Shannon",
+        "qid": "Q92760"
+      },
+      {
+        "id": "albert-einstein",
+        "label": "Albert Einstein",
+        "qid": "Q937"
+      }
+    ],
+    "correctOptionId": "alan-turing",
+    "explanation": "ACM's highest honor is named for Alan Turing. Turing studied at Princeton from 1936 to 1938 and completed his doctorate there.",
+    "pathFingerprint": "Q185667|P138:forward:Q7251|P69:forward:Q21578",
+    "reviewedAt": "2026-10-12T00:00:00.000Z",
+    "verificationDate": "2026-10-12",
+    "reviewHistory": [
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": null,
+        "to": "under-review",
+        "note": "Selected for bounded Phase 6C batch 4 independent verification."
+      },
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": "under-review",
+        "to": "approved",
+        "note": "Current Wikidata statements, material qualifiers, English Wikipedia links, relationship-specific sources, exact-path uniqueness, prior-registry uniqueness, and three distractors reviewed."
+      }
+    ]
+  },
+  {
+    "id": "salk-institute-salk-pittsburgh",
+    "format": "missing-link",
+    "title": "A vaccine pioneer builds an institute",
+    "prompt": "Who is the missing link between the Salk Institute and the University of Pittsburgh?",
+    "category": "Science and innovation",
+    "status": "approved",
+    "path": [
+      {
+        "qid": "Q1351061",
+        "name": "Salk Institute for Biological Studies",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Salk_Institute_for_Biological_Studies",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q1351061"
+      },
+      {
+        "qid": "Q200101",
+        "name": "Jonas Salk",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Jonas_Salk",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q200101"
+      },
+      {
+        "qid": "Q235034",
+        "name": "University of Pittsburgh",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/University_of_Pittsburgh",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q235034"
+      }
+    ],
+    "hiddenNodeIndex": 1,
+    "relationships": [
+      {
+        "propertyId": "P112",
+        "subjectQid": "Q1351061",
+        "objectQid": "Q200101",
+        "direction": "forward",
+        "label": "founded by",
+        "qualifiers": [],
+        "expectedClaim": "Q1351061 P112 Q200101",
+        "evidence": [
+          {
+            "label": "Q1351061 P112 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q1351061#P112",
+            "kind": "wikidata"
+          },
+          {
+            "label": "About Jonas Salk",
+            "publisher": "Salk Institute",
+            "url": "https://www.salk.edu/about/history-of-salk/jonas-salk/",
+            "kind": "supporting"
+          }
+        ]
+      },
+      {
+        "propertyId": "P108",
+        "subjectQid": "Q200101",
+        "objectQid": "Q235034",
+        "direction": "forward",
+        "label": "worked at",
+        "qualifiers": [],
+        "expectedClaim": "Q200101 P108 Q235034",
+        "evidence": [
+          {
+            "label": "Q200101 P108 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q200101#P108",
+            "kind": "wikidata"
+          },
+          {
+            "label": "About Jonas Salk",
+            "publisher": "Salk Institute",
+            "url": "https://www.salk.edu/about/history-of-salk/jonas-salk/",
+            "kind": "supporting"
+          }
+        ]
+      }
+    ],
+    "options": [
+      {
+        "id": "jonas-salk",
+        "label": "Jonas Salk",
+        "qid": "Q200101"
+      },
+      {
+        "id": "alexander-fleming",
+        "label": "Alexander Fleming",
+        "qid": "Q123913"
+      },
+      {
+        "id": "louis-pasteur",
+        "label": "Louis Pasteur",
+        "qid": "Q52929"
+      },
+      {
+        "id": "edward-jenner",
+        "label": "Edward Jenner",
+        "qid": "Q180691"
+      }
+    ],
+    "correctOptionId": "jonas-salk",
+    "explanation": "Jonas Salk founded the Salk Institute after leading the Virus Research Laboratory at the University of Pittsburgh, where his team developed the first successful polio vaccine.",
+    "pathFingerprint": "Q1351061|P112:forward:Q200101|P108:forward:Q235034",
+    "reviewedAt": "2026-10-12T00:00:00.000Z",
+    "verificationDate": "2026-10-12",
+    "reviewHistory": [
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": null,
+        "to": "under-review",
+        "note": "Selected for bounded Phase 6C batch 4 independent verification."
+      },
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": "under-review",
+        "to": "approved",
+        "note": "Current Wikidata statements, material qualifiers, English Wikipedia links, relationship-specific sources, exact-path uniqueness, prior-registry uniqueness, and three distractors reviewed."
+      }
+    ]
+  },
+  {
+    "id": "franklin-rover-franklin-kings",
+    "format": "missing-link",
+    "title": "A Mars rover remembers a DNA pioneer",
+    "prompt": "Who is the missing link between the Rosalind Franklin rover and King's College London?",
+    "category": "Science and innovation",
+    "status": "approved",
+    "path": [
+      {
+        "qid": "Q3445540",
+        "name": "Rosalind Franklin rover",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Rosalind_Franklin_(rover)",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q3445540"
+      },
+      {
+        "qid": "Q7474",
+        "name": "Rosalind Franklin",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Rosalind_Franklin",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q7474"
+      },
+      {
+        "qid": "Q245247",
+        "name": "King's College London",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/King%27s_College_London",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q245247"
+      }
+    ],
+    "hiddenNodeIndex": 1,
+    "relationships": [
+      {
+        "propertyId": "P138",
+        "subjectQid": "Q3445540",
+        "objectQid": "Q7474",
+        "direction": "forward",
+        "label": "named after",
+        "qualifiers": [],
+        "expectedClaim": "Q3445540 P138 Q7474",
+        "evidence": [
+          {
+            "label": "Q3445540 P138 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q3445540#P138",
+            "kind": "wikidata"
+          },
+          {
+            "label": "ESA's Mars rover has a name",
+            "publisher": "European Space Agency",
+            "url": "https://www.esa.int/Science_Exploration/Human_and_Robotic_Exploration/Exploration/ExoMars/ESA_s_Mars_rover_has_a_name_Rosalind_Franklin",
+            "kind": "supporting"
+          }
+        ]
+      },
+      {
+        "propertyId": "P108",
+        "subjectQid": "Q7474",
+        "objectQid": "Q245247",
+        "direction": "forward",
+        "label": "worked at",
+        "qualifiers": [
+          {
+            "propertyId": "P580",
+            "label": "start time",
+            "value": "1951"
+          },
+          {
+            "propertyId": "P582",
+            "label": "end time",
+            "value": "1953"
+          }
+        ],
+        "expectedClaim": "Q7474 P108 Q245247",
+        "evidence": [
+          {
+            "label": "Q7474 P108 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q7474#P108",
+            "kind": "wikidata"
+          },
+          {
+            "label": "Rosalind Franklin biography",
+            "publisher": "King's College London",
+            "url": "https://www.kcl.ac.uk/people/rosalind-franklin",
+            "kind": "supporting"
+          }
+        ]
+      }
+    ],
+    "options": [
+      {
+        "id": "rosalind-franklin",
+        "label": "Rosalind Franklin",
+        "qid": "Q7474"
+      },
+      {
+        "id": "marie-curie",
+        "label": "Marie Curie",
+        "qid": "Q7186"
+      },
+      {
+        "id": "james-watson",
+        "label": "James Watson",
+        "qid": "Q52896"
+      },
+      {
+        "id": "francis-crick",
+        "label": "Francis Crick",
+        "qid": "Q123022"
+      }
+    ],
+    "correctOptionId": "rosalind-franklin",
+    "explanation": "ESA named its ExoMars rover for chemist Rosalind Franklin. Franklin worked at King's College London from 1951 to 1953, producing crucial X-ray diffraction evidence about DNA.",
+    "pathFingerprint": "Q3445540|P138:forward:Q7474|P108:forward:Q245247",
+    "reviewedAt": "2026-10-12T00:00:00.000Z",
+    "verificationDate": "2026-10-12",
+    "reviewHistory": [
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": null,
+        "to": "under-review",
+        "note": "Selected for bounded Phase 6C batch 4 independent verification."
+      },
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": "under-review",
+        "to": "approved",
+        "note": "Current Wikidata statements, material qualifiers, English Wikipedia links, relationship-specific sources, exact-path uniqueness, prior-registry uniqueness, and three distractors reviewed."
+      }
+    ]
+  },
+  {
+    "id": "erasmus-programme-erasmus-folly",
+    "format": "missing-link",
+    "title": "A scholar behind exchange and satire",
+    "prompt": "Who is the missing link between the Erasmus Programme and In Praise of Folly?",
+    "category": "Geography and culture",
+    "status": "approved",
+    "path": [
+      {
+        "qid": "Q254168",
+        "name": "Erasmus Programme",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Erasmus_Programme",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q254168"
+      },
+      {
+        "qid": "Q43499",
+        "name": "Erasmus",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Erasmus",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q43499"
+      },
+      {
+        "qid": "Q569869",
+        "name": "In Praise of Folly",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/In_Praise_of_Folly",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q569869"
+      }
+    ],
+    "hiddenNodeIndex": 1,
+    "relationships": [
+      {
+        "propertyId": "P138",
+        "subjectQid": "Q254168",
+        "objectQid": "Q43499",
+        "direction": "forward",
+        "label": "named after",
+        "qualifiers": [],
+        "expectedClaim": "Q254168 P138 Q43499",
+        "evidence": [
+          {
+            "label": "Q254168 P138 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q254168#P138",
+            "kind": "wikidata"
+          },
+          {
+            "label": "Erasmus programme history",
+            "publisher": "European Commission",
+            "url": "https://erasmus-plus.ec.europa.eu/about-erasmus/history-funding-and-future",
+            "kind": "supporting"
+          }
+        ]
+      },
+      {
+        "propertyId": "P50",
+        "subjectQid": "Q569869",
+        "objectQid": "Q43499",
+        "direction": "reverse",
+        "label": "author of",
+        "qualifiers": [],
+        "expectedClaim": "Q569869 P50 Q43499 (displayed in reverse)",
+        "evidence": [
+          {
+            "label": "Q569869 P50 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q569869#P50",
+            "kind": "wikidata"
+          },
+          {
+            "label": "In Praise of Folly",
+            "publisher": "Encyclopaedia Britannica",
+            "url": "https://www.britannica.com/topic/Praise-of-Folly-by-Erasmus",
+            "kind": "supporting"
+          }
+        ]
+      }
+    ],
+    "options": [
+      {
+        "id": "erasmus",
+        "label": "Erasmus",
+        "qid": "Q43499"
+      },
+      {
+        "id": "thomas-more",
+        "label": "Thomas More",
+        "qid": "Q7198"
+      },
+      {
+        "id": "martin-luther",
+        "label": "Martin Luther",
+        "qid": "Q7322"
+      },
+      {
+        "id": "voltaire",
+        "label": "Voltaire",
+        "qid": "Q5879"
+      }
+    ],
+    "correctOptionId": "erasmus",
+    "explanation": "Europe's Erasmus exchange programme is named for the Renaissance humanist Erasmus of Rotterdam. Erasmus wrote the satirical essay In Praise of Folly in 1509.",
+    "pathFingerprint": "Q254168|P138:forward:Q43499|P50:reverse:Q569869",
+    "reviewedAt": "2026-10-12T00:00:00.000Z",
+    "verificationDate": "2026-10-12",
+    "reviewHistory": [
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": null,
+        "to": "under-review",
+        "note": "Selected for bounded Phase 6C batch 4 independent verification."
+      },
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": "under-review",
+        "to": "approved",
+        "note": "Current Wikidata statements, material qualifiers, English Wikipedia links, relationship-specific sources, exact-path uniqueness, prior-registry uniqueness, and three distractors reviewed."
+      }
+    ]
   }
 ]
