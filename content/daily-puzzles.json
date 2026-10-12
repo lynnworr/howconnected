@@ -1301,7 +1301,7 @@
           {
             "label": "Alphabet 2015 annual report",
             "publisher": "Alphabet",
-              "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204416000012/goog10-k2015.htm",
+            "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204416000012/goog10-k2015.htm",
             "kind": "supporting"
           }
         ]
@@ -1330,7 +1330,7 @@
           {
             "label": "Alphabet 2015 annual report",
             "publisher": "Alphabet",
-              "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204416000012/goog10-k2015.htm",
+            "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204416000012/goog10-k2015.htm",
             "kind": "supporting"
           }
         ]
@@ -2348,6 +2348,2287 @@
         "from": null,
         "to": "under-review",
         "note": "Selected for bounded Phase 6C batch 1 independent verification."
+      },
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": "under-review",
+        "to": "approved",
+        "note": "Current Wikidata statements, qualifiers, English Wikipedia links, independent supporting sources, path uniqueness, and three distractors reviewed."
+      }
+    ]
+  },
+  {
+    "id": "linux-torvalds-git",
+    "format": "missing-link",
+    "title": "One creator, two foundations",
+    "prompt": "Who is the missing link between Linux and Git?",
+    "category": "Technology",
+    "status": "approved",
+    "path": [
+      {
+        "qid": "Q14579",
+        "name": "Linux kernel",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Linux_kernel",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q14579"
+      },
+      {
+        "qid": "Q34253",
+        "name": "Linus Torvalds",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Linus_Torvalds",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q34253"
+      },
+      {
+        "qid": "Q186055",
+        "name": "Git",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Git",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q186055"
+      }
+    ],
+    "hiddenNodeIndex": 1,
+    "relationships": [
+      {
+        "propertyId": "P178",
+        "subjectQid": "Q14579",
+        "objectQid": "Q34253",
+        "direction": "forward",
+        "label": "developed by",
+        "qualifiers": [],
+        "expectedClaim": "Q14579 P178 Q34253",
+        "evidence": [
+          {
+            "label": "Q14579 P178 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q14579#P178",
+            "kind": "wikidata"
+          },
+          {
+            "label": "A Short History of Git",
+            "publisher": "Git",
+            "url": "https://git-scm.com/book/en/v2/Getting-Started-A-Short-History-of-Git",
+            "kind": "supporting"
+          }
+        ]
+      },
+      {
+        "propertyId": "P178",
+        "subjectQid": "Q186055",
+        "objectQid": "Q34253",
+        "direction": "reverse",
+        "label": "developer of",
+        "qualifiers": [
+          {
+            "propertyId": "P580",
+            "label": "start time",
+            "value": "8 April 2005"
+          },
+          {
+            "propertyId": "P582",
+            "label": "end time",
+            "value": "2005"
+          }
+        ],
+        "expectedClaim": "Q186055 P178 Q34253, qualified by P580 2005-04-08 and P582 2005 (displayed in reverse)",
+        "evidence": [
+          {
+            "label": "Q186055 P178 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q186055#P178",
+            "kind": "wikidata"
+          },
+          {
+            "label": "A Short History of Git",
+            "publisher": "Git",
+            "url": "https://git-scm.com/book/en/v2/Getting-Started-A-Short-History-of-Git",
+            "kind": "supporting"
+          }
+        ]
+      }
+    ],
+    "options": [
+      {
+        "id": "linus-torvalds",
+        "label": "Linus Torvalds",
+        "qid": "Q34253"
+      },
+      {
+        "id": "richard-stallman",
+        "label": "Richard Stallman",
+        "qid": "Q7439"
+      },
+      {
+        "id": "ken-thompson",
+        "label": "Ken Thompson",
+        "qid": "Q1107006"
+      },
+      {
+        "id": "brian-kernighan",
+        "label": "Brian Kernighan",
+        "qid": "Q92608"
+      }
+    ],
+    "correctOptionId": "linus-torvalds",
+    "explanation": "Linus Torvalds created Linux and, when the kernel community needed a new distributed version-control tool in 2005, initiated Git. One developer therefore anchors both a landmark operating-system kernel and the tool used to coordinate much of modern software development.",
+    "pathFingerprint": "Q14579|P178:forward:Q34253|P178:reverse:Q186055",
+    "reviewedAt": "2026-10-12T00:00:00.000Z",
+    "verificationDate": "2026-10-12",
+    "reviewHistory": [
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": null,
+        "to": "under-review",
+        "note": "Selected for bounded Phase 6C batch 2 independent verification."
+      },
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": "under-review",
+        "to": "approved",
+        "note": "Current Wikidata statements, qualifiers, English Wikipedia links, independent supporting sources, path uniqueness, and three distractors reviewed."
+      }
+    ]
+  },
+  {
+    "id": "python-rossum-microsoft",
+    "format": "missing-link",
+    "title": "Python's later chapter",
+    "prompt": "Who is the missing link between Python and Microsoft?",
+    "category": "Technology",
+    "status": "approved",
+    "path": [
+      {
+        "qid": "Q28865",
+        "name": "Python",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Python_(programming_language)",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q28865"
+      },
+      {
+        "qid": "Q30942",
+        "name": "Guido van Rossum",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Guido_van_Rossum",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q30942"
+      },
+      {
+        "qid": "Q2283",
+        "name": "Microsoft",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Microsoft",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q2283"
+      }
+    ],
+    "hiddenNodeIndex": 1,
+    "relationships": [
+      {
+        "propertyId": "P178",
+        "subjectQid": "Q28865",
+        "objectQid": "Q30942",
+        "direction": "forward",
+        "label": "created by",
+        "qualifiers": [],
+        "expectedClaim": "Q28865 P178 Q30942",
+        "evidence": [
+          {
+            "label": "Q28865 P178 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q28865#P178",
+            "kind": "wikidata"
+          },
+          {
+            "label": "How people behind well-known technologies are shaping AI at Microsoft",
+            "publisher": "Microsoft",
+            "url": "https://news.microsoft.com/source/features/innovation/how-6-people-behind-well-known-technologies-are-shaping-ai-at-microsoft/",
+            "kind": "supporting"
+          }
+        ]
+      },
+      {
+        "propertyId": "P108",
+        "subjectQid": "Q30942",
+        "objectQid": "Q2283",
+        "direction": "forward",
+        "label": "worked at",
+        "qualifiers": [
+          {
+            "propertyId": "P580",
+            "label": "start time",
+            "value": "November 2020"
+          }
+        ],
+        "expectedClaim": "Q30942 P108 Q2283, qualified by P580 2020-11",
+        "evidence": [
+          {
+            "label": "Q30942 P108 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q30942#P108",
+            "kind": "wikidata"
+          },
+          {
+            "label": "How people behind well-known technologies are shaping AI at Microsoft",
+            "publisher": "Microsoft",
+            "url": "https://news.microsoft.com/source/features/innovation/how-6-people-behind-well-known-technologies-are-shaping-ai-at-microsoft/",
+            "kind": "supporting"
+          }
+        ]
+      }
+    ],
+    "options": [
+      {
+        "id": "guido-van-rossum",
+        "label": "Guido van Rossum",
+        "qid": "Q30942"
+      },
+      {
+        "id": "james-gosling",
+        "label": "James Gosling",
+        "qid": "Q92622"
+      },
+      {
+        "id": "brendan-eich",
+        "label": "Brendan Eich",
+        "qid": "Q92648"
+      },
+      {
+        "id": "bjarne-stroustrup",
+        "label": "Bjarne Stroustrup",
+        "qid": "Q92620"
+      }
+    ],
+    "correctOptionId": "guido-van-rossum",
+    "explanation": "Guido van Rossum invented Python and joined Microsoft in 2020. At Microsoft he continued work on Python performance before moving into AI-related engineering, connecting the language's origins to a later corporate chapter.",
+    "pathFingerprint": "Q28865|P178:forward:Q30942|P108:forward:Q2283",
+    "reviewedAt": "2026-10-12T00:00:00.000Z",
+    "verificationDate": "2026-10-12",
+    "reviewHistory": [
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": null,
+        "to": "under-review",
+        "note": "Selected for bounded Phase 6C batch 2 independent verification."
+      },
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": "under-review",
+        "to": "approved",
+        "note": "Current Wikidata statements, qualifiers, English Wikipedia links, independent supporting sources, path uniqueness, and three distractors reviewed."
+      }
+    ]
+  },
+  {
+    "id": "air-jordan-nike-phil-knight",
+    "format": "missing-link",
+    "title": "From signature shoe to founder",
+    "prompt": "Which company is the missing link between Air Jordan and Phil Knight?",
+    "category": "Business",
+    "status": "approved",
+    "path": [
+      {
+        "qid": "Q420953",
+        "name": "Air Jordan",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Air_Jordan",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q420953"
+      },
+      {
+        "qid": "Q483915",
+        "name": "Nike",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Nike,_Inc.",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q483915"
+      },
+      {
+        "qid": "Q557305",
+        "name": "Phil Knight",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Phil_Knight",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q557305"
+      }
+    ],
+    "hiddenNodeIndex": 1,
+    "relationships": [
+      {
+        "propertyId": "P127",
+        "subjectQid": "Q420953",
+        "objectQid": "Q483915",
+        "direction": "forward",
+        "label": "historically owned by",
+        "qualifiers": [
+          {
+            "propertyId": "P580",
+            "label": "start time",
+            "value": "1985"
+          },
+          {
+            "propertyId": "P582",
+            "label": "end time",
+            "value": "1997"
+          }
+        ],
+        "expectedClaim": "Q420953 P127 Q483915, qualified by P580 1985 and P582 1997",
+        "evidence": [
+          {
+            "label": "Q420953 P127 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q420953#P127",
+            "kind": "wikidata"
+          },
+          {
+            "label": "How the Air Jordan 1 sparked a sneaker revolution",
+            "publisher": "Nike",
+            "url": "https://www.nike.com/a/air-jordan-banned-history/",
+            "kind": "supporting"
+          }
+        ]
+      },
+      {
+        "propertyId": "P112",
+        "subjectQid": "Q483915",
+        "objectQid": "Q557305",
+        "direction": "forward",
+        "label": "co-founded by",
+        "qualifiers": [],
+        "expectedClaim": "Q483915 P112 Q557305",
+        "evidence": [
+          {
+            "label": "Q483915 P112 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q483915#P112",
+            "kind": "wikidata"
+          },
+          {
+            "label": "Phil Knight, Chairman Emeritus",
+            "publisher": "Nike",
+            "url": "https://about.nike.com/en/company/people/philip-h-knight",
+            "kind": "supporting"
+          }
+        ]
+      }
+    ],
+    "options": [
+      {
+        "id": "nike",
+        "label": "Nike",
+        "qid": "Q483915"
+      },
+      {
+        "id": "adidas",
+        "label": "Adidas",
+        "qid": "Q3895"
+      },
+      {
+        "id": "reebok",
+        "label": "Reebok",
+        "qid": "Q466183"
+      },
+      {
+        "id": "converse",
+        "label": "Converse",
+        "qid": "Q319515"
+      }
+    ],
+    "correctOptionId": "nike",
+    "explanation": "Wikidata's Air Jordan ownership statement links the line to Nike for 1985–1997, the period in which it grew from a signature shoe into a cultural franchise. Phil Knight co-founded Nike; the dated qualifier is essential and this puzzle does not claim that the same ownership statement is unbounded today.",
+    "pathFingerprint": "Q420953|P127:forward:Q483915|P112:forward:Q557305",
+    "reviewedAt": "2026-10-12T00:00:00.000Z",
+    "verificationDate": "2026-10-12",
+    "reviewHistory": [
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": null,
+        "to": "under-review",
+        "note": "Selected for bounded Phase 6C batch 2 independent verification."
+      },
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": "under-review",
+        "to": "approved",
+        "note": "Current Wikidata statements, qualifiers, English Wikipedia links, independent supporting sources, path uniqueness, and three distractors reviewed."
+      }
+    ]
+  },
+  {
+    "id": "paypal-thiel-palantir",
+    "format": "missing-link",
+    "title": "A founder across fintech and data",
+    "prompt": "Who is the missing link between PayPal and Palantir Technologies?",
+    "category": "Business",
+    "status": "approved",
+    "path": [
+      {
+        "qid": "Q483959",
+        "name": "PayPal",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/PayPal",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q483959"
+      },
+      {
+        "qid": "Q705525",
+        "name": "Peter Thiel",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Peter_Thiel",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q705525"
+      },
+      {
+        "qid": "Q2047336",
+        "name": "Palantir Technologies",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Palantir",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q2047336"
+      }
+    ],
+    "hiddenNodeIndex": 1,
+    "relationships": [
+      {
+        "propertyId": "P112",
+        "subjectQid": "Q483959",
+        "objectQid": "Q705525",
+        "direction": "forward",
+        "label": "co-founded by",
+        "qualifiers": [],
+        "expectedClaim": "Q483959 P112 Q705525",
+        "evidence": [
+          {
+            "label": "Q483959 P112 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q483959#P112",
+            "kind": "wikidata"
+          },
+          {
+            "label": "Palantir profile: Peter Thiel, PayPal co-founder",
+            "publisher": "Palantir",
+            "url": "https://www.palantir.com/assets/xrfr7uokpv1b/7gAv31itTL8WJ9ytHX7rJy/68238b407b8f2e9c6c86bcf77a127ee9/11809_Tel_Palantir_22042023_A.pdf",
+            "kind": "supporting"
+          }
+        ]
+      },
+      {
+        "propertyId": "P112",
+        "subjectQid": "Q2047336",
+        "objectQid": "Q705525",
+        "direction": "reverse",
+        "label": "co-founder of",
+        "qualifiers": [],
+        "expectedClaim": "Q2047336 P112 Q705525 (displayed in reverse)",
+        "evidence": [
+          {
+            "label": "Q2047336 P112 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q2047336#P112",
+            "kind": "wikidata"
+          },
+          {
+            "label": "Palantir profile: Peter Thiel, PayPal co-founder",
+            "publisher": "Palantir",
+            "url": "https://www.palantir.com/assets/xrfr7uokpv1b/7gAv31itTL8WJ9ytHX7rJy/68238b407b8f2e9c6c86bcf77a127ee9/11809_Tel_Palantir_22042023_A.pdf",
+            "kind": "supporting"
+          }
+        ]
+      }
+    ],
+    "options": [
+      {
+        "id": "peter-thiel",
+        "label": "Peter Thiel",
+        "qid": "Q705525"
+      },
+      {
+        "id": "elon-musk",
+        "label": "Elon Musk",
+        "qid": "Q317521"
+      },
+      {
+        "id": "max-levchin",
+        "label": "Max Levchin",
+        "qid": "Q93014"
+      },
+      {
+        "id": "reid-hoffman",
+        "label": "Reid Hoffman",
+        "qid": "Q211098"
+      }
+    ],
+    "correctOptionId": "peter-thiel",
+    "explanation": "Peter Thiel co-founded PayPal and later co-founded Palantir Technologies. The link traces how experience with online-payment fraud helped inform a new company built around analysis of complex data.",
+    "pathFingerprint": "Q483959|P112:forward:Q705525|P112:reverse:Q2047336",
+    "reviewedAt": "2026-10-12T00:00:00.000Z",
+    "verificationDate": "2026-10-12",
+    "reviewHistory": [
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": null,
+        "to": "under-review",
+        "note": "Selected for bounded Phase 6C batch 2 independent verification."
+      },
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": "under-review",
+        "to": "approved",
+        "note": "Current Wikidata statements, qualifiers, English Wikipedia links, independent supporting sources, path uniqueness, and three distractors reviewed."
+      }
+    ]
+  },
+  {
+    "id": "jolene-dolly-dollywood",
+    "format": "missing-link",
+    "title": "A song and a Smoky Mountains park",
+    "prompt": "Who is the missing link between “Jolene” and Dollywood?",
+    "category": "Music",
+    "status": "approved",
+    "path": [
+      {
+        "qid": "Q1573997",
+        "name": "Jolene",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Jolene",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q1573997"
+      },
+      {
+        "qid": "Q180453",
+        "name": "Dolly Parton",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Dolly_Parton",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q180453"
+      },
+      {
+        "qid": "Q530744",
+        "name": "Dollywood",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Dollywood",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q530744"
+      }
+    ],
+    "hiddenNodeIndex": 1,
+    "relationships": [
+      {
+        "propertyId": "P175",
+        "subjectQid": "Q1573997",
+        "objectQid": "Q180453",
+        "direction": "forward",
+        "label": "performed by",
+        "qualifiers": [
+          {
+            "propertyId": "P10663",
+            "label": "recording of performance",
+            "value": "Q64903177"
+          },
+          {
+            "propertyId": "P577",
+            "label": "publication date",
+            "value": "September 1973"
+          }
+        ],
+        "expectedClaim": "Q1573997 P175 Q180453, original recording qualified by P10663 Q64903177 and P577 1973-09",
+        "evidence": [
+          {
+            "label": "Q1573997 P175 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q1573997#P175",
+            "kind": "wikidata"
+          },
+          {
+            "label": "Dolly Parton biography",
+            "publisher": "Dolly Parton",
+            "url": "https://www.dollyparton.com/bio",
+            "kind": "supporting"
+          }
+        ]
+      },
+      {
+        "propertyId": "P127",
+        "subjectQid": "Q530744",
+        "objectQid": "Q180453",
+        "direction": "reverse",
+        "label": "owner of",
+        "qualifiers": [
+          {
+            "propertyId": "P580",
+            "label": "start time",
+            "value": "1986"
+          }
+        ],
+        "expectedClaim": "Q530744 P127 Q180453, qualified by P580 1986 (displayed in reverse)",
+        "evidence": [
+          {
+            "label": "Q530744 P127 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q530744#P127",
+            "kind": "wikidata"
+          },
+          {
+            "label": "Dolly Parton destinations",
+            "publisher": "Dolly Parton",
+            "url": "https://www.dollyparton.com/destinations",
+            "kind": "supporting"
+          }
+        ]
+      }
+    ],
+    "options": [
+      {
+        "id": "dolly-parton",
+        "label": "Dolly Parton",
+        "qid": "Q180453"
+      },
+      {
+        "id": "loretta-lynn",
+        "label": "Loretta Lynn",
+        "qid": "Q272931"
+      },
+      {
+        "id": "emmylou-harris",
+        "label": "Emmylou Harris",
+        "qid": "Q231286"
+      },
+      {
+        "id": "reba-mcentire",
+        "label": "Reba McEntire",
+        "qid": "Q229430"
+      }
+    ],
+    "correctOptionId": "dolly-parton",
+    "explanation": "Dolly Parton recorded “Jolene” in 1973 and opened Dollywood in 1986. The connection joins one of her defining songs to the Tennessee attraction through which she invested in her home region.",
+    "pathFingerprint": "Q1573997|P175:forward:Q180453|P127:reverse:Q530744",
+    "reviewedAt": "2026-10-12T00:00:00.000Z",
+    "verificationDate": "2026-10-12",
+    "reviewHistory": [
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": null,
+        "to": "under-review",
+        "note": "Selected for bounded Phase 6C batch 2 independent verification."
+      },
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": "under-review",
+        "to": "approved",
+        "note": "Current Wikidata statements, qualifiers, English Wikipedia links, independent supporting sources, path uniqueness, and three distractors reviewed."
+      }
+    ]
+  },
+  {
+    "id": "rolling-stone-dylan-nobel-literature",
+    "format": "missing-link",
+    "title": "A song to a literary laureate",
+    "prompt": "Who is the missing link between “Like a Rolling Stone” and the Nobel Prize in Literature?",
+    "category": "Music",
+    "status": "approved",
+    "path": [
+      {
+        "qid": "Q214430",
+        "name": "Like a Rolling Stone",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Like_a_Rolling_Stone",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q214430"
+      },
+      {
+        "qid": "Q392",
+        "name": "Bob Dylan",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Bob_Dylan",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q392"
+      },
+      {
+        "qid": "Q37922",
+        "name": "Nobel Prize in Literature",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Nobel_Prize_in_Literature",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q37922"
+      }
+    ],
+    "hiddenNodeIndex": 1,
+    "relationships": [
+      {
+        "propertyId": "P175",
+        "subjectQid": "Q214430",
+        "objectQid": "Q392",
+        "direction": "forward",
+        "label": "performed by",
+        "qualifiers": [
+          {
+            "propertyId": "P10663",
+            "label": "recording of performance",
+            "value": "Q109984238"
+          },
+          {
+            "propertyId": "P577",
+            "label": "publication date",
+            "value": "June 1965"
+          }
+        ],
+        "expectedClaim": "Q214430 P175 Q392, original recording qualified by P10663 Q109984238 and P577 1965-06",
+        "evidence": [
+          {
+            "label": "Q214430 P175 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q214430#P175",
+            "kind": "wikidata"
+          },
+          {
+            "label": "Bob Dylan Nobel biobibliography",
+            "publisher": "Nobel Prize",
+            "url": "https://www.nobelprize.org/uploads/2018/06/bio-bibl-39.pdf",
+            "kind": "supporting"
+          }
+        ]
+      },
+      {
+        "propertyId": "P166",
+        "subjectQid": "Q392",
+        "objectQid": "Q37922",
+        "direction": "forward",
+        "label": "received award",
+        "qualifiers": [
+          {
+            "propertyId": "P585",
+            "label": "point in time",
+            "value": "2016"
+          }
+        ],
+        "expectedClaim": "Q392 P166 Q37922, qualified by P585 2016",
+        "evidence": [
+          {
+            "label": "Q392 P166 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q392#P166",
+            "kind": "wikidata"
+          },
+          {
+            "label": "The Nobel Prize in Literature 2016",
+            "publisher": "Nobel Prize",
+            "url": "https://www.nobelprize.org/prizes/literature/2016/summary/",
+            "kind": "supporting"
+          }
+        ]
+      }
+    ],
+    "options": [
+      {
+        "id": "bob-dylan",
+        "label": "Bob Dylan",
+        "qid": "Q392"
+      },
+      {
+        "id": "paul-simon",
+        "label": "Paul Simon",
+        "qid": "Q4028"
+      },
+      {
+        "id": "leonard-cohen",
+        "label": "Leonard Cohen",
+        "qid": "Q1276"
+      },
+      {
+        "id": "bruce-springsteen",
+        "label": "Bruce Springsteen",
+        "qid": "Q1225"
+      }
+    ],
+    "correctOptionId": "bob-dylan",
+    "explanation": "Bob Dylan performed “Like a Rolling Stone” and received the 2016 Nobel Prize in Literature. The award recognized the poetic expressions he created within the American song tradition, making a landmark recording part of a broader literary legacy.",
+    "pathFingerprint": "Q214430|P175:forward:Q392|P166:forward:Q37922",
+    "reviewedAt": "2026-10-12T00:00:00.000Z",
+    "verificationDate": "2026-10-12",
+    "reviewHistory": [
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": null,
+        "to": "under-review",
+        "note": "Selected for bounded Phase 6C batch 2 independent verification."
+      },
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": "under-review",
+        "to": "approved",
+        "note": "Current Wikidata statements, qualifiers, English Wikipedia links, independent supporting sources, path uniqueness, and three distractors reviewed."
+      }
+    ]
+  },
+  {
+    "id": "hamilton-miranda-moana",
+    "format": "missing-link",
+    "title": "Broadway meets the Pacific",
+    "prompt": "Who is the missing link between Hamilton and Moana?",
+    "category": "Entertainment and film",
+    "status": "approved",
+    "path": [
+      {
+        "qid": "Q19320959",
+        "name": "Hamilton",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Hamilton_(musical)",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q19320959"
+      },
+      {
+        "qid": "Q1646482",
+        "name": "Lin-Manuel Miranda",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Lin-Manuel_Miranda",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q1646482"
+      },
+      {
+        "qid": "Q18647981",
+        "name": "Moana",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Moana_(2016_film)",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q18647981"
+      }
+    ],
+    "hiddenNodeIndex": 1,
+    "relationships": [
+      {
+        "propertyId": "P86",
+        "subjectQid": "Q19320959",
+        "objectQid": "Q1646482",
+        "direction": "forward",
+        "label": "music by",
+        "qualifiers": [],
+        "expectedClaim": "Q19320959 P86 Q1646482",
+        "evidence": [
+          {
+            "label": "Q19320959 P86 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q19320959#P86",
+            "kind": "wikidata"
+          },
+          {
+            "label": "Hamilton",
+            "publisher": "Disney",
+            "url": "https://movies.disney.com/hamilton",
+            "kind": "supporting"
+          }
+        ]
+      },
+      {
+        "propertyId": "P86",
+        "subjectQid": "Q18647981",
+        "objectQid": "Q1646482",
+        "direction": "reverse",
+        "label": "composer for",
+        "qualifiers": [
+          {
+            "propertyId": "P518",
+            "label": "applies to part",
+            "value": "songs (Q7366)"
+          }
+        ],
+        "expectedClaim": "Q18647981 P86 Q1646482, qualified by P518 Q7366 (displayed in reverse)",
+        "evidence": [
+          {
+            "label": "Q18647981 P86 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q18647981#P86",
+            "kind": "wikidata"
+          },
+          {
+            "label": "Disney's Moana",
+            "publisher": "Lin-Manuel Miranda",
+            "url": "https://www.linmanuel.com/project/moana/",
+            "kind": "supporting"
+          }
+        ]
+      }
+    ],
+    "options": [
+      {
+        "id": "lin-manuel-miranda",
+        "label": "Lin-Manuel Miranda",
+        "qid": "Q1646482"
+      },
+      {
+        "id": "alan-menken",
+        "label": "Alan Menken",
+        "qid": "Q317272"
+      },
+      {
+        "id": "robert-lopez",
+        "label": "Robert Lopez",
+        "qid": "Q3435778"
+      },
+      {
+        "id": "stephen-sondheim",
+        "label": "Stephen Sondheim",
+        "qid": "Q153579"
+      }
+    ],
+    "correctOptionId": "lin-manuel-miranda",
+    "explanation": "Lin-Manuel Miranda wrote Hamilton's book, music, and lyrics, then contributed original songs to Disney's Moana. His work connects a history-changing stage musical with an animated voyage rooted in Pacific storytelling.",
+    "pathFingerprint": "Q19320959|P86:forward:Q1646482|P86:reverse:Q18647981",
+    "reviewedAt": "2026-10-12T00:00:00.000Z",
+    "verificationDate": "2026-10-12",
+    "reviewHistory": [
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": null,
+        "to": "under-review",
+        "note": "Selected for bounded Phase 6C batch 2 independent verification."
+      },
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": "under-review",
+        "to": "approved",
+        "note": "Current Wikidata statements, qualifiers, English Wikipedia links, independent supporting sources, path uniqueness, and three distractors reviewed."
+      }
+    ]
+  },
+  {
+    "id": "eiffel-tower-eiffel-statue-liberty",
+    "format": "missing-link",
+    "title": "Iron inside two icons",
+    "prompt": "Who is the missing link between the Eiffel Tower and the Statue of Liberty?",
+    "category": "Literature and art",
+    "status": "approved",
+    "path": [
+      {
+        "qid": "Q243",
+        "name": "Eiffel Tower",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Eiffel_Tower",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q243"
+      },
+      {
+        "qid": "Q20882",
+        "name": "Gustave Eiffel",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Gustave_Eiffel",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q20882"
+      },
+      {
+        "qid": "Q9202",
+        "name": "Statue of Liberty",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Statue_of_Liberty",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q9202"
+      }
+    ],
+    "hiddenNodeIndex": 1,
+    "relationships": [
+      {
+        "propertyId": "P138",
+        "subjectQid": "Q243",
+        "objectQid": "Q20882",
+        "direction": "forward",
+        "label": "named after",
+        "qualifiers": [],
+        "expectedClaim": "Q243 P138 Q20882",
+        "evidence": [
+          {
+            "label": "Q243 P138 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q243#P138",
+            "kind": "wikidata"
+          },
+          {
+            "label": "Alexandre-Gustave Eiffel",
+            "publisher": "U.S. National Park Service",
+            "url": "https://home.nps.gov/stli/learn/historyculture/alexandre-gustave-eiffel.htm",
+            "kind": "supporting"
+          }
+        ]
+      },
+      {
+        "propertyId": "P800",
+        "subjectQid": "Q20882",
+        "objectQid": "Q9202",
+        "direction": "forward",
+        "label": "notable work",
+        "qualifiers": [
+          {
+            "propertyId": "P585",
+            "label": "point in time",
+            "value": "1884"
+          }
+        ],
+        "expectedClaim": "Q20882 P800 Q9202, qualified by P585 1884",
+        "evidence": [
+          {
+            "label": "Q20882 P800 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q20882#P800",
+            "kind": "wikidata"
+          },
+          {
+            "label": "Alexandre-Gustave Eiffel",
+            "publisher": "U.S. National Park Service",
+            "url": "https://home.nps.gov/stli/learn/historyculture/alexandre-gustave-eiffel.htm",
+            "kind": "supporting"
+          }
+        ]
+      }
+    ],
+    "options": [
+      {
+        "id": "gustave-eiffel",
+        "label": "Gustave Eiffel",
+        "qid": "Q20882"
+      },
+      {
+        "id": "frederic-auguste-bartholdi",
+        "label": "Frédéric Auguste Bartholdi",
+        "qid": "Q223274"
+      },
+      {
+        "id": "stephen-sauvestre",
+        "label": "Stéphen Sauvestre",
+        "qid": "Q778243"
+      },
+      {
+        "id": "eugene-viollet-le-duc",
+        "label": "Eugène Viollet-le-Duc",
+        "qid": "Q272912"
+      }
+    ],
+    "correctOptionId": "gustave-eiffel",
+    "explanation": "The Eiffel Tower bears Gustave Eiffel's name, and Eiffel designed the Statue of Liberty's internal iron support system. The two monuments look very different, but both depend on his structural engineering.",
+    "pathFingerprint": "Q243|P138:forward:Q20882|P800:forward:Q9202",
+    "reviewedAt": "2026-10-12T00:00:00.000Z",
+    "verificationDate": "2026-10-12",
+    "reviewHistory": [
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": null,
+        "to": "under-review",
+        "note": "Selected for bounded Phase 6C batch 2 independent verification."
+      },
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": "under-review",
+        "to": "approved",
+        "note": "Current Wikidata statements, qualifiers, English Wikipedia links, independent supporting sources, path uniqueness, and three distractors reviewed."
+      }
+    ]
+  },
+  {
+    "id": "frankenstein-shelley-wollstonecraft",
+    "format": "missing-link",
+    "title": "A literary family line",
+    "prompt": "Who is the missing link between Frankenstein and Mary Wollstonecraft?",
+    "category": "Literature and art",
+    "status": "approved",
+    "path": [
+      {
+        "qid": "Q150827",
+        "name": "Frankenstein",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Frankenstein",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q150827"
+      },
+      {
+        "qid": "Q47152",
+        "name": "Mary Shelley",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Mary_Shelley",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q47152"
+      },
+      {
+        "qid": "Q101638",
+        "name": "Mary Wollstonecraft",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Mary_Wollstonecraft",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q101638"
+      }
+    ],
+    "hiddenNodeIndex": 1,
+    "relationships": [
+      {
+        "propertyId": "P50",
+        "subjectQid": "Q150827",
+        "objectQid": "Q47152",
+        "direction": "forward",
+        "label": "written by",
+        "qualifiers": [],
+        "expectedClaim": "Q150827 P50 Q47152",
+        "evidence": [
+          {
+            "label": "Q150827 P50 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q150827#P50",
+            "kind": "wikidata"
+          },
+          {
+            "label": "Mary Shelley's Frankenstein",
+            "publisher": "British Library",
+            "url": "https://www.britishlibrary.cn/en/works/frankenstein/",
+            "kind": "supporting"
+          }
+        ]
+      },
+      {
+        "propertyId": "P25",
+        "subjectQid": "Q47152",
+        "objectQid": "Q101638",
+        "direction": "forward",
+        "label": "mother",
+        "qualifiers": [],
+        "expectedClaim": "Q47152 P25 Q101638",
+        "evidence": [
+          {
+            "label": "Q47152 P25 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q47152#P25",
+            "kind": "wikidata"
+          },
+          {
+            "label": "Mary Shelley",
+            "publisher": "British Library",
+            "url": "https://www.britishlibrary.cn/en/authors/mary-shelley/",
+            "kind": "supporting"
+          }
+        ]
+      }
+    ],
+    "options": [
+      {
+        "id": "mary-shelley",
+        "label": "Mary Shelley",
+        "qid": "Q47152"
+      },
+      {
+        "id": "percy-bysshe-shelley",
+        "label": "Percy Bysshe Shelley",
+        "qid": "Q93343"
+      },
+      {
+        "id": "lord-byron",
+        "label": "Lord Byron",
+        "qid": "Q5679"
+      },
+      {
+        "id": "claire-clairmont",
+        "label": "Claire Clairmont",
+        "qid": "Q460066"
+      }
+    ],
+    "correctOptionId": "mary-shelley",
+    "explanation": "Mary Shelley wrote Frankenstein and was the daughter of the pioneering writer Mary Wollstonecraft. Wollstonecraft died days after Mary's birth, but her intellectual legacy remained central to the world in which Shelley became an author.",
+    "pathFingerprint": "Q150827|P50:forward:Q47152|P25:forward:Q101638",
+    "reviewedAt": "2026-10-12T00:00:00.000Z",
+    "verificationDate": "2026-10-12",
+    "reviewHistory": [
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": null,
+        "to": "under-review",
+        "note": "Selected for bounded Phase 6C batch 2 independent verification."
+      },
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": "under-review",
+        "to": "approved",
+        "note": "Current Wikidata statements, qualifiers, English Wikipedia links, independent supporting sources, path uniqueness, and three distractors reviewed."
+      }
+    ]
+  },
+  {
+    "id": "little-prince-saint-exupery-aeropostale",
+    "format": "missing-link",
+    "title": "The aviator behind a prince",
+    "prompt": "Who is the missing link between The Little Prince and Aéropostale?",
+    "category": "Literature and art",
+    "status": "approved",
+    "path": [
+      {
+        "qid": "Q25338",
+        "name": "The Little Prince",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/The_Little_Prince",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q25338"
+      },
+      {
+        "qid": "Q2908",
+        "name": "Antoine de Saint-Exupéry",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Antoine_de_Saint-Exupéry",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q2908"
+      },
+      {
+        "qid": "Q2723467",
+        "name": "Aéropostale",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Aéropostale_(aviation)",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q2723467"
+      }
+    ],
+    "hiddenNodeIndex": 1,
+    "relationships": [
+      {
+        "propertyId": "P50",
+        "subjectQid": "Q25338",
+        "objectQid": "Q2908",
+        "direction": "forward",
+        "label": "written by",
+        "qualifiers": [],
+        "expectedClaim": "Q25338 P50 Q2908",
+        "evidence": [
+          {
+            "label": "Q25338 P50 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q25338#P50",
+            "kind": "wikidata"
+          },
+          {
+            "label": "The work of Antoine de Saint-Exupéry",
+            "publisher": "Antoine de Saint-Exupéry estate",
+            "url": "https://www.antoinedesaintexupery.org/oeuvre/",
+            "kind": "supporting"
+          }
+        ]
+      },
+      {
+        "propertyId": "P108",
+        "subjectQid": "Q2908",
+        "objectQid": "Q2723467",
+        "direction": "forward",
+        "label": "worked for",
+        "qualifiers": [
+          {
+            "propertyId": "P580",
+            "label": "start time",
+            "value": "1926"
+          },
+          {
+            "propertyId": "P582",
+            "label": "end time",
+            "value": "1936"
+          }
+        ],
+        "expectedClaim": "Q2908 P108 Q2723467, qualified by P580 1926 and P582 1936",
+        "evidence": [
+          {
+            "label": "Q2908 P108 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q2908#P108",
+            "kind": "wikidata"
+          },
+          {
+            "label": "About The Little Prince",
+            "publisher": "Antoine de Saint-Exupéry estate",
+            "url": "https://www.blog.lepetitprince.com/a-propos/",
+            "kind": "supporting"
+          }
+        ]
+      }
+    ],
+    "options": [
+      {
+        "id": "antoine-de-saint-exupery",
+        "label": "Antoine de Saint-Exupéry",
+        "qid": "Q2908"
+      },
+      {
+        "id": "jean-mermoz",
+        "label": "Jean Mermoz",
+        "qid": "Q680897"
+      },
+      {
+        "id": "albert-camus",
+        "label": "Albert Camus",
+        "qid": "Q34670"
+      },
+      {
+        "id": "joseph-kessel",
+        "label": "Joseph Kessel",
+        "qid": "Q356537"
+      }
+    ],
+    "correctOptionId": "antoine-de-saint-exupery",
+    "explanation": "Antoine de Saint-Exupéry wrote The Little Prince and flew mail routes for Aéropostale. His experience as an aviator—including desert danger and isolation—fed the imaginative and philosophical world of his best-known book.",
+    "pathFingerprint": "Q25338|P50:forward:Q2908|P108:forward:Q2723467",
+    "reviewedAt": "2026-10-12T00:00:00.000Z",
+    "verificationDate": "2026-10-12",
+    "reviewHistory": [
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": null,
+        "to": "under-review",
+        "note": "Selected for bounded Phase 6C batch 2 independent verification."
+      },
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": "under-review",
+        "to": "approved",
+        "note": "Current Wikidata statements, qualifiers, English Wikipedia links, independent supporting sources, path uniqueness, and three distractors reviewed."
+      }
+    ]
+  },
+  {
+    "id": "march-washington-king-nobel-peace",
+    "format": "missing-link",
+    "title": "From a march to Oslo",
+    "prompt": "Who is the missing link between the March on Washington and the Nobel Peace Prize?",
+    "category": "History and politics",
+    "status": "approved",
+    "path": [
+      {
+        "qid": "Q1128871",
+        "name": "March on Washington for Jobs and Freedom",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/March_on_Washington",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q1128871"
+      },
+      {
+        "qid": "Q8027",
+        "name": "Martin Luther King Jr.",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Martin_Luther_King_Jr.",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q8027"
+      },
+      {
+        "qid": "Q35637",
+        "name": "Nobel Peace Prize",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Nobel_Peace_Prize",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q35637"
+      }
+    ],
+    "hiddenNodeIndex": 1,
+    "relationships": [
+      {
+        "propertyId": "P793",
+        "subjectQid": "Q8027",
+        "objectQid": "Q1128871",
+        "direction": "reverse",
+        "label": "participant",
+        "qualifiers": [],
+        "expectedClaim": "Q8027 P793 Q1128871 (displayed in reverse)",
+        "evidence": [
+          {
+            "label": "Q8027 P793 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q8027#P793",
+            "kind": "wikidata"
+          },
+          {
+            "label": "King chronology",
+            "publisher": "Martin Luther King Jr. Research and Education Institute",
+            "url": "https://kinginstitute.stanford.edu/king-resources/king-encyclopedia/chronology",
+            "kind": "supporting"
+          }
+        ]
+      },
+      {
+        "propertyId": "P166",
+        "subjectQid": "Q8027",
+        "objectQid": "Q35637",
+        "direction": "forward",
+        "label": "received award",
+        "qualifiers": [
+          {
+            "propertyId": "P585",
+            "label": "point in time",
+            "value": "1964"
+          }
+        ],
+        "expectedClaim": "Q8027 P166 Q35637, qualified by P585 1964",
+        "evidence": [
+          {
+            "label": "Q8027 P166 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q8027#P166",
+            "kind": "wikidata"
+          },
+          {
+            "label": "Nobel Peace Prize",
+            "publisher": "Martin Luther King Jr. Research and Education Institute",
+            "url": "https://kinginstitute.stanford.edu/nobel-peace-prize",
+            "kind": "supporting"
+          }
+        ]
+      }
+    ],
+    "options": [
+      {
+        "id": "martin-luther-king-jr",
+        "label": "Martin Luther King Jr.",
+        "qid": "Q8027"
+      },
+      {
+        "id": "a-philip-randolph",
+        "label": "A. Philip Randolph",
+        "qid": "Q720153"
+      },
+      {
+        "id": "bayard-rustin",
+        "label": "Bayard Rustin",
+        "qid": "Q187930"
+      },
+      {
+        "id": "malcolm-x",
+        "label": "Malcolm X",
+        "qid": "Q43303"
+      }
+    ],
+    "correctOptionId": "martin-luther-king-jr",
+    "explanation": "Martin Luther King Jr. spoke at the 1963 March on Washington and received the Nobel Peace Prize the following year. The path links a defining public demonstration of the civil-rights movement to international recognition of King's nonviolent leadership.",
+    "pathFingerprint": "Q1128871|P793:reverse:Q8027|P166:forward:Q35637",
+    "reviewedAt": "2026-10-12T00:00:00.000Z",
+    "verificationDate": "2026-10-12",
+    "reviewHistory": [
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": null,
+        "to": "under-review",
+        "note": "Selected for bounded Phase 6C batch 2 independent verification."
+      },
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": "under-review",
+        "to": "approved",
+        "note": "Current Wikidata statements, qualifiers, English Wikipedia links, independent supporting sources, path uniqueness, and three distractors reviewed."
+      }
+    ]
+  },
+  {
+    "id": "cuban-crisis-kennedy-pulitzer-biography",
+    "format": "missing-link",
+    "title": "A president, a crisis, and a prize",
+    "prompt": "Who is the missing link between the Cuban Missile Crisis and the Pulitzer Prize for Biography?",
+    "category": "History and politics",
+    "status": "approved",
+    "path": [
+      {
+        "qid": "Q128160",
+        "name": "Cuban Missile Crisis",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Cuban_Missile_Crisis",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q128160"
+      },
+      {
+        "qid": "Q9696",
+        "name": "John F. Kennedy",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/John_F._Kennedy",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q9696"
+      },
+      {
+        "qid": "Q285117",
+        "name": "Pulitzer Prize for Biography",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Pulitzer_Prize_for_Biography",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q285117"
+      }
+    ],
+    "hiddenNodeIndex": 1,
+    "relationships": [
+      {
+        "propertyId": "P793",
+        "subjectQid": "Q9696",
+        "objectQid": "Q128160",
+        "direction": "reverse",
+        "label": "participant",
+        "qualifiers": [],
+        "expectedClaim": "Q9696 P793 Q128160 (displayed in reverse)",
+        "evidence": [
+          {
+            "label": "Q9696 P793 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q9696#P793",
+            "kind": "wikidata"
+          },
+          {
+            "label": "Cuban Missile Crisis records",
+            "publisher": "John F. Kennedy Presidential Library",
+            "url": "https://www.jfklibrary.org/learn/about-jfk/jfk-in-history/cuban-missile-crisis",
+            "kind": "supporting"
+          }
+        ]
+      },
+      {
+        "propertyId": "P166",
+        "subjectQid": "Q9696",
+        "objectQid": "Q285117",
+        "direction": "forward",
+        "label": "received award",
+        "qualifiers": [
+          {
+            "propertyId": "P585",
+            "label": "point in time",
+            "value": "1957"
+          },
+          {
+            "propertyId": "P1686",
+            "label": "for work",
+            "value": "Profiles in Courage (Q206795)"
+          }
+        ],
+        "expectedClaim": "Q9696 P166 Q285117, qualified by P585 1957 and P1686 Q206795",
+        "evidence": [
+          {
+            "label": "Q9696 P166 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q9696#P166",
+            "kind": "wikidata"
+          },
+          {
+            "label": "Profiles in Courage",
+            "publisher": "John F. Kennedy Presidential Library",
+            "url": "https://store.jfklibrary.org/products/sample-product-5",
+            "kind": "supporting"
+          }
+        ]
+      }
+    ],
+    "options": [
+      {
+        "id": "john-f-kennedy",
+        "label": "John F. Kennedy",
+        "qid": "Q9696"
+      },
+      {
+        "id": "nikita-khrushchev",
+        "label": "Nikita Khrushchev",
+        "qid": "Q35314"
+      },
+      {
+        "id": "robert-f-kennedy",
+        "label": "Robert F. Kennedy",
+        "qid": "Q25310"
+      },
+      {
+        "id": "ted-sorensen",
+        "label": "Ted Sorensen",
+        "qid": "Q518197"
+      }
+    ],
+    "correctOptionId": "john-f-kennedy",
+    "explanation": "John F. Kennedy led the United States during the Cuban Missile Crisis and had earlier received the 1957 Pulitzer Prize for Profiles in Courage. The connection juxtaposes the president's most dangerous international confrontation with his award-winning study of political courage.",
+    "pathFingerprint": "Q128160|P793:reverse:Q9696|P166:forward:Q285117",
+    "reviewedAt": "2026-10-12T00:00:00.000Z",
+    "verificationDate": "2026-10-12",
+    "reviewHistory": [
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": null,
+        "to": "under-review",
+        "note": "Selected for bounded Phase 6C batch 2 independent verification."
+      },
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": "under-review",
+        "to": "approved",
+        "note": "Current Wikidata statements, qualifiers, English Wikipedia links, independent supporting sources, path uniqueness, and three distractors reviewed."
+      }
+    ]
+  },
+  {
+    "id": "hubble-telescope-hubble-chicago",
+    "format": "missing-link",
+    "title": "A telescope's academic namesake",
+    "prompt": "Who is the missing link between the Hubble Space Telescope and the University of Chicago?",
+    "category": "Science and innovation",
+    "status": "approved",
+    "path": [
+      {
+        "qid": "Q2513",
+        "name": "Hubble Space Telescope",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Hubble_Space_Telescope",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q2513"
+      },
+      {
+        "qid": "Q43027",
+        "name": "Edwin Hubble",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Edwin_Hubble",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q43027"
+      },
+      {
+        "qid": "Q131252",
+        "name": "University of Chicago",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/University_of_Chicago",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q131252"
+      }
+    ],
+    "hiddenNodeIndex": 1,
+    "relationships": [
+      {
+        "propertyId": "P138",
+        "subjectQid": "Q2513",
+        "objectQid": "Q43027",
+        "direction": "forward",
+        "label": "named after",
+        "qualifiers": [
+          {
+            "propertyId": "P585",
+            "label": "point in time",
+            "value": "1983"
+          }
+        ],
+        "expectedClaim": "Q2513 P138 Q43027, qualified by P585 1983",
+        "evidence": [
+          {
+            "label": "Q2513 P138 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q2513#P138",
+            "kind": "wikidata"
+          },
+          {
+            "label": "Two Hubbles Achieve Great Heights",
+            "publisher": "NASA",
+            "url": "https://science.nasa.gov/missions/hubble/nasa-two-hubbles-achieve-great-heights/",
+            "kind": "supporting"
+          }
+        ]
+      },
+      {
+        "propertyId": "P69",
+        "subjectQid": "Q43027",
+        "objectQid": "Q131252",
+        "direction": "forward",
+        "label": "educated at",
+        "qualifiers": [],
+        "expectedClaim": "Q43027 P69 Q131252",
+        "evidence": [
+          {
+            "label": "Q43027 P69 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q43027#P69",
+            "kind": "wikidata"
+          },
+          {
+            "label": "Two Hubbles Achieve Great Heights",
+            "publisher": "NASA",
+            "url": "https://science.nasa.gov/missions/hubble/nasa-two-hubbles-achieve-great-heights/",
+            "kind": "supporting"
+          }
+        ]
+      }
+    ],
+    "options": [
+      {
+        "id": "edwin-hubble",
+        "label": "Edwin Hubble",
+        "qid": "Q43027"
+      },
+      {
+        "id": "carl-sagan",
+        "label": "Carl Sagan",
+        "qid": "Q410"
+      },
+      {
+        "id": "subrahmanyan-chandrasekhar",
+        "label": "Subrahmanyan Chandrasekhar",
+        "qid": "Q148109"
+      },
+      {
+        "id": "neil-armstrong",
+        "label": "Neil Armstrong",
+        "qid": "Q1615"
+      }
+    ],
+    "correctOptionId": "edwin-hubble",
+    "explanation": "NASA named the Hubble Space Telescope for astronomer Edwin Hubble, who earned his bachelor's degree and later his doctorate at the University of Chicago. The observatory's name therefore points back to the institution where Hubble trained.",
+    "pathFingerprint": "Q2513|P138:forward:Q43027|P69:forward:Q131252",
+    "reviewedAt": "2026-10-12T00:00:00.000Z",
+    "verificationDate": "2026-10-12",
+    "reviewHistory": [
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": null,
+        "to": "under-review",
+        "note": "Selected for bounded Phase 6C batch 2 independent verification."
+      },
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": "under-review",
+        "to": "approved",
+        "note": "Current Wikidata statements, qualifiers, English Wikipedia links, independent supporting sources, path uniqueness, and three distractors reviewed."
+      }
+    ]
+  },
+  {
+    "id": "halley-comet-halley-royal-society",
+    "format": "missing-link",
+    "title": "A predicted return",
+    "prompt": "Who is the missing link between Halley's Comet and the Royal Society?",
+    "category": "Science and innovation",
+    "status": "approved",
+    "path": [
+      {
+        "qid": "Q23054",
+        "name": "Halley's Comet",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Halley%27s_Comet",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q23054"
+      },
+      {
+        "qid": "Q47434",
+        "name": "Edmond Halley",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Edmond_Halley",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q47434"
+      },
+      {
+        "qid": "Q123885",
+        "name": "Royal Society",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Royal_Society",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q123885"
+      }
+    ],
+    "hiddenNodeIndex": 1,
+    "relationships": [
+      {
+        "propertyId": "P138",
+        "subjectQid": "Q23054",
+        "objectQid": "Q47434",
+        "direction": "forward",
+        "label": "named after",
+        "qualifiers": [],
+        "expectedClaim": "Q23054 P138 Q47434",
+        "evidence": [
+          {
+            "label": "Q23054 P138 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q23054#P138",
+            "kind": "wikidata"
+          },
+          {
+            "label": "Magnetic Halley",
+            "publisher": "Royal Society",
+            "url": "https://royalsociety.org/blog/2023/10/magnetic-halley/",
+            "kind": "supporting"
+          }
+        ]
+      },
+      {
+        "propertyId": "P463",
+        "subjectQid": "Q47434",
+        "objectQid": "Q123885",
+        "direction": "forward",
+        "label": "member of",
+        "qualifiers": [
+          {
+            "propertyId": "P580",
+            "label": "start time",
+            "value": "30 November 1678"
+          }
+        ],
+        "expectedClaim": "Q47434 P463 Q123885, qualified by P580 1678-11-30",
+        "evidence": [
+          {
+            "label": "Q47434 P463 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q47434#P463",
+            "kind": "wikidata"
+          },
+          {
+            "label": "Magnetic Halley",
+            "publisher": "Royal Society",
+            "url": "https://royalsociety.org/blog/2023/10/magnetic-halley/",
+            "kind": "supporting"
+          }
+        ]
+      }
+    ],
+    "options": [
+      {
+        "id": "edmond-halley",
+        "label": "Edmond Halley",
+        "qid": "Q47434"
+      },
+      {
+        "id": "isaac-newton",
+        "label": "Isaac Newton",
+        "qid": "Q935"
+      },
+      {
+        "id": "robert-hooke",
+        "label": "Robert Hooke",
+        "qid": "Q46830"
+      },
+      {
+        "id": "john-flamsteed",
+        "label": "John Flamsteed",
+        "qid": "Q242388"
+      }
+    ],
+    "correctOptionId": "edmond-halley",
+    "explanation": "Halley's Comet is named for Edmond Halley, who calculated its orbit and predicted its return. Halley had been elected a Fellow of the Royal Society in 1678, decades before the comet returned as he forecast.",
+    "pathFingerprint": "Q23054|P138:forward:Q47434|P463:forward:Q123885",
+    "reviewedAt": "2026-10-12T00:00:00.000Z",
+    "verificationDate": "2026-10-12",
+    "reviewHistory": [
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": null,
+        "to": "under-review",
+        "note": "Selected for bounded Phase 6C batch 2 independent verification."
+      },
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": "under-review",
+        "to": "approved",
+        "note": "Current Wikidata statements, qualifiers, English Wikipedia links, independent supporting sources, path uniqueness, and three distractors reviewed."
+      }
+    ]
+  },
+  {
+    "id": "black-panther-boseman-42",
+    "format": "missing-link",
+    "title": "A hero and a history-maker",
+    "prompt": "Who is the missing link between Black Panther and 42?",
+    "category": "Entertainment and film",
+    "status": "approved",
+    "path": [
+      {
+        "qid": "Q23780734",
+        "name": "Black Panther",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Black_Panther_(film)",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q23780734"
+      },
+      {
+        "qid": "Q5066520",
+        "name": "Chadwick Boseman",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Chadwick_Boseman",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q5066520"
+      },
+      {
+        "qid": "Q3599091",
+        "name": "42",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/42_(film)",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q3599091"
+      }
+    ],
+    "hiddenNodeIndex": 1,
+    "relationships": [
+      {
+        "propertyId": "P161",
+        "subjectQid": "Q23780734",
+        "objectQid": "Q5066520",
+        "direction": "forward",
+        "label": "cast member",
+        "qualifiers": [
+          {
+            "propertyId": "P453",
+            "label": "character role",
+            "value": "T'Challa (Q24004885)"
+          },
+          {
+            "propertyId": "P4633",
+            "label": "name of character role",
+            "value": "T’Challa/Black Panther"
+          },
+          {
+            "propertyId": "P1545",
+            "label": "series ordinal",
+            "value": "1"
+          }
+        ],
+        "expectedClaim": "Q23780734 P161 Q5066520, qualified by P453 Q24004885, P4633 T’Challa/Black Panther, and P1545 1",
+        "evidence": [
+          {
+            "label": "Q23780734 P161 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q23780734#P161",
+            "kind": "wikidata"
+          },
+          {
+            "label": "Black Panther cast",
+            "publisher": "Marvel",
+            "url": "https://www.marvel.com/articles/movies/sterling-k-brown-signs-on-to-marvel-s-black-panther",
+            "kind": "supporting"
+          }
+        ]
+      },
+      {
+        "propertyId": "P161",
+        "subjectQid": "Q3599091",
+        "objectQid": "Q5066520",
+        "direction": "reverse",
+        "label": "cast member in",
+        "qualifiers": [
+          {
+            "propertyId": "P453",
+            "label": "character role",
+            "value": "Jackie Robinson (Q221048)"
+          },
+          {
+            "propertyId": "P4633",
+            "label": "name of character role",
+            "value": "Jackie Robinson"
+          }
+        ],
+        "expectedClaim": "Q3599091 P161 Q5066520, qualified by P453 Q221048 and P4633 Jackie Robinson (displayed in reverse)",
+        "evidence": [
+          {
+            "label": "Q3599091 P161 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q3599091#P161",
+            "kind": "wikidata"
+          },
+          {
+            "label": "Chadwick Boseman tribute",
+            "publisher": "Marvel",
+            "url": "https://www.marvel.com/articles/movies/chadwick-boseman-special-tribute-for-a-king",
+            "kind": "supporting"
+          }
+        ]
+      }
+    ],
+    "options": [
+      {
+        "id": "chadwick-boseman",
+        "label": "Chadwick Boseman",
+        "qid": "Q5066520"
+      },
+      {
+        "id": "michael-b-jordan",
+        "label": "Michael B. Jordan",
+        "qid": "Q3308007"
+      },
+      {
+        "id": "lupita-nyong-o",
+        "label": "Lupita Nyong'o",
+        "qid": "Q3840847"
+      },
+      {
+        "id": "danai-gurira",
+        "label": "Danai Gurira",
+        "qid": "Q636653"
+      }
+    ],
+    "correctOptionId": "chadwick-boseman",
+    "explanation": "Chadwick Boseman played T'Challa in Black Panther and Jackie Robinson in 42. The pairing highlights two of his defining screen roles: a fictional African king and a real athlete who broke Major League Baseball's color barrier.",
+    "pathFingerprint": "Q23780734|P161:forward:Q5066520|P161:reverse:Q3599091",
+    "reviewedAt": "2026-10-12T00:00:00.000Z",
+    "verificationDate": "2026-10-12",
+    "reviewHistory": [
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": null,
+        "to": "under-review",
+        "note": "Selected for bounded Phase 6C batch 2 independent verification."
+      },
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": "under-review",
+        "to": "approved",
+        "note": "Current Wikidata statements, qualifiers, English Wikipedia links, independent supporting sources, path uniqueness, and three distractors reviewed."
+      }
+    ]
+  },
+  {
+    "id": "spirited-away-miyazaki-ghibli",
+    "format": "missing-link",
+    "title": "The filmmaker behind the bathhouse",
+    "prompt": "Who is the missing link between Spirited Away and Studio Ghibli?",
+    "category": "Entertainment and film",
+    "status": "approved",
+    "path": [
+      {
+        "qid": "Q155653",
+        "name": "Spirited Away",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Spirited_Away",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q155653"
+      },
+      {
+        "qid": "Q55400",
+        "name": "Hayao Miyazaki",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Hayao_Miyazaki",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q55400"
+      },
+      {
+        "qid": "Q182950",
+        "name": "Studio Ghibli",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Studio_Ghibli",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q182950"
+      }
+    ],
+    "hiddenNodeIndex": 1,
+    "relationships": [
+      {
+        "propertyId": "P57",
+        "subjectQid": "Q155653",
+        "objectQid": "Q55400",
+        "direction": "forward",
+        "label": "directed by",
+        "qualifiers": [],
+        "expectedClaim": "Q155653 P57 Q55400",
+        "evidence": [
+          {
+            "label": "Q155653 P57 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q155653#P57",
+            "kind": "wikidata"
+          },
+          {
+            "label": "Spirited Away",
+            "publisher": "Studio Ghibli",
+            "url": "https://studioghibli.jp/films/spirited-away/",
+            "kind": "supporting"
+          }
+        ]
+      },
+      {
+        "propertyId": "P112",
+        "subjectQid": "Q182950",
+        "objectQid": "Q55400",
+        "direction": "reverse",
+        "label": "co-founder of",
+        "qualifiers": [],
+        "expectedClaim": "Q182950 P112 Q55400 (displayed in reverse)",
+        "evidence": [
+          {
+            "label": "Q182950 P112 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q182950#P112",
+            "kind": "wikidata"
+          },
+          {
+            "label": "Hayao Miyazaki",
+            "publisher": "Studio Ghibli",
+            "url": "https://studioghibli.jp/directors/hayao-miyazaki/",
+            "kind": "supporting"
+          }
+        ]
+      }
+    ],
+    "options": [
+      {
+        "id": "hayao-miyazaki",
+        "label": "Hayao Miyazaki",
+        "qid": "Q55400"
+      },
+      {
+        "id": "isao-takahata",
+        "label": "Isao Takahata",
+        "qid": "Q178713"
+      },
+      {
+        "id": "toshio-suzuki",
+        "label": "Toshio Suzuki",
+        "qid": "Q713511"
+      },
+      {
+        "id": "mamoru-hosoda",
+        "label": "Mamoru Hosoda",
+        "qid": "Q720771"
+      }
+    ],
+    "correctOptionId": "hayao-miyazaki",
+    "explanation": "Hayao Miyazaki directed Spirited Away and helped establish Studio Ghibli in 1985. The film became one of the studio's defining works, bringing Miyazaki's imagined spirit world to a global audience.",
+    "pathFingerprint": "Q155653|P57:forward:Q55400|P112:reverse:Q182950",
+    "reviewedAt": "2026-10-12T00:00:00.000Z",
+    "verificationDate": "2026-10-12",
+    "reviewHistory": [
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": null,
+        "to": "under-review",
+        "note": "Selected for bounded Phase 6C batch 2 independent verification."
+      },
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": "under-review",
+        "to": "approved",
+        "note": "Current Wikidata statements, qualifiers, English Wikipedia links, independent supporting sources, path uniqueness, and three distractors reviewed."
+      }
+    ]
+  },
+  {
+    "id": "senna-ayrton-mclaren",
+    "format": "missing-link",
+    "title": "A racing life on film",
+    "prompt": "Who is the missing link between Senna and McLaren?",
+    "category": "Sports",
+    "status": "approved",
+    "path": [
+      {
+        "qid": "Q534785",
+        "name": "Senna",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Senna_(film)",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q534785"
+      },
+      {
+        "qid": "Q10490",
+        "name": "Ayrton Senna",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Ayrton_Senna",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q10490"
+      },
+      {
+        "qid": "Q172030",
+        "name": "McLaren",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/McLaren",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q172030"
+      }
+    ],
+    "hiddenNodeIndex": 1,
+    "relationships": [
+      {
+        "propertyId": "P921",
+        "subjectQid": "Q534785",
+        "objectQid": "Q10490",
+        "direction": "forward",
+        "label": "main subject",
+        "qualifiers": [],
+        "expectedClaim": "Q534785 P921 Q10490",
+        "evidence": [
+          {
+            "label": "Q534785 P921 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q534785#P921",
+            "kind": "wikidata"
+          },
+          {
+            "label": "McLaren at the movies: Senna",
+            "publisher": "McLaren",
+            "url": "https://www.mclaren.com/racing/heritage/mclaren-at-the-movies/",
+            "kind": "supporting"
+          }
+        ]
+      },
+      {
+        "propertyId": "P54",
+        "subjectQid": "Q10490",
+        "objectQid": "Q172030",
+        "direction": "forward",
+        "label": "raced for",
+        "qualifiers": [
+          {
+            "propertyId": "P580",
+            "label": "start time",
+            "value": "1 January 1988"
+          },
+          {
+            "propertyId": "P582",
+            "label": "end time",
+            "value": "1 January 1993"
+          },
+          {
+            "propertyId": "P3438",
+            "label": "season",
+            "value": "Q172621, Q172532, Q48772120, Q172674, Q172669, Q172698"
+          }
+        ],
+        "expectedClaim": "Q10490 P54 Q172030, qualified by P580 1988-01-01, P582 1993-01-01, and six P3438 season values",
+        "evidence": [
+          {
+            "label": "Q10490 P54 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q10490#P54",
+            "kind": "wikidata"
+          },
+          {
+            "label": "McLaren's Formula 1 champions",
+            "publisher": "McLaren",
+            "url": "https://www.mclaren.com/racing/heritage/mclarens-formula-1-champions/",
+            "kind": "supporting"
+          }
+        ]
+      }
+    ],
+    "options": [
+      {
+        "id": "ayrton-senna",
+        "label": "Ayrton Senna",
+        "qid": "Q10490"
+      },
+      {
+        "id": "alain-prost",
+        "label": "Alain Prost",
+        "qid": "Q10494"
+      },
+      {
+        "id": "lewis-hamilton",
+        "label": "Lewis Hamilton",
+        "qid": "Q9673"
+      },
+      {
+        "id": "michael-schumacher",
+        "label": "Michael Schumacher",
+        "qid": "Q9671"
+      }
+    ],
+    "correctOptionId": "ayrton-senna",
+    "explanation": "The documentary Senna centers on Ayrton Senna, whose six seasons with McLaren produced three Formula One world championships. The film's archival racing story is inseparable from the team behind many of his greatest drives.",
+    "pathFingerprint": "Q534785|P921:forward:Q10490|P54:forward:Q172030",
+    "reviewedAt": "2026-10-12T00:00:00.000Z",
+    "verificationDate": "2026-10-12",
+    "reviewHistory": [
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": null,
+        "to": "under-review",
+        "note": "Selected for bounded Phase 6C batch 2 independent verification."
+      },
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": "under-review",
+        "to": "approved",
+        "note": "Current Wikidata statements, qualifiers, English Wikipedia links, independent supporting sources, path uniqueness, and three distractors reviewed."
+      }
+    ]
+  },
+  {
+    "id": "oprah-show-winfrey-own",
+    "format": "missing-link",
+    "title": "A host builds a network",
+    "prompt": "Who is the missing link between The Oprah Winfrey Show and OWN?",
+    "category": "Business",
+    "status": "approved",
+    "path": [
+      {
+        "qid": "Q694106",
+        "name": "The Oprah Winfrey Show",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/The_Oprah_Winfrey_Show",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q694106"
+      },
+      {
+        "qid": "Q55800",
+        "name": "Oprah Winfrey",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Oprah_Winfrey",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q55800"
+      },
+      {
+        "qid": "Q2573619",
+        "name": "OWN",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Oprah_Winfrey_Network",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q2573619"
+      }
+    ],
+    "hiddenNodeIndex": 1,
+    "relationships": [
+      {
+        "propertyId": "P371",
+        "subjectQid": "Q694106",
+        "objectQid": "Q55800",
+        "direction": "forward",
+        "label": "presented by",
+        "qualifiers": [],
+        "expectedClaim": "Q694106 P371 Q55800",
+        "evidence": [
+          {
+            "label": "Q694106 P371 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q694106#P371",
+            "kind": "wikidata"
+          },
+          {
+            "label": "Oprah Winfrey biography",
+            "publisher": "ABC",
+            "url": "https://www.dgepress.com/abc/bios/oprah-winfrey/",
+            "kind": "supporting"
+          }
+        ]
+      },
+      {
+        "propertyId": "P112",
+        "subjectQid": "Q2573619",
+        "objectQid": "Q55800",
+        "direction": "reverse",
+        "label": "co-founder of",
+        "qualifiers": [],
+        "expectedClaim": "Q2573619 P112 Q55800 (displayed in reverse)",
+        "evidence": [
+          {
+            "label": "Q2573619 P112 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q2573619#P112",
+            "kind": "wikidata"
+          },
+          {
+            "label": "About OWN",
+            "publisher": "Warner Bros. Discovery",
+            "url": "https://press.wbd.com/us/brands/own",
+            "kind": "supporting"
+          }
+        ]
+      }
+    ],
+    "options": [
+      {
+        "id": "oprah-winfrey",
+        "label": "Oprah Winfrey",
+        "qid": "Q55800"
+      },
+      {
+        "id": "gayle-king",
+        "label": "Gayle King",
+        "qid": "Q5528805"
+      },
+      {
+        "id": "ellen-degeneres",
+        "label": "Ellen DeGeneres",
+        "qid": "Q483325"
+      },
+      {
+        "id": "phil-donahue",
+        "label": "Phil Donahue",
+        "qid": "Q1336253"
+      }
+    ],
+    "correctOptionId": "oprah-winfrey",
+    "explanation": "Oprah Winfrey hosted and produced The Oprah Winfrey Show for 25 years and then co-created OWN as a joint venture through Harpo. The path follows her move from a defining program to a network built around a broader media vision.",
+    "pathFingerprint": "Q694106|P371:forward:Q55800|P112:reverse:Q2573619",
+    "reviewedAt": "2026-10-12T00:00:00.000Z",
+    "verificationDate": "2026-10-12",
+    "reviewHistory": [
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": null,
+        "to": "under-review",
+        "note": "Selected for bounded Phase 6C batch 2 independent verification."
       },
       {
         "at": "2026-10-12T00:00:00.000Z",

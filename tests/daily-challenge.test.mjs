@@ -10,7 +10,7 @@ import {
 
 test("approved Missing Link registry validates exact paths, evidence, links, and distractors", () => {
   assert.deepEqual(validateDailyPuzzleRegistry(), []);
-  assert.equal(MISSING_LINK_PUZZLES.length, 19);
+  assert.equal(MISSING_LINK_PUZZLES.length, 37);
   const puzzle = MISSING_LINK_PUZZLES[0];
   assert.equal(puzzle.id, "web-berners-lee-cern");
   assert.equal(puzzle.options.length, 4);
@@ -20,7 +20,20 @@ test("approved Missing Link registry validates exact paths, evidence, links, and
   assert.ok(puzzle.path.every((node) => node.wikipediaUrl?.startsWith("https://en.wikipedia.org/wiki/")));
   assert.ok(MISSING_LINK_PUZZLES.every((item) => item.status === "approved"));
   assert.ok(MISSING_LINK_PUZZLES.every((item) => item.schedulePosition === undefined && item.scheduledDate === undefined));
-  assert.equal(new Set(MISSING_LINK_PUZZLES.map((item) => item.path[1].qid)).size, 19);
+  assert.equal(new Set(MISSING_LINK_PUZZLES.map((item) => item.path[1].qid)).size, 37);
+});
+
+test("Phase 6C batch 2 audit accounts for every approval, rejection, source, qualifier review, and distractor", async () => {
+  const audit = JSON.parse(await readFile(new URL("../content/daily-batch-2-review.json", import.meta.url), "utf8"));
+  assert.deepEqual(audit.counts, { candidates: 20, approved: 18, rejected: 2, priorApproved: 19, cumulativeApproved: 37, remainingTo100: 63, scheduled: 0 });
+  assert.equal(audit.candidates.length, 20);
+  assert.equal(audit.candidates.filter((item) => item.decision === "approved").length, 18);
+  assert.deepEqual(audit.candidates.filter((item) => item.decision === "rejected").map((item) => item.id).sort(), ["berkshire-buffett-giving-pledge", "blind-side-oher-ravens"]);
+  assert.ok(audit.candidates.every((item) => item.exactPath && item.reason && item.qualifierConcerns && item.sourceEvidence.length >= 2));
+  assert.ok(audit.candidates.every((item) => item.distractors.length === 3 && item.distractorValidationOutcome));
+  const batchIds = new Set(audit.candidates.filter((item) => item.decision === "approved").map((item) => item.id));
+  assert.equal(MISSING_LINK_PUZZLES.filter((item) => batchIds.has(item.id)).length, 18);
+  assert.ok(MISSING_LINK_PUZZLES.filter((item) => batchIds.has(item.id)).every((item) => item.reviewedAt === "2026-10-12T00:00:00.000Z" && item.verificationDate === "2026-10-12"));
 });
 
 test("Phase 6C batch 1 audit accounts for every approval, rejection, source, and distractor", async () => {
@@ -32,8 +45,8 @@ test("Phase 6C batch 1 audit accounts for every approval, rejection, source, and
   assert.deepEqual(audit.candidates.filter((item) => item.decision === "rejected").map((item) => item.id).sort(), ["apollo-armstrong-nasa", "space-jam-jordan-bulls"]);
   assert.ok(audit.candidates.every((item) => item.exactPath && item.reason && item.qualifierConcerns && item.sourceEvidence.length >= 2));
   assert.ok(audit.candidates.every((item) => item.distractors.length === 3 && item.distractorValidationOutcome));
-  const approvedIds = new Set(MISSING_LINK_PUZZLES.slice(1).map((item) => item.id));
-  assert.deepEqual(new Set(audit.candidates.filter((item) => item.decision === "approved").map((item) => item.id)), approvedIds);
+  const approvedIds = new Set(audit.candidates.filter((item) => item.decision === "approved").map((item) => item.id));
+  assert.deepEqual(new Set(MISSING_LINK_PUZZLES.filter((item) => approvedIds.has(item.id)).map((item) => item.id)), approvedIds);
 });
 
 test("duplicate, reversed, ambiguous, and malformed content is rejected", () => {

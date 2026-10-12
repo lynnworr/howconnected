@@ -1,0 +1,1289 @@
+{
+  "batchId": "phase-6c-batch-2",
+  "verifiedAt": "2026-10-12T00:00:00.000Z",
+  "scope": "Twenty bounded two-edge candidates; graph and Wikidata discovery were treated only as lead sources, and approval required independent current claim, qualifier, supporting-source, Wikipedia-link, uniqueness, prior-registry, and distractor review.",
+  "counts": {
+    "candidates": 20,
+    "approved": 18,
+    "rejected": 2,
+    "priorApproved": 19,
+    "cumulativeApproved": 37,
+    "remainingTo100": 63,
+    "scheduled": 0
+  },
+  "rawGraphDiscovery": {
+    "file": "content/daily-review-queue.json",
+    "resultCount": 50,
+    "disposition": "Not promoted. The bounded Neo4j export was dominated by universe and Solidarity generic hubs; all Batch 2 approvals instead passed independent relationship-specific review."
+  },
+  "candidates": [
+    {
+      "id": "linux-torvalds-git",
+      "decision": "approved",
+      "reason": "Both current Wikidata statements and direction were confirmed; reliable supporting sources cover each material claim; the bounded exact-property query returned only the intended intermediary.",
+      "exactPath": "Linux kernel (Q14579) —P178→ Linus Torvalds (Q34253) ←P178— Git (Q186055)",
+      "qualifierConcerns": "Reviewed: P178/P580 start time: 8 April 2005; P178/P582 end time: 2005. Editorial wording does not claim more than the dated or role-specific statements support.",
+      "sourceEvidence": [
+        {
+          "label": "Q14579 P178 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q14579#P178",
+          "kind": "wikidata"
+        },
+        {
+          "label": "A Short History of Git",
+          "publisher": "Git",
+          "url": "https://git-scm.com/book/en/v2/Getting-Started-A-Short-History-of-Git",
+          "kind": "supporting"
+        },
+        {
+          "label": "Q186055 P178 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q186055#P178",
+          "kind": "wikidata"
+        },
+        {
+          "label": "A Short History of Git",
+          "publisher": "Git",
+          "url": "https://git-scm.com/book/en/v2/Getting-Started-A-Short-History-of-Git",
+          "kind": "supporting"
+        }
+      ],
+      "wikipediaLinks": [
+        {
+          "qid": "Q14579",
+          "url": "https://en.wikipedia.org/wiki/Linux_kernel"
+        },
+        {
+          "qid": "Q34253",
+          "url": "https://en.wikipedia.org/wiki/Linus_Torvalds"
+        },
+        {
+          "qid": "Q186055",
+          "url": "https://en.wikipedia.org/wiki/Git"
+        }
+      ],
+      "distractors": [
+        {
+          "qid": "Q7439",
+          "label": "Richard Stallman",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q1107006",
+          "label": "Ken Thompson",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q92608",
+          "label": "Brian Kernighan",
+          "exactPathMatch": false
+        }
+      ],
+      "distractorValidationOutcome": "Passed: all three alternatives are recognizable and plausible in context, but none satisfies both exact relationships in the bounded live query.",
+      "uniqueIntermediaryCount": 1
+    },
+    {
+      "id": "python-rossum-microsoft",
+      "decision": "approved",
+      "reason": "Both current Wikidata statements and direction were confirmed; reliable supporting sources cover each material claim; the bounded exact-property query returned only the intended intermediary.",
+      "exactPath": "Python (Q28865) —P178→ Guido van Rossum (Q30942) —P108→ Microsoft (Q2283)",
+      "qualifierConcerns": "Reviewed: P108/P580 start time: November 2020. Editorial wording does not claim more than the dated or role-specific statements support.",
+      "sourceEvidence": [
+        {
+          "label": "Q28865 P178 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q28865#P178",
+          "kind": "wikidata"
+        },
+        {
+          "label": "How people behind well-known technologies are shaping AI at Microsoft",
+          "publisher": "Microsoft",
+          "url": "https://news.microsoft.com/source/features/innovation/how-6-people-behind-well-known-technologies-are-shaping-ai-at-microsoft/",
+          "kind": "supporting"
+        },
+        {
+          "label": "Q30942 P108 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q30942#P108",
+          "kind": "wikidata"
+        },
+        {
+          "label": "How people behind well-known technologies are shaping AI at Microsoft",
+          "publisher": "Microsoft",
+          "url": "https://news.microsoft.com/source/features/innovation/how-6-people-behind-well-known-technologies-are-shaping-ai-at-microsoft/",
+          "kind": "supporting"
+        }
+      ],
+      "wikipediaLinks": [
+        {
+          "qid": "Q28865",
+          "url": "https://en.wikipedia.org/wiki/Python_(programming_language)"
+        },
+        {
+          "qid": "Q30942",
+          "url": "https://en.wikipedia.org/wiki/Guido_van_Rossum"
+        },
+        {
+          "qid": "Q2283",
+          "url": "https://en.wikipedia.org/wiki/Microsoft"
+        }
+      ],
+      "distractors": [
+        {
+          "qid": "Q92622",
+          "label": "James Gosling",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q92648",
+          "label": "Brendan Eich",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q92620",
+          "label": "Bjarne Stroustrup",
+          "exactPathMatch": false
+        }
+      ],
+      "distractorValidationOutcome": "Passed: all three alternatives are recognizable and plausible in context, but none satisfies both exact relationships in the bounded live query.",
+      "uniqueIntermediaryCount": 1
+    },
+    {
+      "id": "air-jordan-nike-phil-knight",
+      "decision": "approved",
+      "reason": "Both current Wikidata statements and direction were confirmed; reliable supporting sources cover each material claim; the bounded exact-property query returned only the intended intermediary.",
+      "exactPath": "Air Jordan (Q420953) —P127→ Nike (Q483915) —P112→ Phil Knight (Q557305)",
+      "qualifierConcerns": "The Air Jordan P127 statement is explicitly bounded to 1985–1997 and a separate current statement points to Jordan Brand. Editorial wording preserves the historical scope and avoids a present-tense ownership claim.",
+      "sourceEvidence": [
+        {
+          "label": "Q420953 P127 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q420953#P127",
+          "kind": "wikidata"
+        },
+        {
+          "label": "How the Air Jordan 1 sparked a sneaker revolution",
+          "publisher": "Nike",
+          "url": "https://www.nike.com/a/air-jordan-banned-history/",
+          "kind": "supporting"
+        },
+        {
+          "label": "Q483915 P112 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q483915#P112",
+          "kind": "wikidata"
+        },
+        {
+          "label": "Phil Knight, Chairman Emeritus",
+          "publisher": "Nike",
+          "url": "https://about.nike.com/en/company/people/philip-h-knight",
+          "kind": "supporting"
+        }
+      ],
+      "wikipediaLinks": [
+        {
+          "qid": "Q420953",
+          "url": "https://en.wikipedia.org/wiki/Air_Jordan"
+        },
+        {
+          "qid": "Q483915",
+          "url": "https://en.wikipedia.org/wiki/Nike,_Inc."
+        },
+        {
+          "qid": "Q557305",
+          "url": "https://en.wikipedia.org/wiki/Phil_Knight"
+        }
+      ],
+      "distractors": [
+        {
+          "qid": "Q3895",
+          "label": "Adidas",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q466183",
+          "label": "Reebok",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q319515",
+          "label": "Converse",
+          "exactPathMatch": false
+        }
+      ],
+      "distractorValidationOutcome": "Passed: all three alternatives are recognizable and plausible in context, but none satisfies both exact relationships in the bounded live query.",
+      "uniqueIntermediaryCount": 1
+    },
+    {
+      "id": "paypal-thiel-palantir",
+      "decision": "approved",
+      "reason": "Both current Wikidata statements and direction were confirmed; reliable supporting sources cover each material claim; the bounded exact-property query returned only the intended intermediary.",
+      "exactPath": "PayPal (Q483959) —P112→ Peter Thiel (Q705525) ←P112— Palantir Technologies (Q2047336)",
+      "qualifierConcerns": "No material qualifiers on either current statement.",
+      "sourceEvidence": [
+        {
+          "label": "Q483959 P112 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q483959#P112",
+          "kind": "wikidata"
+        },
+        {
+          "label": "Palantir profile: Peter Thiel, PayPal co-founder",
+          "publisher": "Palantir",
+          "url": "https://www.palantir.com/assets/xrfr7uokpv1b/7gAv31itTL8WJ9ytHX7rJy/68238b407b8f2e9c6c86bcf77a127ee9/11809_Tel_Palantir_22042023_A.pdf",
+          "kind": "supporting"
+        },
+        {
+          "label": "Q2047336 P112 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q2047336#P112",
+          "kind": "wikidata"
+        },
+        {
+          "label": "Palantir profile: Peter Thiel, PayPal co-founder",
+          "publisher": "Palantir",
+          "url": "https://www.palantir.com/assets/xrfr7uokpv1b/7gAv31itTL8WJ9ytHX7rJy/68238b407b8f2e9c6c86bcf77a127ee9/11809_Tel_Palantir_22042023_A.pdf",
+          "kind": "supporting"
+        }
+      ],
+      "wikipediaLinks": [
+        {
+          "qid": "Q483959",
+          "url": "https://en.wikipedia.org/wiki/PayPal"
+        },
+        {
+          "qid": "Q705525",
+          "url": "https://en.wikipedia.org/wiki/Peter_Thiel"
+        },
+        {
+          "qid": "Q2047336",
+          "url": "https://en.wikipedia.org/wiki/Palantir"
+        }
+      ],
+      "distractors": [
+        {
+          "qid": "Q317521",
+          "label": "Elon Musk",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q93014",
+          "label": "Max Levchin",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q211098",
+          "label": "Reid Hoffman",
+          "exactPathMatch": false
+        }
+      ],
+      "distractorValidationOutcome": "Passed: all three alternatives are recognizable and plausible in context, but none satisfies both exact relationships in the bounded live query.",
+      "uniqueIntermediaryCount": 1
+    },
+    {
+      "id": "jolene-dolly-dollywood",
+      "decision": "approved",
+      "reason": "Both current Wikidata statements and direction were confirmed; reliable supporting sources cover each material claim; the bounded exact-property query returned only the intended intermediary.",
+      "exactPath": "Jolene (Q1573997) —P175→ Dolly Parton (Q180453) ←P127— Dollywood (Q530744)",
+      "qualifierConcerns": "Reviewed: P175/P10663 recording of performance: Q64903177; P175/P577 publication date: September 1973; P127/P580 start time: 1986. Editorial wording does not claim more than the dated or role-specific statements support.",
+      "sourceEvidence": [
+        {
+          "label": "Q1573997 P175 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q1573997#P175",
+          "kind": "wikidata"
+        },
+        {
+          "label": "Dolly Parton biography",
+          "publisher": "Dolly Parton",
+          "url": "https://www.dollyparton.com/bio",
+          "kind": "supporting"
+        },
+        {
+          "label": "Q530744 P127 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q530744#P127",
+          "kind": "wikidata"
+        },
+        {
+          "label": "Dolly Parton destinations",
+          "publisher": "Dolly Parton",
+          "url": "https://www.dollyparton.com/destinations",
+          "kind": "supporting"
+        }
+      ],
+      "wikipediaLinks": [
+        {
+          "qid": "Q1573997",
+          "url": "https://en.wikipedia.org/wiki/Jolene"
+        },
+        {
+          "qid": "Q180453",
+          "url": "https://en.wikipedia.org/wiki/Dolly_Parton"
+        },
+        {
+          "qid": "Q530744",
+          "url": "https://en.wikipedia.org/wiki/Dollywood"
+        }
+      ],
+      "distractors": [
+        {
+          "qid": "Q272931",
+          "label": "Loretta Lynn",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q231286",
+          "label": "Emmylou Harris",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q229430",
+          "label": "Reba McEntire",
+          "exactPathMatch": false
+        }
+      ],
+      "distractorValidationOutcome": "Passed: all three alternatives are recognizable and plausible in context, but none satisfies both exact relationships in the bounded live query.",
+      "uniqueIntermediaryCount": 1
+    },
+    {
+      "id": "rolling-stone-dylan-nobel-literature",
+      "decision": "approved",
+      "reason": "Both current Wikidata statements and direction were confirmed; reliable supporting sources cover each material claim; the bounded exact-property query returned only the intended intermediary.",
+      "exactPath": "Like a Rolling Stone (Q214430) —P175→ Bob Dylan (Q392) —P166→ Nobel Prize in Literature (Q37922)",
+      "qualifierConcerns": "Reviewed: P175/P10663 recording of performance: Q109984238; P175/P577 publication date: June 1965; P166/P585 point in time: 2016. Editorial wording does not claim more than the dated or role-specific statements support.",
+      "sourceEvidence": [
+        {
+          "label": "Q214430 P175 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q214430#P175",
+          "kind": "wikidata"
+        },
+        {
+          "label": "Bob Dylan Nobel biobibliography",
+          "publisher": "Nobel Prize",
+          "url": "https://www.nobelprize.org/uploads/2018/06/bio-bibl-39.pdf",
+          "kind": "supporting"
+        },
+        {
+          "label": "Q392 P166 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q392#P166",
+          "kind": "wikidata"
+        },
+        {
+          "label": "The Nobel Prize in Literature 2016",
+          "publisher": "Nobel Prize",
+          "url": "https://www.nobelprize.org/prizes/literature/2016/summary/",
+          "kind": "supporting"
+        }
+      ],
+      "wikipediaLinks": [
+        {
+          "qid": "Q214430",
+          "url": "https://en.wikipedia.org/wiki/Like_a_Rolling_Stone"
+        },
+        {
+          "qid": "Q392",
+          "url": "https://en.wikipedia.org/wiki/Bob_Dylan"
+        },
+        {
+          "qid": "Q37922",
+          "url": "https://en.wikipedia.org/wiki/Nobel_Prize_in_Literature"
+        }
+      ],
+      "distractors": [
+        {
+          "qid": "Q4028",
+          "label": "Paul Simon",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q1276",
+          "label": "Leonard Cohen",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q1225",
+          "label": "Bruce Springsteen",
+          "exactPathMatch": false
+        }
+      ],
+      "distractorValidationOutcome": "Passed: all three alternatives are recognizable and plausible in context, but none satisfies both exact relationships in the bounded live query.",
+      "uniqueIntermediaryCount": 1
+    },
+    {
+      "id": "hamilton-miranda-moana",
+      "decision": "approved",
+      "reason": "Both current Wikidata statements and direction were confirmed; reliable supporting sources cover each material claim; the bounded exact-property query returned only the intended intermediary.",
+      "exactPath": "Hamilton (Q19320959) —P86→ Lin-Manuel Miranda (Q1646482) ←P86— Moana (Q18647981)",
+      "qualifierConcerns": "Reviewed: P86/P518 applies to part: songs (Q7366). Editorial wording does not claim more than the dated or role-specific statements support.",
+      "sourceEvidence": [
+        {
+          "label": "Q19320959 P86 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q19320959#P86",
+          "kind": "wikidata"
+        },
+        {
+          "label": "Hamilton",
+          "publisher": "Disney",
+          "url": "https://movies.disney.com/hamilton",
+          "kind": "supporting"
+        },
+        {
+          "label": "Q18647981 P86 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q18647981#P86",
+          "kind": "wikidata"
+        },
+        {
+          "label": "Disney's Moana",
+          "publisher": "Lin-Manuel Miranda",
+          "url": "https://www.linmanuel.com/project/moana/",
+          "kind": "supporting"
+        }
+      ],
+      "wikipediaLinks": [
+        {
+          "qid": "Q19320959",
+          "url": "https://en.wikipedia.org/wiki/Hamilton_(musical)"
+        },
+        {
+          "qid": "Q1646482",
+          "url": "https://en.wikipedia.org/wiki/Lin-Manuel_Miranda"
+        },
+        {
+          "qid": "Q18647981",
+          "url": "https://en.wikipedia.org/wiki/Moana_(2016_film)"
+        }
+      ],
+      "distractors": [
+        {
+          "qid": "Q317272",
+          "label": "Alan Menken",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q3435778",
+          "label": "Robert Lopez",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q153579",
+          "label": "Stephen Sondheim",
+          "exactPathMatch": false
+        }
+      ],
+      "distractorValidationOutcome": "Passed: all three alternatives are recognizable and plausible in context, but none satisfies both exact relationships in the bounded live query.",
+      "uniqueIntermediaryCount": 1
+    },
+    {
+      "id": "eiffel-tower-eiffel-statue-liberty",
+      "decision": "approved",
+      "reason": "Both current Wikidata statements and direction were confirmed; reliable supporting sources cover each material claim; the bounded exact-property query returned only the intended intermediary.",
+      "exactPath": "Eiffel Tower (Q243) —P138→ Gustave Eiffel (Q20882) —P800→ Statue of Liberty (Q9202)",
+      "qualifierConcerns": "Reviewed: P800/P585 point in time: 1884. Editorial wording does not claim more than the dated or role-specific statements support.",
+      "sourceEvidence": [
+        {
+          "label": "Q243 P138 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q243#P138",
+          "kind": "wikidata"
+        },
+        {
+          "label": "Alexandre-Gustave Eiffel",
+          "publisher": "U.S. National Park Service",
+          "url": "https://home.nps.gov/stli/learn/historyculture/alexandre-gustave-eiffel.htm",
+          "kind": "supporting"
+        },
+        {
+          "label": "Q20882 P800 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q20882#P800",
+          "kind": "wikidata"
+        },
+        {
+          "label": "Alexandre-Gustave Eiffel",
+          "publisher": "U.S. National Park Service",
+          "url": "https://home.nps.gov/stli/learn/historyculture/alexandre-gustave-eiffel.htm",
+          "kind": "supporting"
+        }
+      ],
+      "wikipediaLinks": [
+        {
+          "qid": "Q243",
+          "url": "https://en.wikipedia.org/wiki/Eiffel_Tower"
+        },
+        {
+          "qid": "Q20882",
+          "url": "https://en.wikipedia.org/wiki/Gustave_Eiffel"
+        },
+        {
+          "qid": "Q9202",
+          "url": "https://en.wikipedia.org/wiki/Statue_of_Liberty"
+        }
+      ],
+      "distractors": [
+        {
+          "qid": "Q223274",
+          "label": "Frédéric Auguste Bartholdi",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q778243",
+          "label": "Stéphen Sauvestre",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q272912",
+          "label": "Eugène Viollet-le-Duc",
+          "exactPathMatch": false
+        }
+      ],
+      "distractorValidationOutcome": "Passed: all three alternatives are recognizable and plausible in context, but none satisfies both exact relationships in the bounded live query.",
+      "uniqueIntermediaryCount": 1
+    },
+    {
+      "id": "frankenstein-shelley-wollstonecraft",
+      "decision": "approved",
+      "reason": "Both current Wikidata statements and direction were confirmed; reliable supporting sources cover each material claim; the bounded exact-property query returned only the intended intermediary.",
+      "exactPath": "Frankenstein (Q150827) —P50→ Mary Shelley (Q47152) —P25→ Mary Wollstonecraft (Q101638)",
+      "qualifierConcerns": "No material qualifiers on either current statement.",
+      "sourceEvidence": [
+        {
+          "label": "Q150827 P50 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q150827#P50",
+          "kind": "wikidata"
+        },
+        {
+          "label": "Mary Shelley's Frankenstein",
+          "publisher": "British Library",
+          "url": "https://www.britishlibrary.cn/en/works/frankenstein/",
+          "kind": "supporting"
+        },
+        {
+          "label": "Q47152 P25 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q47152#P25",
+          "kind": "wikidata"
+        },
+        {
+          "label": "Mary Shelley",
+          "publisher": "British Library",
+          "url": "https://www.britishlibrary.cn/en/authors/mary-shelley/",
+          "kind": "supporting"
+        }
+      ],
+      "wikipediaLinks": [
+        {
+          "qid": "Q150827",
+          "url": "https://en.wikipedia.org/wiki/Frankenstein"
+        },
+        {
+          "qid": "Q47152",
+          "url": "https://en.wikipedia.org/wiki/Mary_Shelley"
+        },
+        {
+          "qid": "Q101638",
+          "url": "https://en.wikipedia.org/wiki/Mary_Wollstonecraft"
+        }
+      ],
+      "distractors": [
+        {
+          "qid": "Q93343",
+          "label": "Percy Bysshe Shelley",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q5679",
+          "label": "Lord Byron",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q460066",
+          "label": "Claire Clairmont",
+          "exactPathMatch": false
+        }
+      ],
+      "distractorValidationOutcome": "Passed: all three alternatives are recognizable and plausible in context, but none satisfies both exact relationships in the bounded live query.",
+      "uniqueIntermediaryCount": 1
+    },
+    {
+      "id": "little-prince-saint-exupery-aeropostale",
+      "decision": "approved",
+      "reason": "Both current Wikidata statements and direction were confirmed; reliable supporting sources cover each material claim; the bounded exact-property query returned only the intended intermediary.",
+      "exactPath": "The Little Prince (Q25338) —P50→ Antoine de Saint-Exupéry (Q2908) —P108→ Aéropostale (Q2723467)",
+      "qualifierConcerns": "Reviewed: P108/P580 start time: 1926; P108/P582 end time: 1936. Editorial wording does not claim more than the dated or role-specific statements support.",
+      "sourceEvidence": [
+        {
+          "label": "Q25338 P50 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q25338#P50",
+          "kind": "wikidata"
+        },
+        {
+          "label": "The work of Antoine de Saint-Exupéry",
+          "publisher": "Antoine de Saint-Exupéry estate",
+          "url": "https://www.antoinedesaintexupery.org/oeuvre/",
+          "kind": "supporting"
+        },
+        {
+          "label": "Q2908 P108 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q2908#P108",
+          "kind": "wikidata"
+        },
+        {
+          "label": "About The Little Prince",
+          "publisher": "Antoine de Saint-Exupéry estate",
+          "url": "https://www.blog.lepetitprince.com/a-propos/",
+          "kind": "supporting"
+        }
+      ],
+      "wikipediaLinks": [
+        {
+          "qid": "Q25338",
+          "url": "https://en.wikipedia.org/wiki/The_Little_Prince"
+        },
+        {
+          "qid": "Q2908",
+          "url": "https://en.wikipedia.org/wiki/Antoine_de_Saint-Exupéry"
+        },
+        {
+          "qid": "Q2723467",
+          "url": "https://en.wikipedia.org/wiki/Aéropostale_(aviation)"
+        }
+      ],
+      "distractors": [
+        {
+          "qid": "Q680897",
+          "label": "Jean Mermoz",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q34670",
+          "label": "Albert Camus",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q356537",
+          "label": "Joseph Kessel",
+          "exactPathMatch": false
+        }
+      ],
+      "distractorValidationOutcome": "Passed: all three alternatives are recognizable and plausible in context, but none satisfies both exact relationships in the bounded live query.",
+      "uniqueIntermediaryCount": 1
+    },
+    {
+      "id": "march-washington-king-nobel-peace",
+      "decision": "approved",
+      "reason": "Both current Wikidata statements and direction were confirmed; reliable supporting sources cover each material claim; the bounded exact-property query returned only the intended intermediary.",
+      "exactPath": "March on Washington for Jobs and Freedom (Q1128871) ←P793— Martin Luther King Jr. (Q8027) —P166→ Nobel Peace Prize (Q35637)",
+      "qualifierConcerns": "Reviewed: P166/P585 point in time: 1964. Editorial wording does not claim more than the dated or role-specific statements support.",
+      "sourceEvidence": [
+        {
+          "label": "Q8027 P793 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q8027#P793",
+          "kind": "wikidata"
+        },
+        {
+          "label": "King chronology",
+          "publisher": "Martin Luther King Jr. Research and Education Institute",
+          "url": "https://kinginstitute.stanford.edu/king-resources/king-encyclopedia/chronology",
+          "kind": "supporting"
+        },
+        {
+          "label": "Q8027 P166 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q8027#P166",
+          "kind": "wikidata"
+        },
+        {
+          "label": "Nobel Peace Prize",
+          "publisher": "Martin Luther King Jr. Research and Education Institute",
+          "url": "https://kinginstitute.stanford.edu/nobel-peace-prize",
+          "kind": "supporting"
+        }
+      ],
+      "wikipediaLinks": [
+        {
+          "qid": "Q1128871",
+          "url": "https://en.wikipedia.org/wiki/March_on_Washington"
+        },
+        {
+          "qid": "Q8027",
+          "url": "https://en.wikipedia.org/wiki/Martin_Luther_King_Jr."
+        },
+        {
+          "qid": "Q35637",
+          "url": "https://en.wikipedia.org/wiki/Nobel_Peace_Prize"
+        }
+      ],
+      "distractors": [
+        {
+          "qid": "Q720153",
+          "label": "A. Philip Randolph",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q187930",
+          "label": "Bayard Rustin",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q43303",
+          "label": "Malcolm X",
+          "exactPathMatch": false
+        }
+      ],
+      "distractorValidationOutcome": "Passed: all three alternatives are recognizable and plausible in context, but none satisfies both exact relationships in the bounded live query.",
+      "uniqueIntermediaryCount": 1
+    },
+    {
+      "id": "cuban-crisis-kennedy-pulitzer-biography",
+      "decision": "approved",
+      "reason": "Both current Wikidata statements and direction were confirmed; reliable supporting sources cover each material claim; the bounded exact-property query returned only the intended intermediary.",
+      "exactPath": "Cuban Missile Crisis (Q128160) ←P793— John F. Kennedy (Q9696) —P166→ Pulitzer Prize for Biography (Q285117)",
+      "qualifierConcerns": "Reviewed: P166/P585 point in time: 1957; P166/P1686 for work: Profiles in Courage (Q206795). Editorial wording does not claim more than the dated or role-specific statements support.",
+      "sourceEvidence": [
+        {
+          "label": "Q9696 P793 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q9696#P793",
+          "kind": "wikidata"
+        },
+        {
+          "label": "Cuban Missile Crisis records",
+          "publisher": "John F. Kennedy Presidential Library",
+          "url": "https://www.jfklibrary.org/learn/about-jfk/jfk-in-history/cuban-missile-crisis",
+          "kind": "supporting"
+        },
+        {
+          "label": "Q9696 P166 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q9696#P166",
+          "kind": "wikidata"
+        },
+        {
+          "label": "Profiles in Courage",
+          "publisher": "John F. Kennedy Presidential Library",
+          "url": "https://store.jfklibrary.org/products/sample-product-5",
+          "kind": "supporting"
+        }
+      ],
+      "wikipediaLinks": [
+        {
+          "qid": "Q128160",
+          "url": "https://en.wikipedia.org/wiki/Cuban_Missile_Crisis"
+        },
+        {
+          "qid": "Q9696",
+          "url": "https://en.wikipedia.org/wiki/John_F._Kennedy"
+        },
+        {
+          "qid": "Q285117",
+          "url": "https://en.wikipedia.org/wiki/Pulitzer_Prize_for_Biography"
+        }
+      ],
+      "distractors": [
+        {
+          "qid": "Q35314",
+          "label": "Nikita Khrushchev",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q25310",
+          "label": "Robert F. Kennedy",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q518197",
+          "label": "Ted Sorensen",
+          "exactPathMatch": false
+        }
+      ],
+      "distractorValidationOutcome": "Passed: all three alternatives are recognizable and plausible in context, but none satisfies both exact relationships in the bounded live query.",
+      "uniqueIntermediaryCount": 1
+    },
+    {
+      "id": "hubble-telescope-hubble-chicago",
+      "decision": "approved",
+      "reason": "Both current Wikidata statements and direction were confirmed; reliable supporting sources cover each material claim; the bounded exact-property query returned only the intended intermediary.",
+      "exactPath": "Hubble Space Telescope (Q2513) —P138→ Edwin Hubble (Q43027) —P69→ University of Chicago (Q131252)",
+      "qualifierConcerns": "Reviewed: P138/P585 point in time: 1983. Editorial wording does not claim more than the dated or role-specific statements support.",
+      "sourceEvidence": [
+        {
+          "label": "Q2513 P138 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q2513#P138",
+          "kind": "wikidata"
+        },
+        {
+          "label": "Two Hubbles Achieve Great Heights",
+          "publisher": "NASA",
+          "url": "https://science.nasa.gov/missions/hubble/nasa-two-hubbles-achieve-great-heights/",
+          "kind": "supporting"
+        },
+        {
+          "label": "Q43027 P69 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q43027#P69",
+          "kind": "wikidata"
+        },
+        {
+          "label": "Two Hubbles Achieve Great Heights",
+          "publisher": "NASA",
+          "url": "https://science.nasa.gov/missions/hubble/nasa-two-hubbles-achieve-great-heights/",
+          "kind": "supporting"
+        }
+      ],
+      "wikipediaLinks": [
+        {
+          "qid": "Q2513",
+          "url": "https://en.wikipedia.org/wiki/Hubble_Space_Telescope"
+        },
+        {
+          "qid": "Q43027",
+          "url": "https://en.wikipedia.org/wiki/Edwin_Hubble"
+        },
+        {
+          "qid": "Q131252",
+          "url": "https://en.wikipedia.org/wiki/University_of_Chicago"
+        }
+      ],
+      "distractors": [
+        {
+          "qid": "Q410",
+          "label": "Carl Sagan",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q148109",
+          "label": "Subrahmanyan Chandrasekhar",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q1615",
+          "label": "Neil Armstrong",
+          "exactPathMatch": false
+        }
+      ],
+      "distractorValidationOutcome": "Passed: all three alternatives are recognizable and plausible in context, but none satisfies both exact relationships in the bounded live query.",
+      "uniqueIntermediaryCount": 1
+    },
+    {
+      "id": "halley-comet-halley-royal-society",
+      "decision": "approved",
+      "reason": "Both current Wikidata statements and direction were confirmed; reliable supporting sources cover each material claim; the bounded exact-property query returned only the intended intermediary.",
+      "exactPath": "Halley's Comet (Q23054) —P138→ Edmond Halley (Q47434) —P463→ Royal Society (Q123885)",
+      "qualifierConcerns": "Reviewed: P463/P580 start time: 30 November 1678. Editorial wording does not claim more than the dated or role-specific statements support.",
+      "sourceEvidence": [
+        {
+          "label": "Q23054 P138 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q23054#P138",
+          "kind": "wikidata"
+        },
+        {
+          "label": "Magnetic Halley",
+          "publisher": "Royal Society",
+          "url": "https://royalsociety.org/blog/2023/10/magnetic-halley/",
+          "kind": "supporting"
+        },
+        {
+          "label": "Q47434 P463 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q47434#P463",
+          "kind": "wikidata"
+        },
+        {
+          "label": "Magnetic Halley",
+          "publisher": "Royal Society",
+          "url": "https://royalsociety.org/blog/2023/10/magnetic-halley/",
+          "kind": "supporting"
+        }
+      ],
+      "wikipediaLinks": [
+        {
+          "qid": "Q23054",
+          "url": "https://en.wikipedia.org/wiki/Halley%27s_Comet"
+        },
+        {
+          "qid": "Q47434",
+          "url": "https://en.wikipedia.org/wiki/Edmond_Halley"
+        },
+        {
+          "qid": "Q123885",
+          "url": "https://en.wikipedia.org/wiki/Royal_Society"
+        }
+      ],
+      "distractors": [
+        {
+          "qid": "Q935",
+          "label": "Isaac Newton",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q46830",
+          "label": "Robert Hooke",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q242388",
+          "label": "John Flamsteed",
+          "exactPathMatch": false
+        }
+      ],
+      "distractorValidationOutcome": "Passed: all three alternatives are recognizable and plausible in context, but none satisfies both exact relationships in the bounded live query.",
+      "uniqueIntermediaryCount": 1
+    },
+    {
+      "id": "black-panther-boseman-42",
+      "decision": "approved",
+      "reason": "Both current Wikidata statements and direction were confirmed; reliable supporting sources cover each material claim; the bounded exact-property query returned only the intended intermediary.",
+      "exactPath": "Black Panther (Q23780734) —P161→ Chadwick Boseman (Q5066520) ←P161— 42 (Q3599091)",
+      "qualifierConcerns": "Reviewed: P161/P453 character role: T'Challa (Q24004885); P161/P4633 name of character role: T’Challa/Black Panther; P161/P1545 series ordinal: 1; P161/P453 character role: Jackie Robinson (Q221048); P161/P4633 name of character role: Jackie Robinson. Editorial wording does not claim more than the dated or role-specific statements support.",
+      "sourceEvidence": [
+        {
+          "label": "Q23780734 P161 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q23780734#P161",
+          "kind": "wikidata"
+        },
+        {
+          "label": "Black Panther cast",
+          "publisher": "Marvel",
+          "url": "https://www.marvel.com/articles/movies/sterling-k-brown-signs-on-to-marvel-s-black-panther",
+          "kind": "supporting"
+        },
+        {
+          "label": "Q3599091 P161 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q3599091#P161",
+          "kind": "wikidata"
+        },
+        {
+          "label": "Chadwick Boseman tribute",
+          "publisher": "Marvel",
+          "url": "https://www.marvel.com/articles/movies/chadwick-boseman-special-tribute-for-a-king",
+          "kind": "supporting"
+        }
+      ],
+      "wikipediaLinks": [
+        {
+          "qid": "Q23780734",
+          "url": "https://en.wikipedia.org/wiki/Black_Panther_(film)"
+        },
+        {
+          "qid": "Q5066520",
+          "url": "https://en.wikipedia.org/wiki/Chadwick_Boseman"
+        },
+        {
+          "qid": "Q3599091",
+          "url": "https://en.wikipedia.org/wiki/42_(film)"
+        }
+      ],
+      "distractors": [
+        {
+          "qid": "Q3308007",
+          "label": "Michael B. Jordan",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q3840847",
+          "label": "Lupita Nyong'o",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q636653",
+          "label": "Danai Gurira",
+          "exactPathMatch": false
+        }
+      ],
+      "distractorValidationOutcome": "Passed: all three alternatives are recognizable and plausible in context, but none satisfies both exact relationships in the bounded live query.",
+      "uniqueIntermediaryCount": 1
+    },
+    {
+      "id": "spirited-away-miyazaki-ghibli",
+      "decision": "approved",
+      "reason": "Both current Wikidata statements and direction were confirmed; reliable supporting sources cover each material claim; the bounded exact-property query returned only the intended intermediary.",
+      "exactPath": "Spirited Away (Q155653) —P57→ Hayao Miyazaki (Q55400) ←P112— Studio Ghibli (Q182950)",
+      "qualifierConcerns": "No material qualifiers on either current statement.",
+      "sourceEvidence": [
+        {
+          "label": "Q155653 P57 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q155653#P57",
+          "kind": "wikidata"
+        },
+        {
+          "label": "Spirited Away",
+          "publisher": "Studio Ghibli",
+          "url": "https://studioghibli.jp/films/spirited-away/",
+          "kind": "supporting"
+        },
+        {
+          "label": "Q182950 P112 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q182950#P112",
+          "kind": "wikidata"
+        },
+        {
+          "label": "Hayao Miyazaki",
+          "publisher": "Studio Ghibli",
+          "url": "https://studioghibli.jp/directors/hayao-miyazaki/",
+          "kind": "supporting"
+        }
+      ],
+      "wikipediaLinks": [
+        {
+          "qid": "Q155653",
+          "url": "https://en.wikipedia.org/wiki/Spirited_Away"
+        },
+        {
+          "qid": "Q55400",
+          "url": "https://en.wikipedia.org/wiki/Hayao_Miyazaki"
+        },
+        {
+          "qid": "Q182950",
+          "url": "https://en.wikipedia.org/wiki/Studio_Ghibli"
+        }
+      ],
+      "distractors": [
+        {
+          "qid": "Q178713",
+          "label": "Isao Takahata",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q713511",
+          "label": "Toshio Suzuki",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q720771",
+          "label": "Mamoru Hosoda",
+          "exactPathMatch": false
+        }
+      ],
+      "distractorValidationOutcome": "Passed: all three alternatives are recognizable and plausible in context, but none satisfies both exact relationships in the bounded live query.",
+      "uniqueIntermediaryCount": 1
+    },
+    {
+      "id": "senna-ayrton-mclaren",
+      "decision": "approved",
+      "reason": "Both current Wikidata statements and direction were confirmed; reliable supporting sources cover each material claim; the bounded exact-property query returned only the intended intermediary.",
+      "exactPath": "Senna (Q534785) —P921→ Ayrton Senna (Q10490) —P54→ McLaren (Q172030)",
+      "qualifierConcerns": "Reviewed: P54/P580 start time: 1 January 1988; P54/P582 end time: 1 January 1993; P54/P3438 season: Q172621, Q172532, Q48772120, Q172674, Q172669, Q172698. Editorial wording does not claim more than the dated or role-specific statements support.",
+      "sourceEvidence": [
+        {
+          "label": "Q534785 P921 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q534785#P921",
+          "kind": "wikidata"
+        },
+        {
+          "label": "McLaren at the movies: Senna",
+          "publisher": "McLaren",
+          "url": "https://www.mclaren.com/racing/heritage/mclaren-at-the-movies/",
+          "kind": "supporting"
+        },
+        {
+          "label": "Q10490 P54 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q10490#P54",
+          "kind": "wikidata"
+        },
+        {
+          "label": "McLaren's Formula 1 champions",
+          "publisher": "McLaren",
+          "url": "https://www.mclaren.com/racing/heritage/mclarens-formula-1-champions/",
+          "kind": "supporting"
+        }
+      ],
+      "wikipediaLinks": [
+        {
+          "qid": "Q534785",
+          "url": "https://en.wikipedia.org/wiki/Senna_(film)"
+        },
+        {
+          "qid": "Q10490",
+          "url": "https://en.wikipedia.org/wiki/Ayrton_Senna"
+        },
+        {
+          "qid": "Q172030",
+          "url": "https://en.wikipedia.org/wiki/McLaren"
+        }
+      ],
+      "distractors": [
+        {
+          "qid": "Q10494",
+          "label": "Alain Prost",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q9673",
+          "label": "Lewis Hamilton",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q9671",
+          "label": "Michael Schumacher",
+          "exactPathMatch": false
+        }
+      ],
+      "distractorValidationOutcome": "Passed: all three alternatives are recognizable and plausible in context, but none satisfies both exact relationships in the bounded live query.",
+      "uniqueIntermediaryCount": 1
+    },
+    {
+      "id": "oprah-show-winfrey-own",
+      "decision": "approved",
+      "reason": "Both current Wikidata statements and direction were confirmed; reliable supporting sources cover each material claim; the bounded exact-property query returned only the intended intermediary.",
+      "exactPath": "The Oprah Winfrey Show (Q694106) —P371→ Oprah Winfrey (Q55800) ←P112— OWN (Q2573619)",
+      "qualifierConcerns": "No material qualifiers on either current statement.",
+      "sourceEvidence": [
+        {
+          "label": "Q694106 P371 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q694106#P371",
+          "kind": "wikidata"
+        },
+        {
+          "label": "Oprah Winfrey biography",
+          "publisher": "ABC",
+          "url": "https://www.dgepress.com/abc/bios/oprah-winfrey/",
+          "kind": "supporting"
+        },
+        {
+          "label": "Q2573619 P112 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q2573619#P112",
+          "kind": "wikidata"
+        },
+        {
+          "label": "About OWN",
+          "publisher": "Warner Bros. Discovery",
+          "url": "https://press.wbd.com/us/brands/own",
+          "kind": "supporting"
+        }
+      ],
+      "wikipediaLinks": [
+        {
+          "qid": "Q694106",
+          "url": "https://en.wikipedia.org/wiki/The_Oprah_Winfrey_Show"
+        },
+        {
+          "qid": "Q55800",
+          "url": "https://en.wikipedia.org/wiki/Oprah_Winfrey"
+        },
+        {
+          "qid": "Q2573619",
+          "url": "https://en.wikipedia.org/wiki/Oprah_Winfrey_Network"
+        }
+      ],
+      "distractors": [
+        {
+          "qid": "Q5528805",
+          "label": "Gayle King",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q483325",
+          "label": "Ellen DeGeneres",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q1336253",
+          "label": "Phil Donahue",
+          "exactPathMatch": false
+        }
+      ],
+      "distractorValidationOutcome": "Passed: all three alternatives are recognizable and plausible in context, but none satisfies both exact relationships in the bounded live query.",
+      "uniqueIntermediaryCount": 1
+    },
+    {
+      "id": "berkshire-buffett-giving-pledge",
+      "decision": "rejected",
+      "exactPath": "Berkshire Hathaway (Q217583) —P127→ Warren Buffett (Q47213) ←P112— The Giving Pledge (Q203807)",
+      "reason": "Rejected as ambiguous: the bounded live query returns both Warren Buffett (Q47213) and Bill Gates (Q5284), because each appears in Berkshire Hathaway's P127 statements and The Giving Pledge's P112 statements.",
+      "qualifierConcerns": "The Warren Buffett ownership statement includes P1107 0.33 and P585 2016-03-02. Those qualifiers describe the statement but do not eliminate Bill Gates as a second exact-property intermediary.",
+      "sourceEvidence": [
+        {
+          "label": "Berkshire Hathaway owner statement",
+          "url": "https://www.wikidata.org/wiki/Q217583#P127"
+        },
+        {
+          "label": "The Giving Pledge founder statement",
+          "url": "https://www.wikidata.org/wiki/Q203807#P112"
+        },
+        {
+          "label": "The Giving Pledge",
+          "url": "https://www.givingpledge.org/"
+        }
+      ],
+      "distractors": [
+        {
+          "qid": "Q5284",
+          "label": "Bill Gates",
+          "exactPathMatch": true
+        },
+        {
+          "qid": "Q918630",
+          "label": "Charlie Munger",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q463877",
+          "label": "Melinda French Gates",
+          "exactPathMatch": false
+        }
+      ],
+      "distractorValidationOutcome": "Failed: Bill Gates is a plausible distractor and satisfies both exact edges, so the intended answer is not unique.",
+      "uniqueIntermediaryCount": 2
+    },
+    {
+      "id": "blind-side-oher-ravens",
+      "decision": "rejected",
+      "exactPath": "The Blind Side (Q206497) —P921→ Michael Oher (Q977601) —P54→ Baltimore Ravens (Q276539)",
+      "reason": "Rejected because the second current Wikidata claim is absent: Michael Oher's P54 statements do not currently include the Baltimore Ravens, so the proposed exact path cannot be verified even though reliable historical sources confirm he played for the team.",
+      "qualifierConcerns": "The missing P54 statement means there are no current Ravens-specific Wikidata qualifiers to review. External evidence cannot substitute for the registry's required structured claim.",
+      "sourceEvidence": [
+        {
+          "label": "The Blind Side main-subject statement",
+          "url": "https://www.wikidata.org/wiki/Q206497#P921"
+        },
+        {
+          "label": "Michael Oher team statements",
+          "url": "https://www.wikidata.org/wiki/Q977601#P54"
+        },
+        {
+          "label": "2009 Ravens Draft Release",
+          "url": "https://www.baltimoreravens.com/news/2009-ravens-draft-release-7745121"
+        }
+      ],
+      "distractors": [
+        {
+          "qid": "Q40791",
+          "label": "Sandra Bullock",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q6519525",
+          "label": "Leigh Anne Tuohy",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q2093874",
+          "label": "Quinton Aaron",
+          "exactPathMatch": false
+        }
+      ],
+      "distractorValidationOutcome": "Failed before distractor promotion: none of the candidates, including Michael Oher, completes the proposed current two-edge Wikidata path.",
+      "uniqueIntermediaryCount": 0
+    }
+  ]
+}
