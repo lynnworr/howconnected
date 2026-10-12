@@ -21,6 +21,11 @@ export default function PublicHeader() {
       <nav aria-label="Primary navigation" className="hidden md:block">
         <ul className="flex items-center gap-1">
           <li>
+            <Link href="/daily" className="hc-nav-link rounded-full px-4 py-2 text-sm font-bold text-[#59647a] transition hover:text-[#b44730] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#ff6846]">
+              Daily challenge
+            </Link>
+          </li>
+          <li>
             <Link
               href="/methodology"
               className="hc-nav-link rounded-full px-4 py-2 text-sm font-bold text-[#59647a] transition hover:text-[#b44730] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#ff6846]"
@@ -48,8 +53,8 @@ export default function PublicHeader() {
       </nav>
       <div className="flex items-center gap-2 sm:gap-3">
         <nav aria-label="Mobile navigation" className="flex items-center md:hidden">
-          <Link href="/explore" className="hc-header-note inline-flex min-h-10 items-center rounded-full border px-3 text-xs font-bold focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#ff6846]">
-            Explore
+          <Link href="/daily" className="hc-header-note inline-flex min-h-10 items-center rounded-full border px-3 text-xs font-bold focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#ff6846]">
+            Daily
           </Link>
         </nav>
         <ThemeToggle />

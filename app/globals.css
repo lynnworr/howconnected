@@ -227,6 +227,56 @@ html[data-theme="dark"] .hc-theme-icon-sun {
   color: var(--hc-text);
 }
 
+.hc-daily-card,
+.hc-daily-comparison,
+.hc-daily-progress,
+.hc-daily-reveal {
+  border-color: var(--hc-border);
+  background: color-mix(in srgb, var(--hc-panel) 92%, transparent);
+  box-shadow: 0 22px 70px color-mix(in srgb, var(--hc-shadow) 72%, transparent);
+}
+
+.hc-daily-comparison {
+  background: color-mix(in srgb, var(--hc-panel-soft) 88%, transparent);
+}
+
+.hc-daily-progress,
+.hc-daily-reveal {
+  box-shadow: none;
+}
+
+.hc-daily-node,
+.hc-daily-option {
+  border-color: var(--hc-border);
+  background: color-mix(in srgb, var(--hc-panel-strong) 86%, transparent);
+  color: var(--hc-text);
+}
+
+.hc-daily-option {
+  transition: border-color 160ms ease, background-color 160ms ease, transform 160ms ease;
+}
+
+.hc-daily-option:hover:not(:has(input:disabled)) {
+  border-color: color-mix(in srgb, var(--hc-coral) 42%, var(--hc-border));
+  transform: translateY(-1px);
+}
+
+.hc-daily-option-selected {
+  border-color: color-mix(in srgb, var(--hc-coral) 72%, var(--hc-border));
+  background: color-mix(in srgb, var(--hc-coral) 9%, var(--hc-panel-strong));
+}
+
+.hc-reading-link {
+  border-color: color-mix(in srgb, var(--hc-teal) 45%, var(--hc-border));
+  background: color-mix(in srgb, var(--hc-teal) 10%, var(--hc-panel-strong));
+  color: var(--hc-text);
+}
+
+.hc-reading-link:hover {
+  border-color: var(--hc-teal);
+  transform: translateY(-1px);
+}
+
 .hc-nav-link:hover {
   background: color-mix(in srgb, var(--hc-panel-strong) 72%, transparent);
 }

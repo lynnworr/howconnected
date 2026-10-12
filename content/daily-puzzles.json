@@ -1,0 +1,2360 @@
+[
+  {
+    "id": "web-berners-lee-cern",
+    "format": "missing-link",
+    "title": "The Web's birthplace",
+    "prompt": "Who is the missing link between the World Wide Web and CERN?",
+    "category": "Science and innovation",
+    "status": "approved",
+    "path": [
+      {
+        "qid": "Q466",
+        "name": "World Wide Web",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/World_Wide_Web",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q466"
+      },
+      {
+        "qid": "Q80",
+        "name": "Tim Berners-Lee",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Tim_Berners-Lee",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q80"
+      },
+      {
+        "qid": "Q42944",
+        "name": "CERN",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/CERN",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q42944"
+      }
+    ],
+    "hiddenNodeIndex": 1,
+    "relationships": [
+      {
+        "propertyId": "P61",
+        "subjectQid": "Q466",
+        "objectQid": "Q80",
+        "direction": "forward",
+        "label": "invented by",
+        "qualifiers": [],
+        "expectedClaim": "Q466 P61 Q80",
+        "evidence": [
+          {
+            "label": "World Wide Web inventor statement (P61)",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q466#P61",
+            "kind": "wikidata"
+          },
+          {
+            "label": "The birth of the Web",
+            "publisher": "CERN",
+            "url": "https://home.cern/science/computing/the-birth-of-the-web/",
+            "kind": "supporting"
+          }
+        ]
+      },
+      {
+        "propertyId": "P108",
+        "subjectQid": "Q80",
+        "objectQid": "Q42944",
+        "direction": "forward",
+        "label": "worked at",
+        "qualifiers": [
+          {
+            "propertyId": "P580",
+            "label": "start time",
+            "value": "1984"
+          },
+          {
+            "propertyId": "P582",
+            "label": "end time",
+            "value": "1994"
+          }
+        ],
+        "expectedClaim": "Q80 P108 Q42944, qualified by P580 1984 and P582 1994",
+        "evidence": [
+          {
+            "label": "Tim Berners-Lee employer statement (P108)",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q80#P108",
+            "kind": "wikidata"
+          },
+          {
+            "label": "The birth of the Web",
+            "publisher": "CERN",
+            "url": "https://home.cern/science/computing/the-birth-of-the-web/",
+            "kind": "supporting"
+          }
+        ]
+      }
+    ],
+    "options": [
+      {
+        "id": "tim-berners-lee",
+        "label": "Tim Berners-Lee",
+        "qid": "Q80"
+      },
+      {
+        "id": "vint-cerf",
+        "label": "Vint Cerf",
+        "qid": "Q92743"
+      },
+      {
+        "id": "larry-page",
+        "label": "Larry Page",
+        "qid": "Q4934"
+      },
+      {
+        "id": "steve-jobs",
+        "label": "Steve Jobs",
+        "qid": "Q19837"
+      }
+    ],
+    "correctOptionId": "tim-berners-lee",
+    "explanation": "Tim Berners-Lee invented the World Wide Web while working at CERN. The connection matters because a tool created to help scientists share information became a global public medium.",
+    "pathFingerprint": "Q466|P61:forward:Q80|P108:forward:Q42944",
+    "reviewedAt": "2026-10-11T00:00:00.000Z",
+    "verificationDate": "2026-10-11",
+    "reviewHistory": [
+      {
+        "at": "2026-10-11T00:00:00.000Z",
+        "from": null,
+        "to": "under-review",
+        "note": "Imported from the Phase 6B reviewed prototype."
+      },
+      {
+        "at": "2026-10-11T00:00:00.000Z",
+        "from": "under-review",
+        "to": "approved",
+        "note": "Both structured claims, qualifiers, distractors, and supporting CERN evidence reviewed."
+      }
+    ]
+  },
+  {
+    "id": "penicillin-fleming-nobel-medicine",
+    "format": "missing-link",
+    "title": "A discovery rewarded",
+    "prompt": "Who is the missing link between Penicillin and Nobel Prize in Physiology or Medicine?",
+    "category": "Science and innovation",
+    "status": "approved",
+    "path": [
+      {
+        "qid": "Q12190",
+        "name": "Penicillin",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Penicillin",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q12190"
+      },
+      {
+        "qid": "Q37064",
+        "name": "Alexander Fleming",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Alexander_Fleming",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q37064"
+      },
+      {
+        "qid": "Q80061",
+        "name": "Nobel Prize in Physiology or Medicine",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Nobel_Prize_in_Physiology_or_Medicine",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q80061"
+      }
+    ],
+    "hiddenNodeIndex": 1,
+    "relationships": [
+      {
+        "propertyId": "P61",
+        "subjectQid": "Q12190",
+        "objectQid": "Q37064",
+        "direction": "forward",
+        "label": "discovered by",
+        "qualifiers": [],
+        "expectedClaim": "Q12190 P61 Q37064",
+        "evidence": [
+          {
+            "label": "Q12190 P61 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q12190#P61",
+            "kind": "wikidata"
+          },
+          {
+            "label": "The Nobel Prize in Physiology or Medicine 1945",
+            "publisher": "Nobel Prize",
+            "url": "https://www.nobelprize.org/prizes/medicine/1945/summary/",
+            "kind": "supporting"
+          }
+        ]
+      },
+      {
+        "propertyId": "P166",
+        "subjectQid": "Q37064",
+        "objectQid": "Q80061",
+        "direction": "forward",
+        "label": "received award",
+        "qualifiers": [
+          {
+            "propertyId": "P585",
+            "label": "point in time",
+            "value": "1945"
+          },
+          {
+            "propertyId": "P1706",
+            "label": "together with",
+            "value": "Ernst Boris Chain (Q58054) and Howard Florey (Q137106)"
+          }
+        ],
+        "expectedClaim": "Q37064 P166 Q80061, qualified by P585 1945 and co-recipients P1706 Q58054/Q137106",
+        "evidence": [
+          {
+            "label": "Q37064 P166 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q37064#P166",
+            "kind": "wikidata"
+          },
+          {
+            "label": "The Nobel Prize in Physiology or Medicine 1945",
+            "publisher": "Nobel Prize",
+            "url": "https://www.nobelprize.org/prizes/medicine/1945/summary/",
+            "kind": "supporting"
+          }
+        ]
+      }
+    ],
+    "options": [
+      {
+        "id": "alexander-fleming",
+        "label": "Alexander Fleming",
+        "qid": "Q37064"
+      },
+      {
+        "id": "louis-pasteur",
+        "label": "Louis Pasteur",
+        "qid": "Q529"
+      },
+      {
+        "id": "robert-koch",
+        "label": "Robert Koch",
+        "qid": "Q37193"
+      },
+      {
+        "id": "joseph-lister",
+        "label": "Joseph Lister",
+        "qid": "Q155768"
+      }
+    ],
+    "correctOptionId": "alexander-fleming",
+    "explanation": "Alexander Fleming discovered penicillin and shared the 1945 Nobel Prize in Physiology or Medicine with Ernst Boris Chain and Howard Florey. The award recognized the discovery of penicillin and its curative effect in infectious diseases.",
+    "pathFingerprint": "Q12190|P61:forward:Q37064|P166:forward:Q80061",
+    "reviewedAt": "2026-10-12T00:00:00.000Z",
+    "verificationDate": "2026-10-12",
+    "reviewHistory": [
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": null,
+        "to": "under-review",
+        "note": "Selected for bounded Phase 6C batch 1 independent verification."
+      },
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": "under-review",
+        "to": "approved",
+        "note": "Current Wikidata statements, qualifiers, English Wikipedia links, independent supporting sources, path uniqueness, and three distractors reviewed."
+      }
+    ]
+  },
+  {
+    "id": "hamlet-shakespeare-stratford",
+    "format": "missing-link",
+    "title": "A playwright's beginning",
+    "prompt": "Who is the missing link between Hamlet and Stratford-upon-Avon?",
+    "category": "Literature and art",
+    "status": "approved",
+    "path": [
+      {
+        "qid": "Q41567",
+        "name": "Hamlet",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Hamlet",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q41567"
+      },
+      {
+        "qid": "Q692",
+        "name": "William Shakespeare",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/William_Shakespeare",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q692"
+      },
+      {
+        "qid": "Q189288",
+        "name": "Stratford-upon-Avon",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Stratford-upon-Avon",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q189288"
+      }
+    ],
+    "hiddenNodeIndex": 1,
+    "relationships": [
+      {
+        "propertyId": "P50",
+        "subjectQid": "Q41567",
+        "objectQid": "Q692",
+        "direction": "forward",
+        "label": "written by",
+        "qualifiers": [],
+        "expectedClaim": "Q41567 P50 Q692",
+        "evidence": [
+          {
+            "label": "Q41567 P50 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q41567#P50",
+            "kind": "wikidata"
+          },
+          {
+            "label": "Hamlet: dates and sources",
+            "publisher": "Royal Shakespeare Company",
+            "url": "https://www.rsc.org.uk/hamlet/about-the-play/dates-and-sources",
+            "kind": "supporting"
+          }
+        ]
+      },
+      {
+        "propertyId": "P19",
+        "subjectQid": "Q692",
+        "objectQid": "Q189288",
+        "direction": "forward",
+        "label": "born in",
+        "qualifiers": [],
+        "expectedClaim": "Q692 P19 Q189288",
+        "evidence": [
+          {
+            "label": "Q692 P19 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q692#P19",
+            "kind": "wikidata"
+          },
+          {
+            "label": "When was Shakespeare born?",
+            "publisher": "Shakespeare Birthplace Trust",
+            "url": "https://www.shakespeare.org.uk/explore-shakespeare/shakespedia/william-shakespeare/when-was-shakespeare-born/",
+            "kind": "supporting"
+          }
+        ]
+      }
+    ],
+    "options": [
+      {
+        "id": "william-shakespeare",
+        "label": "William Shakespeare",
+        "qid": "Q692"
+      },
+      {
+        "id": "christopher-marlowe",
+        "label": "Christopher Marlowe",
+        "qid": "Q28975"
+      },
+      {
+        "id": "ben-jonson",
+        "label": "Ben Jonson",
+        "qid": "Q193857"
+      },
+      {
+        "id": "oscar-wilde",
+        "label": "Oscar Wilde",
+        "qid": "Q30875"
+      }
+    ],
+    "correctOptionId": "william-shakespeare",
+    "explanation": "William Shakespeare wrote Hamlet and was born in Stratford-upon-Avon. The path joins one of his most famous plays to the Warwickshire town where his life began.",
+    "pathFingerprint": "Q41567|P50:forward:Q692|P19:forward:Q189288",
+    "reviewedAt": "2026-10-12T00:00:00.000Z",
+    "verificationDate": "2026-10-12",
+    "reviewHistory": [
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": null,
+        "to": "under-review",
+        "note": "Selected for bounded Phase 6C batch 1 independent verification."
+      },
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": "under-review",
+        "to": "approved",
+        "note": "Current Wikidata statements, qualifiers, English Wikipedia links, independent supporting sources, path uniqueness, and three distractors reviewed."
+      }
+    ]
+  },
+  {
+    "id": "nineteen-eighty-four-orwell-bbc",
+    "format": "missing-link",
+    "title": "From broadcasting to Big Brother",
+    "prompt": "Who is the missing link between Nineteen Eighty-Four and BBC?",
+    "category": "Literature and art",
+    "status": "approved",
+    "path": [
+      {
+        "qid": "Q208460",
+        "name": "Nineteen Eighty-Four",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Nineteen_Eighty-Four",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q208460"
+      },
+      {
+        "qid": "Q3335",
+        "name": "George Orwell",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/George_Orwell",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q3335"
+      },
+      {
+        "qid": "Q9531",
+        "name": "BBC",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/BBC",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q9531"
+      }
+    ],
+    "hiddenNodeIndex": 1,
+    "relationships": [
+      {
+        "propertyId": "P50",
+        "subjectQid": "Q208460",
+        "objectQid": "Q3335",
+        "direction": "forward",
+        "label": "written by",
+        "qualifiers": [],
+        "expectedClaim": "Q208460 P50 Q3335",
+        "evidence": [
+          {
+            "label": "Q208460 P50 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q208460#P50",
+            "kind": "wikidata"
+          },
+          {
+            "label": "Nineteen Eighty-Four",
+            "publisher": "The Orwell Foundation",
+            "url": "https://www.orwellfoundation.com/the-orwell-foundation/orwell/books-by-orwell/nineteen-eighty-four/",
+            "kind": "supporting"
+          }
+        ]
+      },
+      {
+        "propertyId": "P108",
+        "subjectQid": "Q3335",
+        "objectQid": "Q9531",
+        "direction": "forward",
+        "label": "worked for",
+        "qualifiers": [],
+        "expectedClaim": "Q3335 P108 Q9531; supporting biography dates the employment to 1941–1943",
+        "evidence": [
+          {
+            "label": "Q3335 P108 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q3335#P108",
+            "kind": "wikidata"
+          },
+          {
+            "label": "George Orwell at the BBC",
+            "publisher": "The Orwell Foundation",
+            "url": "https://www.orwellfoundation.com/the-orwell-foundation/news-events/news-events/news/george-orwell-at-the-bbc/",
+            "kind": "supporting"
+          }
+        ]
+      }
+    ],
+    "options": [
+      {
+        "id": "george-orwell",
+        "label": "George Orwell",
+        "qid": "Q3335"
+      },
+      {
+        "id": "aldous-huxley",
+        "label": "Aldous Huxley",
+        "qid": "Q81447"
+      },
+      {
+        "id": "ray-bradbury",
+        "label": "Ray Bradbury",
+        "qid": "Q40640"
+      },
+      {
+        "id": "hg-wells",
+        "label": "H. G. Wells",
+        "qid": "Q42511"
+      }
+    ],
+    "correctOptionId": "george-orwell",
+    "explanation": "George Orwell wrote Nineteen Eighty-Four after working as a BBC talks producer from 1941 to 1943. His broadcasting experience is part of the real institutional background behind the novel's imagined media world.",
+    "pathFingerprint": "Q208460|P50:forward:Q3335|P108:forward:Q9531",
+    "reviewedAt": "2026-10-12T00:00:00.000Z",
+    "verificationDate": "2026-10-12",
+    "reviewHistory": [
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": null,
+        "to": "under-review",
+        "note": "Selected for bounded Phase 6C batch 1 independent verification."
+      },
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": "under-review",
+        "to": "approved",
+        "note": "Current Wikidata statements, qualifiers, English Wikipedia links, independent supporting sources, path uniqueness, and three distractors reviewed."
+      }
+    ]
+  },
+  {
+    "id": "hobbit-tolkien-oxford",
+    "format": "missing-link",
+    "title": "An Oxford fantasy",
+    "prompt": "Who is the missing link between The Hobbit and University of Oxford?",
+    "category": "Literature and art",
+    "status": "approved",
+    "path": [
+      {
+        "qid": "Q74287",
+        "name": "The Hobbit",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/The_Hobbit",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q74287"
+      },
+      {
+        "qid": "Q892",
+        "name": "J. R. R. Tolkien",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/J._R._R._Tolkien",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q892"
+      },
+      {
+        "qid": "Q34433",
+        "name": "University of Oxford",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/University_of_Oxford",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q34433"
+      }
+    ],
+    "hiddenNodeIndex": 1,
+    "relationships": [
+      {
+        "propertyId": "P50",
+        "subjectQid": "Q74287",
+        "objectQid": "Q892",
+        "direction": "forward",
+        "label": "written by",
+        "qualifiers": [],
+        "expectedClaim": "Q74287 P50 Q892",
+        "evidence": [
+          {
+            "label": "Q74287 P50 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q74287#P50",
+            "kind": "wikidata"
+          },
+          {
+            "label": "J. R. R. Tolkien in Oxford",
+            "publisher": "University of Oxford",
+            "url": "https://www.exeter.ox.ac.uk/wp-content/uploads/2018/11/Tolkien-Booklet-2018.pdf",
+            "kind": "supporting"
+          }
+        ]
+      },
+      {
+        "propertyId": "P108",
+        "subjectQid": "Q892",
+        "objectQid": "Q34433",
+        "direction": "forward",
+        "label": "worked at",
+        "qualifiers": [
+          {
+            "propertyId": "P580",
+            "label": "start time",
+            "value": "1925"
+          },
+          {
+            "propertyId": "P582",
+            "label": "end time",
+            "value": "1959"
+          }
+        ],
+        "expectedClaim": "Q892 P108 Q34433, qualified by P580 1925 and P582 1959",
+        "evidence": [
+          {
+            "label": "Q892 P108 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q892#P108",
+            "kind": "wikidata"
+          },
+          {
+            "label": "Tolkien and Oxford — a brief history",
+            "publisher": "Pembroke College, University of Oxford",
+            "url": "https://www.pmb.ox.ac.uk/sites/default/files/migrated/library/tolkien_booklet_archives.pdf",
+            "kind": "supporting"
+          }
+        ]
+      }
+    ],
+    "options": [
+      {
+        "id": "jrr-tolkien",
+        "label": "J. R. R. Tolkien",
+        "qid": "Q892"
+      },
+      {
+        "id": "cs-lewis",
+        "label": "C. S. Lewis",
+        "qid": "Q9204"
+      },
+      {
+        "id": "philip-pullman",
+        "label": "Philip Pullman",
+        "qid": "Q190220"
+      },
+      {
+        "id": "george-rr-martin",
+        "label": "George R. R. Martin",
+        "qid": "Q181677"
+      }
+    ],
+    "correctOptionId": "jrr-tolkien",
+    "explanation": "J. R. R. Tolkien wrote The Hobbit while building a long academic career at Oxford, serving as a professor there from 1925 until 1959. The university setting and his philological work helped shape his imagined world.",
+    "pathFingerprint": "Q74287|P50:forward:Q892|P108:forward:Q34433",
+    "reviewedAt": "2026-10-12T00:00:00.000Z",
+    "verificationDate": "2026-10-12",
+    "reviewHistory": [
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": null,
+        "to": "under-review",
+        "note": "Selected for bounded Phase 6C batch 1 independent verification."
+      },
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": "under-review",
+        "to": "approved",
+        "note": "Current Wikidata statements, qualifiers, English Wikipedia links, independent supporting sources, path uniqueness, and three distractors reviewed."
+      }
+    ]
+  },
+  {
+    "id": "abbey-road-beatles-liverpool",
+    "format": "missing-link",
+    "title": "The road back to Liverpool",
+    "prompt": "Who is the missing link between Abbey Road and Liverpool?",
+    "category": "Music",
+    "status": "approved",
+    "path": [
+      {
+        "qid": "Q173643",
+        "name": "Abbey Road",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Abbey_Road",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q173643"
+      },
+      {
+        "qid": "Q1299",
+        "name": "The Beatles",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/The_Beatles",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q1299"
+      },
+      {
+        "qid": "Q24826",
+        "name": "Liverpool",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Liverpool",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q24826"
+      }
+    ],
+    "hiddenNodeIndex": 1,
+    "relationships": [
+      {
+        "propertyId": "P175",
+        "subjectQid": "Q173643",
+        "objectQid": "Q1299",
+        "direction": "forward",
+        "label": "performed by",
+        "qualifiers": [],
+        "expectedClaim": "Q173643 P175 Q1299",
+        "evidence": [
+          {
+            "label": "Q173643 P175 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q173643#P175",
+            "kind": "wikidata"
+          },
+          {
+            "label": "Abbey Road",
+            "publisher": "The Beatles",
+            "url": "https://www.thebeatles.com/abbey-road",
+            "kind": "supporting"
+          }
+        ]
+      },
+      {
+        "propertyId": "P740",
+        "subjectQid": "Q1299",
+        "objectQid": "Q24826",
+        "direction": "forward",
+        "label": "formed in",
+        "qualifiers": [],
+        "expectedClaim": "Q1299 P740 Q24826",
+        "evidence": [
+          {
+            "label": "Q1299 P740 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q1299#P740",
+            "kind": "wikidata"
+          },
+          {
+            "label": "The Beatles: red and blue timeline",
+            "publisher": "The Beatles",
+            "url": "https://www.thebeatles.com/red-and-blue-timeline",
+            "kind": "supporting"
+          }
+        ]
+      }
+    ],
+    "options": [
+      {
+        "id": "the-beatles",
+        "label": "The Beatles",
+        "qid": "Q1299"
+      },
+      {
+        "id": "rolling-stones",
+        "label": "The Rolling Stones",
+        "qid": "Q11036"
+      },
+      {
+        "id": "led-zeppelin",
+        "label": "Led Zeppelin",
+        "qid": "Q2331"
+      },
+      {
+        "id": "pink-floyd",
+        "label": "Pink Floyd",
+        "qid": "Q2306"
+      }
+    ],
+    "correctOptionId": "the-beatles",
+    "explanation": "Abbey Road is a Beatles album, and the band developed its identity and first devoted following in Liverpool. The path connects the London street made iconic by the cover to the band's home city.",
+    "pathFingerprint": "Q173643|P175:forward:Q1299|P740:forward:Q24826",
+    "reviewedAt": "2026-10-12T00:00:00.000Z",
+    "verificationDate": "2026-10-12",
+    "reviewHistory": [
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": null,
+        "to": "under-review",
+        "note": "Selected for bounded Phase 6C batch 1 independent verification."
+      },
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": "under-review",
+        "to": "approved",
+        "note": "Current Wikidata statements, qualifiers, English Wikipedia links, independent supporting sources, path uniqueness, and three distractors reviewed."
+      }
+    ]
+  },
+  {
+    "id": "bohemian-rhapsody-queen-london",
+    "format": "missing-link",
+    "title": "An operatic London anthem",
+    "prompt": "Who is the missing link between Bohemian Rhapsody and London?",
+    "category": "Music",
+    "status": "approved",
+    "path": [
+      {
+        "qid": "Q187745",
+        "name": "Bohemian Rhapsody",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Bohemian_Rhapsody",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q187745"
+      },
+      {
+        "qid": "Q15862",
+        "name": "Queen",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Queen_(band)",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q15862"
+      },
+      {
+        "qid": "Q84",
+        "name": "London",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/London",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q84"
+      }
+    ],
+    "hiddenNodeIndex": 1,
+    "relationships": [
+      {
+        "propertyId": "P175",
+        "subjectQid": "Q187745",
+        "objectQid": "Q15862",
+        "direction": "forward",
+        "label": "performed by",
+        "qualifiers": [
+          {
+            "propertyId": "P577",
+            "label": "publication date",
+            "value": "1975"
+          }
+        ],
+        "expectedClaim": "Q187745 P175 Q15862, with P577 statements dating the recording/release to 1975",
+        "evidence": [
+          {
+            "label": "Q187745 P175 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q187745#P175",
+            "kind": "wikidata"
+          },
+          {
+            "label": "About Queen",
+            "publisher": "Queen Online",
+            "url": "https://www.queenonline.com/queen",
+            "kind": "supporting"
+          }
+        ]
+      },
+      {
+        "propertyId": "P740",
+        "subjectQid": "Q15862",
+        "objectQid": "Q84",
+        "direction": "forward",
+        "label": "formed in",
+        "qualifiers": [],
+        "expectedClaim": "Q15862 P740 Q84",
+        "evidence": [
+          {
+            "label": "Q15862 P740 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q15862#P740",
+            "kind": "wikidata"
+          },
+          {
+            "label": "Queen",
+            "publisher": "Hollywood Walk of Fame",
+            "url": "https://walkoffame.com/queen/",
+            "kind": "supporting"
+          }
+        ]
+      }
+    ],
+    "options": [
+      {
+        "id": "queen",
+        "label": "Queen",
+        "qid": "Q15862"
+      },
+      {
+        "id": "pink-floyd",
+        "label": "Pink Floyd",
+        "qid": "Q2306"
+      },
+      {
+        "id": "the-who",
+        "label": "The Who",
+        "qid": "Q93346"
+      },
+      {
+        "id": "electric-light-orchestra",
+        "label": "Electric Light Orchestra",
+        "qid": "Q218255"
+      }
+    ],
+    "correctOptionId": "queen",
+    "explanation": "Queen performed Bohemian Rhapsody, released in 1975, and the band formed in London. Its studio-built, operatic single became one of the defining recordings of the London-born group.",
+    "pathFingerprint": "Q187745|P175:forward:Q15862|P740:forward:Q84",
+    "reviewedAt": "2026-10-12T00:00:00.000Z",
+    "verificationDate": "2026-10-12",
+    "reviewHistory": [
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": null,
+        "to": "under-review",
+        "note": "Selected for bounded Phase 6C batch 1 independent verification."
+      },
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": "under-review",
+        "to": "approved",
+        "note": "Current Wikidata statements, qualifiers, English Wikipedia links, independent supporting sources, path uniqueness, and three distractors reviewed."
+      }
+    ]
+  },
+  {
+    "id": "toy-story-hanks-apollo-13",
+    "format": "missing-link",
+    "title": "From a toy box to space",
+    "prompt": "Who is the missing link between Toy Story and Apollo 13?",
+    "category": "Entertainment and film",
+    "status": "approved",
+    "path": [
+      {
+        "qid": "Q171048",
+        "name": "Toy Story",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Toy_Story",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q171048"
+      },
+      {
+        "qid": "Q2263",
+        "name": "Tom Hanks",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Tom_Hanks",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q2263"
+      },
+      {
+        "qid": "Q106428",
+        "name": "Apollo 13",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Apollo_13_(film)",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q106428"
+      }
+    ],
+    "hiddenNodeIndex": 1,
+    "relationships": [
+      {
+        "propertyId": "P725",
+        "subjectQid": "Q171048",
+        "objectQid": "Q2263",
+        "direction": "forward",
+        "label": "voice performer",
+        "qualifiers": [
+          {
+            "propertyId": "P453",
+            "label": "character role",
+            "value": "Woody (Q177330)"
+          }
+        ],
+        "expectedClaim": "Q171048 P725 Q2263, qualified by P453 Woody (Q177330)",
+        "evidence": [
+          {
+            "label": "Q171048 P725 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q171048#P725",
+            "kind": "wikidata"
+          },
+          {
+            "label": "Toy Story",
+            "publisher": "D23",
+            "url": "https://d23.com/a-to-z/toy-story-film/",
+            "kind": "supporting"
+          }
+        ]
+      },
+      {
+        "propertyId": "P161",
+        "subjectQid": "Q106428",
+        "objectQid": "Q2263",
+        "direction": "reverse",
+        "label": "cast member",
+        "qualifiers": [
+          {
+            "propertyId": "P453",
+            "label": "character role",
+            "value": "Jim Lovell (Q214130)"
+          }
+        ],
+        "expectedClaim": "Q106428 P161 Q2263, qualified by P453 Jim Lovell (Q214130)",
+        "evidence": [
+          {
+            "label": "Q106428 P161 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q106428#P161",
+            "kind": "wikidata"
+          },
+          {
+            "label": "Historic mission Apollo 13 captured in IMAX film",
+            "publisher": "NASA",
+            "url": "https://www3.nasa.gov/centers/kennedy/pdf/67180main_Nov29.pdf",
+            "kind": "supporting"
+          }
+        ]
+      }
+    ],
+    "options": [
+      {
+        "id": "tom-hanks",
+        "label": "Tom Hanks",
+        "qid": "Q2263"
+      },
+      {
+        "id": "tim-allen",
+        "label": "Tim Allen",
+        "qid": "Q208408"
+      },
+      {
+        "id": "bill-paxton",
+        "label": "Bill Paxton",
+        "qid": "Q110374"
+      },
+      {
+        "id": "ed-harris",
+        "label": "Ed Harris",
+        "qid": "Q104791"
+      }
+    ],
+    "correctOptionId": "tom-hanks",
+    "explanation": "Tom Hanks voiced Woody in Toy Story and played astronaut Jim Lovell in Apollo 13. The same performer anchors one landmark in computer animation and one acclaimed dramatization of spaceflight.",
+    "pathFingerprint": "Q171048|P725:forward:Q2263|P161:reverse:Q106428",
+    "reviewedAt": "2026-10-12T00:00:00.000Z",
+    "verificationDate": "2026-10-12",
+    "reviewHistory": [
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": null,
+        "to": "under-review",
+        "note": "Selected for bounded Phase 6C batch 1 independent verification."
+      },
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": "under-review",
+        "to": "approved",
+        "note": "Current Wikidata statements, qualifiers, English Wikipedia links, independent supporting sources, path uniqueness, and three distractors reviewed."
+      }
+    ]
+  },
+  {
+    "id": "titanic-dicaprio-revenant",
+    "format": "missing-link",
+    "title": "Two ordeals on screen",
+    "prompt": "Who is the missing link between Titanic and The Revenant?",
+    "category": "Entertainment and film",
+    "status": "approved",
+    "path": [
+      {
+        "qid": "Q44578",
+        "name": "Titanic",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Titanic_(1997_film)",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q44578"
+      },
+      {
+        "qid": "Q38111",
+        "name": "Leonardo DiCaprio",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Leonardo_DiCaprio",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q38111"
+      },
+      {
+        "qid": "Q18002795",
+        "name": "The Revenant",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/The_Revenant_(2015_film)",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q18002795"
+      }
+    ],
+    "hiddenNodeIndex": 1,
+    "relationships": [
+      {
+        "propertyId": "P161",
+        "subjectQid": "Q44578",
+        "objectQid": "Q38111",
+        "direction": "forward",
+        "label": "cast member",
+        "qualifiers": [
+          {
+            "propertyId": "P453",
+            "label": "character role",
+            "value": "Jack Dawson (Q349386)"
+          }
+        ],
+        "expectedClaim": "Q44578 P161 Q38111, qualified by P453 Jack Dawson (Q349386)",
+        "evidence": [
+          {
+            "label": "Q44578 P161 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q44578#P161",
+            "kind": "wikidata"
+          },
+          {
+            "label": "Titanic",
+            "publisher": "Paramount Pictures",
+            "url": "https://www.paramountpictures.com/movies/titanic",
+            "kind": "supporting"
+          }
+        ]
+      },
+      {
+        "propertyId": "P161",
+        "subjectQid": "Q18002795",
+        "objectQid": "Q38111",
+        "direction": "reverse",
+        "label": "cast member",
+        "qualifiers": [
+          {
+            "propertyId": "P453",
+            "label": "character role",
+            "value": "Hugh Glass (Q1633742)"
+          }
+        ],
+        "expectedClaim": "Q18002795 P161 Q38111, qualified by P453 Hugh Glass (Q1633742)",
+        "evidence": [
+          {
+            "label": "Q18002795 P161 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q18002795#P161",
+            "kind": "wikidata"
+          },
+          {
+            "label": "The Revenant",
+            "publisher": "20th Century Studios",
+            "url": "https://www.20thcenturystudios.com/movies/the-revenant",
+            "kind": "supporting"
+          }
+        ]
+      }
+    ],
+    "options": [
+      {
+        "id": "leonardo-dicaprio",
+        "label": "Leonardo DiCaprio",
+        "qid": "Q38111"
+      },
+      {
+        "id": "kate-winslet",
+        "label": "Kate Winslet",
+        "qid": "Q202765"
+      },
+      {
+        "id": "tom-hardy",
+        "label": "Tom Hardy",
+        "qid": "Q208026"
+      },
+      {
+        "id": "billy-zane",
+        "label": "Billy Zane",
+        "qid": "Q205435"
+      }
+    ],
+    "correctOptionId": "leonardo-dicaprio",
+    "explanation": "Leonardo DiCaprio played Jack Dawson in Titanic and Hugh Glass in The Revenant. The two roles bookend very different survival stories in his film career.",
+    "pathFingerprint": "Q44578|P161:forward:Q38111|P161:reverse:Q18002795",
+    "reviewedAt": "2026-10-12T00:00:00.000Z",
+    "verificationDate": "2026-10-12",
+    "reviewHistory": [
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": null,
+        "to": "under-review",
+        "note": "Selected for bounded Phase 6C batch 1 independent verification."
+      },
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": "under-review",
+        "to": "approved",
+        "note": "Current Wikidata statements, qualifiers, English Wikipedia links, independent supporting sources, path uniqueness, and three distractors reviewed."
+      }
+    ]
+  },
+  {
+    "id": "iphone-apple-jobs",
+    "format": "missing-link",
+    "title": "The company behind the phone",
+    "prompt": "Who is the missing link between iPhone and Steve Jobs?",
+    "category": "Technology",
+    "status": "approved",
+    "path": [
+      {
+        "qid": "Q2766",
+        "name": "iPhone",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/IPhone",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q2766"
+      },
+      {
+        "qid": "Q312",
+        "name": "Apple",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Apple_Inc.",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q312"
+      },
+      {
+        "qid": "Q19837",
+        "name": "Steve Jobs",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Steve_Jobs",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q19837"
+      }
+    ],
+    "hiddenNodeIndex": 1,
+    "relationships": [
+      {
+        "propertyId": "P176",
+        "subjectQid": "Q2766",
+        "objectQid": "Q312",
+        "direction": "forward",
+        "label": "manufactured by",
+        "qualifiers": [],
+        "expectedClaim": "Q2766 P176 Q312",
+        "evidence": [
+          {
+            "label": "Q2766 P176 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q2766#P176",
+            "kind": "wikidata"
+          },
+          {
+            "label": "iPhone at ten: the revolution continues",
+            "publisher": "Apple",
+            "url": "https://www.apple.com/newsroom/2017/01/iphone-at-ten-the-revolution-continues/",
+            "kind": "supporting"
+          }
+        ]
+      },
+      {
+        "propertyId": "P112",
+        "subjectQid": "Q312",
+        "objectQid": "Q19837",
+        "direction": "forward",
+        "label": "founded by",
+        "qualifiers": [
+          {
+            "propertyId": "P580",
+            "label": "start time",
+            "value": "1976-04-01"
+          }
+        ],
+        "expectedClaim": "Q312 P112 Q19837, qualified by P580 1976-04-01",
+        "evidence": [
+          {
+            "label": "Q312 P112 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q312#P112",
+            "kind": "wikidata"
+          },
+          {
+            "label": "Steve Jobs",
+            "publisher": "Apple Books / Simon & Schuster",
+            "url": "https://books.apple.com/us/book/steve-jobs/id431617578",
+            "kind": "supporting"
+          }
+        ]
+      }
+    ],
+    "options": [
+      {
+        "id": "apple",
+        "label": "Apple",
+        "qid": "Q312"
+      },
+      {
+        "id": "samsung-electronics",
+        "label": "Samsung Electronics",
+        "qid": "Q20718"
+      },
+      {
+        "id": "microsoft",
+        "label": "Microsoft",
+        "qid": "Q2283"
+      },
+      {
+        "id": "google",
+        "label": "Google",
+        "qid": "Q95"
+      }
+    ],
+    "correctOptionId": "apple",
+    "explanation": "Apple manufactures the iPhone, and Steve Jobs co-founded Apple in 1976. Jobs later introduced the original iPhone in 2007, tying the product to the company he helped create.",
+    "pathFingerprint": "Q2766|P176:forward:Q312|P112:forward:Q19837",
+    "reviewedAt": "2026-10-12T00:00:00.000Z",
+    "verificationDate": "2026-10-12",
+    "reviewHistory": [
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": null,
+        "to": "under-review",
+        "note": "Selected for bounded Phase 6C batch 1 independent verification."
+      },
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": "under-review",
+        "to": "approved",
+        "note": "Current Wikidata statements, qualifiers, English Wikipedia links, independent supporting sources, path uniqueness, and three distractors reviewed."
+      }
+    ]
+  },
+  {
+    "id": "youtube-google-alphabet",
+    "format": "missing-link",
+    "title": "Inside a corporate alphabet",
+    "prompt": "Who is the missing link between YouTube and Alphabet Inc.?",
+    "category": "Business",
+    "status": "approved",
+    "path": [
+      {
+        "qid": "Q866",
+        "name": "YouTube",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/YouTube",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q866"
+      },
+      {
+        "qid": "Q95",
+        "name": "Google",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Google",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q95"
+      },
+      {
+        "qid": "Q20800404",
+        "name": "Alphabet Inc.",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Alphabet_Inc.",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q20800404"
+      }
+    ],
+    "hiddenNodeIndex": 1,
+    "relationships": [
+      {
+        "propertyId": "P127",
+        "subjectQid": "Q866",
+        "objectQid": "Q95",
+        "direction": "forward",
+        "label": "owned by",
+        "qualifiers": [
+          {
+            "propertyId": "P580",
+            "label": "start time",
+            "value": "2006-11"
+          }
+        ],
+        "expectedClaim": "Q866 P127 Q95, qualified by P580 November 2006",
+        "evidence": [
+          {
+            "label": "Q866 P127 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q866#P127",
+            "kind": "wikidata"
+          },
+          {
+            "label": "Alphabet 2015 annual report",
+            "publisher": "Alphabet",
+              "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204416000012/goog10-k2015.htm",
+            "kind": "supporting"
+          }
+        ]
+      },
+      {
+        "propertyId": "P749",
+        "subjectQid": "Q95",
+        "objectQid": "Q20800404",
+        "direction": "forward",
+        "label": "parent organization",
+        "qualifiers": [
+          {
+            "propertyId": "P580",
+            "label": "start time",
+            "value": "2015"
+          }
+        ],
+        "expectedClaim": "Q95 P749 Q20800404, qualified by P580 2015",
+        "evidence": [
+          {
+            "label": "Q95 P749 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q95#P749",
+            "kind": "wikidata"
+          },
+          {
+            "label": "Alphabet 2015 annual report",
+            "publisher": "Alphabet",
+              "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204416000012/goog10-k2015.htm",
+            "kind": "supporting"
+          }
+        ]
+      }
+    ],
+    "options": [
+      {
+        "id": "google",
+        "label": "Google",
+        "qid": "Q95"
+      },
+      {
+        "id": "meta-platforms",
+        "label": "Meta Platforms",
+        "qid": "Q380"
+      },
+      {
+        "id": "microsoft",
+        "label": "Microsoft",
+        "qid": "Q2283"
+      },
+      {
+        "id": "yahoo",
+        "label": "Yahoo! Inc.",
+        "qid": "Q29231846"
+      }
+    ],
+    "correctOptionId": "google",
+    "explanation": "Google has owned YouTube since 2006, and Google became a wholly owned subsidiary of Alphabet in 2015. The path reveals the two corporate layers behind the video platform.",
+    "pathFingerprint": "Q866|P127:forward:Q95|P749:forward:Q20800404",
+    "reviewedAt": "2026-10-12T00:00:00.000Z",
+    "verificationDate": "2026-10-12",
+    "reviewHistory": [
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": null,
+        "to": "under-review",
+        "note": "Selected for bounded Phase 6C batch 1 independent verification."
+      },
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": "under-review",
+        "to": "approved",
+        "note": "Current Wikidata statements, qualifiers, English Wikipedia links, independent supporting sources, path uniqueness, and three distractors reviewed."
+      }
+    ]
+  },
+  {
+    "id": "guernica-picasso-cubism",
+    "format": "missing-link",
+    "title": "A protest in fractured form",
+    "prompt": "Who is the missing link between Guernica and Cubism?",
+    "category": "Literature and art",
+    "status": "approved",
+    "path": [
+      {
+        "qid": "Q175036",
+        "name": "Guernica",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Guernica_(Picasso)",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q175036"
+      },
+      {
+        "qid": "Q5593",
+        "name": "Pablo Picasso",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Pablo_Picasso",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q5593"
+      },
+      {
+        "qid": "Q42934",
+        "name": "Cubism",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Cubism",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q42934"
+      }
+    ],
+    "hiddenNodeIndex": 1,
+    "relationships": [
+      {
+        "propertyId": "P170",
+        "subjectQid": "Q175036",
+        "objectQid": "Q5593",
+        "direction": "forward",
+        "label": "created by",
+        "qualifiers": [],
+        "expectedClaim": "Q175036 P170 Q5593",
+        "evidence": [
+          {
+            "label": "Q175036 P170 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q175036#P170",
+            "kind": "wikidata"
+          },
+          {
+            "label": "Guernica",
+            "publisher": "Museo Reina Sofía",
+            "url": "https://www.museoreinasofia.es/en/collection/artwork/guernica",
+            "kind": "supporting"
+          }
+        ]
+      },
+      {
+        "propertyId": "P135",
+        "subjectQid": "Q5593",
+        "objectQid": "Q42934",
+        "direction": "forward",
+        "label": "associated movement",
+        "qualifiers": [],
+        "expectedClaim": "Q5593 P135 Q42934",
+        "evidence": [
+          {
+            "label": "Q5593 P135 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q5593#P135",
+            "kind": "wikidata"
+          },
+          {
+            "label": "Cubism",
+            "publisher": "Museum of Modern Art",
+            "url": "https://www.moma.org/collection/terms/cubism",
+            "kind": "supporting"
+          }
+        ]
+      }
+    ],
+    "options": [
+      {
+        "id": "pablo-picasso",
+        "label": "Pablo Picasso",
+        "qid": "Q5593"
+      },
+      {
+        "id": "salvador-dali",
+        "label": "Salvador Dalí",
+        "qid": "Q5577"
+      },
+      {
+        "id": "joan-miro",
+        "label": "Joan Miró",
+        "qid": "Q152384"
+      },
+      {
+        "id": "georges-braque",
+        "label": "Georges Braque",
+        "qid": "Q153793"
+      }
+    ],
+    "correctOptionId": "pablo-picasso",
+    "explanation": "Pablo Picasso created Guernica and, with Georges Braque, pioneered Cubism. The monumental anti-war painting uses the fractured visual language associated with the movement he helped originate.",
+    "pathFingerprint": "Q175036|P170:forward:Q5593|P135:forward:Q42934",
+    "reviewedAt": "2026-10-12T00:00:00.000Z",
+    "verificationDate": "2026-10-12",
+    "reviewHistory": [
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": null,
+        "to": "under-review",
+        "note": "Selected for bounded Phase 6C batch 1 independent verification."
+      },
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": "under-review",
+        "to": "approved",
+        "note": "Current Wikidata statements, qualifiers, English Wikipedia links, independent supporting sources, path uniqueness, and three distractors reviewed."
+      }
+    ]
+  },
+  {
+    "id": "persistence-memory-dali-surrealism",
+    "format": "missing-link",
+    "title": "Melting time",
+    "prompt": "Who is the missing link between The Persistence of Memory and Surrealism?",
+    "category": "Literature and art",
+    "status": "approved",
+    "path": [
+      {
+        "qid": "Q25729",
+        "name": "The Persistence of Memory",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/The_Persistence_of_Memory",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q25729"
+      },
+      {
+        "qid": "Q5577",
+        "name": "Salvador Dalí",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Salvador_Dal%C3%AD",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q5577"
+      },
+      {
+        "qid": "Q39427",
+        "name": "Surrealism",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Surrealism",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q39427"
+      }
+    ],
+    "hiddenNodeIndex": 1,
+    "relationships": [
+      {
+        "propertyId": "P170",
+        "subjectQid": "Q25729",
+        "objectQid": "Q5577",
+        "direction": "forward",
+        "label": "created by",
+        "qualifiers": [],
+        "expectedClaim": "Q25729 P170 Q5577",
+        "evidence": [
+          {
+            "label": "Q25729 P170 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q25729#P170",
+            "kind": "wikidata"
+          },
+          {
+            "label": "The Persistence of Memory",
+            "publisher": "Museum of Modern Art",
+            "url": "https://www.moma.org/collection/works/79018",
+            "kind": "supporting"
+          }
+        ]
+      },
+      {
+        "propertyId": "P135",
+        "subjectQid": "Q5577",
+        "objectQid": "Q39427",
+        "direction": "forward",
+        "label": "associated movement",
+        "qualifiers": [],
+        "expectedClaim": "Q5577 P135 Q39427",
+        "evidence": [
+          {
+            "label": "Q5577 P135 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q5577#P135",
+            "kind": "wikidata"
+          },
+          {
+            "label": "The Persistence of Memory",
+            "publisher": "Museum of Modern Art",
+            "url": "https://www.moma.org/collection/works/79018",
+            "kind": "supporting"
+          }
+        ]
+      }
+    ],
+    "options": [
+      {
+        "id": "salvador-dali",
+        "label": "Salvador Dalí",
+        "qid": "Q5577"
+      },
+      {
+        "id": "pablo-picasso",
+        "label": "Pablo Picasso",
+        "qid": "Q5593"
+      },
+      {
+        "id": "max-ernst",
+        "label": "Max Ernst",
+        "qid": "Q154842"
+      },
+      {
+        "id": "joan-miro",
+        "label": "Joan Miró",
+        "qid": "Q152384"
+      }
+    ],
+    "correctOptionId": "salvador-dali",
+    "explanation": "Salvador Dalí painted The Persistence of Memory, whose uncanny landscape and melting watches became an emblem of Surrealism. MoMA describes its method as a classic Surrealist ambition made visible.",
+    "pathFingerprint": "Q25729|P170:forward:Q5577|P135:forward:Q39427",
+    "reviewedAt": "2026-10-12T00:00:00.000Z",
+    "verificationDate": "2026-10-12",
+    "reviewHistory": [
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": null,
+        "to": "under-review",
+        "note": "Selected for bounded Phase 6C batch 1 independent verification."
+      },
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": "under-review",
+        "to": "approved",
+        "note": "Current Wikidata statements, qualifiers, English Wikipedia links, independent supporting sources, path uniqueness, and three distractors reviewed."
+      }
+    ]
+  },
+  {
+    "id": "declaration-jefferson-uva",
+    "format": "missing-link",
+    "title": "Words and a university",
+    "prompt": "Who is the missing link between United States Declaration of Independence and University of Virginia?",
+    "category": "History and politics",
+    "status": "approved",
+    "path": [
+      {
+        "qid": "Q127912",
+        "name": "United States Declaration of Independence",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/United_States_Declaration_of_Independence",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q127912"
+      },
+      {
+        "qid": "Q11812",
+        "name": "Thomas Jefferson",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Thomas_Jefferson",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q11812"
+      },
+      {
+        "qid": "Q213439",
+        "name": "University of Virginia",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/University_of_Virginia",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q213439"
+      }
+    ],
+    "hiddenNodeIndex": 1,
+    "relationships": [
+      {
+        "propertyId": "P50",
+        "subjectQid": "Q127912",
+        "objectQid": "Q11812",
+        "direction": "forward",
+        "label": "written by",
+        "qualifiers": [],
+        "expectedClaim": "Q127912 P50 Q11812",
+        "evidence": [
+          {
+            "label": "Q127912 P50 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q127912#P50",
+            "kind": "wikidata"
+          },
+          {
+            "label": "How the Declaration came about",
+            "publisher": "U.S. National Archives",
+            "url": "https://www.archives.gov/founding-docs/declaration/how-did-it-happen",
+            "kind": "supporting"
+          }
+        ]
+      },
+      {
+        "propertyId": "P112",
+        "subjectQid": "Q213439",
+        "objectQid": "Q11812",
+        "direction": "reverse",
+        "label": "founded by",
+        "qualifiers": [],
+        "expectedClaim": "Q213439 P112 Q11812",
+        "evidence": [
+          {
+            "label": "Q213439 P112 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q213439#P112",
+            "kind": "wikidata"
+          },
+          {
+            "label": "About the University of Virginia",
+            "publisher": "University of Virginia",
+            "url": "https://www.virginia.edu/about-uva",
+            "kind": "supporting"
+          }
+        ]
+      }
+    ],
+    "options": [
+      {
+        "id": "thomas-jefferson",
+        "label": "Thomas Jefferson",
+        "qid": "Q11812"
+      },
+      {
+        "id": "benjamin-franklin",
+        "label": "Benjamin Franklin",
+        "qid": "Q34969"
+      },
+      {
+        "id": "john-adams",
+        "label": "John Adams",
+        "qid": "Q11806"
+      },
+      {
+        "id": "james-madison",
+        "label": "James Madison",
+        "qid": "Q11813"
+      }
+    ],
+    "correctOptionId": "thomas-jefferson",
+    "explanation": "Thomas Jefferson drafted the Declaration of Independence and later founded the University of Virginia. He regarded both political authorship and public education as central parts of his legacy.",
+    "pathFingerprint": "Q127912|P50:forward:Q11812|P112:reverse:Q213439",
+    "reviewedAt": "2026-10-12T00:00:00.000Z",
+    "verificationDate": "2026-10-12",
+    "reviewHistory": [
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": null,
+        "to": "under-review",
+        "note": "Selected for bounded Phase 6C batch 1 independent verification."
+      },
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": "under-review",
+        "to": "approved",
+        "note": "Current Wikidata statements, qualifiers, English Wikipedia links, independent supporting sources, path uniqueness, and three distractors reviewed."
+      }
+    ]
+  },
+  {
+    "id": "berlin-wall-east-germany-warsaw-pact",
+    "format": "missing-link",
+    "title": "A wall inside an alliance",
+    "prompt": "Who is the missing link between Berlin Wall and Warsaw Pact?",
+    "category": "History and politics",
+    "status": "approved",
+    "path": [
+      {
+        "qid": "Q5086",
+        "name": "Berlin Wall",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Berlin_Wall",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q5086"
+      },
+      {
+        "qid": "Q16957",
+        "name": "East Germany",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/East_Germany",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q16957"
+      },
+      {
+        "qid": "Q41644",
+        "name": "Warsaw Pact",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Warsaw_Pact",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q41644"
+      }
+    ],
+    "hiddenNodeIndex": 1,
+    "relationships": [
+      {
+        "propertyId": "P17",
+        "subjectQid": "Q5086",
+        "objectQid": "Q16957",
+        "direction": "forward",
+        "label": "country",
+        "qualifiers": [],
+        "expectedClaim": "Q5086 P17 Q16957",
+        "evidence": [
+          {
+            "label": "Q5086 P17 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q5086#P17",
+            "kind": "wikidata"
+          },
+          {
+            "label": "The Berlin Wall",
+            "publisher": "Berlin Wall Foundation",
+            "url": "https://www.stiftung-berliner-mauer.de/en/topics/berlin-wall",
+            "kind": "supporting"
+          }
+        ]
+      },
+      {
+        "propertyId": "P463",
+        "subjectQid": "Q16957",
+        "objectQid": "Q41644",
+        "direction": "forward",
+        "label": "member of",
+        "qualifiers": [
+          {
+            "propertyId": "P580",
+            "label": "start time",
+            "value": "1955-05-14"
+          },
+          {
+            "propertyId": "P582",
+            "label": "end time",
+            "value": "1990-09-24"
+          }
+        ],
+        "expectedClaim": "Q16957 P463 Q41644, qualified by P580 1955-05-14 and P582 1990-09-24",
+        "evidence": [
+          {
+            "label": "Q16957 P463 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q16957#P463",
+            "kind": "wikidata"
+          },
+          {
+            "label": "The Warsaw Treaty Organization",
+            "publisher": "Office of the Historian, U.S. Department of State",
+            "url": "https://history.state.gov/milestones/1953-1960/warsaw-treaty",
+            "kind": "supporting"
+          }
+        ]
+      }
+    ],
+    "options": [
+      {
+        "id": "east-germany",
+        "label": "East Germany",
+        "qid": "Q16957"
+      },
+      {
+        "id": "west-germany",
+        "label": "West Germany",
+        "qid": "Q713750"
+      },
+      {
+        "id": "soviet-union",
+        "label": "Soviet Union",
+        "qid": "Q15180"
+      },
+      {
+        "id": "poland",
+        "label": "Poland",
+        "qid": "Q36"
+      }
+    ],
+    "correctOptionId": "east-germany",
+    "explanation": "The Berlin Wall was a structure of East Germany, which belonged to the Warsaw Pact from 1955 until shortly before German reunification in 1990. The path places the wall within the alliance system of the Cold War.",
+    "pathFingerprint": "Q5086|P17:forward:Q16957|P463:forward:Q41644",
+    "reviewedAt": "2026-10-12T00:00:00.000Z",
+    "verificationDate": "2026-10-12",
+    "reviewHistory": [
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": null,
+        "to": "under-review",
+        "note": "Selected for bounded Phase 6C batch 1 independent verification."
+      },
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": "under-review",
+        "to": "approved",
+        "note": "Current Wikidata statements, qualifiers, English Wikipedia links, independent supporting sources, path uniqueness, and three distractors reviewed."
+      }
+    ]
+  },
+  {
+    "id": "sydney-opera-utzon-pritzker",
+    "format": "missing-link",
+    "title": "The architect behind the sails",
+    "prompt": "Who is the missing link between Sydney Opera House and Pritzker Architecture Prize?",
+    "category": "Geography and culture",
+    "status": "approved",
+    "path": [
+      {
+        "qid": "Q45178",
+        "name": "Sydney Opera House",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Sydney_Opera_House",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q45178"
+      },
+      {
+        "qid": "Q180398",
+        "name": "Jørn Utzon",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/J%C3%B8rn_Utzon",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q180398"
+      },
+      {
+        "qid": "Q133160",
+        "name": "Pritzker Architecture Prize",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Pritzker_Architecture_Prize",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q133160"
+      }
+    ],
+    "hiddenNodeIndex": 1,
+    "relationships": [
+      {
+        "propertyId": "P84",
+        "subjectQid": "Q45178",
+        "objectQid": "Q180398",
+        "direction": "forward",
+        "label": "architect",
+        "qualifiers": [
+          {
+            "propertyId": "P582",
+            "label": "end time",
+            "value": "1966-02-28"
+          }
+        ],
+        "expectedClaim": "Q45178 P84 Q180398, qualified by P582 1966-02-28",
+        "evidence": [
+          {
+            "label": "Q45178 P84 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q45178#P84",
+            "kind": "wikidata"
+          },
+          {
+            "label": "Jørn Utzon, 2003 laureate",
+            "publisher": "The Pritzker Architecture Prize",
+            "url": "https://www.pritzkerprize.com/laureates/2003",
+            "kind": "supporting"
+          }
+        ]
+      },
+      {
+        "propertyId": "P166",
+        "subjectQid": "Q180398",
+        "objectQid": "Q133160",
+        "direction": "forward",
+        "label": "received award",
+        "qualifiers": [
+          {
+            "propertyId": "P585",
+            "label": "point in time",
+            "value": "2003"
+          }
+        ],
+        "expectedClaim": "Q180398 P166 Q133160, qualified by P585 2003",
+        "evidence": [
+          {
+            "label": "Q180398 P166 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q180398#P166",
+            "kind": "wikidata"
+          },
+          {
+            "label": "Jørn Utzon, 2003 laureate",
+            "publisher": "The Pritzker Architecture Prize",
+            "url": "https://www.pritzkerprize.com/laureates/2003",
+            "kind": "supporting"
+          }
+        ]
+      }
+    ],
+    "options": [
+      {
+        "id": "jorn-utzon",
+        "label": "Jørn Utzon",
+        "qid": "Q180398"
+      },
+      {
+        "id": "frank-gehry",
+        "label": "Frank Gehry",
+        "qid": "Q180374"
+      },
+      {
+        "id": "zaha-hadid",
+        "label": "Zaha Hadid",
+        "qid": "Q47780"
+      },
+      {
+        "id": "renzo-piano",
+        "label": "Renzo Piano",
+        "qid": "Q190148"
+      }
+    ],
+    "correctOptionId": "jorn-utzon",
+    "explanation": "Jørn Utzon designed the Sydney Opera House and received the Pritzker Architecture Prize in 2003. The prize citation treated the building's sculptural form as the defining work of his career.",
+    "pathFingerprint": "Q45178|P84:forward:Q180398|P166:forward:Q133160",
+    "reviewedAt": "2026-10-12T00:00:00.000Z",
+    "verificationDate": "2026-10-12",
+    "reviewHistory": [
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": null,
+        "to": "under-review",
+        "note": "Selected for bounded Phase 6C batch 1 independent verification."
+      },
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": "under-review",
+        "to": "approved",
+        "note": "Current Wikidata statements, qualifiers, English Wikipedia links, independent supporting sources, path uniqueness, and three distractors reviewed."
+      }
+    ]
+  },
+  {
+    "id": "relativity-einstein-nobel-physics",
+    "format": "missing-link",
+    "title": "A famous theory, a different prize reason",
+    "prompt": "Who is the missing link between Theory of relativity and Nobel Prize in Physics?",
+    "category": "Science and innovation",
+    "status": "approved",
+    "path": [
+      {
+        "qid": "Q43514",
+        "name": "Theory of relativity",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Theory_of_relativity",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q43514"
+      },
+      {
+        "qid": "Q937",
+        "name": "Albert Einstein",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Albert_Einstein",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q937"
+      },
+      {
+        "qid": "Q38104",
+        "name": "Nobel Prize in Physics",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Nobel_Prize_in_Physics",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q38104"
+      }
+    ],
+    "hiddenNodeIndex": 1,
+    "relationships": [
+      {
+        "propertyId": "P61",
+        "subjectQid": "Q43514",
+        "objectQid": "Q937",
+        "direction": "forward",
+        "label": "discovered or invented by",
+        "qualifiers": [],
+        "expectedClaim": "Q43514 P61 Q937",
+        "evidence": [
+          {
+            "label": "Q43514 P61 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q43514#P61",
+            "kind": "wikidata"
+          },
+          {
+            "label": "Riemann's curved space and Einstein's relativity",
+            "publisher": "American Physical Society",
+            "url": "https://www.aps.org/apsnews/2013/06/riemanns-curved-space",
+            "kind": "supporting"
+          }
+        ]
+      },
+      {
+        "propertyId": "P166",
+        "subjectQid": "Q937",
+        "objectQid": "Q38104",
+        "direction": "forward",
+        "label": "received award",
+        "qualifiers": [
+          {
+            "propertyId": "P585",
+            "label": "point in time",
+            "value": "1921"
+          }
+        ],
+        "expectedClaim": "Q937 P166 Q38104, qualified by P585 1921; Nobel citation was for the photoelectric effect, not relativity",
+        "evidence": [
+          {
+            "label": "Q937 P166 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q937#P166",
+            "kind": "wikidata"
+          },
+          {
+            "label": "The Nobel Prize in Physics 1921",
+            "publisher": "Nobel Prize",
+            "url": "https://www.nobelprize.org/prizes/physics/1921/summary/",
+            "kind": "supporting"
+          }
+        ]
+      }
+    ],
+    "options": [
+      {
+        "id": "albert-einstein",
+        "label": "Albert Einstein",
+        "qid": "Q937"
+      },
+      {
+        "id": "max-planck",
+        "label": "Max Planck",
+        "qid": "Q9021"
+      },
+      {
+        "id": "niels-bohr",
+        "label": "Niels Bohr",
+        "qid": "Q7085"
+      },
+      {
+        "id": "marie-curie",
+        "label": "Marie Curie",
+        "qid": "Q7186"
+      }
+    ],
+    "correctOptionId": "albert-einstein",
+    "explanation": "Albert Einstein developed relativity and received the 1921 Nobel Prize in Physics. Crucially, the Nobel citation emphasized his discovery of the photoelectric effect, so the path is biographical rather than a claim that relativity itself won the prize.",
+    "pathFingerprint": "Q43514|P61:forward:Q937|P166:forward:Q38104",
+    "reviewedAt": "2026-10-12T00:00:00.000Z",
+    "verificationDate": "2026-10-12",
+    "reviewHistory": [
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": null,
+        "to": "under-review",
+        "note": "Selected for bounded Phase 6C batch 1 independent verification."
+      },
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": "under-review",
+        "to": "approved",
+        "note": "Current Wikidata statements, qualifiers, English Wikipedia links, independent supporting sources, path uniqueness, and three distractors reviewed."
+      }
+    ]
+  },
+  {
+    "id": "hundred-years-marquez-nobel-literature",
+    "format": "missing-link",
+    "title": "Macondo and the Nobel",
+    "prompt": "Who is the missing link between One Hundred Years of Solitude and Nobel Prize in Literature?",
+    "category": "Literature and art",
+    "status": "approved",
+    "path": [
+      {
+        "qid": "Q178869",
+        "name": "One Hundred Years of Solitude",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/One_Hundred_Years_of_Solitude",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q178869"
+      },
+      {
+        "qid": "Q5878",
+        "name": "Gabriel García Márquez",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Gabriel_Garc%C3%ADa_M%C3%A1rquez",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q5878"
+      },
+      {
+        "qid": "Q37922",
+        "name": "Nobel Prize in Literature",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Nobel_Prize_in_Literature",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q37922"
+      }
+    ],
+    "hiddenNodeIndex": 1,
+    "relationships": [
+      {
+        "propertyId": "P50",
+        "subjectQid": "Q178869",
+        "objectQid": "Q5878",
+        "direction": "forward",
+        "label": "written by",
+        "qualifiers": [],
+        "expectedClaim": "Q178869 P50 Q5878",
+        "evidence": [
+          {
+            "label": "Q178869 P50 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q178869#P50",
+            "kind": "wikidata"
+          },
+          {
+            "label": "Gabriel García Márquez, Colombia, 1928–2014",
+            "publisher": "Library of Congress",
+            "url": "https://www.loc.gov/item/n79063441/gabriel-garcia-marquez-colombia-1928-2014/",
+            "kind": "supporting"
+          }
+        ]
+      },
+      {
+        "propertyId": "P166",
+        "subjectQid": "Q5878",
+        "objectQid": "Q37922",
+        "direction": "forward",
+        "label": "received award",
+        "qualifiers": [
+          {
+            "propertyId": "P585",
+            "label": "point in time",
+            "value": "1982"
+          }
+        ],
+        "expectedClaim": "Q5878 P166 Q37922, qualified by P585 1982",
+        "evidence": [
+          {
+            "label": "Q5878 P166 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q5878#P166",
+            "kind": "wikidata"
+          },
+          {
+            "label": "Gabriel García Márquez, Colombia, 1928–2014",
+            "publisher": "Library of Congress",
+            "url": "https://www.loc.gov/item/n79063441/gabriel-garcia-marquez-colombia-1928-2014/",
+            "kind": "supporting"
+          }
+        ]
+      }
+    ],
+    "options": [
+      {
+        "id": "gabriel-garcia-marquez",
+        "label": "Gabriel García Márquez",
+        "qid": "Q5878"
+      },
+      {
+        "id": "jorge-luis-borges",
+        "label": "Jorge Luis Borges",
+        "qid": "Q909"
+      },
+      {
+        "id": "mario-vargas-llosa",
+        "label": "Mario Vargas Llosa",
+        "qid": "Q39803"
+      },
+      {
+        "id": "isabel-allende",
+        "label": "Isabel Allende",
+        "qid": "Q83566"
+      }
+    ],
+    "correctOptionId": "gabriel-garcia-marquez",
+    "explanation": "Gabriel García Márquez wrote One Hundred Years of Solitude and received the 1982 Nobel Prize in Literature. The novel's Macondo became the best-known expression of the imaginative world celebrated by the award.",
+    "pathFingerprint": "Q178869|P50:forward:Q5878|P166:forward:Q37922",
+    "reviewedAt": "2026-10-12T00:00:00.000Z",
+    "verificationDate": "2026-10-12",
+    "reviewHistory": [
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": null,
+        "to": "under-review",
+        "note": "Selected for bounded Phase 6C batch 1 independent verification."
+      },
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": "under-review",
+        "to": "approved",
+        "note": "Current Wikidata statements, qualifiers, English Wikipedia links, independent supporting sources, path uniqueness, and three distractors reviewed."
+      }
+    ]
+  },
+  {
+    "id": "starry-night-van-gogh-post-impressionism",
+    "format": "missing-link",
+    "title": "Night after Impressionism",
+    "prompt": "Who is the missing link between The Starry Night and Post-Impressionism?",
+    "category": "Literature and art",
+    "status": "approved",
+    "path": [
+      {
+        "qid": "Q45585",
+        "name": "The Starry Night",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/The_Starry_Night",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q45585"
+      },
+      {
+        "qid": "Q5582",
+        "name": "Vincent van Gogh",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Vincent_van_Gogh",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q5582"
+      },
+      {
+        "qid": "Q166713",
+        "name": "Post-Impressionism",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Post-Impressionism",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q166713"
+      }
+    ],
+    "hiddenNodeIndex": 1,
+    "relationships": [
+      {
+        "propertyId": "P170",
+        "subjectQid": "Q45585",
+        "objectQid": "Q5582",
+        "direction": "forward",
+        "label": "created by",
+        "qualifiers": [],
+        "expectedClaim": "Q45585 P170 Q5582",
+        "evidence": [
+          {
+            "label": "Q45585 P170 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q45585#P170",
+            "kind": "wikidata"
+          },
+          {
+            "label": "The Starry Night",
+            "publisher": "Museum of Modern Art",
+            "url": "https://www.moma.org/collection/works/79802",
+            "kind": "supporting"
+          }
+        ]
+      },
+      {
+        "propertyId": "P135",
+        "subjectQid": "Q5582",
+        "objectQid": "Q166713",
+        "direction": "forward",
+        "label": "associated movement",
+        "qualifiers": [],
+        "expectedClaim": "Q5582 P135 Q166713",
+        "evidence": [
+          {
+            "label": "Q5582 P135 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q5582#P135",
+            "kind": "wikidata"
+          },
+          {
+            "label": "The Starry Night",
+            "publisher": "Museum of Modern Art",
+            "url": "https://www.moma.org/collection/works/79802",
+            "kind": "supporting"
+          }
+        ]
+      }
+    ],
+    "options": [
+      {
+        "id": "vincent-van-gogh",
+        "label": "Vincent van Gogh",
+        "qid": "Q5582"
+      },
+      {
+        "id": "claude-monet",
+        "label": "Claude Monet",
+        "qid": "Q296"
+      },
+      {
+        "id": "paul-gauguin",
+        "label": "Paul Gauguin",
+        "qid": "Q37693"
+      },
+      {
+        "id": "paul-cezanne",
+        "label": "Paul Cézanne",
+        "qid": "Q35548"
+      }
+    ],
+    "correctOptionId": "vincent-van-gogh",
+    "explanation": "Vincent van Gogh painted The Starry Night, and his expressive transformation of observed nature became central to what later came to be called Post-Impressionism.",
+    "pathFingerprint": "Q45585|P170:forward:Q5582|P135:forward:Q166713",
+    "reviewedAt": "2026-10-12T00:00:00.000Z",
+    "verificationDate": "2026-10-12",
+    "reviewHistory": [
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": null,
+        "to": "under-review",
+        "note": "Selected for bounded Phase 6C batch 1 independent verification."
+      },
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": "under-review",
+        "to": "approved",
+        "note": "Current Wikidata statements, qualifiers, English Wikipedia links, independent supporting sources, path uniqueness, and three distractors reviewed."
+      }
+    ]
+  }
+]

@@ -20,7 +20,14 @@ export type ProductEventName =
   | "explore_category_selected"
   | "related_connection_opened"
   | "result_next_action_clicked"
-  | "extension_referral_opened";
+  | "extension_referral_opened"
+  | "daily_challenge_opened"
+  | "daily_challenge_answer_submitted"
+  | "daily_challenge_completed"
+  | "daily_wikipedia_link_clicked"
+  | "daily_evidence_link_clicked"
+  | "daily_challenge_result_shared"
+  | "daily_continued_exploration";
 
 type ProductEventProperties = Record<
   string,

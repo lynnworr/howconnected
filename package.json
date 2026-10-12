@@ -19,6 +19,11 @@
     "benchmark:domains": "node scripts/benchmark-domains.mjs",
     "benchmark:real-world": "node scripts/benchmark-real-world.mjs",
     "benchmark:gaps": "node --env-file-if-exists=.env --env-file-if-exists=.env.local scripts/benchmark-gaps.mjs"
+    ,"daily:validate": "node scripts/manage-daily-puzzles.mjs validate"
+    ,"daily:duplicates": "node scripts/manage-daily-puzzles.mjs duplicates"
+    ,"daily:report": "node scripts/manage-daily-puzzles.mjs report"
+    ,"daily:discover": "node --env-file-if-exists=.env --env-file-if-exists=.env.local scripts/manage-daily-puzzles.mjs discover"
+    ,"daily:export-review": "node scripts/manage-daily-puzzles.mjs export-review"
   },
   "dependencies": {
     "@vercel/analytics": "^2.0.1",

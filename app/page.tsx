@@ -49,6 +49,16 @@ export default function Home() {
             </Link>
             .
           </p>
+          <p className="mt-3 text-sm text-[#657087]">
+            Prefer a quick puzzle?{" "}
+            <Link
+              href="/daily"
+              className="rounded-sm font-bold text-[#a4432d] underline decoration-[#e4b2a7] underline-offset-4 focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-[#ff6846]"
+            >
+              Play The Missing Link
+            </Link>
+            .
+          </p>
         </section>
 
         <PublicFooter />

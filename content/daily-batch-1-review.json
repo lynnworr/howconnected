@@ -1,0 +1,1297 @@
+{
+  "batchId": "phase-6c-batch-1",
+  "verifiedAt": "2026-10-12T00:00:00.000Z",
+  "scope": "Twenty bounded two-edge candidates; Neo4j discovery was treated only as a lead source and approval required independent current Wikidata, source, Wikipedia-link, uniqueness, qualifier, and distractor review.",
+  "counts": {
+    "candidates": 20,
+    "approved": 18,
+    "rejected": 2,
+    "priorApproved": 1,
+    "cumulativeApproved": 19,
+    "remainingTo100": 81,
+    "scheduled": 0
+  },
+  "rawGraphDiscovery": {
+    "file": "content/daily-review-queue.json",
+    "resultCount": 50,
+    "disposition": "Not promoted. Results were dominated by a generic universe hub and ambiguous Solidarity shared-membership/employer paths, so they were retained only as discovery evidence."
+  },
+  "candidates": [
+    {
+      "id": "apollo-armstrong-nasa",
+      "decision": "rejected",
+      "exactPath": "Apollo 11 (Q43653) —P1029→ Neil Armstrong (Q1615) —P108→ NASA (Q23548)",
+      "reason": "Rejected as ambiguous: the live exact-property query also resolves through Buzz Aldrin and Michael Collins, so Neil Armstrong is not a unique hidden intermediary.",
+      "qualifierConcerns": "Apollo 11's P1029 statement identifies Armstrong as spacecraft commander (P39); his NASA employment has astronaut role (P39), start 1962 (P580), and end 1971 (P582). Those qualifiers do not restore uniqueness.",
+      "sourceEvidence": [
+        {
+          "label": "Apollo 11 crew statement",
+          "url": "https://www.wikidata.org/wiki/Q43653#P1029"
+        },
+        {
+          "label": "Neil Armstrong employer statement",
+          "url": "https://www.wikidata.org/wiki/Q1615#P108"
+        },
+        {
+          "label": "Apollo 11 mission",
+          "url": "https://www.nasa.gov/mission/apollo-11/"
+        },
+        {
+          "label": "Neil A. Armstrong",
+          "url": "https://www.nasa.gov/humans-in-space/astronauts/former-astronauts/former-astronaut-neil-a-armstrong/"
+        }
+      ],
+      "distractors": [
+        {
+          "qid": "Q2252",
+          "label": "Buzz Aldrin",
+          "exactPathMatch": true
+        },
+        {
+          "qid": "Q104859",
+          "label": "Michael Collins",
+          "exactPathMatch": true
+        },
+        {
+          "qid": "Q182642",
+          "label": "John Glenn",
+          "exactPathMatch": false
+        }
+      ],
+      "distractorValidationOutcome": "Failed: two plausible alternatives satisfy both exact edges. The intended answer cannot be presented as unique.",
+      "uniqueIntermediaryCount": 3
+    },
+    {
+      "id": "penicillin-fleming-nobel-medicine",
+      "decision": "approved",
+      "reason": "Both current Wikidata statements and direction were confirmed; reliable supporting sources cover each material claim; the exact two-edge query returned only the intended intermediary.",
+      "exactPath": "Penicillin (Q12190) —P61→ Alexander Fleming (Q37064) —P166→ Nobel Prize in Physiology or Medicine (Q80061)",
+      "qualifierConcerns": "Reviewed: P166/P585 point in time: 1945; P166/P1706 together with: Ernst Boris Chain (Q58054) and Howard Florey (Q137106). Editorial wording avoids claiming more than these statements support.",
+      "sourceEvidence": [
+        {
+          "label": "Q12190 P61 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q12190#P61",
+          "kind": "wikidata"
+        },
+        {
+          "label": "The Nobel Prize in Physiology or Medicine 1945",
+          "publisher": "Nobel Prize",
+          "url": "https://www.nobelprize.org/prizes/medicine/1945/summary/",
+          "kind": "supporting"
+        },
+        {
+          "label": "Q37064 P166 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q37064#P166",
+          "kind": "wikidata"
+        },
+        {
+          "label": "The Nobel Prize in Physiology or Medicine 1945",
+          "publisher": "Nobel Prize",
+          "url": "https://www.nobelprize.org/prizes/medicine/1945/summary/",
+          "kind": "supporting"
+        }
+      ],
+      "wikipediaLinks": [
+        {
+          "qid": "Q12190",
+          "url": "https://en.wikipedia.org/wiki/Penicillin"
+        },
+        {
+          "qid": "Q37064",
+          "url": "https://en.wikipedia.org/wiki/Alexander_Fleming"
+        },
+        {
+          "qid": "Q80061",
+          "url": "https://en.wikipedia.org/wiki/Nobel_Prize_in_Physiology_or_Medicine"
+        }
+      ],
+      "distractors": [
+        {
+          "qid": "Q529",
+          "label": "Louis Pasteur",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q37193",
+          "label": "Robert Koch",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q155768",
+          "label": "Joseph Lister",
+          "exactPathMatch": false
+        }
+      ],
+      "distractorValidationOutcome": "Passed: all three alternatives are recognizable and plausible in context, but none satisfies both exact relationships in the bounded live query.",
+      "uniqueIntermediaryCount": 1
+    },
+    {
+      "id": "hamlet-shakespeare-stratford",
+      "decision": "approved",
+      "reason": "Both current Wikidata statements and direction were confirmed; reliable supporting sources cover each material claim; the exact two-edge query returned only the intended intermediary.",
+      "exactPath": "Hamlet (Q41567) —P50→ William Shakespeare (Q692) —P19→ Stratford-upon-Avon (Q189288)",
+      "qualifierConcerns": "No material qualifiers on either current statement.",
+      "sourceEvidence": [
+        {
+          "label": "Q41567 P50 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q41567#P50",
+          "kind": "wikidata"
+        },
+        {
+          "label": "Hamlet: dates and sources",
+          "publisher": "Royal Shakespeare Company",
+          "url": "https://www.rsc.org.uk/hamlet/about-the-play/dates-and-sources",
+          "kind": "supporting"
+        },
+        {
+          "label": "Q692 P19 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q692#P19",
+          "kind": "wikidata"
+        },
+        {
+          "label": "When was Shakespeare born?",
+          "publisher": "Shakespeare Birthplace Trust",
+          "url": "https://www.shakespeare.org.uk/explore-shakespeare/shakespedia/william-shakespeare/when-was-shakespeare-born/",
+          "kind": "supporting"
+        }
+      ],
+      "wikipediaLinks": [
+        {
+          "qid": "Q41567",
+          "url": "https://en.wikipedia.org/wiki/Hamlet"
+        },
+        {
+          "qid": "Q692",
+          "url": "https://en.wikipedia.org/wiki/William_Shakespeare"
+        },
+        {
+          "qid": "Q189288",
+          "url": "https://en.wikipedia.org/wiki/Stratford-upon-Avon"
+        }
+      ],
+      "distractors": [
+        {
+          "qid": "Q28975",
+          "label": "Christopher Marlowe",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q193857",
+          "label": "Ben Jonson",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q30875",
+          "label": "Oscar Wilde",
+          "exactPathMatch": false
+        }
+      ],
+      "distractorValidationOutcome": "Passed: all three alternatives are recognizable and plausible in context, but none satisfies both exact relationships in the bounded live query.",
+      "uniqueIntermediaryCount": 1
+    },
+    {
+      "id": "nineteen-eighty-four-orwell-bbc",
+      "decision": "approved",
+      "reason": "Both current Wikidata statements and direction were confirmed; reliable supporting sources cover each material claim; the exact two-edge query returned only the intended intermediary.",
+      "exactPath": "Nineteen Eighty-Four (Q208460) —P50→ George Orwell (Q3335) —P108→ BBC (Q9531)",
+      "qualifierConcerns": "The current P108 statement has no date qualifiers. The Orwell Foundation independently dates the BBC employment to 1941–1943; those dates are retained in the expected-claim note and explanation, not represented as Wikidata qualifiers.",
+      "sourceEvidence": [
+        {
+          "label": "Q208460 P50 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q208460#P50",
+          "kind": "wikidata"
+        },
+        {
+          "label": "Nineteen Eighty-Four",
+          "publisher": "The Orwell Foundation",
+          "url": "https://www.orwellfoundation.com/the-orwell-foundation/orwell/books-by-orwell/nineteen-eighty-four/",
+          "kind": "supporting"
+        },
+        {
+          "label": "Q3335 P108 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q3335#P108",
+          "kind": "wikidata"
+        },
+        {
+          "label": "George Orwell at the BBC",
+          "publisher": "The Orwell Foundation",
+          "url": "https://www.orwellfoundation.com/the-orwell-foundation/news-events/news-events/news/george-orwell-at-the-bbc/",
+          "kind": "supporting"
+        }
+      ],
+      "wikipediaLinks": [
+        {
+          "qid": "Q208460",
+          "url": "https://en.wikipedia.org/wiki/Nineteen_Eighty-Four"
+        },
+        {
+          "qid": "Q3335",
+          "url": "https://en.wikipedia.org/wiki/George_Orwell"
+        },
+        {
+          "qid": "Q9531",
+          "url": "https://en.wikipedia.org/wiki/BBC"
+        }
+      ],
+      "distractors": [
+        {
+          "qid": "Q81447",
+          "label": "Aldous Huxley",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q40640",
+          "label": "Ray Bradbury",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q42511",
+          "label": "H. G. Wells",
+          "exactPathMatch": false
+        }
+      ],
+      "distractorValidationOutcome": "Passed: all three alternatives are recognizable and plausible in context, but none satisfies both exact relationships in the bounded live query.",
+      "uniqueIntermediaryCount": 1
+    },
+    {
+      "id": "hobbit-tolkien-oxford",
+      "decision": "approved",
+      "reason": "Both current Wikidata statements and direction were confirmed; reliable supporting sources cover each material claim; the exact two-edge query returned only the intended intermediary.",
+      "exactPath": "The Hobbit (Q74287) —P50→ J. R. R. Tolkien (Q892) —P108→ University of Oxford (Q34433)",
+      "qualifierConcerns": "Reviewed: P108/P580 start time: 1925; P108/P582 end time: 1959. Editorial wording avoids claiming more than these statements support.",
+      "sourceEvidence": [
+        {
+          "label": "Q74287 P50 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q74287#P50",
+          "kind": "wikidata"
+        },
+        {
+          "label": "J. R. R. Tolkien in Oxford",
+          "publisher": "University of Oxford",
+          "url": "https://www.exeter.ox.ac.uk/wp-content/uploads/2018/11/Tolkien-Booklet-2018.pdf",
+          "kind": "supporting"
+        },
+        {
+          "label": "Q892 P108 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q892#P108",
+          "kind": "wikidata"
+        },
+        {
+          "label": "Tolkien and Oxford — a brief history",
+          "publisher": "Pembroke College, University of Oxford",
+          "url": "https://www.pmb.ox.ac.uk/sites/default/files/migrated/library/tolkien_booklet_archives.pdf",
+          "kind": "supporting"
+        }
+      ],
+      "wikipediaLinks": [
+        {
+          "qid": "Q74287",
+          "url": "https://en.wikipedia.org/wiki/The_Hobbit"
+        },
+        {
+          "qid": "Q892",
+          "url": "https://en.wikipedia.org/wiki/J._R._R._Tolkien"
+        },
+        {
+          "qid": "Q34433",
+          "url": "https://en.wikipedia.org/wiki/University_of_Oxford"
+        }
+      ],
+      "distractors": [
+        {
+          "qid": "Q9204",
+          "label": "C. S. Lewis",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q190220",
+          "label": "Philip Pullman",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q181677",
+          "label": "George R. R. Martin",
+          "exactPathMatch": false
+        }
+      ],
+      "distractorValidationOutcome": "Passed: all three alternatives are recognizable and plausible in context, but none satisfies both exact relationships in the bounded live query.",
+      "uniqueIntermediaryCount": 1
+    },
+    {
+      "id": "abbey-road-beatles-liverpool",
+      "decision": "approved",
+      "reason": "Both current Wikidata statements and direction were confirmed; reliable supporting sources cover each material claim; the exact two-edge query returned only the intended intermediary.",
+      "exactPath": "Abbey Road (Q173643) —P175→ The Beatles (Q1299) —P740→ Liverpool (Q24826)",
+      "qualifierConcerns": "No material qualifiers on either current statement.",
+      "sourceEvidence": [
+        {
+          "label": "Q173643 P175 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q173643#P175",
+          "kind": "wikidata"
+        },
+        {
+          "label": "Abbey Road",
+          "publisher": "The Beatles",
+          "url": "https://www.thebeatles.com/abbey-road",
+          "kind": "supporting"
+        },
+        {
+          "label": "Q1299 P740 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q1299#P740",
+          "kind": "wikidata"
+        },
+        {
+          "label": "The Beatles: red and blue timeline",
+          "publisher": "The Beatles",
+          "url": "https://www.thebeatles.com/red-and-blue-timeline",
+          "kind": "supporting"
+        }
+      ],
+      "wikipediaLinks": [
+        {
+          "qid": "Q173643",
+          "url": "https://en.wikipedia.org/wiki/Abbey_Road"
+        },
+        {
+          "qid": "Q1299",
+          "url": "https://en.wikipedia.org/wiki/The_Beatles"
+        },
+        {
+          "qid": "Q24826",
+          "url": "https://en.wikipedia.org/wiki/Liverpool"
+        }
+      ],
+      "distractors": [
+        {
+          "qid": "Q11036",
+          "label": "The Rolling Stones",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q2331",
+          "label": "Led Zeppelin",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q2306",
+          "label": "Pink Floyd",
+          "exactPathMatch": false
+        }
+      ],
+      "distractorValidationOutcome": "Passed: all three alternatives are recognizable and plausible in context, but none satisfies both exact relationships in the bounded live query.",
+      "uniqueIntermediaryCount": 1
+    },
+    {
+      "id": "bohemian-rhapsody-queen-london",
+      "decision": "approved",
+      "reason": "Both current Wikidata statements and direction were confirmed; reliable supporting sources cover each material claim; the exact two-edge query returned only the intended intermediary.",
+      "exactPath": "Bohemian Rhapsody (Q187745) —P175→ Queen (Q15862) —P740→ London (Q84)",
+      "qualifierConcerns": "Reviewed: P175/P577 publication date: 1975. Editorial wording avoids claiming more than these statements support.",
+      "sourceEvidence": [
+        {
+          "label": "Q187745 P175 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q187745#P175",
+          "kind": "wikidata"
+        },
+        {
+          "label": "About Queen",
+          "publisher": "Queen Online",
+          "url": "https://www.queenonline.com/queen",
+          "kind": "supporting"
+        },
+        {
+          "label": "Q15862 P740 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q15862#P740",
+          "kind": "wikidata"
+        },
+        {
+          "label": "Queen",
+          "publisher": "Hollywood Walk of Fame",
+          "url": "https://walkoffame.com/queen/",
+          "kind": "supporting"
+        }
+      ],
+      "wikipediaLinks": [
+        {
+          "qid": "Q187745",
+          "url": "https://en.wikipedia.org/wiki/Bohemian_Rhapsody"
+        },
+        {
+          "qid": "Q15862",
+          "url": "https://en.wikipedia.org/wiki/Queen_(band)"
+        },
+        {
+          "qid": "Q84",
+          "url": "https://en.wikipedia.org/wiki/London"
+        }
+      ],
+      "distractors": [
+        {
+          "qid": "Q2306",
+          "label": "Pink Floyd",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q93346",
+          "label": "The Who",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q218255",
+          "label": "Electric Light Orchestra",
+          "exactPathMatch": false
+        }
+      ],
+      "distractorValidationOutcome": "Passed: all three alternatives are recognizable and plausible in context, but none satisfies both exact relationships in the bounded live query.",
+      "uniqueIntermediaryCount": 1
+    },
+    {
+      "id": "toy-story-hanks-apollo-13",
+      "decision": "approved",
+      "reason": "Both current Wikidata statements and direction were confirmed; reliable supporting sources cover each material claim; the exact two-edge query returned only the intended intermediary.",
+      "exactPath": "Toy Story (Q171048) —P725→ Tom Hanks (Q2263) ←P161— Apollo 13 (Q106428)",
+      "qualifierConcerns": "Reviewed: P725/P453 character role: Woody (Q177330); P161/P453 character role: Jim Lovell (Q214130). Editorial wording avoids claiming more than these statements support.",
+      "sourceEvidence": [
+        {
+          "label": "Q171048 P725 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q171048#P725",
+          "kind": "wikidata"
+        },
+        {
+          "label": "Toy Story",
+          "publisher": "D23",
+          "url": "https://d23.com/a-to-z/toy-story-film/",
+          "kind": "supporting"
+        },
+        {
+          "label": "Q106428 P161 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q106428#P161",
+          "kind": "wikidata"
+        },
+        {
+          "label": "Historic mission Apollo 13 captured in IMAX film",
+          "publisher": "NASA",
+          "url": "https://www3.nasa.gov/centers/kennedy/pdf/67180main_Nov29.pdf",
+          "kind": "supporting"
+        }
+      ],
+      "wikipediaLinks": [
+        {
+          "qid": "Q171048",
+          "url": "https://en.wikipedia.org/wiki/Toy_Story"
+        },
+        {
+          "qid": "Q2263",
+          "url": "https://en.wikipedia.org/wiki/Tom_Hanks"
+        },
+        {
+          "qid": "Q106428",
+          "url": "https://en.wikipedia.org/wiki/Apollo_13_(film)"
+        }
+      ],
+      "distractors": [
+        {
+          "qid": "Q208408",
+          "label": "Tim Allen",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q110374",
+          "label": "Bill Paxton",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q104791",
+          "label": "Ed Harris",
+          "exactPathMatch": false
+        }
+      ],
+      "distractorValidationOutcome": "Passed: all three alternatives are recognizable and plausible in context, but none satisfies both exact relationships in the bounded live query.",
+      "uniqueIntermediaryCount": 1
+    },
+    {
+      "id": "titanic-dicaprio-revenant",
+      "decision": "approved",
+      "reason": "Both current Wikidata statements and direction were confirmed; reliable supporting sources cover each material claim; the exact two-edge query returned only the intended intermediary.",
+      "exactPath": "Titanic (Q44578) —P161→ Leonardo DiCaprio (Q38111) ←P161— The Revenant (Q18002795)",
+      "qualifierConcerns": "Reviewed: P161/P453 character role: Jack Dawson (Q349386); P161/P453 character role: Hugh Glass (Q1633742). Editorial wording avoids claiming more than these statements support.",
+      "sourceEvidence": [
+        {
+          "label": "Q44578 P161 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q44578#P161",
+          "kind": "wikidata"
+        },
+        {
+          "label": "Titanic",
+          "publisher": "Paramount Pictures",
+          "url": "https://www.paramountpictures.com/movies/titanic",
+          "kind": "supporting"
+        },
+        {
+          "label": "Q18002795 P161 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q18002795#P161",
+          "kind": "wikidata"
+        },
+        {
+          "label": "The Revenant",
+          "publisher": "20th Century Studios",
+          "url": "https://www.20thcenturystudios.com/movies/the-revenant",
+          "kind": "supporting"
+        }
+      ],
+      "wikipediaLinks": [
+        {
+          "qid": "Q44578",
+          "url": "https://en.wikipedia.org/wiki/Titanic_(1997_film)"
+        },
+        {
+          "qid": "Q38111",
+          "url": "https://en.wikipedia.org/wiki/Leonardo_DiCaprio"
+        },
+        {
+          "qid": "Q18002795",
+          "url": "https://en.wikipedia.org/wiki/The_Revenant_(2015_film)"
+        }
+      ],
+      "distractors": [
+        {
+          "qid": "Q202765",
+          "label": "Kate Winslet",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q208026",
+          "label": "Tom Hardy",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q205435",
+          "label": "Billy Zane",
+          "exactPathMatch": false
+        }
+      ],
+      "distractorValidationOutcome": "Passed: all three alternatives are recognizable and plausible in context, but none satisfies both exact relationships in the bounded live query.",
+      "uniqueIntermediaryCount": 1
+    },
+    {
+      "id": "space-jam-jordan-bulls",
+      "decision": "rejected",
+      "exactPath": "Space Jam (Q207659) —P161→ Michael Jordan (Q41421) —P54→ Chicago Bulls (Q128109)",
+      "reason": "Rejected as ambiguous: the live exact-property query also resolves through Bill Wennington and Charles Oakley, both Space Jam cast members who played for the Chicago Bulls.",
+      "qualifierConcerns": "Jordan's film statement is qualified with the role 'Himself'; Bulls memberships cover 1984–1993 and 1995–1998. The dated memberships are sound but do not make the intermediary unique.",
+      "sourceEvidence": [
+        {
+          "label": "Space Jam cast statement",
+          "url": "https://www.wikidata.org/wiki/Q207659#P161"
+        },
+        {
+          "label": "Michael Jordan team statement",
+          "url": "https://www.wikidata.org/wiki/Q41421#P54"
+        },
+        {
+          "label": "Space Jam",
+          "url": "https://www.warnerbros.com/movies/space-jam"
+        },
+        {
+          "label": "Michael Jordan profile",
+          "url": "https://www.nba.com/news/history-nba-legend-michael-jordan"
+        }
+      ],
+      "distractors": [
+        {
+          "qid": "Q2607807",
+          "label": "Bill Wennington",
+          "exactPathMatch": true
+        },
+        {
+          "qid": "Q608514",
+          "label": "Charles Oakley",
+          "exactPathMatch": true
+        },
+        {
+          "qid": "Q193637",
+          "label": "Scottie Pippen",
+          "exactPathMatch": false
+        }
+      ],
+      "distractorValidationOutcome": "Failed: two plausible alternatives satisfy both exact edges. The intended answer cannot be presented as unique.",
+      "uniqueIntermediaryCount": 3
+    },
+    {
+      "id": "iphone-apple-jobs",
+      "decision": "approved",
+      "reason": "Both current Wikidata statements and direction were confirmed; reliable supporting sources cover each material claim; the exact two-edge query returned only the intended intermediary.",
+      "exactPath": "iPhone (Q2766) —P176→ Apple (Q312) —P112→ Steve Jobs (Q19837)",
+      "qualifierConcerns": "Reviewed: P112/P580 start time: 1976-04-01. Editorial wording avoids claiming more than these statements support.",
+      "sourceEvidence": [
+        {
+          "label": "Q2766 P176 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q2766#P176",
+          "kind": "wikidata"
+        },
+        {
+          "label": "iPhone at ten: the revolution continues",
+          "publisher": "Apple",
+          "url": "https://www.apple.com/newsroom/2017/01/iphone-at-ten-the-revolution-continues/",
+          "kind": "supporting"
+        },
+        {
+          "label": "Q312 P112 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q312#P112",
+          "kind": "wikidata"
+        },
+        {
+          "label": "Steve Jobs",
+          "publisher": "Apple Books / Simon & Schuster",
+          "url": "https://books.apple.com/us/book/steve-jobs/id431617578",
+          "kind": "supporting"
+        }
+      ],
+      "wikipediaLinks": [
+        {
+          "qid": "Q2766",
+          "url": "https://en.wikipedia.org/wiki/IPhone"
+        },
+        {
+          "qid": "Q312",
+          "url": "https://en.wikipedia.org/wiki/Apple_Inc."
+        },
+        {
+          "qid": "Q19837",
+          "url": "https://en.wikipedia.org/wiki/Steve_Jobs"
+        }
+      ],
+      "distractors": [
+        {
+          "qid": "Q20718",
+          "label": "Samsung Electronics",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q2283",
+          "label": "Microsoft",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q95",
+          "label": "Google",
+          "exactPathMatch": false
+        }
+      ],
+      "distractorValidationOutcome": "Passed: all three alternatives are recognizable and plausible in context, but none satisfies both exact relationships in the bounded live query.",
+      "uniqueIntermediaryCount": 1
+    },
+    {
+      "id": "youtube-google-alphabet",
+      "decision": "approved",
+      "reason": "Both current Wikidata statements and direction were confirmed; reliable supporting sources cover each material claim; the exact two-edge query returned only the intended intermediary.",
+      "exactPath": "YouTube (Q866) —P127→ Google (Q95) —P749→ Alphabet Inc. (Q20800404)",
+      "qualifierConcerns": "Reviewed: P127/P580 start time: 2006-11; P749/P580 start time: 2015. Editorial wording avoids claiming more than these statements support.",
+      "sourceEvidence": [
+        {
+          "label": "Q866 P127 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q866#P127",
+          "kind": "wikidata"
+        },
+        {
+          "label": "Alphabet 2015 annual report",
+          "publisher": "Alphabet",
+          "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204416000012/goog10-k2015.htm",
+          "kind": "supporting"
+        },
+        {
+          "label": "Q95 P749 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q95#P749",
+          "kind": "wikidata"
+        },
+        {
+          "label": "Alphabet 2015 annual report",
+          "publisher": "Alphabet",
+          "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204416000012/goog10-k2015.htm",
+          "kind": "supporting"
+        }
+      ],
+      "wikipediaLinks": [
+        {
+          "qid": "Q866",
+          "url": "https://en.wikipedia.org/wiki/YouTube"
+        },
+        {
+          "qid": "Q95",
+          "url": "https://en.wikipedia.org/wiki/Google"
+        },
+        {
+          "qid": "Q20800404",
+          "url": "https://en.wikipedia.org/wiki/Alphabet_Inc."
+        }
+      ],
+      "distractors": [
+        {
+          "qid": "Q380",
+          "label": "Meta Platforms",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q2283",
+          "label": "Microsoft",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q29231846",
+          "label": "Yahoo! Inc.",
+          "exactPathMatch": false
+        }
+      ],
+      "distractorValidationOutcome": "Passed: all three alternatives are recognizable and plausible in context, but none satisfies both exact relationships in the bounded live query.",
+      "uniqueIntermediaryCount": 1
+    },
+    {
+      "id": "guernica-picasso-cubism",
+      "decision": "approved",
+      "reason": "Both current Wikidata statements and direction were confirmed; reliable supporting sources cover each material claim; the exact two-edge query returned only the intended intermediary.",
+      "exactPath": "Guernica (Q175036) —P170→ Pablo Picasso (Q5593) —P135→ Cubism (Q42934)",
+      "qualifierConcerns": "No material qualifiers on either current statement.",
+      "sourceEvidence": [
+        {
+          "label": "Q175036 P170 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q175036#P170",
+          "kind": "wikidata"
+        },
+        {
+          "label": "Guernica",
+          "publisher": "Museo Reina Sofía",
+          "url": "https://www.museoreinasofia.es/en/collection/artwork/guernica",
+          "kind": "supporting"
+        },
+        {
+          "label": "Q5593 P135 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q5593#P135",
+          "kind": "wikidata"
+        },
+        {
+          "label": "Cubism",
+          "publisher": "Museum of Modern Art",
+          "url": "https://www.moma.org/collection/terms/cubism",
+          "kind": "supporting"
+        }
+      ],
+      "wikipediaLinks": [
+        {
+          "qid": "Q175036",
+          "url": "https://en.wikipedia.org/wiki/Guernica_(Picasso)"
+        },
+        {
+          "qid": "Q5593",
+          "url": "https://en.wikipedia.org/wiki/Pablo_Picasso"
+        },
+        {
+          "qid": "Q42934",
+          "url": "https://en.wikipedia.org/wiki/Cubism"
+        }
+      ],
+      "distractors": [
+        {
+          "qid": "Q5577",
+          "label": "Salvador Dalí",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q152384",
+          "label": "Joan Miró",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q153793",
+          "label": "Georges Braque",
+          "exactPathMatch": false
+        }
+      ],
+      "distractorValidationOutcome": "Passed: all three alternatives are recognizable and plausible in context, but none satisfies both exact relationships in the bounded live query.",
+      "uniqueIntermediaryCount": 1
+    },
+    {
+      "id": "persistence-memory-dali-surrealism",
+      "decision": "approved",
+      "reason": "Both current Wikidata statements and direction were confirmed; reliable supporting sources cover each material claim; the exact two-edge query returned only the intended intermediary.",
+      "exactPath": "The Persistence of Memory (Q25729) —P170→ Salvador Dalí (Q5577) —P135→ Surrealism (Q39427)",
+      "qualifierConcerns": "No material qualifiers on either current statement.",
+      "sourceEvidence": [
+        {
+          "label": "Q25729 P170 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q25729#P170",
+          "kind": "wikidata"
+        },
+        {
+          "label": "The Persistence of Memory",
+          "publisher": "Museum of Modern Art",
+          "url": "https://www.moma.org/collection/works/79018",
+          "kind": "supporting"
+        },
+        {
+          "label": "Q5577 P135 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q5577#P135",
+          "kind": "wikidata"
+        },
+        {
+          "label": "The Persistence of Memory",
+          "publisher": "Museum of Modern Art",
+          "url": "https://www.moma.org/collection/works/79018",
+          "kind": "supporting"
+        }
+      ],
+      "wikipediaLinks": [
+        {
+          "qid": "Q25729",
+          "url": "https://en.wikipedia.org/wiki/The_Persistence_of_Memory"
+        },
+        {
+          "qid": "Q5577",
+          "url": "https://en.wikipedia.org/wiki/Salvador_Dal%C3%AD"
+        },
+        {
+          "qid": "Q39427",
+          "url": "https://en.wikipedia.org/wiki/Surrealism"
+        }
+      ],
+      "distractors": [
+        {
+          "qid": "Q5593",
+          "label": "Pablo Picasso",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q154842",
+          "label": "Max Ernst",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q152384",
+          "label": "Joan Miró",
+          "exactPathMatch": false
+        }
+      ],
+      "distractorValidationOutcome": "Passed: all three alternatives are recognizable and plausible in context, but none satisfies both exact relationships in the bounded live query.",
+      "uniqueIntermediaryCount": 1
+    },
+    {
+      "id": "declaration-jefferson-uva",
+      "decision": "approved",
+      "reason": "Both current Wikidata statements and direction were confirmed; reliable supporting sources cover each material claim; the exact two-edge query returned only the intended intermediary.",
+      "exactPath": "United States Declaration of Independence (Q127912) —P50→ Thomas Jefferson (Q11812) ←P112— University of Virginia (Q213439)",
+      "qualifierConcerns": "No material qualifiers on either current statement.",
+      "sourceEvidence": [
+        {
+          "label": "Q127912 P50 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q127912#P50",
+          "kind": "wikidata"
+        },
+        {
+          "label": "How the Declaration came about",
+          "publisher": "U.S. National Archives",
+          "url": "https://www.archives.gov/founding-docs/declaration/how-did-it-happen",
+          "kind": "supporting"
+        },
+        {
+          "label": "Q213439 P112 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q213439#P112",
+          "kind": "wikidata"
+        },
+        {
+          "label": "About the University of Virginia",
+          "publisher": "University of Virginia",
+          "url": "https://www.virginia.edu/about-uva",
+          "kind": "supporting"
+        }
+      ],
+      "wikipediaLinks": [
+        {
+          "qid": "Q127912",
+          "url": "https://en.wikipedia.org/wiki/United_States_Declaration_of_Independence"
+        },
+        {
+          "qid": "Q11812",
+          "url": "https://en.wikipedia.org/wiki/Thomas_Jefferson"
+        },
+        {
+          "qid": "Q213439",
+          "url": "https://en.wikipedia.org/wiki/University_of_Virginia"
+        }
+      ],
+      "distractors": [
+        {
+          "qid": "Q34969",
+          "label": "Benjamin Franklin",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q11806",
+          "label": "John Adams",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q11813",
+          "label": "James Madison",
+          "exactPathMatch": false
+        }
+      ],
+      "distractorValidationOutcome": "Passed: all three alternatives are recognizable and plausible in context, but none satisfies both exact relationships in the bounded live query.",
+      "uniqueIntermediaryCount": 1
+    },
+    {
+      "id": "berlin-wall-east-germany-warsaw-pact",
+      "decision": "approved",
+      "reason": "Both current Wikidata statements and direction were confirmed; reliable supporting sources cover each material claim; the exact two-edge query returned only the intended intermediary.",
+      "exactPath": "Berlin Wall (Q5086) —P17→ East Germany (Q16957) —P463→ Warsaw Pact (Q41644)",
+      "qualifierConcerns": "Reviewed: P463/P580 start time: 1955-05-14; P463/P582 end time: 1990-09-24. Editorial wording avoids claiming more than these statements support.",
+      "sourceEvidence": [
+        {
+          "label": "Q5086 P17 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q5086#P17",
+          "kind": "wikidata"
+        },
+        {
+          "label": "The Berlin Wall",
+          "publisher": "Berlin Wall Foundation",
+          "url": "https://www.stiftung-berliner-mauer.de/en/topics/berlin-wall",
+          "kind": "supporting"
+        },
+        {
+          "label": "Q16957 P463 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q16957#P463",
+          "kind": "wikidata"
+        },
+        {
+          "label": "The Warsaw Treaty Organization",
+          "publisher": "Office of the Historian, U.S. Department of State",
+          "url": "https://history.state.gov/milestones/1953-1960/warsaw-treaty",
+          "kind": "supporting"
+        }
+      ],
+      "wikipediaLinks": [
+        {
+          "qid": "Q5086",
+          "url": "https://en.wikipedia.org/wiki/Berlin_Wall"
+        },
+        {
+          "qid": "Q16957",
+          "url": "https://en.wikipedia.org/wiki/East_Germany"
+        },
+        {
+          "qid": "Q41644",
+          "url": "https://en.wikipedia.org/wiki/Warsaw_Pact"
+        }
+      ],
+      "distractors": [
+        {
+          "qid": "Q713750",
+          "label": "West Germany",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q15180",
+          "label": "Soviet Union",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q36",
+          "label": "Poland",
+          "exactPathMatch": false
+        }
+      ],
+      "distractorValidationOutcome": "Passed: all three alternatives are recognizable and plausible in context, but none satisfies both exact relationships in the bounded live query.",
+      "uniqueIntermediaryCount": 1
+    },
+    {
+      "id": "sydney-opera-utzon-pritzker",
+      "decision": "approved",
+      "reason": "Both current Wikidata statements and direction were confirmed; reliable supporting sources cover each material claim; the exact two-edge query returned only the intended intermediary.",
+      "exactPath": "Sydney Opera House (Q45178) —P84→ Jørn Utzon (Q180398) —P166→ Pritzker Architecture Prize (Q133160)",
+      "qualifierConcerns": "Reviewed: P84/P582 end time: 1966-02-28; P166/P585 point in time: 2003. Editorial wording avoids claiming more than these statements support.",
+      "sourceEvidence": [
+        {
+          "label": "Q45178 P84 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q45178#P84",
+          "kind": "wikidata"
+        },
+        {
+          "label": "Jørn Utzon, 2003 laureate",
+          "publisher": "The Pritzker Architecture Prize",
+          "url": "https://www.pritzkerprize.com/laureates/2003",
+          "kind": "supporting"
+        },
+        {
+          "label": "Q180398 P166 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q180398#P166",
+          "kind": "wikidata"
+        },
+        {
+          "label": "Jørn Utzon, 2003 laureate",
+          "publisher": "The Pritzker Architecture Prize",
+          "url": "https://www.pritzkerprize.com/laureates/2003",
+          "kind": "supporting"
+        }
+      ],
+      "wikipediaLinks": [
+        {
+          "qid": "Q45178",
+          "url": "https://en.wikipedia.org/wiki/Sydney_Opera_House"
+        },
+        {
+          "qid": "Q180398",
+          "url": "https://en.wikipedia.org/wiki/J%C3%B8rn_Utzon"
+        },
+        {
+          "qid": "Q133160",
+          "url": "https://en.wikipedia.org/wiki/Pritzker_Architecture_Prize"
+        }
+      ],
+      "distractors": [
+        {
+          "qid": "Q180374",
+          "label": "Frank Gehry",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q47780",
+          "label": "Zaha Hadid",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q190148",
+          "label": "Renzo Piano",
+          "exactPathMatch": false
+        }
+      ],
+      "distractorValidationOutcome": "Passed: all three alternatives are recognizable and plausible in context, but none satisfies both exact relationships in the bounded live query.",
+      "uniqueIntermediaryCount": 1
+    },
+    {
+      "id": "relativity-einstein-nobel-physics",
+      "decision": "approved",
+      "reason": "Both current Wikidata statements and direction were confirmed; reliable supporting sources cover each material claim; the exact two-edge query returned only the intended intermediary.",
+      "exactPath": "Theory of relativity (Q43514) —P61→ Albert Einstein (Q937) —P166→ Nobel Prize in Physics (Q38104)",
+      "qualifierConcerns": "Reviewed: P166/P585 point in time: 1921. Editorial wording avoids claiming more than these statements support.",
+      "sourceEvidence": [
+        {
+          "label": "Q43514 P61 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q43514#P61",
+          "kind": "wikidata"
+        },
+        {
+          "label": "Riemann's curved space and Einstein's relativity",
+          "publisher": "American Physical Society",
+          "url": "https://www.aps.org/apsnews/2013/06/riemanns-curved-space",
+          "kind": "supporting"
+        },
+        {
+          "label": "Q937 P166 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q937#P166",
+          "kind": "wikidata"
+        },
+        {
+          "label": "The Nobel Prize in Physics 1921",
+          "publisher": "Nobel Prize",
+          "url": "https://www.nobelprize.org/prizes/physics/1921/summary/",
+          "kind": "supporting"
+        }
+      ],
+      "wikipediaLinks": [
+        {
+          "qid": "Q43514",
+          "url": "https://en.wikipedia.org/wiki/Theory_of_relativity"
+        },
+        {
+          "qid": "Q937",
+          "url": "https://en.wikipedia.org/wiki/Albert_Einstein"
+        },
+        {
+          "qid": "Q38104",
+          "url": "https://en.wikipedia.org/wiki/Nobel_Prize_in_Physics"
+        }
+      ],
+      "distractors": [
+        {
+          "qid": "Q9021",
+          "label": "Max Planck",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q7085",
+          "label": "Niels Bohr",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q7186",
+          "label": "Marie Curie",
+          "exactPathMatch": false
+        }
+      ],
+      "distractorValidationOutcome": "Passed: all three alternatives are recognizable and plausible in context, but none satisfies both exact relationships in the bounded live query.",
+      "uniqueIntermediaryCount": 1
+    },
+    {
+      "id": "hundred-years-marquez-nobel-literature",
+      "decision": "approved",
+      "reason": "Both current Wikidata statements and direction were confirmed; reliable supporting sources cover each material claim; the exact two-edge query returned only the intended intermediary.",
+      "exactPath": "One Hundred Years of Solitude (Q178869) —P50→ Gabriel García Márquez (Q5878) —P166→ Nobel Prize in Literature (Q37922)",
+      "qualifierConcerns": "Reviewed: P166/P585 point in time: 1982. Editorial wording avoids claiming more than these statements support.",
+      "sourceEvidence": [
+        {
+          "label": "Q178869 P50 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q178869#P50",
+          "kind": "wikidata"
+        },
+        {
+          "label": "Gabriel García Márquez, Colombia, 1928–2014",
+          "publisher": "Library of Congress",
+          "url": "https://www.loc.gov/item/n79063441/gabriel-garcia-marquez-colombia-1928-2014/",
+          "kind": "supporting"
+        },
+        {
+          "label": "Q5878 P166 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q5878#P166",
+          "kind": "wikidata"
+        },
+        {
+          "label": "Gabriel García Márquez, Colombia, 1928–2014",
+          "publisher": "Library of Congress",
+          "url": "https://www.loc.gov/item/n79063441/gabriel-garcia-marquez-colombia-1928-2014/",
+          "kind": "supporting"
+        }
+      ],
+      "wikipediaLinks": [
+        {
+          "qid": "Q178869",
+          "url": "https://en.wikipedia.org/wiki/One_Hundred_Years_of_Solitude"
+        },
+        {
+          "qid": "Q5878",
+          "url": "https://en.wikipedia.org/wiki/Gabriel_Garc%C3%ADa_M%C3%A1rquez"
+        },
+        {
+          "qid": "Q37922",
+          "url": "https://en.wikipedia.org/wiki/Nobel_Prize_in_Literature"
+        }
+      ],
+      "distractors": [
+        {
+          "qid": "Q909",
+          "label": "Jorge Luis Borges",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q39803",
+          "label": "Mario Vargas Llosa",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q83566",
+          "label": "Isabel Allende",
+          "exactPathMatch": false
+        }
+      ],
+      "distractorValidationOutcome": "Passed: all three alternatives are recognizable and plausible in context, but none satisfies both exact relationships in the bounded live query.",
+      "uniqueIntermediaryCount": 1
+    },
+    {
+      "id": "starry-night-van-gogh-post-impressionism",
+      "decision": "approved",
+      "reason": "Both current Wikidata statements and direction were confirmed; reliable supporting sources cover each material claim; the exact two-edge query returned only the intended intermediary.",
+      "exactPath": "The Starry Night (Q45585) —P170→ Vincent van Gogh (Q5582) —P135→ Post-Impressionism (Q166713)",
+      "qualifierConcerns": "No material qualifiers on either current statement.",
+      "sourceEvidence": [
+        {
+          "label": "Q45585 P170 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q45585#P170",
+          "kind": "wikidata"
+        },
+        {
+          "label": "The Starry Night",
+          "publisher": "Museum of Modern Art",
+          "url": "https://www.moma.org/collection/works/79802",
+          "kind": "supporting"
+        },
+        {
+          "label": "Q5582 P135 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q5582#P135",
+          "kind": "wikidata"
+        },
+        {
+          "label": "The Starry Night",
+          "publisher": "Museum of Modern Art",
+          "url": "https://www.moma.org/collection/works/79802",
+          "kind": "supporting"
+        }
+      ],
+      "wikipediaLinks": [
+        {
+          "qid": "Q45585",
+          "url": "https://en.wikipedia.org/wiki/The_Starry_Night"
+        },
+        {
+          "qid": "Q5582",
+          "url": "https://en.wikipedia.org/wiki/Vincent_van_Gogh"
+        },
+        {
+          "qid": "Q166713",
+          "url": "https://en.wikipedia.org/wiki/Post-Impressionism"
+        }
+      ],
+      "distractors": [
+        {
+          "qid": "Q296",
+          "label": "Claude Monet",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q37693",
+          "label": "Paul Gauguin",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q35548",
+          "label": "Paul Cézanne",
+          "exactPathMatch": false
+        }
+      ],
+      "distractorValidationOutcome": "Passed: all three alternatives are recognizable and plausible in context, but none satisfies both exact relationships in the bounded live query.",
+      "uniqueIntermediaryCount": 1
+    }
+  ]
+}

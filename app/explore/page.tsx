@@ -164,6 +164,9 @@ export default async function ExplorePage() {
             <p className="mt-5 max-w-2xl text-base leading-7 text-[#657087] sm:text-lg sm:leading-8">
               Start with relationships reviewed against committed evidence. Each path below is a verified snapshot—not a claim inferred from a live search.
             </p>
+            <p className="mt-4 text-sm text-[#657087]">
+              Want a quick challenge? <Link href="/daily" className="font-bold text-[#a4432d] underline underline-offset-4">Find today&apos;s missing link</Link>.
+            </p>
             <nav aria-label="Explore by theme" className="mt-7 flex flex-wrap gap-2">
               {categories.map((category) => (
                 <AnalyticsLink

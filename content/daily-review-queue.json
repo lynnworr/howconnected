@@ -1,0 +1,1152 @@
+[
+  {
+    "discoveryId": "graph-1791810021858-1",
+    "status": "candidate",
+    "path": [
+      {
+        "name": "spacetime",
+        "qid": "Q133327"
+      },
+      {
+        "name": "universe",
+        "qid": "Q1"
+      },
+      {
+        "name": "multiverse",
+        "qid": "Q3327819"
+      }
+    ],
+    "properties": [
+      "PART_OF",
+      "PART_OF"
+    ],
+    "editorialApproval": false
+  },
+  {
+    "discoveryId": "graph-1791810021858-2",
+    "status": "candidate",
+    "path": [
+      {
+        "name": "Night of Power",
+        "qid": "Q216452"
+      },
+      {
+        "name": "universe",
+        "qid": "Q1"
+      },
+      {
+        "name": "multiverse",
+        "qid": "Q3327819"
+      }
+    ],
+    "properties": [
+      "LOCATION",
+      "PART_OF"
+    ],
+    "editorialApproval": false
+  },
+  {
+    "discoveryId": "graph-1791810021858-3",
+    "status": "candidate",
+    "path": [
+      {
+        "name": "Big Bang",
+        "qid": "Q323"
+      },
+      {
+        "name": "universe",
+        "qid": "Q1"
+      },
+      {
+        "name": "multiverse",
+        "qid": "Q3327819"
+      }
+    ],
+    "properties": [
+      "SIGNIFICANT_EVENT",
+      "PART_OF"
+    ],
+    "editorialApproval": false
+  },
+  {
+    "discoveryId": "graph-1791810021858-4",
+    "status": "candidate",
+    "path": [
+      {
+        "name": "quark epoch",
+        "qid": "Q1208634"
+      },
+      {
+        "name": "universe",
+        "qid": "Q1"
+      },
+      {
+        "name": "multiverse",
+        "qid": "Q3327819"
+      }
+    ],
+    "properties": [
+      "SIGNIFICANT_EVENT",
+      "PART_OF"
+    ],
+    "editorialApproval": false
+  },
+  {
+    "discoveryId": "graph-1791810021858-5",
+    "status": "candidate",
+    "path": [
+      {
+        "name": "quark epoch",
+        "qid": "Q1208634"
+      },
+      {
+        "name": "universe",
+        "qid": "Q1"
+      },
+      {
+        "name": "spacetime",
+        "qid": "Q133327"
+      }
+    ],
+    "properties": [
+      "SIGNIFICANT_EVENT",
+      "PART_OF"
+    ],
+    "editorialApproval": false
+  },
+  {
+    "discoveryId": "graph-1791810021858-6",
+    "status": "candidate",
+    "path": [
+      {
+        "name": "multiverse",
+        "qid": "Q3327819"
+      },
+      {
+        "name": "universe",
+        "qid": "Q1"
+      },
+      {
+        "name": "location of Earth",
+        "qid": "Q437877"
+      }
+    ],
+    "properties": [
+      "PART_OF",
+      "PART_OF"
+    ],
+    "editorialApproval": false
+  },
+  {
+    "discoveryId": "graph-1791810021858-7",
+    "status": "candidate",
+    "path": [
+      {
+        "name": "spacetime",
+        "qid": "Q133327"
+      },
+      {
+        "name": "universe",
+        "qid": "Q1"
+      },
+      {
+        "name": "location of Earth",
+        "qid": "Q437877"
+      }
+    ],
+    "properties": [
+      "PART_OF",
+      "PART_OF"
+    ],
+    "editorialApproval": false
+  },
+  {
+    "discoveryId": "graph-1791810021858-8",
+    "status": "candidate",
+    "path": [
+      {
+        "name": "Night of Power",
+        "qid": "Q216452"
+      },
+      {
+        "name": "universe",
+        "qid": "Q1"
+      },
+      {
+        "name": "location of Earth",
+        "qid": "Q437877"
+      }
+    ],
+    "properties": [
+      "LOCATION",
+      "PART_OF"
+    ],
+    "editorialApproval": false
+  },
+  {
+    "discoveryId": "graph-1791810021858-9",
+    "status": "candidate",
+    "path": [
+      {
+        "name": "Big Bang",
+        "qid": "Q323"
+      },
+      {
+        "name": "universe",
+        "qid": "Q1"
+      },
+      {
+        "name": "location of Earth",
+        "qid": "Q437877"
+      }
+    ],
+    "properties": [
+      "SIGNIFICANT_EVENT",
+      "PART_OF"
+    ],
+    "editorialApproval": false
+  },
+  {
+    "discoveryId": "graph-1791810021858-10",
+    "status": "candidate",
+    "path": [
+      {
+        "name": "quark epoch",
+        "qid": "Q1208634"
+      },
+      {
+        "name": "universe",
+        "qid": "Q1"
+      },
+      {
+        "name": "location of Earth",
+        "qid": "Q437877"
+      }
+    ],
+    "properties": [
+      "SIGNIFICANT_EVENT",
+      "PART_OF"
+    ],
+    "editorialApproval": false
+  },
+  {
+    "discoveryId": "graph-1791810021859-11",
+    "status": "candidate",
+    "path": [
+      {
+        "name": "spacetime",
+        "qid": "Q133327"
+      },
+      {
+        "name": "universe",
+        "qid": "Q1"
+      },
+      {
+        "name": "Night of Power",
+        "qid": "Q216452"
+      }
+    ],
+    "properties": [
+      "PART_OF",
+      "LOCATION"
+    ],
+    "editorialApproval": false
+  },
+  {
+    "discoveryId": "graph-1791810021859-12",
+    "status": "candidate",
+    "path": [
+      {
+        "name": "quark epoch",
+        "qid": "Q1208634"
+      },
+      {
+        "name": "universe",
+        "qid": "Q1"
+      },
+      {
+        "name": "Night of Power",
+        "qid": "Q216452"
+      }
+    ],
+    "properties": [
+      "SIGNIFICANT_EVENT",
+      "LOCATION"
+    ],
+    "editorialApproval": false
+  },
+  {
+    "discoveryId": "graph-1791810021859-13",
+    "status": "candidate",
+    "path": [
+      {
+        "name": "multiverse",
+        "qid": "Q3327819"
+      },
+      {
+        "name": "universe",
+        "qid": "Q1"
+      },
+      {
+        "name": "Kiraman Katibin",
+        "qid": "Q6414792"
+      }
+    ],
+    "properties": [
+      "PART_OF",
+      "LOCATION"
+    ],
+    "editorialApproval": false
+  },
+  {
+    "discoveryId": "graph-1791810021859-14",
+    "status": "candidate",
+    "path": [
+      {
+        "name": "spacetime",
+        "qid": "Q133327"
+      },
+      {
+        "name": "universe",
+        "qid": "Q1"
+      },
+      {
+        "name": "Kiraman Katibin",
+        "qid": "Q6414792"
+      }
+    ],
+    "properties": [
+      "PART_OF",
+      "LOCATION"
+    ],
+    "editorialApproval": false
+  },
+  {
+    "discoveryId": "graph-1791810021859-15",
+    "status": "candidate",
+    "path": [
+      {
+        "name": "location of Earth",
+        "qid": "Q437877"
+      },
+      {
+        "name": "universe",
+        "qid": "Q1"
+      },
+      {
+        "name": "Kiraman Katibin",
+        "qid": "Q6414792"
+      }
+    ],
+    "properties": [
+      "PART_OF",
+      "LOCATION"
+    ],
+    "editorialApproval": false
+  },
+  {
+    "discoveryId": "graph-1791810021859-16",
+    "status": "candidate",
+    "path": [
+      {
+        "name": "Night of Power",
+        "qid": "Q216452"
+      },
+      {
+        "name": "universe",
+        "qid": "Q1"
+      },
+      {
+        "name": "Kiraman Katibin",
+        "qid": "Q6414792"
+      }
+    ],
+    "properties": [
+      "LOCATION",
+      "LOCATION"
+    ],
+    "editorialApproval": false
+  },
+  {
+    "discoveryId": "graph-1791810021859-17",
+    "status": "candidate",
+    "path": [
+      {
+        "name": "Big Bang",
+        "qid": "Q323"
+      },
+      {
+        "name": "universe",
+        "qid": "Q1"
+      },
+      {
+        "name": "Kiraman Katibin",
+        "qid": "Q6414792"
+      }
+    ],
+    "properties": [
+      "SIGNIFICANT_EVENT",
+      "LOCATION"
+    ],
+    "editorialApproval": false
+  },
+  {
+    "discoveryId": "graph-1791810021859-18",
+    "status": "candidate",
+    "path": [
+      {
+        "name": "quark epoch",
+        "qid": "Q1208634"
+      },
+      {
+        "name": "universe",
+        "qid": "Q1"
+      },
+      {
+        "name": "Kiraman Katibin",
+        "qid": "Q6414792"
+      }
+    ],
+    "properties": [
+      "SIGNIFICANT_EVENT",
+      "LOCATION"
+    ],
+    "editorialApproval": false
+  },
+  {
+    "discoveryId": "graph-1791810021859-19",
+    "status": "candidate",
+    "path": [
+      {
+        "name": "spacetime",
+        "qid": "Q133327"
+      },
+      {
+        "name": "universe",
+        "qid": "Q1"
+      },
+      {
+        "name": "Big Bang",
+        "qid": "Q323"
+      }
+    ],
+    "properties": [
+      "PART_OF",
+      "SIGNIFICANT_EVENT"
+    ],
+    "editorialApproval": false
+  },
+  {
+    "discoveryId": "graph-1791810021859-20",
+    "status": "candidate",
+    "path": [
+      {
+        "name": "Night of Power",
+        "qid": "Q216452"
+      },
+      {
+        "name": "universe",
+        "qid": "Q1"
+      },
+      {
+        "name": "Big Bang",
+        "qid": "Q323"
+      }
+    ],
+    "properties": [
+      "LOCATION",
+      "SIGNIFICANT_EVENT"
+    ],
+    "editorialApproval": false
+  },
+  {
+    "discoveryId": "graph-1791810021859-21",
+    "status": "candidate",
+    "path": [
+      {
+        "name": "quark epoch",
+        "qid": "Q1208634"
+      },
+      {
+        "name": "universe",
+        "qid": "Q1"
+      },
+      {
+        "name": "Big Bang",
+        "qid": "Q323"
+      }
+    ],
+    "properties": [
+      "SIGNIFICANT_EVENT",
+      "SIGNIFICANT_EVENT"
+    ],
+    "editorialApproval": false
+  },
+  {
+    "discoveryId": "graph-1791810021859-22",
+    "status": "candidate",
+    "path": [
+      {
+        "name": "multiverse",
+        "qid": "Q3327819"
+      },
+      {
+        "name": "universe",
+        "qid": "Q1"
+      },
+      {
+        "name": "Big Bang nucleosynthesis",
+        "qid": "Q837317"
+      }
+    ],
+    "properties": [
+      "PART_OF",
+      "SIGNIFICANT_EVENT"
+    ],
+    "editorialApproval": false
+  },
+  {
+    "discoveryId": "graph-1791810021859-23",
+    "status": "candidate",
+    "path": [
+      {
+        "name": "spacetime",
+        "qid": "Q133327"
+      },
+      {
+        "name": "universe",
+        "qid": "Q1"
+      },
+      {
+        "name": "Big Bang nucleosynthesis",
+        "qid": "Q837317"
+      }
+    ],
+    "properties": [
+      "PART_OF",
+      "SIGNIFICANT_EVENT"
+    ],
+    "editorialApproval": false
+  },
+  {
+    "discoveryId": "graph-1791810021859-24",
+    "status": "candidate",
+    "path": [
+      {
+        "name": "location of Earth",
+        "qid": "Q437877"
+      },
+      {
+        "name": "universe",
+        "qid": "Q1"
+      },
+      {
+        "name": "Big Bang nucleosynthesis",
+        "qid": "Q837317"
+      }
+    ],
+    "properties": [
+      "PART_OF",
+      "SIGNIFICANT_EVENT"
+    ],
+    "editorialApproval": false
+  },
+  {
+    "discoveryId": "graph-1791810021859-25",
+    "status": "candidate",
+    "path": [
+      {
+        "name": "Night of Power",
+        "qid": "Q216452"
+      },
+      {
+        "name": "universe",
+        "qid": "Q1"
+      },
+      {
+        "name": "Big Bang nucleosynthesis",
+        "qid": "Q837317"
+      }
+    ],
+    "properties": [
+      "LOCATION",
+      "SIGNIFICANT_EVENT"
+    ],
+    "editorialApproval": false
+  },
+  {
+    "discoveryId": "graph-1791810021859-26",
+    "status": "candidate",
+    "path": [
+      {
+        "name": "Kiraman Katibin",
+        "qid": "Q6414792"
+      },
+      {
+        "name": "universe",
+        "qid": "Q1"
+      },
+      {
+        "name": "Big Bang nucleosynthesis",
+        "qid": "Q837317"
+      }
+    ],
+    "properties": [
+      "LOCATION",
+      "SIGNIFICANT_EVENT"
+    ],
+    "editorialApproval": false
+  },
+  {
+    "discoveryId": "graph-1791810021859-27",
+    "status": "candidate",
+    "path": [
+      {
+        "name": "Big Bang",
+        "qid": "Q323"
+      },
+      {
+        "name": "universe",
+        "qid": "Q1"
+      },
+      {
+        "name": "Big Bang nucleosynthesis",
+        "qid": "Q837317"
+      }
+    ],
+    "properties": [
+      "SIGNIFICANT_EVENT",
+      "SIGNIFICANT_EVENT"
+    ],
+    "editorialApproval": false
+  },
+  {
+    "discoveryId": "graph-1791810021859-28",
+    "status": "candidate",
+    "path": [
+      {
+        "name": "quark epoch",
+        "qid": "Q1208634"
+      },
+      {
+        "name": "universe",
+        "qid": "Q1"
+      },
+      {
+        "name": "Big Bang nucleosynthesis",
+        "qid": "Q837317"
+      }
+    ],
+    "properties": [
+      "SIGNIFICANT_EVENT",
+      "SIGNIFICANT_EVENT"
+    ],
+    "editorialApproval": false
+  },
+  {
+    "discoveryId": "graph-1791810021859-29",
+    "status": "candidate",
+    "path": [
+      {
+        "name": "European Trade Union Confederation",
+        "qid": "Q1377852"
+      },
+      {
+        "name": "Solidarity",
+        "qid": "Q1003"
+      },
+      {
+        "name": "Mariusz Kamiński",
+        "qid": "Q3845166"
+      }
+    ],
+    "properties": [
+      "MEMBER_OF",
+      "EMPLOYER"
+    ],
+    "editorialApproval": false
+  },
+  {
+    "discoveryId": "graph-1791810021859-30",
+    "status": "candidate",
+    "path": [
+      {
+        "name": "Janusz Onyszkiewicz",
+        "qid": "Q1683072"
+      },
+      {
+        "name": "Solidarity",
+        "qid": "Q1003"
+      },
+      {
+        "name": "Mariusz Kamiński",
+        "qid": "Q3845166"
+      }
+    ],
+    "properties": [
+      "MEMBER_OF",
+      "EMPLOYER"
+    ],
+    "editorialApproval": false
+  },
+  {
+    "discoveryId": "graph-1791810021859-31",
+    "status": "candidate",
+    "path": [
+      {
+        "name": "Marek Prawda",
+        "qid": "Q1894631"
+      },
+      {
+        "name": "Solidarity",
+        "qid": "Q1003"
+      },
+      {
+        "name": "Mariusz Kamiński",
+        "qid": "Q3845166"
+      }
+    ],
+    "properties": [
+      "MEMBER_OF",
+      "EMPLOYER"
+    ],
+    "editorialApproval": false
+  },
+  {
+    "discoveryId": "graph-1791810021859-32",
+    "status": "candidate",
+    "path": [
+      {
+        "name": "Edward Balcerzan",
+        "qid": "Q3719927"
+      },
+      {
+        "name": "Solidarity",
+        "qid": "Q1003"
+      },
+      {
+        "name": "Mariusz Kamiński",
+        "qid": "Q3845166"
+      }
+    ],
+    "properties": [
+      "MEMBER_OF",
+      "EMPLOYER"
+    ],
+    "editorialApproval": false
+  },
+  {
+    "discoveryId": "graph-1791810021859-33",
+    "status": "candidate",
+    "path": [
+      {
+        "name": "Andrzej Paczkowski",
+        "qid": "Q2742045"
+      },
+      {
+        "name": "Solidarity",
+        "qid": "Q1003"
+      },
+      {
+        "name": "Mariusz Kamiński",
+        "qid": "Q3845166"
+      }
+    ],
+    "properties": [
+      "MEMBER_OF",
+      "EMPLOYER"
+    ],
+    "editorialApproval": false
+  },
+  {
+    "discoveryId": "graph-1791810021859-34",
+    "status": "candidate",
+    "path": [
+      {
+        "name": "Ryszard Bender",
+        "qid": "Q2178309"
+      },
+      {
+        "name": "Solidarity",
+        "qid": "Q1003"
+      },
+      {
+        "name": "Mariusz Kamiński",
+        "qid": "Q3845166"
+      }
+    ],
+    "properties": [
+      "MEMBER_OF",
+      "EMPLOYER"
+    ],
+    "editorialApproval": false
+  },
+  {
+    "discoveryId": "graph-1791810021859-35",
+    "status": "candidate",
+    "path": [
+      {
+        "name": "European Trade Union Confederation",
+        "qid": "Q1377852"
+      },
+      {
+        "name": "Solidarity",
+        "qid": "Q1003"
+      },
+      {
+        "name": "Janusz Onyszkiewicz",
+        "qid": "Q1683072"
+      }
+    ],
+    "properties": [
+      "MEMBER_OF",
+      "MEMBER_OF"
+    ],
+    "editorialApproval": false
+  },
+  {
+    "discoveryId": "graph-1791810021859-36",
+    "status": "candidate",
+    "path": [
+      {
+        "name": "European Trade Union Confederation",
+        "qid": "Q1377852"
+      },
+      {
+        "name": "Solidarity",
+        "qid": "Q1003"
+      },
+      {
+        "name": "Marek Prawda",
+        "qid": "Q1894631"
+      }
+    ],
+    "properties": [
+      "MEMBER_OF",
+      "MEMBER_OF"
+    ],
+    "editorialApproval": false
+  },
+  {
+    "discoveryId": "graph-1791810021859-37",
+    "status": "candidate",
+    "path": [
+      {
+        "name": "Janusz Onyszkiewicz",
+        "qid": "Q1683072"
+      },
+      {
+        "name": "Solidarity",
+        "qid": "Q1003"
+      },
+      {
+        "name": "Marek Prawda",
+        "qid": "Q1894631"
+      }
+    ],
+    "properties": [
+      "MEMBER_OF",
+      "MEMBER_OF"
+    ],
+    "editorialApproval": false
+  },
+  {
+    "discoveryId": "graph-1791810021859-38",
+    "status": "candidate",
+    "path": [
+      {
+        "name": "Mariusz Kamiński",
+        "qid": "Q3845166"
+      },
+      {
+        "name": "Solidarity",
+        "qid": "Q1003"
+      },
+      {
+        "name": "Stanisław Bareja",
+        "qid": "Q721037"
+      }
+    ],
+    "properties": [
+      "EMPLOYER",
+      "MEMBER_OF"
+    ],
+    "editorialApproval": false
+  },
+  {
+    "discoveryId": "graph-1791810021859-39",
+    "status": "candidate",
+    "path": [
+      {
+        "name": "European Trade Union Confederation",
+        "qid": "Q1377852"
+      },
+      {
+        "name": "Solidarity",
+        "qid": "Q1003"
+      },
+      {
+        "name": "Stanisław Bareja",
+        "qid": "Q721037"
+      }
+    ],
+    "properties": [
+      "MEMBER_OF",
+      "MEMBER_OF"
+    ],
+    "editorialApproval": false
+  },
+  {
+    "discoveryId": "graph-1791810021859-40",
+    "status": "candidate",
+    "path": [
+      {
+        "name": "Janusz Onyszkiewicz",
+        "qid": "Q1683072"
+      },
+      {
+        "name": "Solidarity",
+        "qid": "Q1003"
+      },
+      {
+        "name": "Stanisław Bareja",
+        "qid": "Q721037"
+      }
+    ],
+    "properties": [
+      "MEMBER_OF",
+      "MEMBER_OF"
+    ],
+    "editorialApproval": false
+  },
+  {
+    "discoveryId": "graph-1791810021859-41",
+    "status": "candidate",
+    "path": [
+      {
+        "name": "Marek Prawda",
+        "qid": "Q1894631"
+      },
+      {
+        "name": "Solidarity",
+        "qid": "Q1003"
+      },
+      {
+        "name": "Stanisław Bareja",
+        "qid": "Q721037"
+      }
+    ],
+    "properties": [
+      "MEMBER_OF",
+      "MEMBER_OF"
+    ],
+    "editorialApproval": false
+  },
+  {
+    "discoveryId": "graph-1791810021859-42",
+    "status": "candidate",
+    "path": [
+      {
+        "name": "Mariusz Kamiński",
+        "qid": "Q3845166"
+      },
+      {
+        "name": "Solidarity",
+        "qid": "Q1003"
+      },
+      {
+        "name": "Stanisław Bareja",
+        "qid": "Q721037"
+      }
+    ],
+    "properties": [
+      "MEMBER_OF",
+      "MEMBER_OF"
+    ],
+    "editorialApproval": false
+  },
+  {
+    "discoveryId": "graph-1791810021859-43",
+    "status": "candidate",
+    "path": [
+      {
+        "name": "Henryk Szlajfer",
+        "qid": "Q3944641"
+      },
+      {
+        "name": "Solidarity",
+        "qid": "Q1003"
+      },
+      {
+        "name": "Stanisław Bareja",
+        "qid": "Q721037"
+      }
+    ],
+    "properties": [
+      "MEMBER_OF",
+      "MEMBER_OF"
+    ],
+    "editorialApproval": false
+  },
+  {
+    "discoveryId": "graph-1791810021859-44",
+    "status": "candidate",
+    "path": [
+      {
+        "name": "Andrzej Nowak",
+        "qid": "Q3848422"
+      },
+      {
+        "name": "Solidarity",
+        "qid": "Q1003"
+      },
+      {
+        "name": "Stanisław Bareja",
+        "qid": "Q721037"
+      }
+    ],
+    "properties": [
+      "MEMBER_OF",
+      "MEMBER_OF"
+    ],
+    "editorialApproval": false
+  },
+  {
+    "discoveryId": "graph-1791810021859-45",
+    "status": "candidate",
+    "path": [
+      {
+        "name": "Edward Balcerzan",
+        "qid": "Q3719927"
+      },
+      {
+        "name": "Solidarity",
+        "qid": "Q1003"
+      },
+      {
+        "name": "Stanisław Bareja",
+        "qid": "Q721037"
+      }
+    ],
+    "properties": [
+      "MEMBER_OF",
+      "MEMBER_OF"
+    ],
+    "editorialApproval": false
+  },
+  {
+    "discoveryId": "graph-1791810021859-46",
+    "status": "candidate",
+    "path": [
+      {
+        "name": "Andrzej Paczkowski",
+        "qid": "Q2742045"
+      },
+      {
+        "name": "Solidarity",
+        "qid": "Q1003"
+      },
+      {
+        "name": "Stanisław Bareja",
+        "qid": "Q721037"
+      }
+    ],
+    "properties": [
+      "MEMBER_OF",
+      "MEMBER_OF"
+    ],
+    "editorialApproval": false
+  },
+  {
+    "discoveryId": "graph-1791810021859-47",
+    "status": "candidate",
+    "path": [
+      {
+        "name": "Andrzej Łapicki",
+        "qid": "Q515867"
+      },
+      {
+        "name": "Solidarity",
+        "qid": "Q1003"
+      },
+      {
+        "name": "Stanisław Bareja",
+        "qid": "Q721037"
+      }
+    ],
+    "properties": [
+      "MEMBER_OF",
+      "MEMBER_OF"
+    ],
+    "editorialApproval": false
+  },
+  {
+    "discoveryId": "graph-1791810021859-48",
+    "status": "candidate",
+    "path": [
+      {
+        "name": "Jan Rzymełka",
+        "qid": "Q461207"
+      },
+      {
+        "name": "Solidarity",
+        "qid": "Q1003"
+      },
+      {
+        "name": "Stanisław Bareja",
+        "qid": "Q721037"
+      }
+    ],
+    "properties": [
+      "MEMBER_OF",
+      "MEMBER_OF"
+    ],
+    "editorialApproval": false
+  },
+  {
+    "discoveryId": "graph-1791810021859-49",
+    "status": "candidate",
+    "path": [
+      {
+        "name": "Michał Boni",
+        "qid": "Q535780"
+      },
+      {
+        "name": "Solidarity",
+        "qid": "Q1003"
+      },
+      {
+        "name": "Stanisław Bareja",
+        "qid": "Q721037"
+      }
+    ],
+    "properties": [
+      "MEMBER_OF",
+      "MEMBER_OF"
+    ],
+    "editorialApproval": false
+  },
+  {
+    "discoveryId": "graph-1791810021859-50",
+    "status": "candidate",
+    "path": [
+      {
+        "name": "Ryszard Bender",
+        "qid": "Q2178309"
+      },
+      {
+        "name": "Solidarity",
+        "qid": "Q1003"
+      },
+      {
+        "name": "Stanisław Bareja",
+        "qid": "Q721037"
+      }
+    ],
+    "properties": [
+      "MEMBER_OF",
+      "MEMBER_OF"
+    ],
+    "editorialApproval": false
+  }
+]

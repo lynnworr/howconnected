@@ -36,6 +36,18 @@ export default function PrivacyPage() {
         </p>
       </section>
       <section>
+        <h2>Daily challenge progress</h2>
+        <p>
+          The experimental daily challenge stores completed UTC dates and an
+          optional streak only in your browser. This local progress is not an
+          account, does not synchronize across devices, and is not sent to
+          HowConnected. Bounded challenge analytics may record the reviewed
+          puzzle identifier, category, UTC date, whether an answer was correct,
+          a fixed reading or evidence link type, and a successful share method,
+          but not the selected answer, full link URL, or a personal identifier.
+        </p>
+      </section>
+      <section>
         <h2>Contact messages</h2>
         <p>
           When you use the contact form, HowConnected sends the name, email
