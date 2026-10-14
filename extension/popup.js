@@ -1,8 +1,9 @@
 /* global chrome */
 
 import {
-  HOWCONNECTED_ORIGIN,
+  HOWCONNECTED_DAILY_URL,
   HOWCONNECTED_EXTENSION_URL,
+  HOWCONNECTED_HOME_URL,
   buildConnectionUrl,
   buildSearchUrl,
   buildWikipediaLookupUrl,
@@ -19,6 +20,8 @@ const elements = {
   sourceResults: document.querySelector("#source-results"),
   targetInput: document.querySelector("#target-input"),
   targetResults: document.querySelector("#target-results"),
+  sourceSelection: document.querySelector("#source-selection"),
+  targetSelection: document.querySelector("#target-selection"),
   findButton: document.querySelector("#find-button"),
   changeSource: document.querySelector("#change-source"),
   detectionStatus: document.querySelector("#detection-status"),
@@ -27,6 +30,7 @@ const elements = {
   openExtensionInfo: document.querySelector("#open-extension-info"),
   detectionIndicator: document.querySelector("#detection-indicator"),
   findButtonLabel: document.querySelector("#find-button-label"),
+  playDaily: document.querySelector("#play-daily"),
 };
 
 const state = {
@@ -42,7 +46,9 @@ function setDetectionStatus(message, tone = "neutral", loading = false) {
 }
 
 function updateSubmitState() {
-  elements.findButton.disabled = !canFindConnection(state.source, state.target);
+  const unavailable = !canFindConnection(state.source, state.target);
+  elements.findButton.dataset.disabled = String(unavailable);
+  elements.findButton.setAttribute("aria-disabled", String(unavailable));
 }
 
 function setSelectedEntity(kind, entity) {
@@ -50,6 +56,9 @@ function setSelectedEntity(kind, entity) {
   const input = kind === "source" ? elements.sourceInput : elements.targetInput;
   input.value = entity.label;
   input.dataset.qid = entity.id;
+  const selection = kind === "source" ? elements.sourceSelection : elements.targetSelection;
+  selection.textContent = `Selected · ${entity.label} (${entity.id})`;
+  selection.hidden = false;
   if (kind === "source") elements.changeSource.hidden = false;
   elements.formMessage.textContent = "";
   updateSubmitState();
@@ -59,8 +68,29 @@ function clearSelectedEntity(kind) {
   state[kind] = null;
   const input = kind === "source" ? elements.sourceInput : elements.targetInput;
   delete input.dataset.qid;
+  const selection = kind === "source" ? elements.sourceSelection : elements.targetSelection;
+  selection.textContent = "";
+  selection.hidden = true;
   if (kind === "source") elements.changeSource.hidden = true;
   updateSubmitState();
+}
+
+async function fetchWithTimeout(url, options = {}, timeoutMs = 8_000) {
+  const controller = new AbortController();
+  const externalSignal = options.signal;
+  const forwardAbort = () => controller.abort(externalSignal?.reason);
+  if (externalSignal?.aborted) forwardAbort();
+  else externalSignal?.addEventListener("abort", forwardAbort, { once: true });
+  const timer = window.setTimeout(
+    () => controller.abort(new DOMException("The request timed out.", "TimeoutError")),
+    timeoutMs,
+  );
+  try {
+    return await fetch(url, { ...options, signal: controller.signal });
+  } finally {
+    window.clearTimeout(timer);
+    externalSignal?.removeEventListener("abort", forwardAbort);
+  }
 }
 
 function setupAutocomplete(kind, input, list) {
@@ -137,7 +167,7 @@ function setupAutocomplete(kind, input, list) {
     controller = new AbortController();
     render([], "Searching…", true);
     try {
-      const response = await fetch(buildSearchUrl(query), {
+      const response = await fetchWithTimeout(buildSearchUrl(query), {
         headers: { Accept: "application/json" },
         credentials: "omit",
         referrerPolicy: "no-referrer",
@@ -150,7 +180,9 @@ function setupAutocomplete(kind, input, list) {
     } catch (error) {
       if (error instanceof DOMException && error.name === "AbortError") return;
       if (currentRequestId !== requestId) return;
-      render([], "Search is unavailable. Try again shortly.");
+      render([], error instanceof DOMException && error.name === "TimeoutError"
+        ? "Search took too long. Check your connection and try again."
+        : "Search is unavailable. Try again shortly.");
     }
   }
 
@@ -202,7 +234,7 @@ async function detectCurrentArticle() {
       return;
     }
 
-    const response = await fetch(buildWikipediaLookupUrl(parsed.title), {
+    const response = await fetchWithTimeout(buildWikipediaLookupUrl(parsed.title), {
       headers: { Accept: "application/json" },
       credentials: "omit",
       referrerPolicy: "no-referrer",
@@ -220,17 +252,25 @@ async function detectCurrentArticle() {
         "This is a disambiguation page. Choose a specific first entity below.",
         "warning",
       );
-    } else {
+    } else if (resolution.status === "missing-qid") {
       setDetectionStatus(
-        "This page does not expose a usable Wikidata entity. Choose one below.",
+        "This article is not linked to a Wikidata entity. Search for the first entity below.",
         "warning",
       );
+    } else if (resolution.status === "missing") {
+      setDetectionStatus("Wikipedia could not find this article. Search for the first entity below.", "warning");
+    } else if (resolution.status === "unsupported") {
+      setDetectionStatus("This Wikipedia page is not an article. Search both entities below.", "warning");
+    } else {
+      setDetectionStatus("Wikipedia returned an unexpected response. Search both entities below.", "warning");
     }
     elements.sourceInput.value = resolution.title ?? parsed.title;
     elements.sourceInput.select();
-  } catch {
+  } catch (error) {
     setDetectionStatus(
-      "Article detection is unavailable. You can still search for both entities.",
+      error instanceof DOMException && error.name === "TimeoutError"
+        ? "Wikipedia took too long to respond. Search both entities below or try again."
+        : "Article detection is unavailable. You can still search for both entities.",
       "warning",
     );
     elements.sourceInput.focus();
@@ -250,9 +290,13 @@ elements.changeSource.addEventListener("click", () => {
 elements.form.addEventListener("submit", async (event) => {
   event.preventDefault();
   if (!canFindConnection(state.source, state.target)) {
-    elements.formMessage.textContent = state.source?.id === state.target?.id
+    elements.formMessage.textContent = state.source?.id && state.source.id === state.target?.id
       ? "Choose two different entities."
-      : "Select both entities from the suggestions first.";
+      : !state.source && !state.target
+        ? "Select a starting entity and destination from the suggestions."
+        : !state.source
+          ? "Select the first entity from the suggestions."
+          : "Select a second entity from the suggestions.";
     return;
   }
   const url = buildConnectionUrl(state.source.id, state.target.id);
@@ -264,12 +308,14 @@ elements.form.addEventListener("submit", async (event) => {
   } catch {
     elements.formMessage.textContent = "Chrome could not open the connection. Please try again.";
     elements.findButton.disabled = false;
+    updateSubmitState();
     elements.findButton.removeAttribute("aria-busy");
     elements.findButtonLabel.textContent = "Find connection";
   }
 });
 
-elements.openSite.addEventListener("click", () => chrome.tabs.create({ url: HOWCONNECTED_ORIGIN }));
+elements.playDaily.addEventListener("click", () => chrome.tabs.create({ url: HOWCONNECTED_DAILY_URL }));
+elements.openSite.addEventListener("click", () => chrome.tabs.create({ url: HOWCONNECTED_HOME_URL }));
 elements.openExtensionInfo.addEventListener("click", () => chrome.tabs.create({ url: HOWCONNECTED_EXTENSION_URL }));
 
 void detectCurrentArticle();

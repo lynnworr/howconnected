@@ -1,13 +1,27 @@
 export const HOWCONNECTED_ORIGIN = "https://www.howconnected.app";
 export const HOWCONNECTED_SEARCH_ENDPOINT = `${HOWCONNECTED_ORIGIN}/api/search`;
-export const HOWCONNECTED_EXTENSION_URL = `${HOWCONNECTED_ORIGIN}/extension`;
 export const WIKIPEDIA_API_ENDPOINT = "https://en.wikipedia.org/w/api.php";
+export const EXTENSION_SOURCE_PARAMETER = "source";
+export const EXTENSION_SOURCE_VALUE = "extension";
 
 const QID_PATTERN = /^Q[1-9]\d*$/;
 
 export function isValidQid(value) {
   return typeof value === "string" && QID_PATTERN.test(value);
 }
+
+export function buildExtensionReferralUrl(pathname) {
+  const url = new URL(pathname, HOWCONNECTED_ORIGIN);
+  if (url.origin !== HOWCONNECTED_ORIGIN) {
+    throw new TypeError("Extension referral URLs must stay on HowConnected.");
+  }
+  url.searchParams.set(EXTENSION_SOURCE_PARAMETER, EXTENSION_SOURCE_VALUE);
+  return url.toString();
+}
+
+export const HOWCONNECTED_HOME_URL = buildExtensionReferralUrl("/");
+export const HOWCONNECTED_EXTENSION_URL = buildExtensionReferralUrl("/extension");
+export const HOWCONNECTED_DAILY_URL = buildExtensionReferralUrl("/daily");
 
 export function parseWikipediaArticleUrl(rawUrl) {
   try {
@@ -123,5 +137,5 @@ export function buildConnectionUrl(sourceQid, targetQid) {
   if (sourceQid === targetQid) {
     throw new TypeError("Connection URLs require two different entities.");
   }
-  return `${HOWCONNECTED_ORIGIN}/connect/${encodeURIComponent(sourceQid)}/${encodeURIComponent(targetQid)}`;
+  return buildExtensionReferralUrl(`/connect/${encodeURIComponent(sourceQid)}/${encodeURIComponent(targetQid)}`);
 }

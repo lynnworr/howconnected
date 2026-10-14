@@ -17,8 +17,14 @@
           </span>
           <span>HowConnected</span>
         </div>
-        <span class="release-badge">Free extension</span>
+        <span class="release-badge">Version 1.1</span>
       </header>
+
+      <button id="play-daily" class="daily-button" type="button">
+        <span class="daily-kicker">Daily challenge</span>
+        <span class="daily-title">Play The Missing Link <span aria-hidden="true">→</span></span>
+        <span class="daily-copy">One verified connection puzzle every day.</span>
+      </button>
 
       <section class="intro" aria-labelledby="popup-title">
         <p class="eyebrow">Wikipedia companion</p>
@@ -52,6 +58,7 @@
               placeholder="Search for the first entity"
             >
           </div>
+          <p id="source-selection" class="selected-entity" aria-live="polite" hidden></p>
           <ul id="source-results" class="results" role="listbox" aria-label="First entity suggestions" hidden></ul>
         </div>
 
@@ -73,11 +80,12 @@
               placeholder="Search people, places, or ideas"
             >
           </div>
+          <p id="target-selection" class="selected-entity" aria-live="polite" hidden></p>
           <ul id="target-results" class="results" role="listbox" aria-label="Second entity suggestions" hidden></ul>
         </div>
 
         <p id="form-message" class="form-message" role="alert" aria-live="assertive"></p>
-        <button id="find-button" class="primary-button" type="submit" disabled>
+        <button id="find-button" class="primary-button" type="submit" aria-disabled="true" data-disabled="true">
           <span id="find-button-label">Find connection</span> <span aria-hidden="true">→</span>
         </button>
       </form>

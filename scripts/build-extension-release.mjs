@@ -44,12 +44,16 @@ if (errors.length) throw new Error(`Extension release validation failed:\n- ${er
 
 const archive = createDeterministicZip(files);
 const archiveName = `howconnected-extension-${manifest.version}.zip`;
+const checksum = sha256(archive);
+const checksumName = `${archiveName}.sha256`;
 await mkdir(DIST_DIR, { recursive: true });
 await writeFile(path.join(DIST_DIR, archiveName), archive);
+await writeFile(path.join(DIST_DIR, checksumName), `${checksum}  ${archiveName}\n`, "utf8");
 console.log(JSON.stringify({
   archive: path.join(DIST_DIR, archiveName),
+  checksumFile: path.join(DIST_DIR, checksumName),
   version: manifest.version,
   files: files.map(({ name }) => name),
   bytes: archive.length,
-  sha256: sha256(archive),
+  sha256: checksum,
 }, null, 2));

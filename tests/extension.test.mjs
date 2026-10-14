@@ -3,10 +3,13 @@ import { readFile } from "node:fs/promises";
 import test from "node:test";
 import {
   HOWCONNECTED_ORIGIN,
+  HOWCONNECTED_DAILY_URL,
   HOWCONNECTED_EXTENSION_URL,
+  HOWCONNECTED_HOME_URL,
   HOWCONNECTED_SEARCH_ENDPOINT,
   WIKIPEDIA_API_ENDPOINT,
   buildConnectionUrl,
+  buildExtensionReferralUrl,
   buildSearchUrl,
   buildWikipediaLookupUrl,
   canFindConnection,
@@ -129,8 +132,12 @@ test("search parsing accepts only bounded valid entities", () => {
 test("URL generation uses only fixed HTTPS origins and valid encoded QIDs", () => {
   assert.equal(
     buildConnectionUrl("Q19837", "Q312"),
-    `${HOWCONNECTED_ORIGIN}/connect/Q19837/Q312`,
+    `${HOWCONNECTED_ORIGIN}/connect/Q19837/Q312?source=extension`,
   );
+  assert.equal(HOWCONNECTED_DAILY_URL, `${HOWCONNECTED_ORIGIN}/daily?source=extension`);
+  assert.equal(HOWCONNECTED_HOME_URL, `${HOWCONNECTED_ORIGIN}/?source=extension`);
+  assert.equal(HOWCONNECTED_EXTENSION_URL, `${HOWCONNECTED_ORIGIN}/extension?source=extension`);
+  assert.throws(() => buildExtensionReferralUrl("https://example.com/"), /stay on HowConnected/);
   assert.equal(
     new URL(buildSearchUrl("Tim Berners-Lee")).origin + new URL(buildSearchUrl("Tim Berners-Lee")).pathname,
     HOWCONNECTED_SEARCH_ENDPOINT,
@@ -145,7 +152,7 @@ test("manifest uses minimal permissions and no background monitoring", async () 
     await readFile(new URL("../extension/manifest.json", import.meta.url), "utf8"),
   );
   assert.equal(manifest.manifest_version, 3);
-  assert.equal(manifest.version, "1.0.0");
+  assert.equal(manifest.version, "1.1.0");
   assert.equal(manifest.name, "HowConnected for Wikipedia");
   assert.equal(manifest.permissions, undefined);
   assert.deepEqual(manifest.host_permissions, [
@@ -181,24 +188,39 @@ test("release archive is deterministic and contains only runtime files", async (
   assert.equal(first.subarray(0, 4).toString("hex"), "504b0304");
   const serialized = first.toString("latin1");
   for (const runtimeFile of EXTENSION_RUNTIME_FILES) assert.ok(serialized.includes(runtimeFile));
-  for (const excluded of ["PRIVACY.md", "README.md", ".env", "tests/", "server"]) {
+  for (const excluded of ["PRIVACY.md", "README.md", ".env", ".map", "tests/", "server", "NEO4J_PASSWORD", "RESEND_API_KEY"]) {
     assert.ok(!serialized.includes(excluded));
   }
 });
 
 test("popup exposes accessible loading, fallback, and public privacy states", async () => {
-  const [html, popup] = await Promise.all([
+  const [html, popup, styles] = await Promise.all([
     readFile(new URL("../extension/popup.html", import.meta.url), "utf8"),
     readFile(new URL("../extension/popup.js", import.meta.url), "utf8"),
+    readFile(new URL("../extension/popup.css", import.meta.url), "utf8"),
   ]);
   assert.match(html, /role="status"/);
   assert.match(html, /aria-live="assertive"/);
   assert.match(html, /data-loading="true"/);
+  assert.match(html, /Play The Missing Link/);
+  assert.match(html, /id="source-selection"[^>]+aria-live="polite"/);
+  assert.match(html, /id="target-selection"[^>]+aria-live="polite"/);
+  assert.match(html, /id="find-button"[^>]+aria-disabled="true"/);
   assert.match(html, /standard English Wikipedia article pages/i);
   assert.match(popup, /disambiguation page/);
+  assert.match(popup, /not linked to a Wikidata entity/);
+  assert.match(popup, /Wikipedia took too long to respond/);
   assert.match(popup, /search for both entities/);
+  assert.match(popup, /Search took too long/);
+  assert.match(popup, /Select a second entity from the suggestions/);
   assert.match(popup, /Searching…/);
   assert.match(popup, /HOWCONNECTED_EXTENSION_URL/);
+  assert.match(popup, /HOWCONNECTED_DAILY_URL/);
+  assert.match(popup, /Selected ·/);
+  assert.match(styles, /button:focus-visible, input:focus-visible/);
+  assert.match(styles, /@media \(prefers-reduced-motion: reduce\)/);
+  assert.match(styles, /width: 380px/);
+  assert.match(styles, /max-height: 600px/);
   assert.doesNotMatch(html, /Prototype/);
 });
 
@@ -209,7 +231,10 @@ test("extension requests are fixed, credential-free, and never send article cont
   assert.doesNotMatch(popup, /document\.body\.(innerText|textContent|innerHTML)/);
   assert.doesNotMatch(popup, /chrome\.(history|cookies|storage|webRequest)/);
   assert.doesNotMatch(popup, /localStorage|sessionStorage/);
-  assert.doesNotMatch(popup, /fetch\([^b]/);
+  assert.equal((popup.match(/\bfetch\(/g) ?? []).length, 1);
+  assert.match(popup, /fetchWithTimeout\(buildSearchUrl/);
+  assert.match(popup, /fetchWithTimeout\(buildWikipediaLookupUrl/);
+  assert.doesNotMatch(popup, /trackProductEvent|analytics/i);
 });
 
 test("search API stays closed to CORS and bounds extension-origin queries", async () => {
@@ -247,5 +272,5 @@ test("privacy disclosures match the implementation safeguards", async () => {
     assert.match(disclosure, /stores? no|stores? nothing|no user data/i);
     assert.match(disclosure, /Limited Use/i);
   }
-  assert.equal(HOWCONNECTED_EXTENSION_URL, "https://www.howconnected.app/extension");
+  assert.equal(HOWCONNECTED_EXTENSION_URL, "https://www.howconnected.app/extension?source=extension");
 });

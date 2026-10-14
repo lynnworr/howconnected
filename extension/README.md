@@ -1,8 +1,9 @@
 # HowConnected for Wikipedia
 
 This folder is the unpacked source for the dependency-free Manifest V3 extension. Version
-1.0.0 recognizes a standard English Wikipedia article through the structured MediaWiki API,
-lets the user confirm or replace that entity, and opens a selected connection on HowConnected.
+1.1.0 recognizes a standard English Wikipedia article through the structured MediaWiki API,
+lets the user confirm or replace that entity, opens a selected connection on HowConnected, and
+provides a direct entry point to The Missing Link daily challenge.
 
 ## Install an unpacked build
 
@@ -49,9 +50,14 @@ analytics, advertising code, or access to history, cookies, form data, or articl
 | `https://en.wikipedia.org/w/api.php` | Popup opens on a supported article | Decoded article title and fixed API parameters | Resolve redirect, namespace, disambiguation state, and Wikidata QID |
 | `https://www.howconnected.app/api/search` | User enters at least two characters | Search text | Return up to six Wikidata entity suggestions |
 | `https://www.howconnected.app/connect/{QID}/{QID}` | User submits two entities | Two selected Wikidata QIDs in the URL | Open the existing HowConnected connection experience |
+| `https://www.howconnected.app/daily` | User selects **Play The Missing Link** | Fixed `source=extension` label | Open the daily challenge |
 
 All requests use HTTPS, omit credentials, and suppress the referrer. No full article body or full
 active-tab URL is sent to HowConnected. The popup makes no requests while closed.
+
+User-opened HowConnected pages include only the fixed `source=extension` query parameter. The
+website uses that bounded value for privacy-conscious referral measurement; the extension itself
+contains no analytics SDK, creates no cookies, and sends no page title as an analytics property.
 
 ## Validation
 

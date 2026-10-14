@@ -2,8 +2,8 @@
   "manifest_version": 3,
   "name": "HowConnected for Wikipedia",
   "short_name": "HowConnected",
-  "version": "1.0.0",
-  "description": "Discover how an English Wikipedia subject connects to another person, place, work, organization, or idea.",
+  "version": "1.1.0",
+  "description": "Connect an English Wikipedia subject to another entity, or play The Missing Link daily challenge.",
   "icons": {
     "16": "icons/icon-16.png",
     "32": "icons/icon-32.png",

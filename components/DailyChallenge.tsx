@@ -9,7 +9,7 @@ import {
 } from "@/lib/daily-challenge-state";
 import { trackProductEvent } from "@/lib/product-analytics";
 
-type Props = { dateKey: string; puzzle: MissingLinkPuzzle; puzzleNumber?: number; preview?: boolean };
+type Props = { dateKey: string; puzzle: MissingLinkPuzzle; puzzleNumber?: number; preview?: boolean; origin?: "extension" };
 function subscribe(onChange: () => void) { window.addEventListener("storage", onChange); return () => window.removeEventListener("storage", onChange); }
 function snapshot() {
   try { return window.localStorage.getItem(DAILY_COMPLETION_STORAGE_KEY) ?? window.localStorage.getItem(LEGACY_DAILY_COMPLETION_STORAGE_KEY) ?? ""; } catch { return ""; }
@@ -22,7 +22,7 @@ function relationshipDetail(item: PuzzleRelationship) {
 }
 function externalLabel(label: string) { return <>{label} <span className="sr-only">(opens in a new tab)</span><span aria-hidden="true">↗</span></>; }
 
-export default function DailyChallenge({ dateKey, puzzle, puzzleNumber, preview = false }: Props) {
+export default function DailyChallenge({ dateKey, puzzle, puzzleNumber, preview = false, origin }: Props) {
   const stored = useSyncExternalStore(subscribe, snapshot, serverSnapshot);
   const persisted = useMemo(() => parseDailyCompletionState(stored), [stored]);
   const [override, setOverride] = useState<DailyCompletionState | null>(null);
@@ -35,11 +35,14 @@ export default function DailyChallenge({ dateKey, puzzle, puzzleNumber, preview 
   const effectiveSelected = prior?.selectedOptionId ?? selected;
   const correct = effectiveSelected === puzzle.correctOptionId;
   useEffect(() => {
+    if (origin === "extension" && claimDailyAnalyticsEvent(window.sessionStorage, "extension-referral", dateKey, puzzle.id)) {
+      trackProductEvent("extension_referral_opened", { destination: "daily", puzzleId: puzzle.id, category: puzzle.category });
+    }
     if (!opened.current && claimDailyAnalyticsEvent(window.sessionStorage, "opened", dateKey, puzzle.id)) {
       opened.current = true;
       trackProductEvent("daily_challenge_opened", { puzzleId: puzzle.id, category: puzzle.category, utcDate: dateKey });
     }
-  }, [dateKey, puzzle.category, puzzle.id]);
+  }, [dateKey, origin, puzzle.category, puzzle.id]);
   useEffect(() => {
     const delay = Date.parse(`${dateKey}T00:00:00Z`) + 86_400_000 - Date.now();
     if (delay <= 0 || delay > 86_400_000) return;

@@ -25,7 +25,7 @@ export const metadata: Metadata = {
 export default function ExtensionPage() {
   return (
     <PublicPageShell
-      eyebrow="Chrome extension · Version 1.0.0"
+      eyebrow="Chrome extension · Version 1.1.0"
       title="HowConnected for Wikipedia"
       intro="A free, focused Chrome extension that turns the English Wikipedia article you are reading into the starting point for a HowConnected search."
     >
@@ -42,6 +42,10 @@ export default function ExtensionPage() {
           If the page is unsupported, ambiguous, missing a Wikidata identifier,
           or temporarily unavailable, the popup provides the same two-entity
           search as a fallback.
+        </p>
+        <p>
+          The popup also opens The Missing Link, HowConnected&apos;s verified
+          daily connection challenge, even when the active tab is not Wikipedia.
         </p>
       </section>
 
@@ -74,6 +78,12 @@ export default function ExtensionPage() {
           Wikipedia to retrieve its Wikidata QID. Search text you enter is sent
           to HowConnected for autocomplete. When you continue, the two selected
           Wikidata QIDs appear in the HowConnected connection URL.
+          User-opened HowConnected pages also receive the fixed
+          <code className="mx-1 rounded bg-black/5 px-1.5 py-0.5 dark:bg-white/10">
+            source=extension
+          </code>
+          label for referral measurement. It contains no personal identifier or
+          Wikipedia title.
         </p>
         <p>
           HowConnected does not receive the full active-tab URL or the article

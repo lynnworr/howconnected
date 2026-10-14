@@ -18,7 +18,7 @@
   </head>
   <body>
     <main>
-      <p class="tag">Chrome extension · Version 1.0.0</p>
+      <p class="tag">Chrome extension · Version 1.1.0</p>
       <h1>HowConnected extension privacy</h1>
       <p>
         The extension uses the current tab only after you click its toolbar icon. It does not
@@ -32,12 +32,13 @@
         <li>The article title is sent to English Wikipedia’s structured API to retrieve its Wikidata identifier and detect disambiguation pages.</li>
         <li>Search text you type is sent to HowConnected’s entity-search endpoint.</li>
         <li>The two selected Wikidata identifiers are placed in the HowConnected URL opened in a new tab.</li>
+        <li>Opened HowConnected pages include the fixed <code>source=extension</code> label for privacy-conscious referral measurement.</li>
       </ul>
 
       <h2>Information not collected</h2>
       <p>
         The extension does not transmit article content, collect browsing history, access
-        cookies, save personal data, run analytics, create advertising profiles, or use
+        cookies, save personal data, run analytics inside the extension, create advertising profiles, or use
         browsing activity for advertising. It has no background service worker or content
         script and makes no requests while the popup is closed.
       </p>

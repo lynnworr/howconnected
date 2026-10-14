@@ -1,13 +1,31 @@
 import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 import test from "node:test";
-import { getConnectionOrigin } from "../lib/connection-attribution.ts";
+import { getConnectionOrigin, isExtensionAttribution } from "../lib/connection-attribution.ts";
 
 test("extension attribution accepts only the fixed non-identifying source value", () => {
   assert.equal(getConnectionOrigin("extension"), "extension");
   assert.equal(getConnectionOrigin(["extension", "ignored"]), "extension");
   assert.equal(getConnectionOrigin("newsletter"), "shared_url");
   assert.equal(getConnectionOrigin(undefined), "shared_url");
+  assert.equal(isExtensionAttribution("extension"), true);
+  assert.equal(isExtensionAttribution(["extension", "ignored"]), true);
+  assert.equal(isExtensionAttribution("newsletter"), false);
+});
+
+test("daily extension attribution is bounded and uses the existing duplicate-safe open event", async () => {
+  const [page, challenge] = await Promise.all([
+    readFile(new URL("../app/daily/page.tsx", import.meta.url), "utf8"),
+    readFile(new URL("../components/DailyChallenge.tsx", import.meta.url), "utf8"),
+  ]);
+  assert.match(page, /isExtensionAttribution\(query\.source\)/);
+  assert.match(page, /origin=\{origin\}/);
+  assert.match(challenge, /claimDailyAnalyticsEvent\(window\.sessionStorage, "opened"/);
+  assert.match(challenge, /daily_challenge_opened/);
+  assert.match(challenge, /claimDailyAnalyticsEvent\(window\.sessionStorage, "extension-referral"/);
+  assert.match(challenge, /extension_referral_opened/);
+  assert.match(challenge, /destination: "daily"/);
+  assert.doesNotMatch(challenge, /pageTitle|rawTitle|activeTabUrl/);
 });
 
 test("public beta analytics covers outcomes and engagement without raw queries", async () => {

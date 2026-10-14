@@ -4,6 +4,7 @@ import DailyChallenge from "@/components/DailyChallenge";
 import NetworkBackdrop from "@/components/NetworkBackdrop";
 import PublicFooter from "@/components/PublicFooter";
 import PublicHeader from "@/components/PublicHeader";
+import { isExtensionAttribution } from "@/lib/connection-attribution";
 import { getContentRunwayReport, getDailyScheduleState, getSafeDailyRequestDate, getUtcDateKey, isDailyPubliclyLaunched, MISSING_LINK_PUZZLES } from "@/lib/daily-puzzles";
 
 export const instant = false;
@@ -19,9 +20,11 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-export default async function DailyPage({ searchParams }: { searchParams: Promise<{ date?: string | string[] }> }) {
+export default async function DailyPage({ searchParams }: { searchParams: Promise<{ date?: string | string[]; source?: string | string[] }> }) {
   await connection();
-  const requested = (await searchParams).date;
+  const query = await searchParams;
+  const requested = query.date;
+  const origin = isExtensionAttribution(query.source) ? "extension" as const : undefined;
   const now = new Date();
   const requestedDate = getSafeDailyRequestDate(typeof requested === "string" ? requested : undefined, now);
   const state = getDailyScheduleState(requestedDate);
@@ -36,7 +39,7 @@ export default async function DailyPage({ searchParams }: { searchParams: Promis
         <p className="mx-auto mt-5 max-w-2xl text-base leading-7 text-[#657087] sm:text-lg">Two endpoints. One hidden connection. Choose the missing link, then follow the verified path into Wikipedia and the supporting evidence.</p>
         {!publiclyLaunched ? <p className="mx-auto mt-5 inline-flex rounded-full border border-[#e2b9ae] bg-[#fff4ef] px-4 py-2 text-xs font-bold text-[#8d3b2a]">Launch preparation · {runway.scheduledCount} reviewed puzzles scheduled</p> : null}
       </header>
-      <div className="mt-10">{playable ? <DailyChallenge dateKey={state.kind === "available" ? state.dateKey : getUtcDateKey(requestedDate)} puzzle={playable.puzzle} puzzleNumber={state.kind === "available" ? state.puzzleNumber : undefined} preview={state.kind === "preview"} />
+      <div className="mt-10">{playable ? <DailyChallenge dateKey={state.kind === "available" ? state.dateKey : getUtcDateKey(requestedDate)} puzzle={playable.puzzle} puzzleNumber={state.kind === "available" ? state.puzzleNumber : undefined} preview={state.kind === "preview"} origin={origin} />
         : <section className="hc-daily-card rounded-[24px] border p-7 text-center"><h2 className="text-2xl font-bold text-[#1d2944]">{state.kind === "before-launch" ? "The challenge has not launched yet." : state.kind === "exhausted" ? "Today's puzzle is not available." : "This scheduled puzzle is temporarily unavailable."}</h2>
           <p className="mt-3 text-sm leading-6 text-[#657087]">{state.kind === "before-launch" ? `Launch date: ${state.launchDate}.` : state.kind === "exhausted" ? "The reviewed schedule has ended; no unreviewed puzzle will be substituted or recycled." : "A quarantined, retired, or missing entry is never replaced automatically."}</p></section>}</div>
       {!playable && previewPuzzle ? <p className="mt-5 text-center text-sm text-[#657087]">A reviewed preview remains available at <a className="font-bold underline" href="/daily-preview">/daily-preview</a>.</p> : null}

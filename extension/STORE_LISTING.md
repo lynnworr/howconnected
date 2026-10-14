@@ -39,6 +39,7 @@ Features:
 - Clear handling for disambiguation, unsupported, missing, and offline states
 - Editable starting entity and keyboard-accessible autocomplete
 - Direct navigation to the canonical HowConnected connection route
+- One-click access to The Missing Link daily challenge
 - No browsing-history collection, background monitoring, analytics, or advertising
 - No account required and no paid features
 
@@ -62,8 +63,8 @@ in a few clicks.
 ## Privacy practices dashboard
 
 **Single purpose**  
-Identify the English Wikipedia article the user is actively viewing and let the user open a
-HowConnected search between its Wikidata entity and another entity they select.
+Provide user-initiated entry points into HowConnected: identify an English Wikipedia article and
+open a connection to another selected entity, or open The Missing Link daily challenge.
 
 **Host permission: `https://en.wikipedia.org/*`**  
 Required to recognize the active tab only when it is an English Wikipedia page and call English
@@ -113,3 +114,9 @@ target dimensions and keep claims consistent with the actual extension.
 Initial public release. Adds user-initiated English Wikipedia article detection, Wikidata entity
 confirmation, destination autocomplete, and direct HowConnected connection navigation with
 minimal permissions and no stored browsing data.
+
+## Release notes — 1.1.0
+
+Adds a prominent The Missing Link daily-challenge entry point, privacy-conscious extension referral
+attribution, clearer selected entities and recovery messages, request timeouts, and a more compact
+premium popup. Permissions remain unchanged.
