@@ -5,7 +5,7 @@
     "title": "The Web's birthplace",
     "prompt": "Who is the missing link between the World Wide Web and CERN?",
     "category": "Science and innovation",
-    "status": "approved",
+    "status": "scheduled",
     "path": [
       {
         "qid": "Q466",
@@ -125,8 +125,15 @@
         "from": "under-review",
         "to": "approved",
         "note": "Both structured claims, qualifiers, distractors, and supporting CERN evidence reviewed."
+      },
+      {
+        "at": "2026-10-14T20:00:00.000Z",
+        "from": "approved",
+        "to": "scheduled",
+        "note": "Promoted from the approved Phase 6D deterministic review schedule; launch date remains separately gated."
       }
-    ]
+    ],
+    "schedulePosition": 2
   },
   {
     "id": "penicillin-fleming-nobel-medicine",
@@ -134,7 +141,7 @@
     "title": "A discovery rewarded",
     "prompt": "Who is the missing link between Penicillin and Nobel Prize in Physiology or Medicine?",
     "category": "Science and innovation",
-    "status": "approved",
+    "status": "scheduled",
     "path": [
       {
         "qid": "Q12190",
@@ -254,8 +261,15 @@
         "from": "under-review",
         "to": "approved",
         "note": "Current Wikidata statements, qualifiers, English Wikipedia links, independent supporting sources, path uniqueness, and three distractors reviewed."
+      },
+      {
+        "at": "2026-10-14T20:00:00.000Z",
+        "from": "approved",
+        "to": "scheduled",
+        "note": "Promoted from the approved Phase 6D deterministic review schedule; launch date remains separately gated."
       }
-    ]
+    ],
+    "schedulePosition": 38
   },
   {
     "id": "hamlet-shakespeare-stratford",
@@ -263,7 +277,7 @@
     "title": "A playwright's beginning",
     "prompt": "Who is the missing link between Hamlet and Stratford-upon-Avon?",
     "category": "Literature and art",
-    "status": "approved",
+    "status": "scheduled",
     "path": [
       {
         "qid": "Q41567",
@@ -372,8 +386,15 @@
         "from": "under-review",
         "to": "approved",
         "note": "Current Wikidata statements, qualifiers, English Wikipedia links, independent supporting sources, path uniqueness, and three distractors reviewed."
+      },
+      {
+        "at": "2026-10-14T20:00:00.000Z",
+        "from": "approved",
+        "to": "scheduled",
+        "note": "Promoted from the approved Phase 6D deterministic review schedule; launch date remains separately gated."
       }
-    ]
+    ],
+    "schedulePosition": 3
   },
   {
     "id": "nineteen-eighty-four-orwell-bbc",
@@ -381,7 +402,7 @@
     "title": "From broadcasting to Big Brother",
     "prompt": "Who is the missing link between Nineteen Eighty-Four and BBC?",
     "category": "Literature and art",
-    "status": "approved",
+    "status": "scheduled",
     "path": [
       {
         "qid": "Q208460",
@@ -490,8 +511,15 @@
         "from": "under-review",
         "to": "approved",
         "note": "Current Wikidata statements, qualifiers, English Wikipedia links, independent supporting sources, path uniqueness, and three distractors reviewed."
+      },
+      {
+        "at": "2026-10-14T20:00:00.000Z",
+        "from": "approved",
+        "to": "scheduled",
+        "note": "Promoted from the approved Phase 6D deterministic review schedule; launch date remains separately gated."
       }
-    ]
+    ],
+    "schedulePosition": 94
   },
   {
     "id": "hobbit-tolkien-oxford",
@@ -499,7 +527,7 @@
     "title": "An Oxford fantasy",
     "prompt": "Who is the missing link between The Hobbit and University of Oxford?",
     "category": "Literature and art",
-    "status": "approved",
+    "status": "scheduled",
     "path": [
       {
         "qid": "Q74287",
@@ -619,8 +647,15 @@
         "from": "under-review",
         "to": "approved",
         "note": "Current Wikidata statements, qualifiers, English Wikipedia links, independent supporting sources, path uniqueness, and three distractors reviewed."
+      },
+      {
+        "at": "2026-10-14T20:00:00.000Z",
+        "from": "approved",
+        "to": "scheduled",
+        "note": "Promoted from the approved Phase 6D deterministic review schedule; launch date remains separately gated."
       }
-    ]
+    ],
+    "schedulePosition": 58
   },
   {
     "id": "abbey-road-beatles-liverpool",
@@ -628,7 +663,7 @@
     "title": "The road back to Liverpool",
     "prompt": "Who is the missing link between Abbey Road and Liverpool?",
     "category": "Music",
-    "status": "approved",
+    "status": "scheduled",
     "path": [
       {
         "qid": "Q173643",
@@ -737,8 +772,15 @@
         "from": "under-review",
         "to": "approved",
         "note": "Current Wikidata statements, qualifiers, English Wikipedia links, independent supporting sources, path uniqueness, and three distractors reviewed."
+      },
+      {
+        "at": "2026-10-14T20:00:00.000Z",
+        "from": "approved",
+        "to": "scheduled",
+        "note": "Promoted from the approved Phase 6D deterministic review schedule; launch date remains separately gated."
       }
-    ]
+    ],
+    "schedulePosition": 4
   },
   {
     "id": "bohemian-rhapsody-queen-london",
@@ -746,7 +788,7 @@
     "title": "An operatic London anthem",
     "prompt": "Who is the missing link between Bohemian Rhapsody and London?",
     "category": "Music",
-    "status": "approved",
+    "status": "scheduled",
     "path": [
       {
         "qid": "Q187745",
@@ -861,8 +903,15 @@
         "from": "under-review",
         "to": "approved",
         "note": "Current Wikidata statements, qualifiers, English Wikipedia links, independent supporting sources, path uniqueness, and three distractors reviewed."
+      },
+      {
+        "at": "2026-10-14T20:00:00.000Z",
+        "from": "approved",
+        "to": "scheduled",
+        "note": "Promoted from the approved Phase 6D deterministic review schedule; launch date remains separately gated."
       }
-    ]
+    ],
+    "schedulePosition": 59
   },
   {
     "id": "toy-story-hanks-apollo-13",
@@ -870,7 +919,7 @@
     "title": "From a toy box to space",
     "prompt": "Who is the missing link between Toy Story and Apollo 13?",
     "category": "Entertainment and film",
-    "status": "approved",
+    "status": "scheduled",
     "path": [
       {
         "qid": "Q171048",
@@ -991,8 +1040,15 @@
         "from": "under-review",
         "to": "approved",
         "note": "Current Wikidata statements, qualifiers, English Wikipedia links, independent supporting sources, path uniqueness, and three distractors reviewed."
+      },
+      {
+        "at": "2026-10-14T20:00:00.000Z",
+        "from": "approved",
+        "to": "scheduled",
+        "note": "Promoted from the approved Phase 6D deterministic review schedule; launch date remains separately gated."
       }
-    ]
+    ],
+    "schedulePosition": 1
   },
   {
     "id": "titanic-dicaprio-revenant",
@@ -1000,7 +1056,7 @@
     "title": "Two ordeals on screen",
     "prompt": "Who is the missing link between Titanic and The Revenant?",
     "category": "Entertainment and film",
-    "status": "approved",
+    "status": "scheduled",
     "path": [
       {
         "qid": "Q44578",
@@ -1121,8 +1177,15 @@
         "from": "under-review",
         "to": "approved",
         "note": "Current Wikidata statements, qualifiers, English Wikipedia links, independent supporting sources, path uniqueness, and three distractors reviewed."
+      },
+      {
+        "at": "2026-10-14T20:00:00.000Z",
+        "from": "approved",
+        "to": "scheduled",
+        "note": "Promoted from the approved Phase 6D deterministic review schedule; launch date remains separately gated."
       }
-    ]
+    ],
+    "schedulePosition": 28
   },
   {
     "id": "iphone-apple-jobs",
@@ -1130,7 +1193,7 @@
     "title": "The company behind the phone",
     "prompt": "Who is the missing link between iPhone and Steve Jobs?",
     "category": "Technology",
-    "status": "approved",
+    "status": "scheduled",
     "path": [
       {
         "qid": "Q2766",
@@ -1245,8 +1308,15 @@
         "from": "under-review",
         "to": "approved",
         "note": "Current Wikidata statements, qualifiers, English Wikipedia links, independent supporting sources, path uniqueness, and three distractors reviewed."
+      },
+      {
+        "at": "2026-10-14T20:00:00.000Z",
+        "from": "approved",
+        "to": "scheduled",
+        "note": "Promoted from the approved Phase 6D deterministic review schedule; launch date remains separately gated."
       }
-    ]
+    ],
+    "schedulePosition": 5
   },
   {
     "id": "youtube-google-alphabet",
@@ -1254,7 +1324,7 @@
     "title": "Inside a corporate alphabet",
     "prompt": "Who is the missing link between YouTube and Alphabet Inc.?",
     "category": "Business",
-    "status": "approved",
+    "status": "scheduled",
     "path": [
       {
         "qid": "Q866",
@@ -1375,8 +1445,15 @@
         "from": "under-review",
         "to": "approved",
         "note": "Current Wikidata statements, qualifiers, English Wikipedia links, independent supporting sources, path uniqueness, and three distractors reviewed."
+      },
+      {
+        "at": "2026-10-14T20:00:00.000Z",
+        "from": "approved",
+        "to": "scheduled",
+        "note": "Promoted from the approved Phase 6D deterministic review schedule; launch date remains separately gated."
       }
-    ]
+    ],
+    "schedulePosition": 6
   },
   {
     "id": "guernica-picasso-cubism",
@@ -1384,7 +1461,7 @@
     "title": "A protest in fractured form",
     "prompt": "Who is the missing link between Guernica and Cubism?",
     "category": "Literature and art",
-    "status": "approved",
+    "status": "scheduled",
     "path": [
       {
         "qid": "Q175036",
@@ -1493,8 +1570,15 @@
         "from": "under-review",
         "to": "approved",
         "note": "Current Wikidata statements, qualifiers, English Wikipedia links, independent supporting sources, path uniqueness, and three distractors reviewed."
+      },
+      {
+        "at": "2026-10-14T20:00:00.000Z",
+        "from": "approved",
+        "to": "scheduled",
+        "note": "Promoted from the approved Phase 6D deterministic review schedule; launch date remains separately gated."
       }
-    ]
+    ],
+    "schedulePosition": 12
   },
   {
     "id": "persistence-memory-dali-surrealism",
@@ -1502,7 +1586,7 @@
     "title": "Melting time",
     "prompt": "Who is the missing link between The Persistence of Memory and Surrealism?",
     "category": "Literature and art",
-    "status": "approved",
+    "status": "scheduled",
     "path": [
       {
         "qid": "Q25729",
@@ -1611,8 +1695,15 @@
         "from": "under-review",
         "to": "approved",
         "note": "Current Wikidata statements, qualifiers, English Wikipedia links, independent supporting sources, path uniqueness, and three distractors reviewed."
+      },
+      {
+        "at": "2026-10-14T20:00:00.000Z",
+        "from": "approved",
+        "to": "scheduled",
+        "note": "Promoted from the approved Phase 6D deterministic review schedule; launch date remains separately gated."
       }
-    ]
+    ],
+    "schedulePosition": 85
   },
   {
     "id": "declaration-jefferson-uva",
@@ -1620,7 +1711,7 @@
     "title": "Words and a university",
     "prompt": "Who is the missing link between United States Declaration of Independence and University of Virginia?",
     "category": "History and politics",
-    "status": "approved",
+    "status": "scheduled",
     "path": [
       {
         "qid": "Q127912",
@@ -1729,8 +1820,15 @@
         "from": "under-review",
         "to": "approved",
         "note": "Current Wikidata statements, qualifiers, English Wikipedia links, independent supporting sources, path uniqueness, and three distractors reviewed."
+      },
+      {
+        "at": "2026-10-14T20:00:00.000Z",
+        "from": "approved",
+        "to": "scheduled",
+        "note": "Promoted from the approved Phase 6D deterministic review schedule; launch date remains separately gated."
       }
-    ]
+    ],
+    "schedulePosition": 8
   },
   {
     "id": "berlin-wall-east-germany-warsaw-pact",
@@ -1738,7 +1836,7 @@
     "title": "A wall inside an alliance",
     "prompt": "Who is the missing link between Berlin Wall and Warsaw Pact?",
     "category": "History and politics",
-    "status": "approved",
+    "status": "scheduled",
     "path": [
       {
         "qid": "Q5086",
@@ -1858,8 +1956,15 @@
         "from": "under-review",
         "to": "approved",
         "note": "Current Wikidata statements, qualifiers, English Wikipedia links, independent supporting sources, path uniqueness, and three distractors reviewed."
+      },
+      {
+        "at": "2026-10-14T20:00:00.000Z",
+        "from": "approved",
+        "to": "scheduled",
+        "note": "Promoted from the approved Phase 6D deterministic review schedule; launch date remains separately gated."
       }
-    ]
+    ],
+    "schedulePosition": 45
   },
   {
     "id": "sydney-opera-utzon-pritzker",
@@ -1867,7 +1972,7 @@
     "title": "The architect behind the sails",
     "prompt": "Who is the missing link between Sydney Opera House and Pritzker Architecture Prize?",
     "category": "Geography and culture",
-    "status": "approved",
+    "status": "scheduled",
     "path": [
       {
         "qid": "Q45178",
@@ -1988,8 +2093,15 @@
         "from": "under-review",
         "to": "approved",
         "note": "Current Wikidata statements, qualifiers, English Wikipedia links, independent supporting sources, path uniqueness, and three distractors reviewed."
+      },
+      {
+        "at": "2026-10-14T20:00:00.000Z",
+        "from": "approved",
+        "to": "scheduled",
+        "note": "Promoted from the approved Phase 6D deterministic review schedule; launch date remains separately gated."
       }
-    ]
+    ],
+    "schedulePosition": 7
   },
   {
     "id": "relativity-einstein-nobel-physics",
@@ -1997,7 +2109,7 @@
     "title": "A famous theory, a different prize reason",
     "prompt": "Who is the missing link between Theory of relativity and Nobel Prize in Physics?",
     "category": "Science and innovation",
-    "status": "approved",
+    "status": "scheduled",
     "path": [
       {
         "qid": "Q43514",
@@ -2112,8 +2224,15 @@
         "from": "under-review",
         "to": "approved",
         "note": "Current Wikidata statements, qualifiers, English Wikipedia links, independent supporting sources, path uniqueness, and three distractors reviewed."
+      },
+      {
+        "at": "2026-10-14T20:00:00.000Z",
+        "from": "approved",
+        "to": "scheduled",
+        "note": "Promoted from the approved Phase 6D deterministic review schedule; launch date remains separately gated."
       }
-    ]
+    ],
+    "schedulePosition": 72
   },
   {
     "id": "hundred-years-marquez-nobel-literature",
@@ -2121,7 +2240,7 @@
     "title": "Macondo and the Nobel",
     "prompt": "Who is the missing link between One Hundred Years of Solitude and Nobel Prize in Literature?",
     "category": "Literature and art",
-    "status": "approved",
+    "status": "scheduled",
     "path": [
       {
         "qid": "Q178869",
@@ -2236,8 +2355,15 @@
         "from": "under-review",
         "to": "approved",
         "note": "Current Wikidata statements, qualifiers, English Wikipedia links, independent supporting sources, path uniqueness, and three distractors reviewed."
+      },
+      {
+        "at": "2026-10-14T20:00:00.000Z",
+        "from": "approved",
+        "to": "scheduled",
+        "note": "Promoted from the approved Phase 6D deterministic review schedule; launch date remains separately gated."
       }
-    ]
+    ],
+    "schedulePosition": 76
   },
   {
     "id": "starry-night-van-gogh-post-impressionism",
@@ -2245,7 +2371,7 @@
     "title": "Night after Impressionism",
     "prompt": "Who is the missing link between The Starry Night and Post-Impressionism?",
     "category": "Literature and art",
-    "status": "approved",
+    "status": "scheduled",
     "path": [
       {
         "qid": "Q45585",
@@ -2354,8 +2480,15 @@
         "from": "under-review",
         "to": "approved",
         "note": "Current Wikidata statements, qualifiers, English Wikipedia links, independent supporting sources, path uniqueness, and three distractors reviewed."
+      },
+      {
+        "at": "2026-10-14T20:00:00.000Z",
+        "from": "approved",
+        "to": "scheduled",
+        "note": "Promoted from the approved Phase 6D deterministic review schedule; launch date remains separately gated."
       }
-    ]
+    ],
+    "schedulePosition": 30
   },
   {
     "id": "linux-torvalds-git",
@@ -2363,7 +2496,7 @@
     "title": "One creator, two foundations",
     "prompt": "Who is the missing link between Linux and Git?",
     "category": "Technology",
-    "status": "approved",
+    "status": "scheduled",
     "path": [
       {
         "qid": "Q14579",
@@ -2483,8 +2616,15 @@
         "from": "under-review",
         "to": "approved",
         "note": "Current Wikidata statements, qualifiers, English Wikipedia links, independent supporting sources, path uniqueness, and three distractors reviewed."
+      },
+      {
+        "at": "2026-10-14T20:00:00.000Z",
+        "from": "approved",
+        "to": "scheduled",
+        "note": "Promoted from the approved Phase 6D deterministic review schedule; launch date remains separately gated."
       }
-    ]
+    ],
+    "schedulePosition": 32
   },
   {
     "id": "python-rossum-microsoft",
@@ -2492,7 +2632,7 @@
     "title": "Python's later chapter",
     "prompt": "Who is the missing link between Python and Microsoft?",
     "category": "Technology",
-    "status": "approved",
+    "status": "scheduled",
     "path": [
       {
         "qid": "Q28865",
@@ -2607,8 +2747,15 @@
         "from": "under-review",
         "to": "approved",
         "note": "Current Wikidata statements, qualifiers, English Wikipedia links, independent supporting sources, path uniqueness, and three distractors reviewed."
+      },
+      {
+        "at": "2026-10-14T20:00:00.000Z",
+        "from": "approved",
+        "to": "scheduled",
+        "note": "Promoted from the approved Phase 6D deterministic review schedule; launch date remains separately gated."
       }
-    ]
+    ],
+    "schedulePosition": 78
   },
   {
     "id": "air-jordan-nike-phil-knight",
@@ -2616,7 +2763,7 @@
     "title": "From signature shoe to founder",
     "prompt": "Which company is the missing link between Air Jordan and Phil Knight?",
     "category": "Business",
-    "status": "approved",
+    "status": "scheduled",
     "path": [
       {
         "qid": "Q420953",
@@ -2736,8 +2883,15 @@
         "from": "under-review",
         "to": "approved",
         "note": "Current Wikidata statements, qualifiers, English Wikipedia links, independent supporting sources, path uniqueness, and three distractors reviewed."
+      },
+      {
+        "at": "2026-10-14T20:00:00.000Z",
+        "from": "approved",
+        "to": "scheduled",
+        "note": "Promoted from the approved Phase 6D deterministic review schedule; launch date remains separately gated."
       }
-    ]
+    ],
+    "schedulePosition": 24
   },
   {
     "id": "paypal-thiel-palantir",
@@ -2745,7 +2899,7 @@
     "title": "A founder across fintech and data",
     "prompt": "Who is the missing link between PayPal and Palantir Technologies?",
     "category": "Business",
-    "status": "approved",
+    "status": "scheduled",
     "path": [
       {
         "qid": "Q483959",
@@ -2854,8 +3008,15 @@
         "from": "under-review",
         "to": "approved",
         "note": "Current Wikidata statements, qualifiers, English Wikipedia links, independent supporting sources, path uniqueness, and three distractors reviewed."
+      },
+      {
+        "at": "2026-10-14T20:00:00.000Z",
+        "from": "approved",
+        "to": "scheduled",
+        "note": "Promoted from the approved Phase 6D deterministic review schedule; launch date remains separately gated."
       }
-    ]
+    ],
+    "schedulePosition": 61
   },
   {
     "id": "jolene-dolly-dollywood",
@@ -2863,7 +3024,7 @@
     "title": "A song and a Smoky Mountains park",
     "prompt": "Who is the missing link between “Jolene” and Dollywood?",
     "category": "Music",
-    "status": "approved",
+    "status": "scheduled",
     "path": [
       {
         "qid": "Q1573997",
@@ -2989,8 +3150,15 @@
         "from": "under-review",
         "to": "approved",
         "note": "Current Wikidata statements, qualifiers, English Wikipedia links, independent supporting sources, path uniqueness, and three distractors reviewed."
+      },
+      {
+        "at": "2026-10-14T20:00:00.000Z",
+        "from": "approved",
+        "to": "scheduled",
+        "note": "Promoted from the approved Phase 6D deterministic review schedule; launch date remains separately gated."
       }
-    ]
+    ],
+    "schedulePosition": 31
   },
   {
     "id": "rolling-stone-dylan-nobel-literature",
@@ -2998,7 +3166,7 @@
     "title": "A song to a literary laureate",
     "prompt": "Who is the missing link between “Like a Rolling Stone” and the Nobel Prize in Literature?",
     "category": "Music",
-    "status": "approved",
+    "status": "scheduled",
     "path": [
       {
         "qid": "Q214430",
@@ -3124,8 +3292,15 @@
         "from": "under-review",
         "to": "approved",
         "note": "Current Wikidata statements, qualifiers, English Wikipedia links, independent supporting sources, path uniqueness, and three distractors reviewed."
+      },
+      {
+        "at": "2026-10-14T20:00:00.000Z",
+        "from": "approved",
+        "to": "scheduled",
+        "note": "Promoted from the approved Phase 6D deterministic review schedule; launch date remains separately gated."
       }
-    ]
+    ],
+    "schedulePosition": 40
   },
   {
     "id": "hamilton-miranda-moana",
@@ -3133,7 +3308,7 @@
     "title": "Broadway meets the Pacific",
     "prompt": "Who is the missing link between Hamilton and Moana?",
     "category": "Entertainment and film",
-    "status": "approved",
+    "status": "scheduled",
     "path": [
       {
         "qid": "Q19320959",
@@ -3248,8 +3423,15 @@
         "from": "under-review",
         "to": "approved",
         "note": "Current Wikidata statements, qualifiers, English Wikipedia links, independent supporting sources, path uniqueness, and three distractors reviewed."
+      },
+      {
+        "at": "2026-10-14T20:00:00.000Z",
+        "from": "approved",
+        "to": "scheduled",
+        "note": "Promoted from the approved Phase 6D deterministic review schedule; launch date remains separately gated."
       }
-    ]
+    ],
+    "schedulePosition": 57
   },
   {
     "id": "eiffel-tower-eiffel-statue-liberty",
@@ -3257,7 +3439,7 @@
     "title": "Iron inside two icons",
     "prompt": "Who is the missing link between the Eiffel Tower and the Statue of Liberty?",
     "category": "Literature and art",
-    "status": "approved",
+    "status": "scheduled",
     "path": [
       {
         "qid": "Q243",
@@ -3372,8 +3554,15 @@
         "from": "under-review",
         "to": "approved",
         "note": "Current Wikidata statements, qualifiers, English Wikipedia links, independent supporting sources, path uniqueness, and three distractors reviewed."
+      },
+      {
+        "at": "2026-10-14T20:00:00.000Z",
+        "from": "approved",
+        "to": "scheduled",
+        "note": "Promoted from the approved Phase 6D deterministic review schedule; launch date remains separately gated."
       }
-    ]
+    ],
+    "schedulePosition": 67
   },
   {
     "id": "frankenstein-shelley-wollstonecraft",
@@ -3381,7 +3570,7 @@
     "title": "A literary family line",
     "prompt": "Who is the missing link between Frankenstein and Mary Wollstonecraft?",
     "category": "Literature and art",
-    "status": "approved",
+    "status": "scheduled",
     "path": [
       {
         "qid": "Q150827",
@@ -3490,8 +3679,15 @@
         "from": "under-review",
         "to": "approved",
         "note": "Current Wikidata statements, qualifiers, English Wikipedia links, independent supporting sources, path uniqueness, and three distractors reviewed."
+      },
+      {
+        "at": "2026-10-14T20:00:00.000Z",
+        "from": "approved",
+        "to": "scheduled",
+        "note": "Promoted from the approved Phase 6D deterministic review schedule; launch date remains separately gated."
       }
-    ]
+    ],
+    "schedulePosition": 39
   },
   {
     "id": "little-prince-saint-exupery-aeropostale",
@@ -3499,7 +3695,7 @@
     "title": "The aviator behind a prince",
     "prompt": "Who is the missing link between The Little Prince and Aéropostale?",
     "category": "Literature and art",
-    "status": "approved",
+    "status": "scheduled",
     "path": [
       {
         "qid": "Q25338",
@@ -3619,8 +3815,15 @@
         "from": "under-review",
         "to": "approved",
         "note": "Current Wikidata statements, qualifiers, English Wikipedia links, independent supporting sources, path uniqueness, and three distractors reviewed."
+      },
+      {
+        "at": "2026-10-14T20:00:00.000Z",
+        "from": "approved",
+        "to": "scheduled",
+        "note": "Promoted from the approved Phase 6D deterministic review schedule; launch date remains separately gated."
       }
-    ]
+    ],
+    "schedulePosition": 21
   },
   {
     "id": "march-washington-king-nobel-peace",
@@ -3628,7 +3831,7 @@
     "title": "From a march to Oslo",
     "prompt": "Who is the missing link between the March on Washington and the Nobel Peace Prize?",
     "category": "History and politics",
-    "status": "approved",
+    "status": "scheduled",
     "path": [
       {
         "qid": "Q1128871",
@@ -3743,8 +3946,15 @@
         "from": "under-review",
         "to": "approved",
         "note": "Current Wikidata statements, qualifiers, English Wikipedia links, independent supporting sources, path uniqueness, and three distractors reviewed."
+      },
+      {
+        "at": "2026-10-14T20:00:00.000Z",
+        "from": "approved",
+        "to": "scheduled",
+        "note": "Promoted from the approved Phase 6D deterministic review schedule; launch date remains separately gated."
       }
-    ]
+    ],
+    "schedulePosition": 74
   },
   {
     "id": "cuban-crisis-kennedy-pulitzer-biography",
@@ -3752,7 +3962,7 @@
     "title": "A president, a crisis, and a prize",
     "prompt": "Who is the missing link between the Cuban Missile Crisis and the Pulitzer Prize for Biography?",
     "category": "History and politics",
-    "status": "approved",
+    "status": "scheduled",
     "path": [
       {
         "qid": "Q128160",
@@ -3872,8 +4082,15 @@
         "from": "under-review",
         "to": "approved",
         "note": "Current Wikidata statements, qualifiers, English Wikipedia links, independent supporting sources, path uniqueness, and three distractors reviewed."
+      },
+      {
+        "at": "2026-10-14T20:00:00.000Z",
+        "from": "approved",
+        "to": "scheduled",
+        "note": "Promoted from the approved Phase 6D deterministic review schedule; launch date remains separately gated."
       }
-    ]
+    ],
+    "schedulePosition": 36
   },
   {
     "id": "hubble-telescope-hubble-chicago",
@@ -3881,7 +4098,7 @@
     "title": "A telescope's academic namesake",
     "prompt": "Who is the missing link between the Hubble Space Telescope and the University of Chicago?",
     "category": "Science and innovation",
-    "status": "approved",
+    "status": "scheduled",
     "path": [
       {
         "qid": "Q2513",
@@ -3996,8 +4213,15 @@
         "from": "under-review",
         "to": "approved",
         "note": "Current Wikidata statements, qualifiers, English Wikipedia links, independent supporting sources, path uniqueness, and three distractors reviewed."
+      },
+      {
+        "at": "2026-10-14T20:00:00.000Z",
+        "from": "approved",
+        "to": "scheduled",
+        "note": "Promoted from the approved Phase 6D deterministic review schedule; launch date remains separately gated."
       }
-    ]
+    ],
+    "schedulePosition": 11
   },
   {
     "id": "halley-comet-halley-royal-society",
@@ -4005,7 +4229,7 @@
     "title": "A predicted return",
     "prompt": "Who is the missing link between Halley's Comet and the Royal Society?",
     "category": "Science and innovation",
-    "status": "approved",
+    "status": "scheduled",
     "path": [
       {
         "qid": "Q23054",
@@ -4120,8 +4344,15 @@
         "from": "under-review",
         "to": "approved",
         "note": "Current Wikidata statements, qualifiers, English Wikipedia links, independent supporting sources, path uniqueness, and three distractors reviewed."
+      },
+      {
+        "at": "2026-10-14T20:00:00.000Z",
+        "from": "approved",
+        "to": "scheduled",
+        "note": "Promoted from the approved Phase 6D deterministic review schedule; launch date remains separately gated."
       }
-    ]
+    ],
+    "schedulePosition": 99
   },
   {
     "id": "black-panther-boseman-42",
@@ -4129,7 +4360,7 @@
     "title": "A hero and a history-maker",
     "prompt": "Who is the missing link between Black Panther and 42?",
     "category": "Entertainment and film",
-    "status": "approved",
+    "status": "scheduled",
     "path": [
       {
         "qid": "Q23780734",
@@ -4265,8 +4496,15 @@
         "from": "under-review",
         "to": "approved",
         "note": "Current Wikidata statements, qualifiers, English Wikipedia links, independent supporting sources, path uniqueness, and three distractors reviewed."
+      },
+      {
+        "at": "2026-10-14T20:00:00.000Z",
+        "from": "approved",
+        "to": "scheduled",
+        "note": "Promoted from the approved Phase 6D deterministic review schedule; launch date remains separately gated."
       }
-    ]
+    ],
+    "schedulePosition": 91
   },
   {
     "id": "spirited-away-miyazaki-ghibli",
@@ -4274,7 +4512,7 @@
     "title": "The filmmaker behind the bathhouse",
     "prompt": "Who is the missing link between Spirited Away and Studio Ghibli?",
     "category": "Entertainment and film",
-    "status": "approved",
+    "status": "scheduled",
     "path": [
       {
         "qid": "Q155653",
@@ -4383,8 +4621,15 @@
         "from": "under-review",
         "to": "approved",
         "note": "Current Wikidata statements, qualifiers, English Wikipedia links, independent supporting sources, path uniqueness, and three distractors reviewed."
+      },
+      {
+        "at": "2026-10-14T20:00:00.000Z",
+        "from": "approved",
+        "to": "scheduled",
+        "note": "Promoted from the approved Phase 6D deterministic review schedule; launch date remains separately gated."
       }
-    ]
+    ],
+    "schedulePosition": 10
   },
   {
     "id": "senna-ayrton-mclaren",
@@ -4392,7 +4637,7 @@
     "title": "A racing life on film",
     "prompt": "Who is the missing link between Senna and McLaren?",
     "category": "Sports",
-    "status": "approved",
+    "status": "scheduled",
     "path": [
       {
         "qid": "Q534785",
@@ -4517,8 +4762,15 @@
         "from": "under-review",
         "to": "approved",
         "note": "Current Wikidata statements, qualifiers, English Wikipedia links, independent supporting sources, path uniqueness, and three distractors reviewed."
+      },
+      {
+        "at": "2026-10-14T20:00:00.000Z",
+        "from": "approved",
+        "to": "scheduled",
+        "note": "Promoted from the approved Phase 6D deterministic review schedule; launch date remains separately gated."
       }
-    ]
+    ],
+    "schedulePosition": 9
   },
   {
     "id": "oprah-show-winfrey-own",
@@ -4526,7 +4778,7 @@
     "title": "A host builds a network",
     "prompt": "Who is the missing link between The Oprah Winfrey Show and OWN?",
     "category": "Business",
-    "status": "approved",
+    "status": "scheduled",
     "path": [
       {
         "qid": "Q694106",
@@ -4635,8 +4887,15 @@
         "from": "under-review",
         "to": "approved",
         "note": "Current Wikidata statements, qualifiers, English Wikipedia links, independent supporting sources, path uniqueness, and three distractors reviewed."
+      },
+      {
+        "at": "2026-10-14T20:00:00.000Z",
+        "from": "approved",
+        "to": "scheduled",
+        "note": "Promoted from the approved Phase 6D deterministic review schedule; launch date remains separately gated."
       }
-    ]
+    ],
+    "schedulePosition": 97
   },
   {
     "id": "rush-lauda-ferrari",
@@ -4644,7 +4903,7 @@
     "title": "A rivalry forged in red",
     "prompt": "Who is the missing link between Rush and Scuderia Ferrari?",
     "category": "Sports",
-    "status": "approved",
+    "status": "scheduled",
     "path": [
       {
         "qid": "Q1768437",
@@ -4764,8 +5023,15 @@
         "from": "under-review",
         "to": "approved",
         "note": "Current Wikidata statements, material qualifiers, English Wikipedia links, independent supporting sources, exact-path uniqueness, prior-registry uniqueness, and three distractors reviewed."
+      },
+      {
+        "at": "2026-10-14T20:00:00.000Z",
+        "from": "approved",
+        "to": "scheduled",
+        "note": "Promoted from the approved Phase 6D deterministic review schedule; launch date remains separately gated."
       }
-    ]
+    ],
+    "schedulePosition": 37
   },
   {
     "id": "pele-film-pele-cosmos",
@@ -4773,7 +5039,7 @@
     "title": "A global icon crosses the Atlantic",
     "prompt": "Who is the missing link between Pelé and the New York Cosmos?",
     "category": "Sports",
-    "status": "approved",
+    "status": "scheduled",
     "path": [
       {
         "qid": "Q105694930",
@@ -4893,8 +5159,15 @@
         "from": "under-review",
         "to": "approved",
         "note": "Current Wikidata statements, material qualifiers, English Wikipedia links, independent supporting sources, exact-path uniqueness, prior-registry uniqueness, and three distractors reviewed."
+      },
+      {
+        "at": "2026-10-14T20:00:00.000Z",
+        "from": "approved",
+        "to": "scheduled",
+        "note": "Promoted from the approved Phase 6D deterministic review schedule; launch date remains separately gated."
       }
-    ]
+    ],
+    "schedulePosition": 56
   },
   {
     "id": "last-dance-jordan-medal-freedom",
@@ -4902,7 +5175,7 @@
     "title": "From the last dance to the White House",
     "prompt": "Who is the missing link between The Last Dance and the Presidential Medal of Freedom?",
     "category": "Sports",
-    "status": "approved",
+    "status": "scheduled",
     "path": [
       {
         "qid": "Q85807688",
@@ -5017,8 +5290,15 @@
         "from": "under-review",
         "to": "approved",
         "note": "Current Wikidata statements, material qualifiers, English Wikipedia links, independent supporting sources, exact-path uniqueness, prior-registry uniqueness, and three distractors reviewed."
+      },
+      {
+        "at": "2026-10-14T20:00:00.000Z",
+        "from": "approved",
+        "to": "scheduled",
+        "note": "Promoted from the approved Phase 6D deterministic review schedule; launch date remains separately gated."
       }
-    ]
+    ],
+    "schedulePosition": 84
   },
   {
     "id": "milan-weah-liberia-president",
@@ -5026,7 +5306,7 @@
     "title": "From San Siro to the presidency",
     "prompt": "Who is the missing link between AC Milan and the office of President of Liberia?",
     "category": "Sports",
-    "status": "approved",
+    "status": "scheduled",
     "path": [
       {
         "qid": "Q1543",
@@ -5157,8 +5437,15 @@
         "from": "under-review",
         "to": "approved",
         "note": "Current Wikidata statements, material qualifiers, English Wikipedia links, independent supporting sources, exact-path uniqueness, prior-registry uniqueness, and three distractors reviewed."
+      },
+      {
+        "at": "2026-10-14T20:00:00.000Z",
+        "from": "approved",
+        "to": "scheduled",
+        "note": "Promoted from the approved Phase 6D deterministic review schedule; launch date remains separately gated."
       }
-    ]
+    ],
+    "schedulePosition": 18
   },
   {
     "id": "lombardi-trophy-lombardi-fordham",
@@ -5166,7 +5453,7 @@
     "title": "The student behind the trophy",
     "prompt": "Who is the missing link between the Vince Lombardi Trophy and Fordham Rams football?",
     "category": "Sports",
-    "status": "approved",
+    "status": "scheduled",
     "path": [
       {
         "qid": "Q2526532",
@@ -5275,8 +5562,15 @@
         "from": "under-review",
         "to": "approved",
         "note": "Current Wikidata statements, material qualifiers, English Wikipedia links, independent supporting sources, exact-path uniqueness, prior-registry uniqueness, and three distractors reviewed."
+      },
+      {
+        "at": "2026-10-14T20:00:00.000Z",
+        "from": "approved",
+        "to": "scheduled",
+        "note": "Promoted from the approved Phase 6D deterministic review schedule; launch date remains separately gated."
       }
-    ]
+    ],
+    "schedulePosition": 75
   },
   {
     "id": "everest-george-everest-royal-society",
@@ -5284,7 +5578,7 @@
     "title": "The geographer behind the summit",
     "prompt": "Who is the missing link between Mount Everest and the Royal Society?",
     "category": "Geography and culture",
-    "status": "approved",
+    "status": "scheduled",
     "path": [
       {
         "qid": "Q513",
@@ -5399,8 +5693,15 @@
         "from": "under-review",
         "to": "approved",
         "note": "Current Wikidata statements, material qualifiers, English Wikipedia links, independent supporting sources, exact-path uniqueness, prior-registry uniqueness, and three distractors reviewed."
+      },
+      {
+        "at": "2026-10-14T20:00:00.000Z",
+        "from": "approved",
+        "to": "scheduled",
+        "note": "Promoted from the approved Phase 6D deterministic review schedule; launch date remains separately gated."
       }
-    ]
+    ],
+    "schedulePosition": 34
   },
   {
     "id": "lake-victoria-queen-va",
@@ -5408,7 +5709,7 @@
     "title": "One queen, two landmarks",
     "prompt": "Who is the missing link between Lake Victoria and the Victoria and Albert Museum?",
     "category": "Geography and culture",
-    "status": "approved",
+    "status": "scheduled",
     "path": [
       {
         "qid": "Q5505",
@@ -5517,8 +5818,15 @@
         "from": "under-review",
         "to": "approved",
         "note": "Current Wikidata statements, material qualifiers, English Wikipedia links, independent supporting sources, exact-path uniqueness, prior-registry uniqueness, and three distractors reviewed."
+      },
+      {
+        "at": "2026-10-14T20:00:00.000Z",
+        "from": "approved",
+        "to": "scheduled",
+        "note": "Promoted from the approved Phase 6D deterministic review schedule; launch date remains separately gated."
       }
-    ]
+    ],
+    "schedulePosition": 89
   },
   {
     "id": "bolivia-bolivar-currency",
@@ -5526,7 +5834,7 @@
     "title": "A liberator on the map and the money",
     "prompt": "Who is the missing link between Bolivia and the Venezuelan bolívar?",
     "category": "Geography and culture",
-    "status": "approved",
+    "status": "scheduled",
     "path": [
       {
         "qid": "Q750",
@@ -5635,8 +5943,15 @@
         "from": "under-review",
         "to": "approved",
         "note": "Current Wikidata statements, material qualifiers, English Wikipedia links, independent supporting sources, exact-path uniqueness, prior-registry uniqueness, and three distractors reviewed."
+      },
+      {
+        "at": "2026-10-14T20:00:00.000Z",
+        "from": "approved",
+        "to": "scheduled",
+        "note": "Promoted from the approved Phase 6D deterministic review schedule; launch date remains separately gated."
       }
-    ]
+    ],
+    "schedulePosition": 62
   },
   {
     "id": "gregorian-calendar-gregory-university",
@@ -5644,7 +5959,7 @@
     "title": "A pope's name across time and learning",
     "prompt": "Who is the missing link between the Gregorian calendar and the Pontifical Gregorian University?",
     "category": "Geography and culture",
-    "status": "approved",
+    "status": "scheduled",
     "path": [
       {
         "qid": "Q12138",
@@ -5753,8 +6068,15 @@
         "from": "under-review",
         "to": "approved",
         "note": "Current Wikidata statements, material qualifiers, English Wikipedia links, independent supporting sources, exact-path uniqueness, prior-registry uniqueness, and three distractors reviewed."
+      },
+      {
+        "at": "2026-10-14T20:00:00.000Z",
+        "from": "approved",
+        "to": "scheduled",
+        "note": "Promoted from the approved Phase 6D deterministic review schedule; launch date remains separately gated."
       }
-    ]
+    ],
+    "schedulePosition": 43
   },
   {
     "id": "rosetta-bouchard-polytechnique",
@@ -5762,7 +6084,7 @@
     "title": "The officer who recognized a key",
     "prompt": "Who is the missing link between the Rosetta Stone and École polytechnique?",
     "category": "Geography and culture",
-    "status": "approved",
+    "status": "scheduled",
     "path": [
       {
         "qid": "Q48584",
@@ -5877,8 +6199,15 @@
         "from": "under-review",
         "to": "approved",
         "note": "Current Wikidata statements, material qualifiers, English Wikipedia links, independent supporting sources, exact-path uniqueness, prior-registry uniqueness, and three distractors reviewed."
+      },
+      {
+        "at": "2026-10-14T20:00:00.000Z",
+        "from": "approved",
+        "to": "scheduled",
+        "note": "Promoted from the approved Phase 6D deterministic review schedule; launch date remains separately gated."
       }
-    ]
+    ],
+    "schedulePosition": 16
   },
   {
     "id": "tasmania-tasman-voc",
@@ -5886,7 +6215,7 @@
     "title": "An island and a company voyage",
     "prompt": "Who is the missing link between Tasmania and the Dutch East India Company?",
     "category": "Geography and culture",
-    "status": "approved",
+    "status": "scheduled",
     "path": [
       {
         "qid": "Q34366",
@@ -5995,8 +6324,15 @@
         "from": "under-review",
         "to": "approved",
         "note": "Current Wikidata statements, material qualifiers, English Wikipedia links, independent supporting sources, exact-path uniqueness, prior-registry uniqueness, and three distractors reviewed."
+      },
+      {
+        "at": "2026-10-14T20:00:00.000Z",
+        "from": "approved",
+        "to": "scheduled",
+        "note": "Promoted from the approved Phase 6D deterministic review schedule; launch date remains separately gated."
       }
-    ]
+    ],
+    "schedulePosition": 71
   },
   {
     "id": "iran-crisis-carter-nobel-peace",
@@ -6004,7 +6340,7 @@
     "title": "A presidency tested, a lifetime honored",
     "prompt": "Who is the missing link between the Iran hostage crisis and the Nobel Peace Prize?",
     "category": "History and politics",
-    "status": "approved",
+    "status": "scheduled",
     "path": [
       {
         "qid": "Q589673",
@@ -6119,8 +6455,15 @@
         "from": "under-review",
         "to": "approved",
         "note": "Current Wikidata statements, material qualifiers, English Wikipedia links, independent supporting sources, exact-path uniqueness, prior-registry uniqueness, and three distractors reviewed."
+      },
+      {
+        "at": "2026-10-14T20:00:00.000Z",
+        "from": "approved",
+        "to": "scheduled",
+        "note": "Promoted from the approved Phase 6D deterministic review schedule; launch date remains separately gated."
       }
-    ]
+    ],
+    "schedulePosition": 17
   },
   {
     "id": "churchill-college-churchill-nobel",
@@ -6128,7 +6471,7 @@
     "title": "A memorial to a literary laureate",
     "prompt": "Who is the missing link between Churchill College and the Nobel Prize in Literature?",
     "category": "History and politics",
-    "status": "approved",
+    "status": "scheduled",
     "path": [
       {
         "qid": "Q714740",
@@ -6243,8 +6586,15 @@
         "from": "under-review",
         "to": "approved",
         "note": "Current Wikidata statements, material qualifiers, English Wikipedia links, independent supporting sources, exact-path uniqueness, prior-registry uniqueness, and three distractors reviewed."
+      },
+      {
+        "at": "2026-10-14T20:00:00.000Z",
+        "from": "approved",
+        "to": "scheduled",
+        "note": "Promoted from the approved Phase 6D deterministic review schedule; launch date remains separately gated."
       }
-    ]
+    ],
+    "schedulePosition": 92
   },
   {
     "id": "roosevelt-park-roosevelt-nobel",
@@ -6252,7 +6602,7 @@
     "title": "A conservation legacy and a peace prize",
     "prompt": "Who is the missing link between Theodore Roosevelt National Park and the Nobel Peace Prize?",
     "category": "History and politics",
-    "status": "approved",
+    "status": "scheduled",
     "path": [
       {
         "qid": "Q1137669",
@@ -6367,8 +6717,15 @@
         "from": "under-review",
         "to": "approved",
         "note": "Current Wikidata statements, material qualifiers, English Wikipedia links, independent supporting sources, exact-path uniqueness, prior-registry uniqueness, and three distractors reviewed."
+      },
+      {
+        "at": "2026-10-14T20:00:00.000Z",
+        "from": "approved",
+        "to": "scheduled",
+        "note": "Promoted from the approved Phase 6D deterministic review schedule; launch date remains separately gated."
       }
-    ]
+    ],
+    "schedulePosition": 83
   },
   {
     "id": "webb-telescope-webb-nasa",
@@ -6376,7 +6733,7 @@
     "title": "The administrator in the telescope's name",
     "prompt": "Who is the missing link between the James Webb Space Telescope and NASA?",
     "category": "Science and innovation",
-    "status": "approved",
+    "status": "scheduled",
     "path": [
       {
         "qid": "Q186447",
@@ -6485,8 +6842,15 @@
         "from": "under-review",
         "to": "approved",
         "note": "Current Wikidata statements, material qualifiers, English Wikipedia links, independent supporting sources, exact-path uniqueness, prior-registry uniqueness, and three distractors reviewed."
+      },
+      {
+        "at": "2026-10-14T20:00:00.000Z",
+        "from": "approved",
+        "to": "scheduled",
+        "note": "Promoted from the approved Phase 6D deterministic review schedule; launch date remains separately gated."
       }
-    ]
+    ],
+    "schedulePosition": 47
   },
   {
     "id": "higgs-boson-higgs-edinburgh",
@@ -6494,7 +6858,7 @@
     "title": "A particle and its academic home",
     "prompt": "Who is the missing link between the Higgs boson and the University of Edinburgh?",
     "category": "Science and innovation",
-    "status": "approved",
+    "status": "scheduled",
     "path": [
       {
         "qid": "Q402",
@@ -6614,8 +6978,15 @@
         "from": "under-review",
         "to": "approved",
         "note": "Current Wikidata statements, material qualifiers, English Wikipedia links, independent supporting sources, exact-path uniqueness, prior-registry uniqueness, and three distractors reviewed."
+      },
+      {
+        "at": "2026-10-14T20:00:00.000Z",
+        "from": "approved",
+        "to": "scheduled",
+        "note": "Promoted from the approved Phase 6D deterministic review schedule; launch date remains separately gated."
       }
-    ]
+    ],
+    "schedulePosition": 63
   },
   {
     "id": "thriller-jones-color-purple",
@@ -6623,7 +6994,7 @@
     "title": "From a landmark album to a film score",
     "prompt": "Who is the missing link between Thriller and The Color Purple?",
     "category": "Music",
-    "status": "approved",
+    "status": "scheduled",
     "path": [
       {
         "qid": "Q44320",
@@ -6732,8 +7103,15 @@
         "from": "under-review",
         "to": "approved",
         "note": "Current Wikidata statements, material qualifiers, English Wikipedia links, independent supporting sources, exact-path uniqueness, prior-registry uniqueness, and three distractors reviewed."
+      },
+      {
+        "at": "2026-10-14T20:00:00.000Z",
+        "from": "approved",
+        "to": "scheduled",
+        "note": "Promoted from the approved Phase 6D deterministic review schedule; launch date remains separately gated."
       }
-    ]
+    ],
+    "schedulePosition": 13
   },
   {
     "id": "back-black-winehouse-brit-school",
@@ -6741,7 +7119,7 @@
     "title": "An album and an arts-school alumna",
     "prompt": "Who is the missing link between Back to Black and the BRIT School?",
     "category": "Music",
-    "status": "approved",
+    "status": "scheduled",
     "path": [
       {
         "qid": "Q156670",
@@ -6850,8 +7228,15 @@
         "from": "under-review",
         "to": "approved",
         "note": "Current Wikidata statements, material qualifiers, English Wikipedia links, independent supporting sources, exact-path uniqueness, prior-registry uniqueness, and three distractors reviewed."
+      },
+      {
+        "at": "2026-10-14T20:00:00.000Z",
+        "from": "approved",
+        "to": "scheduled",
+        "note": "Promoted from the approved Phase 6D deterministic review schedule; launch date remains separately gated."
       }
-    ]
+    ],
+    "schedulePosition": 86
   },
   {
     "id": "et-spielberg-csu-long-beach",
@@ -6859,7 +7244,7 @@
     "title": "A blockbuster and a belated degree",
     "prompt": "Who is the missing link between E.T. the Extra-Terrestrial and California State University, Long Beach?",
     "category": "Entertainment and film",
-    "status": "approved",
+    "status": "scheduled",
     "path": [
       {
         "qid": "Q11621",
@@ -6974,8 +7359,15 @@
         "from": "under-review",
         "to": "approved",
         "note": "Current Wikidata statements, material qualifiers, English Wikipedia links, independent supporting sources, exact-path uniqueness, prior-registry uniqueness, and three distractors reviewed."
+      },
+      {
+        "at": "2026-10-14T20:00:00.000Z",
+        "from": "approved",
+        "to": "scheduled",
+        "note": "Promoted from the approved Phase 6D deterministic review schedule; launch date remains separately gated."
       }
-    ]
+    ],
+    "schedulePosition": 35
   },
   {
     "id": "java-gosling-sun",
@@ -6983,7 +7375,7 @@
     "title": "The language born at Sun",
     "prompt": "Who is the missing link between Java and Sun Microsystems?",
     "category": "Technology",
-    "status": "approved",
+    "status": "scheduled",
     "path": [
       {
         "qid": "Q251",
@@ -7092,8 +7484,15 @@
         "from": "under-review",
         "to": "approved",
         "note": "Current Wikidata statements, material qualifiers, English Wikipedia links, relationship-specific sources, exact-path uniqueness, prior-registry uniqueness, and three distractors reviewed."
+      },
+      {
+        "at": "2026-10-14T20:00:00.000Z",
+        "from": "approved",
+        "to": "scheduled",
+        "note": "Promoted from the approved Phase 6D deterministic review schedule; launch date remains separately gated."
       }
-    ]
+    ],
+    "schedulePosition": 51
   },
   {
     "id": "rust-hoare-mozilla",
@@ -7101,7 +7500,7 @@
     "title": "A safer language at Mozilla",
     "prompt": "Who is the missing link between Rust and Mozilla Corporation?",
     "category": "Technology",
-    "status": "approved",
+    "status": "scheduled",
     "path": [
       {
         "qid": "Q575650",
@@ -7210,8 +7609,15 @@
         "from": "under-review",
         "to": "approved",
         "note": "Current Wikidata statements, material qualifiers, English Wikipedia links, relationship-specific sources, exact-path uniqueness, prior-registry uniqueness, and three distractors reviewed."
+      },
+      {
+        "at": "2026-10-14T20:00:00.000Z",
+        "from": "approved",
+        "to": "scheduled",
+        "note": "Promoted from the approved Phase 6D deterministic review schedule; launch date remains separately gated."
       }
-    ]
+    ],
+    "schedulePosition": 14
   },
   {
     "id": "cpp-stroustrup-bell-labs",
@@ -7219,7 +7625,7 @@
     "title": "From Bell Labs to C++",
     "prompt": "Who is the missing link between C++ and Bell Labs?",
     "category": "Technology",
-    "status": "approved",
+    "status": "scheduled",
     "path": [
       {
         "qid": "Q2407",
@@ -7339,8 +7745,15 @@
         "from": "under-review",
         "to": "approved",
         "note": "Current Wikidata statements, material qualifiers, English Wikipedia links, relationship-specific sources, exact-path uniqueness, prior-registry uniqueness, and three distractors reviewed."
+      },
+      {
+        "at": "2026-10-14T20:00:00.000Z",
+        "from": "approved",
+        "to": "scheduled",
+        "note": "Promoted from the approved Phase 6D deterministic review schedule; launch date remains separately gated."
       }
-    ]
+    ],
+    "schedulePosition": 87
   },
   {
     "id": "swift-lattner-apple",
@@ -7348,7 +7761,7 @@
     "title": "Swift's original project lead",
     "prompt": "Who is the missing link between Swift and Apple?",
     "category": "Technology",
-    "status": "approved",
+    "status": "scheduled",
     "path": [
       {
         "qid": "Q17118377",
@@ -7468,8 +7881,15 @@
         "from": "under-review",
         "to": "approved",
         "note": "Current Wikidata statements, material qualifiers, English Wikipedia links, relationship-specific sources, exact-path uniqueness, prior-registry uniqueness, and three distractors reviewed."
+      },
+      {
+        "at": "2026-10-14T20:00:00.000Z",
+        "from": "approved",
+        "to": "scheduled",
+        "note": "Promoted from the approved Phase 6D deterministic review schedule; launch date remains separately gated."
       }
-    ]
+    ],
+    "schedulePosition": 41
   },
   {
     "id": "typescript-hejlsberg-microsoft",
@@ -7477,7 +7897,7 @@
     "title": "Typing the web at Microsoft",
     "prompt": "Who is the missing link between TypeScript and Microsoft?",
     "category": "Technology",
-    "status": "approved",
+    "status": "scheduled",
     "path": [
       {
         "qid": "Q978185",
@@ -7586,8 +8006,15 @@
         "from": "under-review",
         "to": "approved",
         "note": "Current Wikidata statements, material qualifiers, English Wikipedia links, relationship-specific sources, exact-path uniqueness, prior-registry uniqueness, and three distractors reviewed."
+      },
+      {
+        "at": "2026-10-14T20:00:00.000Z",
+        "from": "approved",
+        "to": "scheduled",
+        "note": "Promoted from the approved Phase 6D deterministic review schedule; launch date remains separately gated."
       }
-    ]
+    ],
+    "schedulePosition": 96
   },
   {
     "id": "amazon-bezos-blue-origin",
@@ -7595,7 +8022,7 @@
     "title": "From online books to rockets",
     "prompt": "Who is the missing link between Amazon and Blue Origin?",
     "category": "Business",
-    "status": "approved",
+    "status": "scheduled",
     "path": [
       {
         "qid": "Q3884",
@@ -7704,8 +8131,15 @@
         "from": "under-review",
         "to": "approved",
         "note": "Current Wikidata statements, material qualifiers, English Wikipedia links, relationship-specific sources, exact-path uniqueness, prior-registry uniqueness, and three distractors reviewed."
+      },
+      {
+        "at": "2026-10-14T20:00:00.000Z",
+        "from": "approved",
+        "to": "scheduled",
+        "note": "Promoted from the approved Phase 6D deterministic review schedule; launch date remains separately gated."
       }
-    ]
+    ],
+    "schedulePosition": 88
   },
   {
     "id": "alibaba-ma-hangzhou-normal",
@@ -7713,7 +8147,7 @@
     "title": "An English teacher builds Alibaba",
     "prompt": "Who is the missing link between Alibaba Group and Hangzhou Normal University?",
     "category": "Business",
-    "status": "approved",
+    "status": "scheduled",
     "path": [
       {
         "qid": "Q1359568",
@@ -7822,8 +8256,15 @@
         "from": "under-review",
         "to": "approved",
         "note": "Current Wikidata statements, material qualifiers, English Wikipedia links, relationship-specific sources, exact-path uniqueness, prior-registry uniqueness, and three distractors reviewed."
+      },
+      {
+        "at": "2026-10-14T20:00:00.000Z",
+        "from": "approved",
+        "to": "scheduled",
+        "note": "Promoted from the approved Phase 6D deterministic review schedule; launch date remains separately gated."
       }
-    ]
+    ],
+    "schedulePosition": 15
   },
   {
     "id": "virgin-group-branson-galactic",
@@ -7831,7 +8272,7 @@
     "title": "The Virgin brand reaches space",
     "prompt": "Who is the missing link between Virgin Group and Virgin Galactic?",
     "category": "Business",
-    "status": "approved",
+    "status": "scheduled",
     "path": [
       {
         "qid": "Q494917",
@@ -7940,8 +8381,15 @@
         "from": "under-review",
         "to": "approved",
         "note": "Current Wikidata statements, material qualifiers, English Wikipedia links, relationship-specific sources, exact-path uniqueness, prior-registry uniqueness, and three distractors reviewed."
+      },
+      {
+        "at": "2026-10-14T20:00:00.000Z",
+        "from": "approved",
+        "to": "scheduled",
+        "note": "Promoted from the approved Phase 6D deterministic review schedule; launch date remains separately gated."
       }
-    ]
+    ],
+    "schedulePosition": 42
   },
   {
     "id": "bloomberg-company-founder-philanthropies",
@@ -7949,7 +8397,7 @@
     "title": "Data profits into philanthropy",
     "prompt": "Who is the missing link between Bloomberg L.P. and Bloomberg Philanthropies?",
     "category": "Business",
-    "status": "approved",
+    "status": "scheduled",
     "path": [
       {
         "qid": "Q13977",
@@ -8058,8 +8506,15 @@
         "from": "under-review",
         "to": "approved",
         "note": "Current Wikidata statements, material qualifiers, English Wikipedia links, relationship-specific sources, exact-path uniqueness, prior-registry uniqueness, and three distractors reviewed."
+      },
+      {
+        "at": "2026-10-14T20:00:00.000Z",
+        "from": "approved",
+        "to": "scheduled",
+        "note": "Promoted from the approved Phase 6D deterministic review schedule; launch date remains separately gated."
       }
-    ]
+    ],
+    "schedulePosition": 70
   },
   {
     "id": "sgt-pepper-martin-air",
@@ -8067,7 +8522,7 @@
     "title": "The producer behind Pepper and AIR",
     "prompt": "Who is the missing link between Sgt. Pepper's Lonely Hearts Club Band and AIR Studios?",
     "category": "Music",
-    "status": "approved",
+    "status": "scheduled",
     "path": [
       {
         "qid": "Q169226",
@@ -8176,8 +8631,15 @@
         "from": "under-review",
         "to": "approved",
         "note": "Current Wikidata statements, material qualifiers, English Wikipedia links, relationship-specific sources, exact-path uniqueness, prior-registry uniqueness, and three distractors reviewed."
+      },
+      {
+        "at": "2026-10-14T20:00:00.000Z",
+        "from": "approved",
+        "to": "scheduled",
+        "note": "Promoted from the approved Phase 6D deterministic review schedule; launch date remains separately gated."
       }
-    ]
+    ],
+    "schedulePosition": 95
   },
   {
     "id": "songs-key-life-wonder-medal-freedom",
@@ -8185,7 +8647,7 @@
     "title": "A landmark album and a national honor",
     "prompt": "Who is the missing link between Songs in the Key of Life and the Presidential Medal of Freedom?",
     "category": "Music",
-    "status": "approved",
+    "status": "scheduled",
     "path": [
       {
         "qid": "Q845040",
@@ -8300,8 +8762,15 @@
         "from": "under-review",
         "to": "approved",
         "note": "Current Wikidata statements, material qualifiers, English Wikipedia links, relationship-specific sources, exact-path uniqueness, prior-registry uniqueness, and three distractors reviewed."
+      },
+      {
+        "at": "2026-10-14T20:00:00.000Z",
+        "from": "approved",
+        "to": "scheduled",
+        "note": "Promoted from the approved Phase 6D deterministic review schedule; launch date remains separately gated."
       }
-    ]
+    ],
+    "schedulePosition": 68
   },
   {
     "id": "graceland-simon-gershwin",
@@ -8309,7 +8778,7 @@
     "title": "Graceland's first Gershwin laureate",
     "prompt": "Who is the missing link between Graceland and the Gershwin Prize?",
     "category": "Music",
-    "status": "approved",
+    "status": "scheduled",
     "path": [
       {
         "qid": "Q1027822",
@@ -8424,8 +8893,15 @@
         "from": "under-review",
         "to": "approved",
         "note": "Current Wikidata statements, material qualifiers, English Wikipedia links, relationship-specific sources, exact-path uniqueness, prior-registry uniqueness, and three distractors reviewed."
+      },
+      {
+        "at": "2026-10-14T20:00:00.000Z",
+        "from": "approved",
+        "to": "scheduled",
+        "note": "Promoted from the approved Phase 6D deterministic review schedule; launch date remains separately gated."
       }
-    ]
+    ],
+    "schedulePosition": 77
   },
   {
     "id": "ashe-stadium-ashe-medal-freedom",
@@ -8433,7 +8909,7 @@
     "title": "A stadium honors a champion",
     "prompt": "Who is the missing link between Arthur Ashe Stadium and the Presidential Medal of Freedom?",
     "category": "Sports",
-    "status": "approved",
+    "status": "scheduled",
     "path": [
       {
         "qid": "Q609551",
@@ -8548,8 +9024,15 @@
         "from": "under-review",
         "to": "approved",
         "note": "Current Wikidata statements, material qualifiers, English Wikipedia links, relationship-specific sources, exact-path uniqueness, prior-registry uniqueness, and three distractors reviewed."
+      },
+      {
+        "at": "2026-10-14T20:00:00.000Z",
+        "from": "approved",
+        "to": "scheduled",
+        "note": "Promoted from the approved Phase 6D deterministic review schedule; launch date remains separately gated."
       }
-    ]
+    ],
+    "schedulePosition": 27
   },
   {
     "id": "maradona-stadium-maradona-napoli",
@@ -8557,7 +9040,7 @@
     "title": "The player in the stadium's name",
     "prompt": "Who is the missing link between Stadio Diego Armando Maradona and SSC Napoli?",
     "category": "Sports",
-    "status": "approved",
+    "status": "scheduled",
     "path": [
       {
         "qid": "Q82709",
@@ -8683,8 +9166,15 @@
         "from": "under-review",
         "to": "approved",
         "note": "Current Wikidata statements, material qualifiers, English Wikipedia links, relationship-specific sources, exact-path uniqueness, prior-registry uniqueness, and three distractors reviewed."
+      },
+      {
+        "at": "2026-10-14T20:00:00.000Z",
+        "from": "approved",
+        "to": "scheduled",
+        "note": "Promoted from the approved Phase 6D deterministic review schedule; launch date remains separately gated."
       }
-    ]
+    ],
+    "schedulePosition": 46
   },
   {
     "id": "madeira-airport-ronaldo-man-united",
@@ -8692,7 +9182,7 @@
     "title": "From Madeira's runway to Old Trafford",
     "prompt": "Who is the missing link between Madeira Airport and Manchester United?",
     "category": "Sports",
-    "status": "approved",
+    "status": "scheduled",
     "path": [
       {
         "qid": "Q639161",
@@ -8818,8 +9308,15 @@
         "from": "under-review",
         "to": "approved",
         "note": "Current Wikidata statements, material qualifiers, English Wikipedia links, relationship-specific sources, exact-path uniqueness, prior-registry uniqueness, and three distractors reviewed."
+      },
+      {
+        "at": "2026-10-14T20:00:00.000Z",
+        "from": "approved",
+        "to": "scheduled",
+        "note": "Promoted from the approved Phase 6D deterministic review schedule; launch date remains separately gated."
       }
-    ]
+    ],
+    "schedulePosition": 65
   },
   {
     "id": "turing-award-turing-princeton",
@@ -8827,7 +9324,7 @@
     "title": "Computing's highest honor and a doctorate",
     "prompt": "Who is the missing link between the Turing Award and Princeton University?",
     "category": "Science and innovation",
-    "status": "approved",
+    "status": "scheduled",
     "path": [
       {
         "qid": "Q185667",
@@ -8942,8 +9439,15 @@
         "from": "under-review",
         "to": "approved",
         "note": "Current Wikidata statements, material qualifiers, English Wikipedia links, relationship-specific sources, exact-path uniqueness, prior-registry uniqueness, and three distractors reviewed."
+      },
+      {
+        "at": "2026-10-14T20:00:00.000Z",
+        "from": "approved",
+        "to": "scheduled",
+        "note": "Promoted from the approved Phase 6D deterministic review schedule; launch date remains separately gated."
       }
-    ]
+    ],
+    "schedulePosition": 20
   },
   {
     "id": "salk-institute-salk-pittsburgh",
@@ -8951,7 +9455,7 @@
     "title": "A vaccine pioneer builds an institute",
     "prompt": "Who is the missing link between the Salk Institute and the University of Pittsburgh?",
     "category": "Science and innovation",
-    "status": "approved",
+    "status": "scheduled",
     "path": [
       {
         "qid": "Q1351061",
@@ -9060,8 +9564,15 @@
         "from": "under-review",
         "to": "approved",
         "note": "Current Wikidata statements, material qualifiers, English Wikipedia links, relationship-specific sources, exact-path uniqueness, prior-registry uniqueness, and three distractors reviewed."
+      },
+      {
+        "at": "2026-10-14T20:00:00.000Z",
+        "from": "approved",
+        "to": "scheduled",
+        "note": "Promoted from the approved Phase 6D deterministic review schedule; launch date remains separately gated."
       }
-    ]
+    ],
+    "schedulePosition": 29
   },
   {
     "id": "franklin-rover-franklin-kings",
@@ -9069,7 +9580,7 @@
     "title": "A Mars rover remembers a DNA pioneer",
     "prompt": "Who is the missing link between the Rosalind Franklin rover and King's College London?",
     "category": "Science and innovation",
-    "status": "approved",
+    "status": "scheduled",
     "path": [
       {
         "qid": "Q3445540",
@@ -9189,8 +9700,15 @@
         "from": "under-review",
         "to": "approved",
         "note": "Current Wikidata statements, material qualifiers, English Wikipedia links, relationship-specific sources, exact-path uniqueness, prior-registry uniqueness, and three distractors reviewed."
+      },
+      {
+        "at": "2026-10-14T20:00:00.000Z",
+        "from": "approved",
+        "to": "scheduled",
+        "note": "Promoted from the approved Phase 6D deterministic review schedule; launch date remains separately gated."
       }
-    ]
+    ],
+    "schedulePosition": 81
   },
   {
     "id": "erasmus-programme-erasmus-folly",
@@ -9198,7 +9716,7 @@
     "title": "A scholar behind exchange and satire",
     "prompt": "Who is the missing link between the Erasmus Programme and In Praise of Folly?",
     "category": "Geography and culture",
-    "status": "approved",
+    "status": "scheduled",
     "path": [
       {
         "qid": "Q254168",
@@ -9307,7 +9825,3256 @@
         "from": "under-review",
         "to": "approved",
         "note": "Current Wikidata statements, material qualifiers, English Wikipedia links, relationship-specific sources, exact-path uniqueness, prior-registry uniqueness, and three distractors reviewed."
+      },
+      {
+        "at": "2026-10-14T20:00:00.000Z",
+        "from": "approved",
+        "to": "scheduled",
+        "note": "Promoted from the approved Phase 6D deterministic review schedule; launch date remains separately gated."
       }
-    ]
+    ],
+    "schedulePosition": 98
+  },
+  {
+    "id": "get-out-peele-oscar",
+    "format": "missing-link",
+    "title": "A debut horror film makes Oscar history",
+    "prompt": "Who is the missing link between Get Out and the Academy Award for Best Original Screenplay?",
+    "category": "Entertainment and film",
+    "status": "scheduled",
+    "path": [
+      {
+        "qid": "Q25136235",
+        "name": "Get Out",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Get_Out",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q25136235"
+      },
+      {
+        "qid": "Q3371986",
+        "name": "Jordan Peele",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Jordan_Peele",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q3371986"
+      },
+      {
+        "qid": "Q41417",
+        "name": "Academy Award for Best Original Screenplay",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Academy_Award_for_Best_Original_Screenplay",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q41417"
+      }
+    ],
+    "hiddenNodeIndex": 1,
+    "relationships": [
+      {
+        "propertyId": "P57",
+        "subjectQid": "Q25136235",
+        "objectQid": "Q3371986",
+        "direction": "forward",
+        "label": "directed by",
+        "qualifiers": [],
+        "expectedClaim": "Q25136235 P57 Q3371986",
+        "evidence": [
+          {
+            "label": "Q25136235 P57 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q25136235#P57",
+            "kind": "wikidata"
+          },
+          {
+            "label": "Jordan Peele biography",
+            "publisher": "Encyclopaedia Britannica",
+            "url": "https://www.britannica.com/biography/Jordan-Peele",
+            "kind": "supporting"
+          }
+        ]
+      },
+      {
+        "propertyId": "P166",
+        "subjectQid": "Q3371986",
+        "objectQid": "Q41417",
+        "direction": "forward",
+        "label": "received award",
+        "qualifiers": [
+          {
+            "propertyId": "P585",
+            "label": "award date",
+            "value": "4 March 2018"
+          },
+          {
+            "propertyId": "P1686",
+            "label": "winning work",
+            "value": "Get Out"
+          }
+        ],
+        "expectedClaim": "Q3371986 P166 Q41417",
+        "evidence": [
+          {
+            "label": "Q3371986 P166 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q3371986#P166",
+            "kind": "wikidata"
+          },
+          {
+            "label": "The 90th Academy Awards",
+            "publisher": "Academy of Motion Picture Arts and Sciences",
+            "url": "https://www.oscars.org/oscars/ceremonies/2018",
+            "kind": "supporting"
+          }
+        ]
+      }
+    ],
+    "options": [
+      {
+        "id": "jordan-peele",
+        "label": "Jordan Peele",
+        "qid": "Q3371986"
+      },
+      {
+        "id": "steven-spielberg",
+        "label": "Steven Spielberg",
+        "qid": "Q8877"
+      },
+      {
+        "id": "james-cameron",
+        "label": "James Cameron",
+        "qid": "Q42574"
+      },
+      {
+        "id": "george-lucas",
+        "label": "George Lucas",
+        "qid": "Q38222"
+      }
+    ],
+    "correctOptionId": "jordan-peele",
+    "explanation": "Jordan Peele directed Get Out and won the 2018 Academy Award for Best Original Screenplay for the film, becoming the first Black winner in that category.",
+    "pathFingerprint": "Q25136235|P57:forward:Q3371986|P166:forward:Q41417",
+    "reviewedAt": "2026-10-12T00:00:00.000Z",
+    "verificationDate": "2026-10-12",
+    "reviewHistory": [
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": null,
+        "to": "under-review",
+        "note": "Selected for bounded Phase 6C batch 5 independent verification."
+      },
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": "under-review",
+        "to": "approved",
+        "note": "Current Wikidata statements, material qualifiers, English Wikipedia links, relationship-specific sources, exact-path uniqueness, prior-registry uniqueness, and three distractors reviewed."
+      },
+      {
+        "at": "2026-10-14T20:00:00.000Z",
+        "from": "approved",
+        "to": "scheduled",
+        "note": "Promoted from the approved Phase 6D deterministic review schedule; launch date remains separately gated."
+      }
+    ],
+    "schedulePosition": 44
+  },
+  {
+    "id": "muppet-show-henson-maryland",
+    "format": "missing-link",
+    "title": "The puppeteer who began at Maryland",
+    "prompt": "Who is the missing link between The Muppet Show and the University of Maryland?",
+    "category": "Entertainment and film",
+    "status": "scheduled",
+    "path": [
+      {
+        "qid": "Q2120540",
+        "name": "The Muppet Show",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/The_Muppet_Show",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q2120540"
+      },
+      {
+        "qid": "Q191037",
+        "name": "Jim Henson",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Jim_Henson",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q191037"
+      },
+      {
+        "qid": "Q503415",
+        "name": "University of Maryland",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/University_of_Maryland,_College_Park",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q503415"
+      }
+    ],
+    "hiddenNodeIndex": 1,
+    "relationships": [
+      {
+        "propertyId": "P170",
+        "subjectQid": "Q2120540",
+        "objectQid": "Q191037",
+        "direction": "forward",
+        "label": "created by",
+        "qualifiers": [],
+        "expectedClaim": "Q2120540 P170 Q191037",
+        "evidence": [
+          {
+            "label": "Q2120540 P170 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q2120540#P170",
+            "kind": "wikidata"
+          },
+          {
+            "label": "Jim Henson biography",
+            "publisher": "Encyclopaedia Britannica",
+            "url": "https://www.britannica.com/biography/Jim-Henson",
+            "kind": "supporting"
+          }
+        ]
+      },
+      {
+        "propertyId": "P69",
+        "subjectQid": "Q191037",
+        "objectQid": "Q503415",
+        "direction": "forward",
+        "label": "educated at",
+        "qualifiers": [
+          {
+            "propertyId": "P582",
+            "label": "Wikidata end-time qualifier",
+            "value": "1980; official UMD records identify 1960 graduation and a 1978 honorary degree"
+          }
+        ],
+        "expectedClaim": "Q191037 P69 Q503415",
+        "evidence": [
+          {
+            "label": "Q191037 P69 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q191037#P69",
+            "kind": "wikidata"
+          },
+          {
+            "label": "Henson Day: Jim Henson at UMD",
+            "publisher": "University of Maryland",
+            "url": "https://innovate.umd.edu/hensonday",
+            "kind": "supporting"
+          }
+        ]
+      }
+    ],
+    "options": [
+      {
+        "id": "jim-henson",
+        "label": "Jim Henson",
+        "qid": "Q191037"
+      },
+      {
+        "id": "walt-disney",
+        "label": "Walt Disney",
+        "qid": "Q8704"
+      },
+      {
+        "id": "frank-oz",
+        "label": "Frank Oz",
+        "qid": "Q311319"
+      },
+      {
+        "id": "steven-spielberg",
+        "label": "Steven Spielberg",
+        "qid": "Q8877"
+      }
+    ],
+    "correctOptionId": "jim-henson",
+    "explanation": "Jim Henson created The Muppet Show. He studied at the University of Maryland, where his early television puppetry work helped set his career in motion; the university awarded his degree in 1960 and an honorary degree in 1978.",
+    "pathFingerprint": "Q2120540|P170:forward:Q191037|P69:forward:Q503415",
+    "reviewedAt": "2026-10-12T00:00:00.000Z",
+    "verificationDate": "2026-10-12",
+    "reviewHistory": [
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": null,
+        "to": "under-review",
+        "note": "Selected for bounded Phase 6C batch 5 independent verification."
+      },
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": "under-review",
+        "to": "approved",
+        "note": "Current Wikidata statements, material qualifiers, English Wikipedia links, relationship-specific sources, exact-path uniqueness, prior-registry uniqueness, and three distractors reviewed."
+      },
+      {
+        "at": "2026-10-14T20:00:00.000Z",
+        "from": "approved",
+        "to": "scheduled",
+        "note": "Promoted from the approved Phase 6D deterministic review schedule; launch date remains separately gated."
+      }
+    ],
+    "schedulePosition": 100
+  },
+  {
+    "id": "lotr-jackson-wingnut",
+    "format": "missing-link",
+    "title": "Middle-earth through a New Zealand studio",
+    "prompt": "Who is the missing link between The Lord of the Rings film trilogy and WingNut Films?",
+    "category": "Entertainment and film",
+    "status": "scheduled",
+    "path": [
+      {
+        "qid": "Q190214",
+        "name": "The Lord of the Rings film trilogy",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/The_Lord_of_the_Rings_(film_series)",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q190214"
+      },
+      {
+        "qid": "Q4465",
+        "name": "Peter Jackson",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Peter_Jackson",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q4465"
+      },
+      {
+        "qid": "Q3569323",
+        "name": "WingNut Films",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/WingNut_Films",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q3569323"
+      }
+    ],
+    "hiddenNodeIndex": 1,
+    "relationships": [
+      {
+        "propertyId": "P57",
+        "subjectQid": "Q190214",
+        "objectQid": "Q4465",
+        "direction": "forward",
+        "label": "directed by",
+        "qualifiers": [],
+        "expectedClaim": "Q190214 P57 Q4465",
+        "evidence": [
+          {
+            "label": "Q190214 P57 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q190214#P57",
+            "kind": "wikidata"
+          },
+          {
+            "label": "Peter Jackson biography",
+            "publisher": "Encyclopaedia Britannica",
+            "url": "https://www.britannica.com/biography/Peter-Jackson-New-Zealand-director",
+            "kind": "supporting"
+          }
+        ]
+      },
+      {
+        "propertyId": "P112",
+        "subjectQid": "Q3569323",
+        "objectQid": "Q4465",
+        "direction": "reverse",
+        "label": "founder of",
+        "qualifiers": [],
+        "expectedClaim": "Q3569323 P112 Q4465 (displayed in reverse)",
+        "evidence": [
+          {
+            "label": "Q3569323 P112 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q3569323#P112",
+            "kind": "wikidata"
+          },
+          {
+            "label": "Peter Jackson biography",
+            "publisher": "New Zealand On Screen",
+            "url": "https://www.nzonscreen.com/profile/peter-jackson/biography",
+            "kind": "supporting"
+          }
+        ]
+      }
+    ],
+    "options": [
+      {
+        "id": "peter-jackson",
+        "label": "Peter Jackson",
+        "qid": "Q4465"
+      },
+      {
+        "id": "steven-spielberg",
+        "label": "Steven Spielberg",
+        "qid": "Q8877"
+      },
+      {
+        "id": "james-cameron",
+        "label": "James Cameron",
+        "qid": "Q42574"
+      },
+      {
+        "id": "george-lucas",
+        "label": "George Lucas",
+        "qid": "Q38222"
+      }
+    ],
+    "correctOptionId": "peter-jackson",
+    "explanation": "Peter Jackson directed The Lord of the Rings trilogy and co-founded New Zealand production company WingNut Films, which produced the films.",
+    "pathFingerprint": "Q190214|P57:forward:Q4465|P112:reverse:Q3569323",
+    "reviewedAt": "2026-10-12T00:00:00.000Z",
+    "verificationDate": "2026-10-12",
+    "reviewHistory": [
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": null,
+        "to": "under-review",
+        "note": "Selected for bounded Phase 6C batch 5 independent verification."
+      },
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": "under-review",
+        "to": "approved",
+        "note": "Current Wikidata statements, material qualifiers, English Wikipedia links, relationship-specific sources, exact-path uniqueness, prior-registry uniqueness, and three distractors reviewed."
+      },
+      {
+        "at": "2026-10-14T20:00:00.000Z",
+        "from": "approved",
+        "to": "scheduled",
+        "note": "Promoted from the approved Phase 6D deterministic review schedule; launch date remains separately gated."
+      }
+    ],
+    "schedulePosition": 82
+  },
+  {
+    "id": "fleabag-waller-bridge-bond",
+    "format": "missing-link",
+    "title": "From Fleabag to Bond",
+    "prompt": "Who is the missing link between Fleabag and No Time to Die?",
+    "category": "Entertainment and film",
+    "status": "scheduled",
+    "path": [
+      {
+        "qid": "Q16868648",
+        "name": "Fleabag",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Fleabag",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q16868648"
+      },
+      {
+        "qid": "Q16224046",
+        "name": "Phoebe Waller-Bridge",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Phoebe_Waller-Bridge",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q16224046"
+      },
+      {
+        "qid": "Q21534241",
+        "name": "No Time to Die",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/No_Time_to_Die",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q21534241"
+      }
+    ],
+    "hiddenNodeIndex": 1,
+    "relationships": [
+      {
+        "propertyId": "P170",
+        "subjectQid": "Q16868648",
+        "objectQid": "Q16224046",
+        "direction": "forward",
+        "label": "created by",
+        "qualifiers": [],
+        "expectedClaim": "Q16868648 P170 Q16224046",
+        "evidence": [
+          {
+            "label": "Q16868648 P170 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q16868648#P170",
+            "kind": "wikidata"
+          },
+          {
+            "label": "Phoebe Waller-Bridge biography",
+            "publisher": "Encyclopaedia Britannica",
+            "url": "https://www.britannica.com/biography/Phoebe-Waller-Bridge",
+            "kind": "supporting"
+          }
+        ]
+      },
+      {
+        "propertyId": "P58",
+        "subjectQid": "Q21534241",
+        "objectQid": "Q16224046",
+        "direction": "reverse",
+        "label": "screenwriter of",
+        "qualifiers": [],
+        "expectedClaim": "Q21534241 P58 Q16224046 (displayed in reverse)",
+        "evidence": [
+          {
+            "label": "Q21534241 P58 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q21534241#P58",
+            "kind": "wikidata"
+          },
+          {
+            "label": "Phoebe Waller-Bridge biography",
+            "publisher": "Encyclopaedia Britannica",
+            "url": "https://www.britannica.com/biography/Phoebe-Waller-Bridge",
+            "kind": "supporting"
+          }
+        ]
+      }
+    ],
+    "options": [
+      {
+        "id": "phoebe-waller-bridge",
+        "label": "Phoebe Waller-Bridge",
+        "qid": "Q16224046"
+      },
+      {
+        "id": "steven-spielberg",
+        "label": "Steven Spielberg",
+        "qid": "Q8877"
+      },
+      {
+        "id": "james-cameron",
+        "label": "James Cameron",
+        "qid": "Q42574"
+      },
+      {
+        "id": "george-lucas",
+        "label": "George Lucas",
+        "qid": "Q38222"
+      }
+    ],
+    "correctOptionId": "phoebe-waller-bridge",
+    "explanation": "Phoebe Waller-Bridge created Fleabag and was one of the credited screenwriters on the James Bond film No Time to Die.",
+    "pathFingerprint": "Q16868648|P170:forward:Q16224046|P58:reverse:Q21534241",
+    "reviewedAt": "2026-10-12T00:00:00.000Z",
+    "verificationDate": "2026-10-12",
+    "reviewHistory": [
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": null,
+        "to": "under-review",
+        "note": "Selected for bounded Phase 6C batch 5 independent verification."
+      },
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": "under-review",
+        "to": "approved",
+        "note": "Current Wikidata statements, material qualifiers, English Wikipedia links, relationship-specific sources, exact-path uniqueness, prior-registry uniqueness, and three distractors reviewed."
+      },
+      {
+        "at": "2026-10-14T20:00:00.000Z",
+        "from": "approved",
+        "to": "scheduled",
+        "note": "Promoted from the approved Phase 6D deterministic review schedule; launch date remains separately gated."
+      }
+    ],
+    "schedulePosition": 19
+  },
+  {
+    "id": "roma-cuaron-unam",
+    "format": "missing-link",
+    "title": "Roma's director and Mexico's national university",
+    "prompt": "Who is the missing link between Roma and the National Autonomous University of Mexico?",
+    "category": "Entertainment and film",
+    "status": "scheduled",
+    "path": [
+      {
+        "qid": "Q27959455",
+        "name": "Roma",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Roma_(2018_film)",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q27959455"
+      },
+      {
+        "qid": "Q28028",
+        "name": "Alfonso Cuarón",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Alfonso_Cuarón",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q28028"
+      },
+      {
+        "qid": "Q222738",
+        "name": "National Autonomous University of Mexico",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/National_Autonomous_University_of_Mexico",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q222738"
+      }
+    ],
+    "hiddenNodeIndex": 1,
+    "relationships": [
+      {
+        "propertyId": "P57",
+        "subjectQid": "Q27959455",
+        "objectQid": "Q28028",
+        "direction": "forward",
+        "label": "directed by",
+        "qualifiers": [],
+        "expectedClaim": "Q27959455 P57 Q28028",
+        "evidence": [
+          {
+            "label": "Q27959455 P57 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q27959455#P57",
+            "kind": "wikidata"
+          },
+          {
+            "label": "Alfonso Cuarón biography",
+            "publisher": "Encyclopaedia Britannica",
+            "url": "https://www.britannica.com/biography/Alfonso-Cuaron",
+            "kind": "supporting"
+          }
+        ]
+      },
+      {
+        "propertyId": "P69",
+        "subjectQid": "Q28028",
+        "objectQid": "Q222738",
+        "direction": "forward",
+        "label": "educated at",
+        "qualifiers": [],
+        "expectedClaim": "Q28028 P69 Q222738",
+        "evidence": [
+          {
+            "label": "Q28028 P69 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q28028#P69",
+            "kind": "wikidata"
+          },
+          {
+            "label": "Alfonso Cuarón biography",
+            "publisher": "Encyclopaedia Britannica",
+            "url": "https://www.britannica.com/biography/Alfonso-Cuaron",
+            "kind": "supporting"
+          }
+        ]
+      }
+    ],
+    "options": [
+      {
+        "id": "alfonso-cuaron",
+        "label": "Alfonso Cuarón",
+        "qid": "Q28028"
+      },
+      {
+        "id": "steven-spielberg",
+        "label": "Steven Spielberg",
+        "qid": "Q8877"
+      },
+      {
+        "id": "james-cameron",
+        "label": "James Cameron",
+        "qid": "Q42574"
+      },
+      {
+        "id": "george-lucas",
+        "label": "George Lucas",
+        "qid": "Q38222"
+      }
+    ],
+    "correctOptionId": "alfonso-cuaron",
+    "explanation": "Alfonso Cuarón wrote and directed Roma. Before his international film career, he studied at the National Autonomous University of Mexico's film school.",
+    "pathFingerprint": "Q27959455|P57:forward:Q28028|P69:forward:Q222738",
+    "reviewedAt": "2026-10-12T00:00:00.000Z",
+    "verificationDate": "2026-10-12",
+    "reviewHistory": [
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": null,
+        "to": "under-review",
+        "note": "Selected for bounded Phase 6C batch 5 independent verification."
+      },
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": "under-review",
+        "to": "approved",
+        "note": "Current Wikidata statements, material qualifiers, English Wikipedia links, relationship-specific sources, exact-path uniqueness, prior-registry uniqueness, and three distractors reviewed."
+      },
+      {
+        "at": "2026-10-14T20:00:00.000Z",
+        "from": "approved",
+        "to": "scheduled",
+        "note": "Promoted from the approved Phase 6D deterministic review schedule; launch date remains separately gated."
+      }
+    ],
+    "schedulePosition": 66
+  },
+  {
+    "id": "fury-road-miller-happy-feet",
+    "format": "missing-link",
+    "title": "One director, two radically different worlds",
+    "prompt": "Who is the missing link between Mad Max: Fury Road and Happy Feet?",
+    "category": "Entertainment and film",
+    "status": "scheduled",
+    "path": [
+      {
+        "qid": "Q1757288",
+        "name": "Mad Max: Fury Road",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Mad_Max:_Fury_Road",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q1757288"
+      },
+      {
+        "qid": "Q446960",
+        "name": "George Miller",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/George_Miller_(filmmaker)",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q446960"
+      },
+      {
+        "qid": "Q126800",
+        "name": "Happy Feet",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Happy_Feet",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q126800"
+      }
+    ],
+    "hiddenNodeIndex": 1,
+    "relationships": [
+      {
+        "propertyId": "P57",
+        "subjectQid": "Q1757288",
+        "objectQid": "Q446960",
+        "direction": "forward",
+        "label": "directed by",
+        "qualifiers": [],
+        "expectedClaim": "Q1757288 P57 Q446960",
+        "evidence": [
+          {
+            "label": "Q1757288 P57 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q1757288#P57",
+            "kind": "wikidata"
+          },
+          {
+            "label": "George Miller biography",
+            "publisher": "Encyclopaedia Britannica",
+            "url": "https://www.britannica.com/biography/George-Miller-Australian-director",
+            "kind": "supporting"
+          }
+        ]
+      },
+      {
+        "propertyId": "P57",
+        "subjectQid": "Q126800",
+        "objectQid": "Q446960",
+        "direction": "reverse",
+        "label": "director of",
+        "qualifiers": [],
+        "expectedClaim": "Q126800 P57 Q446960 (displayed in reverse)",
+        "evidence": [
+          {
+            "label": "Q126800 P57 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q126800#P57",
+            "kind": "wikidata"
+          },
+          {
+            "label": "George Miller biography",
+            "publisher": "Encyclopaedia Britannica",
+            "url": "https://www.britannica.com/biography/George-Miller-Australian-director",
+            "kind": "supporting"
+          }
+        ]
+      }
+    ],
+    "options": [
+      {
+        "id": "george-miller",
+        "label": "George Miller",
+        "qid": "Q446960"
+      },
+      {
+        "id": "steven-spielberg",
+        "label": "Steven Spielberg",
+        "qid": "Q8877"
+      },
+      {
+        "id": "james-cameron",
+        "label": "James Cameron",
+        "qid": "Q42574"
+      },
+      {
+        "id": "george-lucas",
+        "label": "George Lucas",
+        "qid": "Q38222"
+      }
+    ],
+    "correctOptionId": "george-miller",
+    "explanation": "Australian filmmaker George Miller directed both the post-apocalyptic action film Mad Max: Fury Road and the animated musical Happy Feet.",
+    "pathFingerprint": "Q1757288|P57:forward:Q446960|P57:reverse:Q126800",
+    "reviewedAt": "2026-10-12T00:00:00.000Z",
+    "verificationDate": "2026-10-12",
+    "reviewHistory": [
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": null,
+        "to": "under-review",
+        "note": "Selected for bounded Phase 6C batch 5 independent verification."
+      },
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": "under-review",
+        "to": "approved",
+        "note": "Current Wikidata statements, material qualifiers, English Wikipedia links, relationship-specific sources, exact-path uniqueness, prior-registry uniqueness, and three distractors reviewed."
+      },
+      {
+        "at": "2026-10-14T20:00:00.000Z",
+        "from": "approved",
+        "to": "scheduled",
+        "note": "Promoted from the approved Phase 6D deterministic review schedule; launch date remains separately gated."
+      }
+    ],
+    "schedulePosition": 50
+  },
+  {
+    "id": "breaking-bad-cranston-malcolm",
+    "format": "missing-link",
+    "title": "From sitcom father to Walter White",
+    "prompt": "Who is the missing link between Breaking Bad and Malcolm in the Middle?",
+    "category": "Entertainment and film",
+    "status": "scheduled",
+    "path": [
+      {
+        "qid": "Q1079",
+        "name": "Breaking Bad",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Breaking_Bad",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q1079"
+      },
+      {
+        "qid": "Q23547",
+        "name": "Bryan Cranston",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Bryan_Cranston",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q23547"
+      },
+      {
+        "qid": "Q242596",
+        "name": "Malcolm in the Middle",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Malcolm_in_the_Middle",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q242596"
+      }
+    ],
+    "hiddenNodeIndex": 1,
+    "relationships": [
+      {
+        "propertyId": "P161",
+        "subjectQid": "Q1079",
+        "objectQid": "Q23547",
+        "direction": "forward",
+        "label": "cast member",
+        "qualifiers": [
+          {
+            "propertyId": "P453",
+            "label": "role",
+            "value": "Walter White"
+          }
+        ],
+        "expectedClaim": "Q1079 P161 Q23547",
+        "evidence": [
+          {
+            "label": "Q1079 P161 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q1079#P161",
+            "kind": "wikidata"
+          },
+          {
+            "label": "Bryan Cranston biography",
+            "publisher": "Encyclopaedia Britannica",
+            "url": "https://www.britannica.com/biography/Bryan-Cranston",
+            "kind": "supporting"
+          }
+        ]
+      },
+      {
+        "propertyId": "P161",
+        "subjectQid": "Q242596",
+        "objectQid": "Q23547",
+        "direction": "reverse",
+        "label": "cast member of",
+        "qualifiers": [
+          {
+            "propertyId": "P453",
+            "label": "role",
+            "value": "Hal"
+          }
+        ],
+        "expectedClaim": "Q242596 P161 Q23547 (displayed in reverse)",
+        "evidence": [
+          {
+            "label": "Q242596 P161 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q242596#P161",
+            "kind": "wikidata"
+          },
+          {
+            "label": "Bryan Cranston biography",
+            "publisher": "Encyclopaedia Britannica",
+            "url": "https://www.britannica.com/biography/Bryan-Cranston",
+            "kind": "supporting"
+          }
+        ]
+      }
+    ],
+    "options": [
+      {
+        "id": "bryan-cranston",
+        "label": "Bryan Cranston",
+        "qid": "Q23547"
+      },
+      {
+        "id": "aaron-paul",
+        "label": "Aaron Paul",
+        "qid": "Q302491"
+      },
+      {
+        "id": "frankie-muniz",
+        "label": "Frankie Muniz",
+        "qid": "Q235214"
+      },
+      {
+        "id": "steven-spielberg",
+        "label": "Steven Spielberg",
+        "qid": "Q8877"
+      }
+    ],
+    "correctOptionId": "bryan-cranston",
+    "explanation": "Bryan Cranston played chemistry teacher turned drug kingpin Walter White in Breaking Bad after years as Hal, the eccentric father in Malcolm in the Middle.",
+    "pathFingerprint": "Q1079|P161:forward:Q23547|P161:reverse:Q242596",
+    "reviewedAt": "2026-10-12T00:00:00.000Z",
+    "verificationDate": "2026-10-12",
+    "reviewHistory": [
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": null,
+        "to": "under-review",
+        "note": "Selected for bounded Phase 6C batch 5 independent verification."
+      },
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": "under-review",
+        "to": "approved",
+        "note": "Current Wikidata statements, material qualifiers, English Wikipedia links, relationship-specific sources, exact-path uniqueness, prior-registry uniqueness, and three distractors reviewed."
+      },
+      {
+        "at": "2026-10-14T20:00:00.000Z",
+        "from": "approved",
+        "to": "scheduled",
+        "note": "Promoted from the approved Phase 6D deterministic review schedule; launch date remains separately gated."
+      }
+    ],
+    "schedulePosition": 73
+  },
+  {
+    "id": "marshall-plan-marshall-nobel",
+    "format": "missing-link",
+    "title": "A recovery plan and a peace prize",
+    "prompt": "Who is the missing link between the Marshall Plan and the Nobel Peace Prize?",
+    "category": "History and politics",
+    "status": "scheduled",
+    "path": [
+      {
+        "qid": "Q4576",
+        "name": "Marshall Plan",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Marshall_Plan",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q4576"
+      },
+      {
+        "qid": "Q151414",
+        "name": "George C. Marshall",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/George_C._Marshall",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q151414"
+      },
+      {
+        "qid": "Q35637",
+        "name": "Nobel Peace Prize",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Nobel_Peace_Prize",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q35637"
+      }
+    ],
+    "hiddenNodeIndex": 1,
+    "relationships": [
+      {
+        "propertyId": "P138",
+        "subjectQid": "Q4576",
+        "objectQid": "Q151414",
+        "direction": "forward",
+        "label": "named after",
+        "qualifiers": [],
+        "expectedClaim": "Q4576 P138 Q151414",
+        "evidence": [
+          {
+            "label": "Q4576 P138 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q4576#P138",
+            "kind": "wikidata"
+          },
+          {
+            "label": "The Marshall Plan",
+            "publisher": "U.S. Department of State, Office of the Historian",
+            "url": "https://history.state.gov/milestones/1945-1952/marshall-plan",
+            "kind": "supporting"
+          }
+        ]
+      },
+      {
+        "propertyId": "P166",
+        "subjectQid": "Q151414",
+        "objectQid": "Q35637",
+        "direction": "forward",
+        "label": "received award",
+        "qualifiers": [
+          {
+            "propertyId": "P585",
+            "label": "award year",
+            "value": "1953"
+          }
+        ],
+        "expectedClaim": "Q151414 P166 Q35637",
+        "evidence": [
+          {
+            "label": "Q151414 P166 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q151414#P166",
+            "kind": "wikidata"
+          },
+          {
+            "label": "George Marshall facts",
+            "publisher": "Nobel Prize Outreach",
+            "url": "https://www.nobelprize.org/prizes/peace/1953/marshall/facts/",
+            "kind": "supporting"
+          }
+        ]
+      }
+    ],
+    "options": [
+      {
+        "id": "george-c-marshall",
+        "label": "George C. Marshall",
+        "qid": "Q151414"
+      },
+      {
+        "id": "abraham-lincoln",
+        "label": "Abraham Lincoln",
+        "qid": "Q91"
+      },
+      {
+        "id": "george-washington",
+        "label": "George Washington",
+        "qid": "Q23"
+      },
+      {
+        "id": "winston-churchill",
+        "label": "Winston Churchill",
+        "qid": "Q8016"
+      }
+    ],
+    "correctOptionId": "george-c-marshall",
+    "explanation": "The European Recovery Program became known as the Marshall Plan after Secretary of State George C. Marshall. He received the 1953 Nobel Peace Prize for proposing and overseeing the recovery plan.",
+    "pathFingerprint": "Q4576|P138:forward:Q151414|P166:forward:Q35637",
+    "reviewedAt": "2026-10-12T00:00:00.000Z",
+    "verificationDate": "2026-10-12",
+    "reviewHistory": [
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": null,
+        "to": "under-review",
+        "note": "Selected for bounded Phase 6C batch 5 independent verification."
+      },
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": "under-review",
+        "to": "approved",
+        "note": "Current Wikidata statements, material qualifiers, English Wikipedia links, relationship-specific sources, exact-path uniqueness, prior-registry uniqueness, and three distractors reviewed."
+      },
+      {
+        "at": "2026-10-14T20:00:00.000Z",
+        "from": "approved",
+        "to": "scheduled",
+        "note": "Promoted from the approved Phase 6D deterministic review schedule; launch date remains separately gated."
+      }
+    ],
+    "schedulePosition": 55
+  },
+  {
+    "id": "lincoln-memorial-lincoln-president",
+    "format": "missing-link",
+    "title": "The president honored on the Mall",
+    "prompt": "Who is the missing link between the Lincoln Memorial and the office of President of the United States?",
+    "category": "History and politics",
+    "status": "scheduled",
+    "path": [
+      {
+        "qid": "Q213559",
+        "name": "Lincoln Memorial",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Lincoln_Memorial",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q213559"
+      },
+      {
+        "qid": "Q91",
+        "name": "Abraham Lincoln",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Abraham_Lincoln",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q91"
+      },
+      {
+        "qid": "Q11696",
+        "name": "President of the United States",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/President_of_the_United_States",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q11696"
+      }
+    ],
+    "hiddenNodeIndex": 1,
+    "relationships": [
+      {
+        "propertyId": "P138",
+        "subjectQid": "Q213559",
+        "objectQid": "Q91",
+        "direction": "forward",
+        "label": "named after",
+        "qualifiers": [],
+        "expectedClaim": "Q213559 P138 Q91",
+        "evidence": [
+          {
+            "label": "Q213559 P138 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q213559#P138",
+            "kind": "wikidata"
+          },
+          {
+            "label": "Lincoln Memorial history",
+            "publisher": "National Park Service",
+            "url": "https://www.nps.gov/linc/learn/historyculture/lincoln-memorial-design-individuals.htm",
+            "kind": "supporting"
+          }
+        ]
+      },
+      {
+        "propertyId": "P39",
+        "subjectQid": "Q91",
+        "objectQid": "Q11696",
+        "direction": "forward",
+        "label": "held office",
+        "qualifiers": [
+          {
+            "propertyId": "P580",
+            "label": "term began",
+            "value": "4 March 1861"
+          },
+          {
+            "propertyId": "P582",
+            "label": "term ended",
+            "value": "15 April 1865"
+          },
+          {
+            "propertyId": "P1545",
+            "label": "ordinal",
+            "value": "16"
+          }
+        ],
+        "expectedClaim": "Q91 P39 Q11696",
+        "evidence": [
+          {
+            "label": "Q91 P39 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q91#P39",
+            "kind": "wikidata"
+          },
+          {
+            "label": "Abraham Lincoln biography",
+            "publisher": "Encyclopaedia Britannica",
+            "url": "https://www.britannica.com/biography/Abraham-Lincoln",
+            "kind": "supporting"
+          }
+        ]
+      }
+    ],
+    "options": [
+      {
+        "id": "abraham-lincoln",
+        "label": "Abraham Lincoln",
+        "qid": "Q91"
+      },
+      {
+        "id": "george-washington",
+        "label": "George Washington",
+        "qid": "Q23"
+      },
+      {
+        "id": "george-marshall",
+        "label": "George Marshall",
+        "qid": "Q151414"
+      },
+      {
+        "id": "franklin-d-roosevelt",
+        "label": "Franklin D. Roosevelt",
+        "qid": "Q8007"
+      }
+    ],
+    "correctOptionId": "abraham-lincoln",
+    "explanation": "The Lincoln Memorial honors Abraham Lincoln, who served as the 16th U.S. president from 1861 until his assassination in 1865.",
+    "pathFingerprint": "Q213559|P138:forward:Q91|P39:forward:Q11696",
+    "reviewedAt": "2026-10-12T00:00:00.000Z",
+    "verificationDate": "2026-10-12",
+    "reviewHistory": [
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": null,
+        "to": "under-review",
+        "note": "Selected for bounded Phase 6C batch 5 independent verification."
+      },
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": "under-review",
+        "to": "approved",
+        "note": "Current Wikidata statements, material qualifiers, English Wikipedia links, relationship-specific sources, exact-path uniqueness, prior-registry uniqueness, and three distractors reviewed."
+      },
+      {
+        "at": "2026-10-14T20:00:00.000Z",
+        "from": "approved",
+        "to": "scheduled",
+        "note": "Promoted from the approved Phase 6D deterministic review schedule; launch date remains separately gated."
+      }
+    ],
+    "schedulePosition": 26
+  },
+  {
+    "id": "gwu-washington-president",
+    "format": "missing-link",
+    "title": "A university bearing the first president's name",
+    "prompt": "Who is the missing link between George Washington University and the office of President of the United States?",
+    "category": "History and politics",
+    "status": "scheduled",
+    "path": [
+      {
+        "qid": "Q432637",
+        "name": "George Washington University",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/George_Washington_University",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q432637"
+      },
+      {
+        "qid": "Q23",
+        "name": "George Washington",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/George_Washington",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q23"
+      },
+      {
+        "qid": "Q11696",
+        "name": "President of the United States",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/President_of_the_United_States",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q11696"
+      }
+    ],
+    "hiddenNodeIndex": 1,
+    "relationships": [
+      {
+        "propertyId": "P138",
+        "subjectQid": "Q432637",
+        "objectQid": "Q23",
+        "direction": "forward",
+        "label": "named after",
+        "qualifiers": [],
+        "expectedClaim": "Q432637 P138 Q23",
+        "evidence": [
+          {
+            "label": "Q432637 P138 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q432637#P138",
+            "kind": "wikidata"
+          },
+          {
+            "label": "GW history",
+            "publisher": "George Washington University",
+            "url": "https://irp.gwu.edu/history",
+            "kind": "supporting"
+          }
+        ]
+      },
+      {
+        "propertyId": "P39",
+        "subjectQid": "Q23",
+        "objectQid": "Q11696",
+        "direction": "forward",
+        "label": "held office",
+        "qualifiers": [
+          {
+            "propertyId": "P580",
+            "label": "term began",
+            "value": "30 April 1789"
+          },
+          {
+            "propertyId": "P582",
+            "label": "term ended",
+            "value": "4 March 1797"
+          },
+          {
+            "propertyId": "P1545",
+            "label": "ordinal",
+            "value": "1"
+          }
+        ],
+        "expectedClaim": "Q23 P39 Q11696",
+        "evidence": [
+          {
+            "label": "Q23 P39 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q23#P39",
+            "kind": "wikidata"
+          },
+          {
+            "label": "George Washington biography",
+            "publisher": "Encyclopaedia Britannica",
+            "url": "https://www.britannica.com/biography/George-Washington",
+            "kind": "supporting"
+          }
+        ]
+      }
+    ],
+    "options": [
+      {
+        "id": "george-washington",
+        "label": "George Washington",
+        "qid": "Q23"
+      },
+      {
+        "id": "abraham-lincoln",
+        "label": "Abraham Lincoln",
+        "qid": "Q91"
+      },
+      {
+        "id": "george-marshall",
+        "label": "George Marshall",
+        "qid": "Q151414"
+      },
+      {
+        "id": "franklin-d-roosevelt",
+        "label": "Franklin D. Roosevelt",
+        "qid": "Q8007"
+      }
+    ],
+    "correctOptionId": "george-washington",
+    "explanation": "George Washington University bears the name of George Washington, who served as the first president of the United States from 1789 to 1797.",
+    "pathFingerprint": "Q432637|P138:forward:Q23|P39:forward:Q11696",
+    "reviewedAt": "2026-10-12T00:00:00.000Z",
+    "verificationDate": "2026-10-12",
+    "reviewHistory": [
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": null,
+        "to": "under-review",
+        "note": "Selected for bounded Phase 6C batch 5 independent verification."
+      },
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": "under-review",
+        "to": "approved",
+        "note": "Current Wikidata statements, material qualifiers, English Wikipedia links, relationship-specific sources, exact-path uniqueness, prior-registry uniqueness, and three distractors reviewed."
+      },
+      {
+        "at": "2026-10-14T20:00:00.000Z",
+        "from": "approved",
+        "to": "scheduled",
+        "note": "Promoted from the approved Phase 6D deterministic review schedule; launch date remains separately gated."
+      }
+    ],
+    "schedulePosition": 64
+  },
+  {
+    "id": "burj-som-one-world-trade",
+    "format": "missing-link",
+    "title": "One firm behind two record-setting towers",
+    "prompt": "Which firm is the missing link between Burj Khalifa and One World Trade Center?",
+    "category": "Geography and culture",
+    "status": "scheduled",
+    "path": [
+      {
+        "qid": "Q12495",
+        "name": "Burj Khalifa",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Burj_Khalifa",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q12495"
+      },
+      {
+        "qid": "Q459464",
+        "name": "Skidmore, Owings & Merrill",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Skidmore,_Owings_%26_Merrill",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q459464"
+      },
+      {
+        "qid": "Q11245",
+        "name": "One World Trade Center",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/One_World_Trade_Center",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q11245"
+      }
+    ],
+    "hiddenNodeIndex": 1,
+    "relationships": [
+      {
+        "propertyId": "P84",
+        "subjectQid": "Q12495",
+        "objectQid": "Q459464",
+        "direction": "forward",
+        "label": "architect",
+        "qualifiers": [],
+        "expectedClaim": "Q12495 P84 Q459464",
+        "evidence": [
+          {
+            "label": "Q12495 P84 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q12495#P84",
+            "kind": "wikidata"
+          },
+          {
+            "label": "Burj Khalifa project",
+            "publisher": "Skidmore, Owings & Merrill",
+            "url": "https://www.som.com/projects/burj-khalifa/",
+            "kind": "supporting"
+          }
+        ]
+      },
+      {
+        "propertyId": "P84",
+        "subjectQid": "Q11245",
+        "objectQid": "Q459464",
+        "direction": "reverse",
+        "label": "architect of",
+        "qualifiers": [],
+        "expectedClaim": "Q11245 P84 Q459464 (displayed in reverse)",
+        "evidence": [
+          {
+            "label": "Q11245 P84 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q11245#P84",
+            "kind": "wikidata"
+          },
+          {
+            "label": "One World Trade Center project",
+            "publisher": "Skidmore, Owings & Merrill",
+            "url": "https://www.som.com/projects/one-world-trade-center/",
+            "kind": "supporting"
+          }
+        ]
+      }
+    ],
+    "options": [
+      {
+        "id": "skidmore-owings-merrill",
+        "label": "Skidmore, Owings & Merrill",
+        "qid": "Q459464"
+      },
+      {
+        "id": "adrian-smith",
+        "label": "Adrian Smith",
+        "qid": "Q374276"
+      },
+      {
+        "id": "eero-saarinen",
+        "label": "Eero Saarinen",
+        "qid": "Q167073"
+      },
+      {
+        "id": "peter-jackson",
+        "label": "Peter Jackson",
+        "qid": "Q4465"
+      }
+    ],
+    "correctOptionId": "skidmore-owings-merrill",
+    "explanation": "Architecture and engineering firm Skidmore, Owings & Merrill worked on both Dubai's Burj Khalifa and New York's One World Trade Center.",
+    "pathFingerprint": "Q12495|P84:forward:Q459464|P84:reverse:Q11245",
+    "reviewedAt": "2026-10-12T00:00:00.000Z",
+    "verificationDate": "2026-10-12",
+    "reviewHistory": [
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": null,
+        "to": "under-review",
+        "note": "Selected for bounded Phase 6C batch 5 independent verification."
+      },
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": "under-review",
+        "to": "approved",
+        "note": "Current Wikidata statements, material qualifiers, English Wikipedia links, relationship-specific sources, exact-path uniqueness, prior-registry uniqueness, and three distractors reviewed."
+      },
+      {
+        "at": "2026-10-14T20:00:00.000Z",
+        "from": "approved",
+        "to": "scheduled",
+        "note": "Promoted from the approved Phase 6D deterministic review schedule; launch date remains separately gated."
+      }
+    ],
+    "schedulePosition": 25
+  },
+  {
+    "id": "gateway-arch-saarinen-twa",
+    "format": "missing-link",
+    "title": "The same sweep of mid-century design",
+    "prompt": "Who is the missing link between the Gateway Arch and the TWA Flight Center?",
+    "category": "Geography and culture",
+    "status": "scheduled",
+    "path": [
+      {
+        "qid": "Q2027162",
+        "name": "Gateway Arch",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Gateway_Arch",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q2027162"
+      },
+      {
+        "qid": "Q167073",
+        "name": "Eero Saarinen",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Eero_Saarinen",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q167073"
+      },
+      {
+        "qid": "Q29257",
+        "name": "TWA Flight Center",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/TWA_Flight_Center",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q29257"
+      }
+    ],
+    "hiddenNodeIndex": 1,
+    "relationships": [
+      {
+        "propertyId": "P84",
+        "subjectQid": "Q2027162",
+        "objectQid": "Q167073",
+        "direction": "forward",
+        "label": "architect",
+        "qualifiers": [],
+        "expectedClaim": "Q2027162 P84 Q167073",
+        "evidence": [
+          {
+            "label": "Q2027162 P84 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q2027162#P84",
+            "kind": "wikidata"
+          },
+          {
+            "label": "Architect Eero Saarinen",
+            "publisher": "National Park Service",
+            "url": "https://www.nps.gov/jeff/planyourvisit/architect.htm",
+            "kind": "supporting"
+          }
+        ]
+      },
+      {
+        "propertyId": "P84",
+        "subjectQid": "Q29257",
+        "objectQid": "Q167073",
+        "direction": "reverse",
+        "label": "architect of",
+        "qualifiers": [],
+        "expectedClaim": "Q29257 P84 Q167073 (displayed in reverse)",
+        "evidence": [
+          {
+            "label": "Q29257 P84 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q29257#P84",
+            "kind": "wikidata"
+          },
+          {
+            "label": "Architect Eero Saarinen",
+            "publisher": "National Park Service",
+            "url": "https://www.nps.gov/jeff/planyourvisit/architect.htm",
+            "kind": "supporting"
+          }
+        ]
+      }
+    ],
+    "options": [
+      {
+        "id": "eero-saarinen",
+        "label": "Eero Saarinen",
+        "qid": "Q167073"
+      },
+      {
+        "id": "adrian-smith",
+        "label": "Adrian Smith",
+        "qid": "Q374276"
+      },
+      {
+        "id": "gutzon-borglum",
+        "label": "Gutzon Borglum",
+        "qid": "Q336432"
+      },
+      {
+        "id": "skidmore-owings-merrill",
+        "label": "Skidmore, Owings & Merrill",
+        "qid": "Q459464"
+      }
+    ],
+    "correctOptionId": "eero-saarinen",
+    "explanation": "Finnish American architect Eero Saarinen designed both St. Louis's Gateway Arch and the sculptural TWA Flight Center at New York's John F. Kennedy Airport.",
+    "pathFingerprint": "Q2027162|P84:forward:Q167073|P84:reverse:Q29257",
+    "reviewedAt": "2026-10-12T00:00:00.000Z",
+    "verificationDate": "2026-10-12",
+    "reviewHistory": [
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": null,
+        "to": "under-review",
+        "note": "Selected for bounded Phase 6C batch 5 independent verification."
+      },
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": "under-review",
+        "to": "approved",
+        "note": "Current Wikidata statements, material qualifiers, English Wikipedia links, relationship-specific sources, exact-path uniqueness, prior-registry uniqueness, and three distractors reviewed."
+      },
+      {
+        "at": "2026-10-14T20:00:00.000Z",
+        "from": "approved",
+        "to": "scheduled",
+        "note": "Promoted from the approved Phase 6D deterministic review schedule; launch date remains separately gated."
+      }
+    ],
+    "schedulePosition": 53
+  },
+  {
+    "id": "rhodes-scholarship-rhodes-de-beers",
+    "format": "missing-link",
+    "title": "A scholarship funded by a mining fortune",
+    "prompt": "Who is the missing link between the Rhodes Scholarship and De Beers?",
+    "category": "Geography and culture",
+    "status": "scheduled",
+    "path": [
+      {
+        "qid": "Q1204346",
+        "name": "Rhodes Scholarship",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Rhodes_Scholarship",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q1204346"
+      },
+      {
+        "qid": "Q19825",
+        "name": "Cecil Rhodes",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Cecil_Rhodes",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q19825"
+      },
+      {
+        "qid": "Q471891",
+        "name": "De Beers",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/De_Beers",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q471891"
+      }
+    ],
+    "hiddenNodeIndex": 1,
+    "relationships": [
+      {
+        "propertyId": "P138",
+        "subjectQid": "Q1204346",
+        "objectQid": "Q19825",
+        "direction": "forward",
+        "label": "named after",
+        "qualifiers": [],
+        "expectedClaim": "Q1204346 P138 Q19825",
+        "evidence": [
+          {
+            "label": "Q1204346 P138 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q1204346#P138",
+            "kind": "wikidata"
+          },
+          {
+            "label": "Cecil Rhodes biography",
+            "publisher": "Encyclopaedia Britannica",
+            "url": "https://www.britannica.com/biography/Cecil-Rhodes",
+            "kind": "supporting"
+          }
+        ]
+      },
+      {
+        "propertyId": "P112",
+        "subjectQid": "Q471891",
+        "objectQid": "Q19825",
+        "direction": "reverse",
+        "label": "founder of",
+        "qualifiers": [],
+        "expectedClaim": "Q471891 P112 Q19825 (displayed in reverse)",
+        "evidence": [
+          {
+            "label": "Q471891 P112 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q471891#P112",
+            "kind": "wikidata"
+          },
+          {
+            "label": "Cecil Rhodes biography",
+            "publisher": "Encyclopaedia Britannica",
+            "url": "https://www.britannica.com/biography/Cecil-Rhodes",
+            "kind": "supporting"
+          }
+        ]
+      }
+    ],
+    "options": [
+      {
+        "id": "cecil-rhodes",
+        "label": "Cecil Rhodes",
+        "qid": "Q19825"
+      },
+      {
+        "id": "alfred-nobel",
+        "label": "Alfred Nobel",
+        "qid": "Q23810"
+      },
+      {
+        "id": "george-marshall",
+        "label": "George Marshall",
+        "qid": "Q151414"
+      },
+      {
+        "id": "abraham-lincoln",
+        "label": "Abraham Lincoln",
+        "qid": "Q91"
+      }
+    ],
+    "correctOptionId": "cecil-rhodes",
+    "explanation": "The Rhodes Scholarship was established through Cecil Rhodes's will. Rhodes also helped consolidate the diamond-mining interests that became De Beers; his colonial and racist legacy remains central to debates about the scholarship.",
+    "pathFingerprint": "Q1204346|P138:forward:Q19825|P112:reverse:Q471891",
+    "reviewedAt": "2026-10-12T00:00:00.000Z",
+    "verificationDate": "2026-10-12",
+    "reviewHistory": [
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": null,
+        "to": "under-review",
+        "note": "Selected for bounded Phase 6C batch 5 independent verification."
+      },
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": "under-review",
+        "to": "approved",
+        "note": "Current Wikidata statements, material qualifiers, English Wikipedia links, relationship-specific sources, exact-path uniqueness, prior-registry uniqueness, and three distractors reviewed."
+      },
+      {
+        "at": "2026-10-14T20:00:00.000Z",
+        "from": "approved",
+        "to": "scheduled",
+        "note": "Promoted from the approved Phase 6D deterministic review schedule; launch date remains separately gated."
+      }
+    ],
+    "schedulePosition": 80
+  },
+  {
+    "id": "stack-overflow-spolsky-yale",
+    "format": "missing-link",
+    "title": "From Yale to a programmers' institution",
+    "prompt": "Who is the missing link between Stack Overflow and Yale University?",
+    "category": "Technology",
+    "status": "scheduled",
+    "path": [
+      {
+        "qid": "Q549037",
+        "name": "Stack Overflow",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Stack_Overflow",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q549037"
+      },
+      {
+        "qid": "Q2387083",
+        "name": "Joel Spolsky",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Joel_Spolsky",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q2387083"
+      },
+      {
+        "qid": "Q49112",
+        "name": "Yale University",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Yale_University",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q49112"
+      }
+    ],
+    "hiddenNodeIndex": 1,
+    "relationships": [
+      {
+        "propertyId": "P112",
+        "subjectQid": "Q549037",
+        "objectQid": "Q2387083",
+        "direction": "forward",
+        "label": "founded by",
+        "qualifiers": [],
+        "expectedClaim": "Q549037 P112 Q2387083",
+        "evidence": [
+          {
+            "label": "Q549037 P112 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q549037#P112",
+            "kind": "wikidata"
+          },
+          {
+            "label": "Stack Overflow company history",
+            "publisher": "Stack Overflow",
+            "url": "https://stackoverflow.co/company/",
+            "kind": "supporting"
+          }
+        ]
+      },
+      {
+        "propertyId": "P69",
+        "subjectQid": "Q2387083",
+        "objectQid": "Q49112",
+        "direction": "forward",
+        "label": "educated at",
+        "qualifiers": [],
+        "expectedClaim": "Q2387083 P69 Q49112",
+        "evidence": [
+          {
+            "label": "Q2387083 P69 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q2387083#P69",
+            "kind": "wikidata"
+          },
+          {
+            "label": "About Joel Spolsky",
+            "publisher": "Joel on Software",
+            "url": "https://www.joelonsoftware.com/about-me/",
+            "kind": "supporting"
+          }
+        ]
+      }
+    ],
+    "options": [
+      {
+        "id": "joel-spolsky",
+        "label": "Joel Spolsky",
+        "qid": "Q2387083"
+      },
+      {
+        "id": "jeff-bezos",
+        "label": "Jeff Bezos",
+        "qid": "Q312556"
+      },
+      {
+        "id": "bill-gates",
+        "label": "Bill Gates",
+        "qid": "Q5284"
+      },
+      {
+        "id": "jack-ma",
+        "label": "Jack Ma",
+        "qid": "Q1137062"
+      }
+    ],
+    "correctOptionId": "joel-spolsky",
+    "explanation": "Software writer Joel Spolsky co-founded Stack Overflow after studying computer science at Yale University.",
+    "pathFingerprint": "Q549037|P112:forward:Q2387083|P69:forward:Q49112",
+    "reviewedAt": "2026-10-12T00:00:00.000Z",
+    "verificationDate": "2026-10-12",
+    "reviewHistory": [
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": null,
+        "to": "under-review",
+        "note": "Selected for bounded Phase 6C batch 5 independent verification."
+      },
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": "under-review",
+        "to": "approved",
+        "note": "Current Wikidata statements, material qualifiers, English Wikipedia links, relationship-specific sources, exact-path uniqueness, prior-registry uniqueness, and three distractors reviewed."
+      },
+      {
+        "at": "2026-10-14T20:00:00.000Z",
+        "from": "approved",
+        "to": "scheduled",
+        "note": "Promoted from the approved Phase 6D deterministic review schedule; launch date remains separately gated."
+      }
+    ],
+    "schedulePosition": 23
+  },
+  {
+    "id": "github-wanstrath-cincinnati",
+    "format": "missing-link",
+    "title": "GitHub's Cincinnati connection",
+    "prompt": "Who is the missing link between GitHub and the University of Cincinnati?",
+    "category": "Technology",
+    "status": "scheduled",
+    "path": [
+      {
+        "qid": "Q364",
+        "name": "GitHub",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/GitHub",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q364"
+      },
+      {
+        "qid": "Q27940879",
+        "name": "Chris Wanstrath",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Chris_Wanstrath",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q27940879"
+      },
+      {
+        "qid": "Q153265",
+        "name": "University of Cincinnati",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/University_of_Cincinnati",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q153265"
+      }
+    ],
+    "hiddenNodeIndex": 1,
+    "relationships": [
+      {
+        "propertyId": "P112",
+        "subjectQid": "Q364",
+        "objectQid": "Q27940879",
+        "direction": "forward",
+        "label": "founded by",
+        "qualifiers": [],
+        "expectedClaim": "Q364 P112 Q27940879",
+        "evidence": [
+          {
+            "label": "Q364 P112 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q364#P112",
+            "kind": "wikidata"
+          },
+          {
+            "label": "GitHub founders and history",
+            "publisher": "GitHub",
+            "url": "https://github.com/about",
+            "kind": "supporting"
+          }
+        ]
+      },
+      {
+        "propertyId": "P69",
+        "subjectQid": "Q27940879",
+        "objectQid": "Q153265",
+        "direction": "forward",
+        "label": "educated at",
+        "qualifiers": [
+          {
+            "propertyId": "P580",
+            "label": "studied from",
+            "value": "2003"
+          },
+          {
+            "propertyId": "P582",
+            "label": "studied until",
+            "value": "2005"
+          }
+        ],
+        "expectedClaim": "Q27940879 P69 Q153265",
+        "evidence": [
+          {
+            "label": "Q27940879 P69 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q27940879#P69",
+            "kind": "wikidata"
+          },
+          {
+            "label": "Where coders connect",
+            "publisher": "University of Cincinnati",
+            "url": "https://magazine.uc.edu/editors_picks/recent_features/wanstrath.html",
+            "kind": "supporting"
+          }
+        ]
+      }
+    ],
+    "options": [
+      {
+        "id": "chris-wanstrath",
+        "label": "Chris Wanstrath",
+        "qid": "Q27940879"
+      },
+      {
+        "id": "jeff-bezos",
+        "label": "Jeff Bezos",
+        "qid": "Q312556"
+      },
+      {
+        "id": "bill-gates",
+        "label": "Bill Gates",
+        "qid": "Q5284"
+      },
+      {
+        "id": "jack-ma",
+        "label": "Jack Ma",
+        "qid": "Q1137062"
+      }
+    ],
+    "correctOptionId": "chris-wanstrath",
+    "explanation": "Chris Wanstrath co-founded GitHub. Before building the code-hosting platform, he studied English at the University of Cincinnati from 2003 to 2005.",
+    "pathFingerprint": "Q364|P112:forward:Q27940879|P69:forward:Q153265",
+    "reviewedAt": "2026-10-12T00:00:00.000Z",
+    "verificationDate": "2026-10-12",
+    "reviewHistory": [
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": null,
+        "to": "under-review",
+        "note": "Selected for bounded Phase 6C batch 5 independent verification."
+      },
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": "under-review",
+        "to": "approved",
+        "note": "Current Wikidata statements, material qualifiers, English Wikipedia links, relationship-specific sources, exact-path uniqueness, prior-registry uniqueness, and three distractors reviewed."
+      },
+      {
+        "at": "2026-10-14T20:00:00.000Z",
+        "from": "approved",
+        "to": "scheduled",
+        "note": "Promoted from the approved Phase 6D deterministic review schedule; launch date remains separately gated."
+      }
+    ],
+    "schedulePosition": 69
+  },
+  {
+    "id": "khan-academy-khan-mit",
+    "format": "missing-link",
+    "title": "An MIT engineer opens a global classroom",
+    "prompt": "Who is the missing link between Khan Academy and the Massachusetts Institute of Technology?",
+    "category": "Technology",
+    "status": "scheduled",
+    "path": [
+      {
+        "qid": "Q94887",
+        "name": "Khan Academy",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Khan_Academy",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q94887"
+      },
+      {
+        "qid": "Q471472",
+        "name": "Sal Khan",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Sal_Khan",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q471472"
+      },
+      {
+        "qid": "Q49108",
+        "name": "Massachusetts Institute of Technology",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Massachusetts_Institute_of_Technology",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q49108"
+      }
+    ],
+    "hiddenNodeIndex": 1,
+    "relationships": [
+      {
+        "propertyId": "P112",
+        "subjectQid": "Q94887",
+        "objectQid": "Q471472",
+        "direction": "forward",
+        "label": "founded by",
+        "qualifiers": [],
+        "expectedClaim": "Q94887 P112 Q471472",
+        "evidence": [
+          {
+            "label": "Q94887 P112 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q94887#P112",
+            "kind": "wikidata"
+          },
+          {
+            "label": "About Khan Academy",
+            "publisher": "Khan Academy",
+            "url": "https://www.khanacademy.org/about",
+            "kind": "supporting"
+          }
+        ]
+      },
+      {
+        "propertyId": "P69",
+        "subjectQid": "Q471472",
+        "objectQid": "Q49108",
+        "direction": "forward",
+        "label": "educated at",
+        "qualifiers": [],
+        "expectedClaim": "Q471472 P69 Q49108",
+        "evidence": [
+          {
+            "label": "Q471472 P69 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q471472#P69",
+            "kind": "wikidata"
+          },
+          {
+            "label": "Sal Khan to deliver MIT Commencement address",
+            "publisher": "MIT News",
+            "url": "https://news.mit.edu/2011/khan-commencement-address-1206",
+            "kind": "supporting"
+          }
+        ]
+      }
+    ],
+    "options": [
+      {
+        "id": "sal-khan",
+        "label": "Sal Khan",
+        "qid": "Q471472"
+      },
+      {
+        "id": "jeff-bezos",
+        "label": "Jeff Bezos",
+        "qid": "Q312556"
+      },
+      {
+        "id": "bill-gates",
+        "label": "Bill Gates",
+        "qid": "Q5284"
+      },
+      {
+        "id": "jack-ma",
+        "label": "Jack Ma",
+        "qid": "Q1137062"
+      }
+    ],
+    "correctOptionId": "sal-khan",
+    "explanation": "Sal Khan founded the nonprofit Khan Academy after earning bachelor's and master's degrees at MIT. His tutoring videos grew into a free global learning platform.",
+    "pathFingerprint": "Q94887|P112:forward:Q471472|P69:forward:Q49108",
+    "reviewedAt": "2026-10-12T00:00:00.000Z",
+    "verificationDate": "2026-10-12",
+    "reviewHistory": [
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": null,
+        "to": "under-review",
+        "note": "Selected for bounded Phase 6C batch 5 independent verification."
+      },
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": "under-review",
+        "to": "approved",
+        "note": "Current Wikidata statements, material qualifiers, English Wikipedia links, relationship-specific sources, exact-path uniqueness, prior-registry uniqueness, and three distractors reviewed."
+      },
+      {
+        "at": "2026-10-14T20:00:00.000Z",
+        "from": "approved",
+        "to": "scheduled",
+        "note": "Promoted from the approved Phase 6D deterministic review schedule; launch date remains separately gated."
+      }
+    ],
+    "schedulePosition": 60
+  },
+  {
+    "id": "pixar-catmull-utah",
+    "format": "missing-link",
+    "title": "The graphics pioneer behind Pixar",
+    "prompt": "Who is the missing link between Pixar and the University of Utah?",
+    "category": "Business",
+    "status": "scheduled",
+    "path": [
+      {
+        "qid": "Q127552",
+        "name": "Pixar",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Pixar",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q127552"
+      },
+      {
+        "qid": "Q93161",
+        "name": "Ed Catmull",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Edwin_Catmull",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q93161"
+      },
+      {
+        "qid": "Q168515",
+        "name": "University of Utah",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/University_of_Utah",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q168515"
+      }
+    ],
+    "hiddenNodeIndex": 1,
+    "relationships": [
+      {
+        "propertyId": "P112",
+        "subjectQid": "Q127552",
+        "objectQid": "Q93161",
+        "direction": "forward",
+        "label": "founded by",
+        "qualifiers": [],
+        "expectedClaim": "Q127552 P112 Q93161",
+        "evidence": [
+          {
+            "label": "Q127552 P112 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q127552#P112",
+            "kind": "wikidata"
+          },
+          {
+            "label": "Ed Catmull biography",
+            "publisher": "Computer History Museum",
+            "url": "https://computerhistory.org/profile/ed-catmull/",
+            "kind": "supporting"
+          }
+        ]
+      },
+      {
+        "propertyId": "P69",
+        "subjectQid": "Q93161",
+        "objectQid": "Q168515",
+        "direction": "forward",
+        "label": "educated at",
+        "qualifiers": [],
+        "expectedClaim": "Q93161 P69 Q168515",
+        "evidence": [
+          {
+            "label": "Q93161 P69 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q93161#P69",
+            "kind": "wikidata"
+          },
+          {
+            "label": "Ed Catmull biography",
+            "publisher": "Computer History Museum",
+            "url": "https://computerhistory.org/profile/ed-catmull/",
+            "kind": "supporting"
+          }
+        ]
+      }
+    ],
+    "options": [
+      {
+        "id": "ed-catmull",
+        "label": "Ed Catmull",
+        "qid": "Q93161"
+      },
+      {
+        "id": "jeff-bezos",
+        "label": "Jeff Bezos",
+        "qid": "Q312556"
+      },
+      {
+        "id": "bill-gates",
+        "label": "Bill Gates",
+        "qid": "Q5284"
+      },
+      {
+        "id": "jack-ma",
+        "label": "Jack Ma",
+        "qid": "Q1137062"
+      }
+    ],
+    "correctOptionId": "ed-catmull",
+    "explanation": "Computer-graphics pioneer Ed Catmull co-founded Pixar and earned undergraduate and doctoral degrees at the University of Utah, an early center of computer graphics research.",
+    "pathFingerprint": "Q127552|P112:forward:Q93161|P69:forward:Q168515",
+    "reviewedAt": "2026-10-12T00:00:00.000Z",
+    "verificationDate": "2026-10-12",
+    "reviewHistory": [
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": null,
+        "to": "under-review",
+        "note": "Selected for bounded Phase 6C batch 5 independent verification."
+      },
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": "under-review",
+        "to": "approved",
+        "note": "Current Wikidata statements, material qualifiers, English Wikipedia links, relationship-specific sources, exact-path uniqueness, prior-registry uniqueness, and three distractors reviewed."
+      },
+      {
+        "at": "2026-10-14T20:00:00.000Z",
+        "from": "approved",
+        "to": "scheduled",
+        "note": "Promoted from the approved Phase 6D deterministic review schedule; launch date remains separately gated."
+      }
+    ],
+    "schedulePosition": 33
+  },
+  {
+    "id": "fedex-smith-yale",
+    "format": "missing-link",
+    "title": "A Yale paper that became FedEx",
+    "prompt": "Who is the missing link between FedEx and Yale University?",
+    "category": "Business",
+    "status": "scheduled",
+    "path": [
+      {
+        "qid": "Q459477",
+        "name": "FedEx",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/FedEx",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q459477"
+      },
+      {
+        "qid": "Q324086",
+        "name": "Frederick W. Smith",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Frederick_W._Smith",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q324086"
+      },
+      {
+        "qid": "Q49112",
+        "name": "Yale University",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Yale_University",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q49112"
+      }
+    ],
+    "hiddenNodeIndex": 1,
+    "relationships": [
+      {
+        "propertyId": "P112",
+        "subjectQid": "Q459477",
+        "objectQid": "Q324086",
+        "direction": "forward",
+        "label": "founded by",
+        "qualifiers": [],
+        "expectedClaim": "Q459477 P112 Q324086",
+        "evidence": [
+          {
+            "label": "Q459477 P112 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q459477#P112",
+            "kind": "wikidata"
+          },
+          {
+            "label": "Frederick Smith biography",
+            "publisher": "Encyclopaedia Britannica",
+            "url": "https://www.britannica.com/biography/Frederick-W-Smith",
+            "kind": "supporting"
+          }
+        ]
+      },
+      {
+        "propertyId": "P69",
+        "subjectQid": "Q324086",
+        "objectQid": "Q49112",
+        "direction": "forward",
+        "label": "educated at",
+        "qualifiers": [
+          {
+            "propertyId": "P512",
+            "label": "degree",
+            "value": "Bachelor of Arts"
+          }
+        ],
+        "expectedClaim": "Q324086 P69 Q49112",
+        "evidence": [
+          {
+            "label": "Q324086 P69 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q324086#P69",
+            "kind": "wikidata"
+          },
+          {
+            "label": "Frederick Smith biography",
+            "publisher": "Encyclopaedia Britannica",
+            "url": "https://www.britannica.com/biography/Frederick-W-Smith",
+            "kind": "supporting"
+          }
+        ]
+      }
+    ],
+    "options": [
+      {
+        "id": "frederick-w-smith",
+        "label": "Frederick W. Smith",
+        "qid": "Q324086"
+      },
+      {
+        "id": "jeff-bezos",
+        "label": "Jeff Bezos",
+        "qid": "Q312556"
+      },
+      {
+        "id": "bill-gates",
+        "label": "Bill Gates",
+        "qid": "Q5284"
+      },
+      {
+        "id": "jack-ma",
+        "label": "Jack Ma",
+        "qid": "Q1137062"
+      }
+    ],
+    "correctOptionId": "frederick-w-smith",
+    "explanation": "Frederick W. Smith founded FedEx after studying at Yale, where he wrote a paper outlining an integrated air-and-ground delivery system.",
+    "pathFingerprint": "Q459477|P112:forward:Q324086|P69:forward:Q49112",
+    "reviewedAt": "2026-10-12T00:00:00.000Z",
+    "verificationDate": "2026-10-12",
+    "reviewHistory": [
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": null,
+        "to": "under-review",
+        "note": "Selected for bounded Phase 6C batch 5 independent verification."
+      },
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": "under-review",
+        "to": "approved",
+        "note": "Current Wikidata statements, material qualifiers, English Wikipedia links, relationship-specific sources, exact-path uniqueness, prior-registry uniqueness, and three distractors reviewed."
+      },
+      {
+        "at": "2026-10-14T20:00:00.000Z",
+        "from": "approved",
+        "to": "scheduled",
+        "note": "Promoted from the approved Phase 6D deterministic review schedule; launch date remains separately gated."
+      }
+    ],
+    "schedulePosition": 52
+  },
+  {
+    "id": "southwest-kelleher-wesleyan",
+    "format": "missing-link",
+    "title": "The lawyer who co-founded Southwest",
+    "prompt": "Who is the missing link between Southwest Airlines and Wesleyan University?",
+    "category": "Business",
+    "status": "scheduled",
+    "path": [
+      {
+        "qid": "Q503308",
+        "name": "Southwest Airlines",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Southwest_Airlines",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q503308"
+      },
+      {
+        "qid": "Q764247",
+        "name": "Herb Kelleher",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Herb_Kelleher",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q764247"
+      },
+      {
+        "qid": "Q49167",
+        "name": "Wesleyan University",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Wesleyan_University",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q49167"
+      }
+    ],
+    "hiddenNodeIndex": 1,
+    "relationships": [
+      {
+        "propertyId": "P112",
+        "subjectQid": "Q503308",
+        "objectQid": "Q764247",
+        "direction": "forward",
+        "label": "founded by",
+        "qualifiers": [],
+        "expectedClaim": "Q503308 P112 Q764247",
+        "evidence": [
+          {
+            "label": "Q503308 P112 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q503308#P112",
+            "kind": "wikidata"
+          },
+          {
+            "label": "Herb Kelleher biography",
+            "publisher": "Southwest Airlines",
+            "url": "https://www.southwestairlinesinvestorrelations.com/our-company/history/",
+            "kind": "supporting"
+          }
+        ]
+      },
+      {
+        "propertyId": "P69",
+        "subjectQid": "Q764247",
+        "objectQid": "Q49167",
+        "direction": "forward",
+        "label": "educated at",
+        "qualifiers": [],
+        "expectedClaim": "Q764247 P69 Q49167",
+        "evidence": [
+          {
+            "label": "Q764247 P69 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q764247#P69",
+            "kind": "wikidata"
+          },
+          {
+            "label": "Herb Kelleher biography",
+            "publisher": "Encyclopedia.com",
+            "url": "https://www.encyclopedia.com/education/economics-magazines/kelleher-herb",
+            "kind": "supporting"
+          }
+        ]
+      }
+    ],
+    "options": [
+      {
+        "id": "herb-kelleher",
+        "label": "Herb Kelleher",
+        "qid": "Q764247"
+      },
+      {
+        "id": "jeff-bezos",
+        "label": "Jeff Bezos",
+        "qid": "Q312556"
+      },
+      {
+        "id": "bill-gates",
+        "label": "Bill Gates",
+        "qid": "Q5284"
+      },
+      {
+        "id": "jack-ma",
+        "label": "Jack Ma",
+        "qid": "Q1137062"
+      }
+    ],
+    "correctOptionId": "herb-kelleher",
+    "explanation": "Herb Kelleher co-founded Southwest Airlines and attended Wesleyan University before studying law at New York University.",
+    "pathFingerprint": "Q503308|P112:forward:Q764247|P69:forward:Q49167",
+    "reviewedAt": "2026-10-12T00:00:00.000Z",
+    "verificationDate": "2026-10-12",
+    "reviewHistory": [
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": null,
+        "to": "under-review",
+        "note": "Selected for bounded Phase 6C batch 5 independent verification."
+      },
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": "under-review",
+        "to": "approved",
+        "note": "Current Wikidata statements, material qualifiers, English Wikipedia links, relationship-specific sources, exact-path uniqueness, prior-registry uniqueness, and three distractors reviewed."
+      },
+      {
+        "at": "2026-10-14T20:00:00.000Z",
+        "from": "approved",
+        "to": "scheduled",
+        "note": "Promoted from the approved Phase 6D deterministic review schedule; launch date remains separately gated."
+      }
+    ],
+    "schedulePosition": 79
+  },
+  {
+    "id": "cosmos-sagan-cornell",
+    "format": "missing-link",
+    "title": "Cosmos from a Cornell astronomer",
+    "prompt": "Who is the missing link between the book Cosmos and Cornell University?",
+    "category": "Science and innovation",
+    "status": "scheduled",
+    "path": [
+      {
+        "qid": "Q1194705",
+        "name": "Cosmos",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Cosmos_(Sagan_book)",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q1194705"
+      },
+      {
+        "qid": "Q410",
+        "name": "Carl Sagan",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Carl_Sagan",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q410"
+      },
+      {
+        "qid": "Q49115",
+        "name": "Cornell University",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Cornell_University",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q49115"
+      }
+    ],
+    "hiddenNodeIndex": 1,
+    "relationships": [
+      {
+        "propertyId": "P50",
+        "subjectQid": "Q1194705",
+        "objectQid": "Q410",
+        "direction": "forward",
+        "label": "written by",
+        "qualifiers": [],
+        "expectedClaim": "Q1194705 P50 Q410",
+        "evidence": [
+          {
+            "label": "Q1194705 P50 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q1194705#P50",
+            "kind": "wikidata"
+          },
+          {
+            "label": "Carl Sagan biography",
+            "publisher": "Encyclopaedia Britannica",
+            "url": "https://www.britannica.com/biography/Carl-Sagan",
+            "kind": "supporting"
+          }
+        ]
+      },
+      {
+        "propertyId": "P108",
+        "subjectQid": "Q410",
+        "objectQid": "Q49115",
+        "direction": "forward",
+        "label": "worked at",
+        "qualifiers": [],
+        "expectedClaim": "Q410 P108 Q49115",
+        "evidence": [
+          {
+            "label": "Q410 P108 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q410#P108",
+            "kind": "wikidata"
+          },
+          {
+            "label": "Carl Sagan at Cornell",
+            "publisher": "Cornell University",
+            "url": "https://news.cornell.edu/stories/1996/12/carl-sagan-cornell-astronomer-dies-today-dec-20-seattle",
+            "kind": "supporting"
+          }
+        ]
+      }
+    ],
+    "options": [
+      {
+        "id": "carl-sagan",
+        "label": "Carl Sagan",
+        "qid": "Q410"
+      },
+      {
+        "id": "albert-einstein",
+        "label": "Albert Einstein",
+        "qid": "Q937"
+      },
+      {
+        "id": "marie-curie",
+        "label": "Marie Curie",
+        "qid": "Q7186"
+      },
+      {
+        "id": "alexander-fleming",
+        "label": "Alexander Fleming",
+        "qid": "Q123913"
+      }
+    ],
+    "correctOptionId": "carl-sagan",
+    "explanation": "Astronomer Carl Sagan wrote the bestselling science book Cosmos while serving on Cornell University's faculty, where he worked for most of his career.",
+    "pathFingerprint": "Q1194705|P50:forward:Q410|P108:forward:Q49115",
+    "reviewedAt": "2026-10-12T00:00:00.000Z",
+    "verificationDate": "2026-10-12",
+    "reviewHistory": [
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": null,
+        "to": "under-review",
+        "note": "Selected for bounded Phase 6C batch 5 independent verification."
+      },
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": "under-review",
+        "to": "approved",
+        "note": "Current Wikidata statements, material qualifiers, English Wikipedia links, relationship-specific sources, exact-path uniqueness, prior-registry uniqueness, and three distractors reviewed."
+      },
+      {
+        "at": "2026-10-14T20:00:00.000Z",
+        "from": "approved",
+        "to": "scheduled",
+        "note": "Promoted from the approved Phase 6D deterministic review schedule; launch date remains separately gated."
+      }
+    ],
+    "schedulePosition": 54
+  },
+  {
+    "id": "pasteur-institute-pasteur-ens",
+    "format": "missing-link",
+    "title": "The scientist behind an institute",
+    "prompt": "Who is the missing link between the Pasteur Institute and the École Normale Supérieure?",
+    "category": "Science and innovation",
+    "status": "scheduled",
+    "path": [
+      {
+        "qid": "Q391083",
+        "name": "Pasteur Institute",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Pasteur_Institute",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q391083"
+      },
+      {
+        "qid": "Q529",
+        "name": "Louis Pasteur",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Louis_Pasteur",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q529"
+      },
+      {
+        "qid": "Q83259",
+        "name": "École Normale Supérieure",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/École_normale_supérieure_(Paris)",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q83259"
+      }
+    ],
+    "hiddenNodeIndex": 1,
+    "relationships": [
+      {
+        "propertyId": "P112",
+        "subjectQid": "Q391083",
+        "objectQid": "Q529",
+        "direction": "forward",
+        "label": "founded by",
+        "qualifiers": [],
+        "expectedClaim": "Q391083 P112 Q529",
+        "evidence": [
+          {
+            "label": "Q391083 P112 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q391083#P112",
+            "kind": "wikidata"
+          },
+          {
+            "label": "Louis Pasteur biography",
+            "publisher": "Encyclopaedia Britannica",
+            "url": "https://www.britannica.com/biography/Louis-Pasteur",
+            "kind": "supporting"
+          }
+        ]
+      },
+      {
+        "propertyId": "P69",
+        "subjectQid": "Q529",
+        "objectQid": "Q83259",
+        "direction": "forward",
+        "label": "educated at",
+        "qualifiers": [
+          {
+            "propertyId": "P580",
+            "label": "studied from",
+            "value": "1844"
+          },
+          {
+            "propertyId": "P582",
+            "label": "studied until",
+            "value": "1845"
+          }
+        ],
+        "expectedClaim": "Q529 P69 Q83259",
+        "evidence": [
+          {
+            "label": "Q529 P69 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q529#P69",
+            "kind": "wikidata"
+          },
+          {
+            "label": "Louis Pasteur biography",
+            "publisher": "Encyclopaedia Britannica",
+            "url": "https://www.britannica.com/biography/Louis-Pasteur",
+            "kind": "supporting"
+          }
+        ]
+      }
+    ],
+    "options": [
+      {
+        "id": "louis-pasteur",
+        "label": "Louis Pasteur",
+        "qid": "Q529"
+      },
+      {
+        "id": "albert-einstein",
+        "label": "Albert Einstein",
+        "qid": "Q937"
+      },
+      {
+        "id": "marie-curie",
+        "label": "Marie Curie",
+        "qid": "Q7186"
+      },
+      {
+        "id": "alexander-fleming",
+        "label": "Alexander Fleming",
+        "qid": "Q123913"
+      }
+    ],
+    "correctOptionId": "louis-pasteur",
+    "explanation": "Louis Pasteur studied science at the École Normale Supérieure in Paris and later founded the Pasteur Institute, inaugurated in 1888.",
+    "pathFingerprint": "Q391083|P112:forward:Q529|P69:forward:Q83259",
+    "reviewedAt": "2026-10-12T00:00:00.000Z",
+    "verificationDate": "2026-10-12",
+    "reviewHistory": [
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": null,
+        "to": "under-review",
+        "note": "Selected for bounded Phase 6C batch 5 independent verification."
+      },
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": "under-review",
+        "to": "approved",
+        "note": "Current Wikidata statements, material qualifiers, English Wikipedia links, relationship-specific sources, exact-path uniqueness, prior-registry uniqueness, and three distractors reviewed."
+      },
+      {
+        "at": "2026-10-14T20:00:00.000Z",
+        "from": "approved",
+        "to": "scheduled",
+        "note": "Promoted from the approved Phase 6D deterministic review schedule; launch date remains separately gated."
+      }
+    ],
+    "schedulePosition": 90
+  },
+  {
+    "id": "puskas-award-puskas-real-madrid",
+    "format": "missing-link",
+    "title": "The great striker behind a goal award",
+    "prompt": "Who is the missing link between the FIFA Puskás Award and Real Madrid?",
+    "category": "Sports",
+    "status": "scheduled",
+    "path": [
+      {
+        "qid": "Q616031",
+        "name": "FIFA Puskás Award",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/FIFA_Puskás_Award",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q616031"
+      },
+      {
+        "qid": "Q482931",
+        "name": "Ferenc Puskás",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Ferenc_Puskás",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q482931"
+      },
+      {
+        "qid": "Q8682",
+        "name": "Real Madrid",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Real_Madrid_CF",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q8682"
+      }
+    ],
+    "hiddenNodeIndex": 1,
+    "relationships": [
+      {
+        "propertyId": "P138",
+        "subjectQid": "Q616031",
+        "objectQid": "Q482931",
+        "direction": "forward",
+        "label": "named after",
+        "qualifiers": [],
+        "expectedClaim": "Q616031 P138 Q482931",
+        "evidence": [
+          {
+            "label": "Q616031 P138 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q616031#P138",
+            "kind": "wikidata"
+          },
+          {
+            "label": "FIFA Puskás Award",
+            "publisher": "FIFA",
+            "url": "https://www.fifa.com/en/the-best-fifa-football-awards/puskas-award",
+            "kind": "supporting"
+          }
+        ]
+      },
+      {
+        "propertyId": "P54",
+        "subjectQid": "Q482931",
+        "objectQid": "Q8682",
+        "direction": "forward",
+        "label": "played for",
+        "qualifiers": [
+          {
+            "propertyId": "P580",
+            "label": "joined",
+            "value": "1958"
+          },
+          {
+            "propertyId": "P582",
+            "label": "left",
+            "value": "1966"
+          }
+        ],
+        "expectedClaim": "Q482931 P54 Q8682",
+        "evidence": [
+          {
+            "label": "Q482931 P54 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q482931#P54",
+            "kind": "wikidata"
+          },
+          {
+            "label": "Ferenc Puskás profile",
+            "publisher": "Real Madrid",
+            "url": "https://www.realmadrid.com/en-US/the-club/history/football-legends/ferenc-puskas-biro",
+            "kind": "supporting"
+          }
+        ]
+      }
+    ],
+    "options": [
+      {
+        "id": "ferenc-puskas",
+        "label": "Ferenc Puskás",
+        "qid": "Q482931"
+      },
+      {
+        "id": "diego-maradona",
+        "label": "Diego Maradona",
+        "qid": "Q17515"
+      },
+      {
+        "id": "cristiano-ronaldo",
+        "label": "Cristiano Ronaldo",
+        "qid": "Q11571"
+      },
+      {
+        "id": "lionel-messi",
+        "label": "Lionel Messi",
+        "qid": "Q615"
+      }
+    ],
+    "correctOptionId": "ferenc-puskas",
+    "explanation": "FIFA's annual award for the most spectacular goal is named for Hungarian striker Ferenc Puskás, who played for Real Madrid from 1958 to 1966.",
+    "pathFingerprint": "Q616031|P138:forward:Q482931|P54:forward:Q8682",
+    "reviewedAt": "2026-10-12T00:00:00.000Z",
+    "verificationDate": "2026-10-12",
+    "reviewHistory": [
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": null,
+        "to": "under-review",
+        "note": "Selected for bounded Phase 6C batch 5 independent verification."
+      },
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": "under-review",
+        "to": "approved",
+        "note": "Current Wikidata statements, material qualifiers, English Wikipedia links, relationship-specific sources, exact-path uniqueness, prior-registry uniqueness, and three distractors reviewed."
+      },
+      {
+        "at": "2026-10-14T20:00:00.000Z",
+        "from": "approved",
+        "to": "scheduled",
+        "note": "Promoted from the approved Phase 6D deterministic review schedule; launch date remains separately gated."
+      }
+    ],
+    "schedulePosition": 93
+  },
+  {
+    "id": "kind-of-blue-davis-juilliard",
+    "format": "missing-link",
+    "title": "A jazz landmark and a classical school",
+    "prompt": "Who is the missing link between Kind of Blue and the Juilliard School?",
+    "category": "Music",
+    "status": "scheduled",
+    "path": [
+      {
+        "qid": "Q283221",
+        "name": "Kind of Blue",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Kind_of_Blue",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q283221"
+      },
+      {
+        "qid": "Q93341",
+        "name": "Miles Davis",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Miles_Davis",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q93341"
+      },
+      {
+        "qid": "Q503246",
+        "name": "Juilliard School",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Juilliard_School",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q503246"
+      }
+    ],
+    "hiddenNodeIndex": 1,
+    "relationships": [
+      {
+        "propertyId": "P175",
+        "subjectQid": "Q283221",
+        "objectQid": "Q93341",
+        "direction": "forward",
+        "label": "performed by",
+        "qualifiers": [],
+        "expectedClaim": "Q283221 P175 Q93341",
+        "evidence": [
+          {
+            "label": "Q283221 P175 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q283221#P175",
+            "kind": "wikidata"
+          },
+          {
+            "label": "Miles Davis biography",
+            "publisher": "Encyclopaedia Britannica",
+            "url": "https://www.britannica.com/biography/Miles-Davis",
+            "kind": "supporting"
+          }
+        ]
+      },
+      {
+        "propertyId": "P69",
+        "subjectQid": "Q93341",
+        "objectQid": "Q503246",
+        "direction": "forward",
+        "label": "educated at",
+        "qualifiers": [],
+        "expectedClaim": "Q93341 P69 Q503246",
+        "evidence": [
+          {
+            "label": "Q93341 P69 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q93341#P69",
+            "kind": "wikidata"
+          },
+          {
+            "label": "Miles Davis biography",
+            "publisher": "Encyclopaedia Britannica",
+            "url": "https://www.britannica.com/biography/Miles-Davis",
+            "kind": "supporting"
+          }
+        ]
+      }
+    ],
+    "options": [
+      {
+        "id": "miles-davis",
+        "label": "Miles Davis",
+        "qid": "Q93341"
+      },
+      {
+        "id": "stevie-wonder",
+        "label": "Stevie Wonder",
+        "qid": "Q714"
+      },
+      {
+        "id": "paul-simon",
+        "label": "Paul Simon",
+        "qid": "Q4028"
+      },
+      {
+        "id": "bob-dylan",
+        "label": "Bob Dylan",
+        "qid": "Q392"
+      }
+    ],
+    "correctOptionId": "miles-davis",
+    "explanation": "Trumpeter Miles Davis made the landmark jazz album Kind of Blue. He attended Juilliard in New York before leaving to join the city's bebop scene.",
+    "pathFingerprint": "Q283221|P175:forward:Q93341|P69:forward:Q503246",
+    "reviewedAt": "2026-10-12T00:00:00.000Z",
+    "verificationDate": "2026-10-12",
+    "reviewHistory": [
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": null,
+        "to": "under-review",
+        "note": "Selected for bounded Phase 6C batch 5 independent verification."
+      },
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": "under-review",
+        "to": "approved",
+        "note": "Current Wikidata statements, material qualifiers, English Wikipedia links, relationship-specific sources, exact-path uniqueness, prior-registry uniqueness, and three distractors reviewed."
+      },
+      {
+        "at": "2026-10-14T20:00:00.000Z",
+        "from": "approved",
+        "to": "scheduled",
+        "note": "Promoted from the approved Phase 6D deterministic review schedule; launch date remains separately gated."
+      }
+    ],
+    "schedulePosition": 22
+  },
+  {
+    "id": "miseducation-hill-sister-act",
+    "format": "missing-link",
+    "title": "An album star's earlier screen role",
+    "prompt": "Who is the missing link between The Miseducation of Lauryn Hill and Sister Act 2?",
+    "category": "Music",
+    "status": "scheduled",
+    "path": [
+      {
+        "qid": "Q945926",
+        "name": "The Miseducation of Lauryn Hill",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/The_Miseducation_of_Lauryn_Hill",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q945926"
+      },
+      {
+        "qid": "Q214226",
+        "name": "Lauryn Hill",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Lauryn_Hill",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q214226"
+      },
+      {
+        "qid": "Q1140762",
+        "name": "Sister Act 2: Back in the Habit",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Sister_Act_2:_Back_in_the_Habit",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q1140762"
+      }
+    ],
+    "hiddenNodeIndex": 1,
+    "relationships": [
+      {
+        "propertyId": "P175",
+        "subjectQid": "Q945926",
+        "objectQid": "Q214226",
+        "direction": "forward",
+        "label": "performed by",
+        "qualifiers": [],
+        "expectedClaim": "Q945926 P175 Q214226",
+        "evidence": [
+          {
+            "label": "Q945926 P175 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q945926#P175",
+            "kind": "wikidata"
+          },
+          {
+            "label": "Lauryn Hill biography",
+            "publisher": "Encyclopaedia Britannica",
+            "url": "https://www.britannica.com/biography/Lauryn-Hill",
+            "kind": "supporting"
+          }
+        ]
+      },
+      {
+        "propertyId": "P161",
+        "subjectQid": "Q1140762",
+        "objectQid": "Q214226",
+        "direction": "reverse",
+        "label": "cast member of",
+        "qualifiers": [],
+        "expectedClaim": "Q1140762 P161 Q214226 (displayed in reverse)",
+        "evidence": [
+          {
+            "label": "Q1140762 P161 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q1140762#P161",
+            "kind": "wikidata"
+          },
+          {
+            "label": "Sister Act 2 catalog record",
+            "publisher": "American Film Institute",
+            "url": "https://catalog.afi.com/Catalog/moviedetails/59667",
+            "kind": "supporting"
+          }
+        ]
+      }
+    ],
+    "options": [
+      {
+        "id": "lauryn-hill",
+        "label": "Lauryn Hill",
+        "qid": "Q214226"
+      },
+      {
+        "id": "stevie-wonder",
+        "label": "Stevie Wonder",
+        "qid": "Q714"
+      },
+      {
+        "id": "paul-simon",
+        "label": "Paul Simon",
+        "qid": "Q4028"
+      },
+      {
+        "id": "bob-dylan",
+        "label": "Bob Dylan",
+        "qid": "Q392"
+      }
+    ],
+    "correctOptionId": "lauryn-hill",
+    "explanation": "Lauryn Hill recorded the acclaimed album The Miseducation of Lauryn Hill after appearing as Rita Watson in Sister Act 2: Back in the Habit.",
+    "pathFingerprint": "Q945926|P175:forward:Q214226|P161:reverse:Q1140762",
+    "reviewedAt": "2026-10-12T00:00:00.000Z",
+    "verificationDate": "2026-10-12",
+    "reviewHistory": [
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": null,
+        "to": "under-review",
+        "note": "Selected for bounded Phase 6C batch 5 independent verification."
+      },
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": "under-review",
+        "to": "approved",
+        "note": "Current Wikidata statements, material qualifiers, English Wikipedia links, relationship-specific sources, exact-path uniqueness, prior-registry uniqueness, and three distractors reviewed."
+      },
+      {
+        "at": "2026-10-14T20:00:00.000Z",
+        "from": "approved",
+        "to": "scheduled",
+        "note": "Promoted from the approved Phase 6D deterministic review schedule; launch date remains separately gated."
+      }
+    ],
+    "schedulePosition": 49
+  },
+  {
+    "id": "handmaids-tale-atwood-booker",
+    "format": "missing-link",
+    "title": "A dystopian author and a later Booker",
+    "prompt": "Who is the missing link between The Handmaid's Tale and the Booker Prize?",
+    "category": "Literature and art",
+    "status": "scheduled",
+    "path": [
+      {
+        "qid": "Q1541914",
+        "name": "The Handmaid's Tale",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/The_Handmaid%27s_Tale",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q1541914"
+      },
+      {
+        "qid": "Q183492",
+        "name": "Margaret Atwood",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Margaret_Atwood",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q183492"
+      },
+      {
+        "qid": "Q160082",
+        "name": "Booker Prize",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Booker_Prize",
+        "wikidataUrl": "https://www.wikidata.org/wiki/Q160082"
+      }
+    ],
+    "hiddenNodeIndex": 1,
+    "relationships": [
+      {
+        "propertyId": "P50",
+        "subjectQid": "Q1541914",
+        "objectQid": "Q183492",
+        "direction": "forward",
+        "label": "written by",
+        "qualifiers": [],
+        "expectedClaim": "Q1541914 P50 Q183492",
+        "evidence": [
+          {
+            "label": "Q1541914 P50 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q1541914#P50",
+            "kind": "wikidata"
+          },
+          {
+            "label": "The Handmaid's Tale",
+            "publisher": "Encyclopaedia Britannica",
+            "url": "https://www.britannica.com/topic/The-Handmaids-Tale",
+            "kind": "supporting"
+          }
+        ]
+      },
+      {
+        "propertyId": "P166",
+        "subjectQid": "Q183492",
+        "objectQid": "Q160082",
+        "direction": "forward",
+        "label": "received award",
+        "qualifiers": [
+          {
+            "propertyId": "P585",
+            "label": "award year",
+            "value": "2000"
+          },
+          {
+            "propertyId": "P1686",
+            "label": "winning work",
+            "value": "The Blind Assassin"
+          }
+        ],
+        "expectedClaim": "Q183492 P166 Q160082",
+        "evidence": [
+          {
+            "label": "Q183492 P166 statement",
+            "publisher": "Wikidata",
+            "url": "https://www.wikidata.org/wiki/Q183492#P166",
+            "kind": "wikidata"
+          },
+          {
+            "label": "Margaret Atwood's Booker Prize history",
+            "publisher": "The Booker Prizes",
+            "url": "https://thebookerprizes.com/the-booker-library/authors/margaret-atwood",
+            "kind": "supporting"
+          }
+        ]
+      }
+    ],
+    "options": [
+      {
+        "id": "margaret-atwood",
+        "label": "Margaret Atwood",
+        "qid": "Q183492"
+      },
+      {
+        "id": "william-shakespeare",
+        "label": "William Shakespeare",
+        "qid": "Q692"
+      },
+      {
+        "id": "george-orwell",
+        "label": "George Orwell",
+        "qid": "Q3335"
+      },
+      {
+        "id": "j-r-r-tolkien",
+        "label": "J. R. R. Tolkien",
+        "qid": "Q6691"
+      }
+    ],
+    "correctOptionId": "margaret-atwood",
+    "explanation": "Margaret Atwood wrote The Handmaid's Tale. She later won the 2000 Booker Prize for The Blind Assassin—not for The Handmaid's Tale, which was shortlisted in 1986.",
+    "pathFingerprint": "Q1541914|P50:forward:Q183492|P166:forward:Q160082",
+    "reviewedAt": "2026-10-12T00:00:00.000Z",
+    "verificationDate": "2026-10-12",
+    "reviewHistory": [
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": null,
+        "to": "under-review",
+        "note": "Selected for bounded Phase 6C batch 5 independent verification."
+      },
+      {
+        "at": "2026-10-12T00:00:00.000Z",
+        "from": "under-review",
+        "to": "approved",
+        "note": "Current Wikidata statements, material qualifiers, English Wikipedia links, relationship-specific sources, exact-path uniqueness, prior-registry uniqueness, and three distractors reviewed."
+      },
+      {
+        "at": "2026-10-14T20:00:00.000Z",
+        "from": "approved",
+        "to": "scheduled",
+        "note": "Promoted from the approved Phase 6D deterministic review schedule; launch date remains separately gated."
+      }
+    ],
+    "schedulePosition": 48
   }
 ]

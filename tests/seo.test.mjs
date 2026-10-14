@@ -17,7 +17,7 @@ test("uses the production domain for canonical connection URLs", () => {
 });
 
 test("publishes public information pages and bounded curated connections", () => {
-  const urls = getIndexableUrls();
+  const urls = getIndexableUrls({ dailyLaunchReady: false });
 
   assert.equal(
     urls.length,
@@ -41,10 +41,16 @@ test("publishes public information pages and bounded curated connections", () =>
   assert.ok(urls.every((url) => !url.includes("/api/")));
 });
 
+test("adds the daily canonical to the sitemap only after the complete launch gate passes", () => {
+  assert.ok(!getIndexableUrls({ dailyLaunchReady: false }).includes(`${SITE_ORIGIN}/daily`));
+  const launched = getIndexableUrls({ dailyLaunchReady: true });
+  assert.equal(launched.filter((url) => url === `${SITE_ORIGIN}/daily`).length, 1);
+});
+
 test("allows public discovery while excluding private and API routes", () => {
   assert.deepEqual(ROBOTS_RULES, {
     userAgent: "*",
-    allow: ["/", "/connect/", "/explore", "/methodology", "/extension", "/about", "/privacy", "/terms", "/contact"],
+    allow: ["/", "/connect/", "/daily", "/explore", "/methodology", "/extension", "/about", "/privacy", "/terms", "/contact"],
     disallow: ["/admin", "/api/"],
   });
 });

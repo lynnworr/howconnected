@@ -121,6 +121,10 @@ export function validateDailyPuzzleRegistry(puzzles: readonly MissingLinkPuzzle[
 
 export function getUtcDateKey(date: Date): string { if (Number.isNaN(date.getTime())) throw new Error("A valid date is required."); return date.toISOString().slice(0, 10); }
 function utcDay(dateKey: string): number { if (!DATE_KEY_PATTERN.test(dateKey)) return Number.NaN; return Math.floor(Date.parse(`${dateKey}T00:00:00.000Z`) / 86_400_000); }
+export function getSafeDailyRequestDate(value: string | undefined, now: Date = new Date()): Date {
+  if (!value || !DATE_KEY_PATTERN.test(value) || utcDay(value) > utcDay(getUtcDateKey(now))) return now;
+  return new Date(`${value}T12:00:00.000Z`);
+}
 export function getConfiguredLaunchDate(env: NodeJS.ProcessEnv = process.env): string | null {
   const value = env.NEXT_PUBLIC_DAILY_LAUNCH_DATE?.trim() ?? ""; return DATE_KEY_PATTERN.test(value) && Number.isFinite(utcDay(value)) ? value : null;
 }
@@ -161,4 +165,7 @@ export function getContentRunwayReport(puzzles: readonly MissingLinkPuzzle[] = M
     candidatesAwaitingReview: counts.candidate + counts["under-review"], rejectedCount: counts.rejected, quarantinedCount: counts.quarantined,
     daysRemainingBeforeExhaustion: unpublishedReserve, lastScheduledPuzzleDate, reserveWarning: unpublishedReserve < 30,
     launchReady: approvedCount >= 100 && scheduled.length >= 100 && validateDailyPuzzleRegistry(puzzles).length === 0 && Boolean(launchDate) };
+}
+export function isDailyPubliclyLaunched(date: Date = new Date(), puzzles: readonly MissingLinkPuzzle[] = MISSING_LINK_PUZZLES, launchDate: string | null = getConfiguredLaunchDate()): boolean {
+  return Boolean(launchDate) && getContentRunwayReport(puzzles, launchDate).launchReady && utcDay(getUtcDateKey(date)) >= utcDay(launchDate ?? "");
 }

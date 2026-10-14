@@ -22,6 +22,9 @@
     ,"daily:validate": "node scripts/manage-daily-puzzles.mjs validate"
     ,"daily:duplicates": "node scripts/manage-daily-puzzles.mjs duplicates"
     ,"daily:report": "node scripts/manage-daily-puzzles.mjs report"
+    ,"daily:schedule-review": "node scripts/validate-daily-schedule.mjs"
+    ,"daily:schedule-promote": "node scripts/promote-daily-schedule.mjs"
+    ,"daily:links": "node scripts/verify-daily-links.mjs"
     ,"daily:discover": "node --env-file-if-exists=.env --env-file-if-exists=.env.local scripts/manage-daily-puzzles.mjs discover"
     ,"daily:export-review": "node scripts/manage-daily-puzzles.mjs export-review"
   },

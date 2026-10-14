@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 import test from "node:test";
 import {
-  MISSING_LINK_PUZZLES, getContentRunwayReport, getDailyScheduleState, getUtcDateKey, validateDailyPuzzleRegistry,
+  MISSING_LINK_PUZZLES, getContentRunwayReport, getDailyScheduleState, getSafeDailyRequestDate, getUtcDateKey, isDailyPubliclyLaunched, validateDailyPuzzleRegistry,
 } from "../lib/daily-puzzles.ts";
 import {
   claimDailyAnalyticsEvent, completeDailyChallenge, EMPTY_DAILY_COMPLETION_STATE, getDailyResult, getVisibleCurrentStreak, parseDailyCompletionState,
@@ -10,7 +10,7 @@ import {
 
 test("approved Missing Link registry validates exact paths, evidence, links, and distractors", () => {
   assert.deepEqual(validateDailyPuzzleRegistry(), []);
-  assert.equal(MISSING_LINK_PUZZLES.length, 75);
+  assert.equal(MISSING_LINK_PUZZLES.length, 100);
   const puzzle = MISSING_LINK_PUZZLES[0];
   assert.equal(puzzle.id, "web-berners-lee-cern");
   assert.equal(puzzle.options.length, 4);
@@ -18,9 +18,23 @@ test("approved Missing Link registry validates exact paths, evidence, links, and
   assert.deepEqual(puzzle.relationships.map((item) => item.propertyId), ["P61", "P108"]);
   assert.ok(puzzle.relationships.every((item) => item.evidence.some((source) => source.kind === "wikidata") && item.evidence.some((source) => source.kind === "supporting")));
   assert.ok(puzzle.path.every((node) => node.wikipediaUrl?.startsWith("https://en.wikipedia.org/wiki/")));
-  assert.ok(MISSING_LINK_PUZZLES.every((item) => item.status === "approved"));
-  assert.ok(MISSING_LINK_PUZZLES.every((item) => item.schedulePosition === undefined && item.scheduledDate === undefined));
-  assert.equal(new Set(MISSING_LINK_PUZZLES.map((item) => item.path[1].qid)).size, 75);
+  assert.ok(MISSING_LINK_PUZZLES.every((item) => item.status === "scheduled"));
+  assert.deepEqual(MISSING_LINK_PUZZLES.map((item) => item.schedulePosition).sort((left, right) => left - right), Array.from({ length: 100 }, (_, index) => index + 1));
+  assert.ok(MISSING_LINK_PUZZLES.every((item) => item.scheduledDate === undefined));
+  assert.equal(new Set(MISSING_LINK_PUZZLES.map((item) => item.path[1].qid)).size, 100);
+});
+
+test("Phase 6C batch 5 reaches the 100-puzzle content gate with a complete audit", async () => {
+  const audit = JSON.parse(await readFile(new URL("../content/daily-batch-5-review.json", import.meta.url), "utf8"));
+  assert.deepEqual(audit.counts, { candidates: 30, approved: 25, rejected: 5, priorApproved: 75, cumulativeApproved: 100, remainingTo100: 0, scheduled: 0 });
+  assert.deepEqual(audit.categoryTargets, { "Entertainment and film": 7, "History and politics": 6, "Geography and world culture": 4, Technology: 3, Business: 3, "Science and innovation": 2, Sports: 2, Music: 2, "Literature and art": 1 });
+  assert.equal(audit.candidates.length, 30);
+  assert.deepEqual(audit.candidates.filter((item) => item.decision === "rejected").map((item) => item.id).sort(), ["anne-frank-house-montessori", "jackie-robinson-day-dodgers", "mount-rushmore-borglum-stone-mountain", "napoleon-theorem-emperor", "nobel-peace-nobel-dynamite"]);
+  assert.ok(audit.candidates.every((item) => item.exactPath && item.reason && item.qualifierConcerns && item.sourceEvidence.length >= 2));
+  assert.ok(audit.candidates.every((item) => item.wikipediaLinks.length === 3 && item.distractors.length === 3 && item.distractorValidationOutcome));
+  const batchIds = new Set(audit.candidates.filter((item) => item.decision === "approved").map((item) => item.id));
+  assert.equal(MISSING_LINK_PUZZLES.filter((item) => batchIds.has(item.id)).length, 25);
+  assert.ok(MISSING_LINK_PUZZLES.filter((item) => batchIds.has(item.id)).every((item) => item.reviewedAt === "2026-10-12T00:00:00.000Z" && item.verificationDate === "2026-10-12"));
 });
 
 test("Phase 6C batch 4 audit accounts for every approval, rejection, source, qualifier review, and distractor", async () => {
@@ -97,6 +111,17 @@ test("UTC schedule is launch-anchored, does not cycle, and handles unavailable c
   assert.equal(getUtcDateKey(new Date("2026-10-11T23:30:00-04:00")), "2026-10-12");
 });
 
+test("public launch and requested-date gates follow UTC and never expose future puzzles", () => {
+  const launch = "2027-01-01";
+  assert.equal(isDailyPubliclyLaunched(new Date("2026-12-31T23:59:59.999Z"), MISSING_LINK_PUZZLES, launch), false);
+  assert.equal(isDailyPubliclyLaunched(new Date("2027-01-01T00:00:00.000Z"), MISSING_LINK_PUZZLES, launch), true);
+  assert.equal(isDailyPubliclyLaunched(new Date("2027-01-01T00:00:00.000Z"), MISSING_LINK_PUZZLES, null), false);
+  const now = new Date("2027-01-12T03:00:00.000Z");
+  assert.equal(getSafeDailyRequestDate("2027-01-13", now), now);
+  assert.equal(getUtcDateKey(getSafeDailyRequestDate("2027-01-11", now)), "2027-01-11");
+  assert.equal(getSafeDailyRequestDate("not-a-date", now), now);
+});
+
 test("100-day uniqueness and launch gate require 100 validated scheduled records", () => {
   const synthetic = Array.from({ length: 100 }, (_, index) => {
     const item = structuredClone(MISSING_LINK_PUZZLES[0]); item.id = `test-${index + 1}`; item.status = "scheduled"; item.schedulePosition = index + 1;
@@ -107,6 +132,7 @@ test("100-day uniqueness and launch gate require 100 validated scheduled records
   });
   assert.deepEqual(validateDailyPuzzleRegistry(synthetic), []);
   assert.equal(getContentRunwayReport(synthetic, "2027-01-01").launchReady, true);
+  assert.equal(getContentRunwayReport(MISSING_LINK_PUZZLES, "2027-01-01").launchReady, true);
   assert.equal(getContentRunwayReport(MISSING_LINK_PUZZLES, null).launchReady, false);
 });
 
@@ -132,7 +158,8 @@ test("daily UI is noindex while gated, accessible, spoiler-safe, and graph-indep
     readFile(new URL("../app/daily/page.tsx", import.meta.url), "utf8"), readFile(new URL("../app/daily-preview/page.tsx", import.meta.url), "utf8"),
     readFile(new URL("../components/DailyChallenge.tsx", import.meta.url), "utf8"), readFile(new URL("../lib/product-analytics.ts", import.meta.url), "utf8"), readFile(new URL("../app/globals.css", import.meta.url), "utf8"),
   ]);
-  assert.equal((page.match(/<h1/g) ?? []).length, 1); assert.match(page, /robots: \{ index: runway\.launchReady/); assert.match(preview, /index: false/);
+  assert.equal((page.match(/<h1/g) ?? []).length, 1); assert.match(page, /robots: \{ index: isDailyPubliclyLaunched\(\)/); assert.match(preview, /index: false/);
+  assert.doesNotMatch(page, /previewWhenUnconfigured: true/);
   assert.match(component, /<fieldset/); assert.match(component, /<legend/); assert.match(component, /type="radio"/); assert.match(component, /Hidden middle entity/);
   assert.match(component, /Explore the connection/); assert.match(component, /Explore the evidence/); assert.match(component, /noopener noreferrer/); assert.match(styles, /prefers-reduced-motion: reduce/);
   for (const event of ["daily_challenge_opened", "daily_challenge_answer_submitted", "daily_challenge_completed", "daily_wikipedia_link_clicked", "daily_evidence_link_clicked", "daily_challenge_result_shared", "daily_continued_exploration"]) {

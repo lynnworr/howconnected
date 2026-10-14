@@ -77,7 +77,7 @@ export default function DailyChallenge({ dateKey, puzzle, puzzleNumber, preview 
   const revealed = submitted || Boolean(prior);
   return <div>
     <section className="hc-daily-progress mb-5 grid gap-4 rounded-2xl border px-5 py-4 sm:grid-cols-[1fr_auto] sm:items-center">
-      <div><p className="text-xs font-extrabold uppercase tracking-[0.14em] text-[#ee6243]">{formatDate(dateKey)} · UTC{preview ? " · Preview" : ""}</p>
+      <div><p className="text-xs font-extrabold uppercase tracking-[0.14em] text-[#a4432d]">{formatDate(dateKey)} · UTC{preview ? " · Preview" : ""}</p>
         <p className="mt-1 text-sm font-semibold text-[#37435c]">{prior ? "Completed on this browser — revisit the explanation anytime." : "One scored answer. Take your time."}</p></div>
       <div className="flex gap-5 text-sm text-[#657087]" aria-label="Progress stored only in this browser">
         <span><strong className="text-[#1d2944]">{getVisibleCurrentStreak(state, dateKey)}</strong> current streak</span><span><strong className="text-[#1d2944]">{state.bestStreak}</strong> best</span>
@@ -85,7 +85,7 @@ export default function DailyChallenge({ dateKey, puzzle, puzzleNumber, preview 
     </section>
 
     <section className="hc-daily-card rounded-[24px] border p-5 sm:p-8" aria-labelledby={`${puzzle.id}-heading`}>
-      <div className="flex flex-wrap items-center justify-between gap-3"><p className="text-[10px] font-extrabold uppercase tracking-[0.16em] text-[#ee6243]">{puzzle.category}</p>
+      <div className="flex flex-wrap items-center justify-between gap-3"><p className="text-[10px] font-extrabold uppercase tracking-[0.16em] text-[#a4432d]">{puzzle.category}</p>
         <span className="rounded-full border border-[#dfe2e5] px-3 py-1 text-[11px] font-bold text-[#657087]">{puzzleNumber ? `Challenge #${puzzleNumber}` : "Reviewed preview"}</span></div>
       <h2 id={`${puzzle.id}-heading`} className="mt-4 text-balance text-2xl font-extrabold tracking-[-0.035em] text-[#1d2944] sm:text-3xl">{puzzle.prompt}</h2>
       <div className="mt-7 flex flex-wrap items-center justify-center gap-2" aria-label={revealed ? "Complete revealed connection path" : `Incomplete connection from ${puzzle.path[0].name} to ${puzzle.path.at(-1)?.name}`}>
@@ -119,6 +119,6 @@ export default function DailyChallenge({ dateKey, puzzle, puzzleNumber, preview 
           <Link href="/explore" onClick={() => trackProductEvent("daily_continued_exploration", { puzzleId: puzzle.id, category: puzzle.category })} className="hc-primary-button inline-flex min-h-10 items-center rounded-full px-4 text-sm font-bold">Explore HowConnected</Link><span className="text-xs font-semibold text-[#657087]" aria-live="polite">{shareFeedback}</span></div>
       </div> : null}
     </section>
-    <p className="mt-5 text-center text-xs leading-5 text-[#818999]">Progress stays in this browser and does not sync across devices. Skipping a day has no penalty or countdown.</p>
+    <p className="mt-5 text-center text-xs leading-5 text-[#657087]">Progress stays in this browser and does not sync across devices. Skipping a day has no penalty or countdown.</p>
   </div>;
 }

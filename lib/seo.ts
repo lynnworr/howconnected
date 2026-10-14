@@ -1,10 +1,11 @@
 import { getIndexableEditorialConnections } from "./editorial-connections.ts";
+import { isDailyPubliclyLaunched } from "./daily-puzzles.ts";
 
 export const SITE_ORIGIN = "https://www.howconnected.app";
 
 export const ROBOTS_RULES = {
   userAgent: "*",
-  allow: ["/", "/connect/", "/explore", "/methodology", "/extension", "/about", "/privacy", "/terms", "/contact"],
+  allow: ["/", "/connect/", "/daily", "/explore", "/methodology", "/extension", "/about", "/privacy", "/terms", "/contact"],
   disallow: ["/admin", "/api/"],
 };
 
@@ -30,10 +31,12 @@ export function getCanonicalConnectionUrl(
   return `${SITE_ORIGIN}/connect/${encodeURIComponent(fromQid)}/${encodeURIComponent(toQid)}`;
 }
 
-export function getIndexableUrls(): string[] {
+export function getIndexableUrls(options: { dailyLaunchReady?: boolean } = {}): string[] {
+  const dailyLaunchReady = options.dailyLaunchReady ?? isDailyPubliclyLaunched();
   return [
     SITE_ORIGIN,
     ...PUBLIC_PAGE_PATHS.map((path) => `${SITE_ORIGIN}${path}`),
+    ...(dailyLaunchReady ? [`${SITE_ORIGIN}/daily`] : []),
     ...INDEXABLE_CONNECTIONS.map(([fromQid, toQid]) =>
       getCanonicalConnectionUrl(fromQid, toQid),
     ),

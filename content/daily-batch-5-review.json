@@ -1,0 +1,2249 @@
+{
+  "batchId": "phase-6c-batch-5",
+  "verifiedAt": "2026-10-12T00:00:00.000Z",
+  "scope": "Thirty bounded candidates in the requested 7/6/4/3/3/2/2/2/1 category mix. Twenty-five passed current claims, directions, material qualifiers, history, relationship-specific sources, sitelinks, exact-path uniqueness, prior-registry uniqueness, and three-distractor review; five were rejected without lowering standards.",
+  "counts": {
+    "candidates": 30,
+    "approved": 25,
+    "rejected": 5,
+    "priorApproved": 75,
+    "cumulativeApproved": 100,
+    "remainingTo100": 0,
+    "scheduled": 0
+  },
+  "categoryTargets": {
+    "Entertainment and film": 7,
+    "History and politics": 6,
+    "Geography and world culture": 4,
+    "Technology": 3,
+    "Business": 3,
+    "Science and innovation": 2,
+    "Sports": 2,
+    "Music": 2,
+    "Literature and art": 1
+  },
+  "candidates": [
+    {
+      "id": "get-out-peele-oscar",
+      "category": "Entertainment and film",
+      "decision": "approved",
+      "reason": "Both current Wikidata statements and direction were confirmed; relationship-specific sources support the material claims; the bounded exact-property query returned only the intended intermediary.",
+      "exactPath": "Get Out (Q25136235) —P57→ Jordan Peele (Q3371986) —P166→ Academy Award for Best Original Screenplay (Q41417)",
+      "qualifierConcerns": "Reviewed: P166/P585 award date: 4 March 2018; P166/P1686 winning work: Get Out. Editorial wording preserves the dated or historical scope.",
+      "sourceEvidence": [
+        {
+          "label": "Q25136235 P57 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q25136235#P57",
+          "kind": "wikidata"
+        },
+        {
+          "label": "Jordan Peele biography",
+          "publisher": "Encyclopaedia Britannica",
+          "url": "https://www.britannica.com/biography/Jordan-Peele",
+          "kind": "supporting"
+        },
+        {
+          "label": "Q3371986 P166 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q3371986#P166",
+          "kind": "wikidata"
+        },
+        {
+          "label": "The 90th Academy Awards",
+          "publisher": "Academy of Motion Picture Arts and Sciences",
+          "url": "https://www.oscars.org/oscars/ceremonies/2018",
+          "kind": "supporting"
+        }
+      ],
+      "wikipediaLinks": [
+        {
+          "qid": "Q25136235",
+          "url": "https://en.wikipedia.org/wiki/Get_Out"
+        },
+        {
+          "qid": "Q3371986",
+          "url": "https://en.wikipedia.org/wiki/Jordan_Peele"
+        },
+        {
+          "qid": "Q41417",
+          "url": "https://en.wikipedia.org/wiki/Academy_Award_for_Best_Original_Screenplay"
+        }
+      ],
+      "distractors": [
+        {
+          "qid": "Q8877",
+          "label": "Steven Spielberg",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q42574",
+          "label": "James Cameron",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q38222",
+          "label": "George Lucas",
+          "exactPathMatch": false
+        }
+      ],
+      "distractorValidationOutcome": "Passed: all three alternatives are plausible in context, but none satisfies both exact relationships in the bounded live query.",
+      "uniqueIntermediaryCount": 1
+    },
+    {
+      "id": "muppet-show-henson-maryland",
+      "category": "Entertainment and film",
+      "decision": "approved",
+      "reason": "Both current Wikidata statements and direction were confirmed; relationship-specific sources support the material claims; the bounded exact-property query returned only the intended intermediary.",
+      "exactPath": "The Muppet Show (Q2120540) —P170→ Jim Henson (Q191037) —P69→ University of Maryland (Q503415)",
+      "qualifierConcerns": "Reviewed: P69/P582 Wikidata end-time qualifier: 1980; official UMD records identify 1960 graduation and a 1978 honorary degree. Editorial wording preserves the dated or historical scope.",
+      "sourceEvidence": [
+        {
+          "label": "Q2120540 P170 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q2120540#P170",
+          "kind": "wikidata"
+        },
+        {
+          "label": "Jim Henson biography",
+          "publisher": "Encyclopaedia Britannica",
+          "url": "https://www.britannica.com/biography/Jim-Henson",
+          "kind": "supporting"
+        },
+        {
+          "label": "Q191037 P69 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q191037#P69",
+          "kind": "wikidata"
+        },
+        {
+          "label": "Henson Day: Jim Henson at UMD",
+          "publisher": "University of Maryland",
+          "url": "https://innovate.umd.edu/hensonday",
+          "kind": "supporting"
+        }
+      ],
+      "wikipediaLinks": [
+        {
+          "qid": "Q2120540",
+          "url": "https://en.wikipedia.org/wiki/The_Muppet_Show"
+        },
+        {
+          "qid": "Q191037",
+          "url": "https://en.wikipedia.org/wiki/Jim_Henson"
+        },
+        {
+          "qid": "Q503415",
+          "url": "https://en.wikipedia.org/wiki/University_of_Maryland,_College_Park"
+        }
+      ],
+      "distractors": [
+        {
+          "qid": "Q8704",
+          "label": "Walt Disney",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q311319",
+          "label": "Frank Oz",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q8877",
+          "label": "Steven Spielberg",
+          "exactPathMatch": false
+        }
+      ],
+      "distractorValidationOutcome": "Passed: all three alternatives are plausible in context, but none satisfies both exact relationships in the bounded live query.",
+      "uniqueIntermediaryCount": 1
+    },
+    {
+      "id": "lotr-jackson-wingnut",
+      "category": "Entertainment and film",
+      "decision": "approved",
+      "reason": "Both current Wikidata statements and direction were confirmed; relationship-specific sources support the material claims; the bounded exact-property query returned only the intended intermediary.",
+      "exactPath": "The Lord of the Rings film trilogy (Q190214) —P57→ Peter Jackson (Q4465) ←P112— WingNut Films (Q3569323)",
+      "qualifierConcerns": "No material qualifiers on either current statement.",
+      "sourceEvidence": [
+        {
+          "label": "Q190214 P57 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q190214#P57",
+          "kind": "wikidata"
+        },
+        {
+          "label": "Peter Jackson biography",
+          "publisher": "Encyclopaedia Britannica",
+          "url": "https://www.britannica.com/biography/Peter-Jackson-New-Zealand-director",
+          "kind": "supporting"
+        },
+        {
+          "label": "Q3569323 P112 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q3569323#P112",
+          "kind": "wikidata"
+        },
+        {
+          "label": "Peter Jackson biography",
+          "publisher": "New Zealand On Screen",
+          "url": "https://www.nzonscreen.com/profile/peter-jackson/biography",
+          "kind": "supporting"
+        }
+      ],
+      "wikipediaLinks": [
+        {
+          "qid": "Q190214",
+          "url": "https://en.wikipedia.org/wiki/The_Lord_of_the_Rings_(film_series)"
+        },
+        {
+          "qid": "Q4465",
+          "url": "https://en.wikipedia.org/wiki/Peter_Jackson"
+        },
+        {
+          "qid": "Q3569323",
+          "url": "https://en.wikipedia.org/wiki/WingNut_Films"
+        }
+      ],
+      "distractors": [
+        {
+          "qid": "Q8877",
+          "label": "Steven Spielberg",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q42574",
+          "label": "James Cameron",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q38222",
+          "label": "George Lucas",
+          "exactPathMatch": false
+        }
+      ],
+      "distractorValidationOutcome": "Passed: all three alternatives are plausible in context, but none satisfies both exact relationships in the bounded live query.",
+      "uniqueIntermediaryCount": 1
+    },
+    {
+      "id": "fleabag-waller-bridge-bond",
+      "category": "Entertainment and film",
+      "decision": "approved",
+      "reason": "Both current Wikidata statements and direction were confirmed; relationship-specific sources support the material claims; the bounded exact-property query returned only the intended intermediary.",
+      "exactPath": "Fleabag (Q16868648) —P170→ Phoebe Waller-Bridge (Q16224046) ←P58— No Time to Die (Q21534241)",
+      "qualifierConcerns": "No material qualifiers on either current statement.",
+      "sourceEvidence": [
+        {
+          "label": "Q16868648 P170 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q16868648#P170",
+          "kind": "wikidata"
+        },
+        {
+          "label": "Phoebe Waller-Bridge biography",
+          "publisher": "Encyclopaedia Britannica",
+          "url": "https://www.britannica.com/biography/Phoebe-Waller-Bridge",
+          "kind": "supporting"
+        },
+        {
+          "label": "Q21534241 P58 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q21534241#P58",
+          "kind": "wikidata"
+        },
+        {
+          "label": "Phoebe Waller-Bridge biography",
+          "publisher": "Encyclopaedia Britannica",
+          "url": "https://www.britannica.com/biography/Phoebe-Waller-Bridge",
+          "kind": "supporting"
+        }
+      ],
+      "wikipediaLinks": [
+        {
+          "qid": "Q16868648",
+          "url": "https://en.wikipedia.org/wiki/Fleabag"
+        },
+        {
+          "qid": "Q16224046",
+          "url": "https://en.wikipedia.org/wiki/Phoebe_Waller-Bridge"
+        },
+        {
+          "qid": "Q21534241",
+          "url": "https://en.wikipedia.org/wiki/No_Time_to_Die"
+        }
+      ],
+      "distractors": [
+        {
+          "qid": "Q8877",
+          "label": "Steven Spielberg",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q42574",
+          "label": "James Cameron",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q38222",
+          "label": "George Lucas",
+          "exactPathMatch": false
+        }
+      ],
+      "distractorValidationOutcome": "Passed: all three alternatives are plausible in context, but none satisfies both exact relationships in the bounded live query.",
+      "uniqueIntermediaryCount": 1
+    },
+    {
+      "id": "roma-cuaron-unam",
+      "category": "Entertainment and film",
+      "decision": "approved",
+      "reason": "Both current Wikidata statements and direction were confirmed; relationship-specific sources support the material claims; the bounded exact-property query returned only the intended intermediary.",
+      "exactPath": "Roma (Q27959455) —P57→ Alfonso Cuarón (Q28028) —P69→ National Autonomous University of Mexico (Q222738)",
+      "qualifierConcerns": "No material qualifiers on either current statement.",
+      "sourceEvidence": [
+        {
+          "label": "Q27959455 P57 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q27959455#P57",
+          "kind": "wikidata"
+        },
+        {
+          "label": "Alfonso Cuarón biography",
+          "publisher": "Encyclopaedia Britannica",
+          "url": "https://www.britannica.com/biography/Alfonso-Cuaron",
+          "kind": "supporting"
+        },
+        {
+          "label": "Q28028 P69 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q28028#P69",
+          "kind": "wikidata"
+        },
+        {
+          "label": "Alfonso Cuarón biography",
+          "publisher": "Encyclopaedia Britannica",
+          "url": "https://www.britannica.com/biography/Alfonso-Cuaron",
+          "kind": "supporting"
+        }
+      ],
+      "wikipediaLinks": [
+        {
+          "qid": "Q27959455",
+          "url": "https://en.wikipedia.org/wiki/Roma_(2018_film)"
+        },
+        {
+          "qid": "Q28028",
+          "url": "https://en.wikipedia.org/wiki/Alfonso_Cuarón"
+        },
+        {
+          "qid": "Q222738",
+          "url": "https://en.wikipedia.org/wiki/National_Autonomous_University_of_Mexico"
+        }
+      ],
+      "distractors": [
+        {
+          "qid": "Q8877",
+          "label": "Steven Spielberg",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q42574",
+          "label": "James Cameron",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q38222",
+          "label": "George Lucas",
+          "exactPathMatch": false
+        }
+      ],
+      "distractorValidationOutcome": "Passed: all three alternatives are plausible in context, but none satisfies both exact relationships in the bounded live query.",
+      "uniqueIntermediaryCount": 1
+    },
+    {
+      "id": "fury-road-miller-happy-feet",
+      "category": "Entertainment and film",
+      "decision": "approved",
+      "reason": "Both current Wikidata statements and direction were confirmed; relationship-specific sources support the material claims; the bounded exact-property query returned only the intended intermediary.",
+      "exactPath": "Mad Max: Fury Road (Q1757288) —P57→ George Miller (Q446960) ←P57— Happy Feet (Q126800)",
+      "qualifierConcerns": "No material qualifiers on either current statement.",
+      "sourceEvidence": [
+        {
+          "label": "Q1757288 P57 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q1757288#P57",
+          "kind": "wikidata"
+        },
+        {
+          "label": "George Miller biography",
+          "publisher": "Encyclopaedia Britannica",
+          "url": "https://www.britannica.com/biography/George-Miller-Australian-director",
+          "kind": "supporting"
+        },
+        {
+          "label": "Q126800 P57 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q126800#P57",
+          "kind": "wikidata"
+        },
+        {
+          "label": "George Miller biography",
+          "publisher": "Encyclopaedia Britannica",
+          "url": "https://www.britannica.com/biography/George-Miller-Australian-director",
+          "kind": "supporting"
+        }
+      ],
+      "wikipediaLinks": [
+        {
+          "qid": "Q1757288",
+          "url": "https://en.wikipedia.org/wiki/Mad_Max:_Fury_Road"
+        },
+        {
+          "qid": "Q446960",
+          "url": "https://en.wikipedia.org/wiki/George_Miller_(filmmaker)"
+        },
+        {
+          "qid": "Q126800",
+          "url": "https://en.wikipedia.org/wiki/Happy_Feet"
+        }
+      ],
+      "distractors": [
+        {
+          "qid": "Q8877",
+          "label": "Steven Spielberg",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q42574",
+          "label": "James Cameron",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q38222",
+          "label": "George Lucas",
+          "exactPathMatch": false
+        }
+      ],
+      "distractorValidationOutcome": "Passed: all three alternatives are plausible in context, but none satisfies both exact relationships in the bounded live query.",
+      "uniqueIntermediaryCount": 1
+    },
+    {
+      "id": "breaking-bad-cranston-malcolm",
+      "category": "Entertainment and film",
+      "decision": "approved",
+      "reason": "Both current Wikidata statements and direction were confirmed; relationship-specific sources support the material claims; the bounded exact-property query returned only the intended intermediary.",
+      "exactPath": "Breaking Bad (Q1079) —P161→ Bryan Cranston (Q23547) ←P161— Malcolm in the Middle (Q242596)",
+      "qualifierConcerns": "Reviewed: P161/P453 role: Walter White; P161/P453 role: Hal. Editorial wording preserves the dated or historical scope.",
+      "sourceEvidence": [
+        {
+          "label": "Q1079 P161 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q1079#P161",
+          "kind": "wikidata"
+        },
+        {
+          "label": "Bryan Cranston biography",
+          "publisher": "Encyclopaedia Britannica",
+          "url": "https://www.britannica.com/biography/Bryan-Cranston",
+          "kind": "supporting"
+        },
+        {
+          "label": "Q242596 P161 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q242596#P161",
+          "kind": "wikidata"
+        },
+        {
+          "label": "Bryan Cranston biography",
+          "publisher": "Encyclopaedia Britannica",
+          "url": "https://www.britannica.com/biography/Bryan-Cranston",
+          "kind": "supporting"
+        }
+      ],
+      "wikipediaLinks": [
+        {
+          "qid": "Q1079",
+          "url": "https://en.wikipedia.org/wiki/Breaking_Bad"
+        },
+        {
+          "qid": "Q23547",
+          "url": "https://en.wikipedia.org/wiki/Bryan_Cranston"
+        },
+        {
+          "qid": "Q242596",
+          "url": "https://en.wikipedia.org/wiki/Malcolm_in_the_Middle"
+        }
+      ],
+      "distractors": [
+        {
+          "qid": "Q302491",
+          "label": "Aaron Paul",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q235214",
+          "label": "Frankie Muniz",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q8877",
+          "label": "Steven Spielberg",
+          "exactPathMatch": false
+        }
+      ],
+      "distractorValidationOutcome": "Passed: all three alternatives are plausible in context, but none satisfies both exact relationships in the bounded live query.",
+      "uniqueIntermediaryCount": 1
+    },
+    {
+      "id": "marshall-plan-marshall-nobel",
+      "category": "History and politics",
+      "decision": "approved",
+      "reason": "Both current Wikidata statements and direction were confirmed; relationship-specific sources support the material claims; the bounded exact-property query returned only the intended intermediary.",
+      "exactPath": "Marshall Plan (Q4576) —P138→ George C. Marshall (Q151414) —P166→ Nobel Peace Prize (Q35637)",
+      "qualifierConcerns": "Reviewed: P166/P585 award year: 1953. Editorial wording preserves the dated or historical scope.",
+      "sourceEvidence": [
+        {
+          "label": "Q4576 P138 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q4576#P138",
+          "kind": "wikidata"
+        },
+        {
+          "label": "The Marshall Plan",
+          "publisher": "U.S. Department of State, Office of the Historian",
+          "url": "https://history.state.gov/milestones/1945-1952/marshall-plan",
+          "kind": "supporting"
+        },
+        {
+          "label": "Q151414 P166 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q151414#P166",
+          "kind": "wikidata"
+        },
+        {
+          "label": "George Marshall facts",
+          "publisher": "Nobel Prize Outreach",
+          "url": "https://www.nobelprize.org/prizes/peace/1953/marshall/facts/",
+          "kind": "supporting"
+        }
+      ],
+      "wikipediaLinks": [
+        {
+          "qid": "Q4576",
+          "url": "https://en.wikipedia.org/wiki/Marshall_Plan"
+        },
+        {
+          "qid": "Q151414",
+          "url": "https://en.wikipedia.org/wiki/George_C._Marshall"
+        },
+        {
+          "qid": "Q35637",
+          "url": "https://en.wikipedia.org/wiki/Nobel_Peace_Prize"
+        }
+      ],
+      "distractors": [
+        {
+          "qid": "Q91",
+          "label": "Abraham Lincoln",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q23",
+          "label": "George Washington",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q8016",
+          "label": "Winston Churchill",
+          "exactPathMatch": false
+        }
+      ],
+      "distractorValidationOutcome": "Passed: all three alternatives are plausible in context, but none satisfies both exact relationships in the bounded live query.",
+      "uniqueIntermediaryCount": 1
+    },
+    {
+      "id": "lincoln-memorial-lincoln-president",
+      "category": "History and politics",
+      "decision": "approved",
+      "reason": "Both current Wikidata statements and direction were confirmed; relationship-specific sources support the material claims; the bounded exact-property query returned only the intended intermediary.",
+      "exactPath": "Lincoln Memorial (Q213559) —P138→ Abraham Lincoln (Q91) —P39→ President of the United States (Q11696)",
+      "qualifierConcerns": "Reviewed: P39/P580 term began: 4 March 1861; P39/P582 term ended: 15 April 1865; P39/P1545 ordinal: 16. Editorial wording preserves the dated or historical scope.",
+      "sourceEvidence": [
+        {
+          "label": "Q213559 P138 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q213559#P138",
+          "kind": "wikidata"
+        },
+        {
+          "label": "Lincoln Memorial history",
+          "publisher": "National Park Service",
+          "url": "https://www.nps.gov/linc/learn/historyculture/lincoln-memorial-design-individuals.htm",
+          "kind": "supporting"
+        },
+        {
+          "label": "Q91 P39 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q91#P39",
+          "kind": "wikidata"
+        },
+        {
+          "label": "Abraham Lincoln biography",
+          "publisher": "Encyclopaedia Britannica",
+          "url": "https://www.britannica.com/biography/Abraham-Lincoln",
+          "kind": "supporting"
+        }
+      ],
+      "wikipediaLinks": [
+        {
+          "qid": "Q213559",
+          "url": "https://en.wikipedia.org/wiki/Lincoln_Memorial"
+        },
+        {
+          "qid": "Q91",
+          "url": "https://en.wikipedia.org/wiki/Abraham_Lincoln"
+        },
+        {
+          "qid": "Q11696",
+          "url": "https://en.wikipedia.org/wiki/President_of_the_United_States"
+        }
+      ],
+      "distractors": [
+        {
+          "qid": "Q23",
+          "label": "George Washington",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q151414",
+          "label": "George Marshall",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q8007",
+          "label": "Franklin D. Roosevelt",
+          "exactPathMatch": false
+        }
+      ],
+      "distractorValidationOutcome": "Passed: all three alternatives are plausible in context, but none satisfies both exact relationships in the bounded live query.",
+      "uniqueIntermediaryCount": 1
+    },
+    {
+      "id": "gwu-washington-president",
+      "category": "History and politics",
+      "decision": "approved",
+      "reason": "Both current Wikidata statements and direction were confirmed; relationship-specific sources support the material claims; the bounded exact-property query returned only the intended intermediary.",
+      "exactPath": "George Washington University (Q432637) —P138→ George Washington (Q23) —P39→ President of the United States (Q11696)",
+      "qualifierConcerns": "Reviewed: P39/P580 term began: 30 April 1789; P39/P582 term ended: 4 March 1797; P39/P1545 ordinal: 1. Editorial wording preserves the dated or historical scope.",
+      "sourceEvidence": [
+        {
+          "label": "Q432637 P138 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q432637#P138",
+          "kind": "wikidata"
+        },
+        {
+          "label": "GW history",
+          "publisher": "George Washington University",
+          "url": "https://irp.gwu.edu/history",
+          "kind": "supporting"
+        },
+        {
+          "label": "Q23 P39 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q23#P39",
+          "kind": "wikidata"
+        },
+        {
+          "label": "George Washington biography",
+          "publisher": "Encyclopaedia Britannica",
+          "url": "https://www.britannica.com/biography/George-Washington",
+          "kind": "supporting"
+        }
+      ],
+      "wikipediaLinks": [
+        {
+          "qid": "Q432637",
+          "url": "https://en.wikipedia.org/wiki/George_Washington_University"
+        },
+        {
+          "qid": "Q23",
+          "url": "https://en.wikipedia.org/wiki/George_Washington"
+        },
+        {
+          "qid": "Q11696",
+          "url": "https://en.wikipedia.org/wiki/President_of_the_United_States"
+        }
+      ],
+      "distractors": [
+        {
+          "qid": "Q91",
+          "label": "Abraham Lincoln",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q151414",
+          "label": "George Marshall",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q8007",
+          "label": "Franklin D. Roosevelt",
+          "exactPathMatch": false
+        }
+      ],
+      "distractorValidationOutcome": "Passed: all three alternatives are plausible in context, but none satisfies both exact relationships in the bounded live query.",
+      "uniqueIntermediaryCount": 1
+    },
+    {
+      "id": "burj-som-one-world-trade",
+      "category": "Geography and culture",
+      "decision": "approved",
+      "reason": "Both current Wikidata statements and direction were confirmed; relationship-specific sources support the material claims; the bounded exact-property query returned only the intended intermediary.",
+      "exactPath": "Burj Khalifa (Q12495) —P84→ Skidmore, Owings & Merrill (Q459464) ←P84— One World Trade Center (Q11245)",
+      "qualifierConcerns": "No material qualifiers on either current statement.",
+      "sourceEvidence": [
+        {
+          "label": "Q12495 P84 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q12495#P84",
+          "kind": "wikidata"
+        },
+        {
+          "label": "Burj Khalifa project",
+          "publisher": "Skidmore, Owings & Merrill",
+          "url": "https://www.som.com/projects/burj-khalifa/",
+          "kind": "supporting"
+        },
+        {
+          "label": "Q11245 P84 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q11245#P84",
+          "kind": "wikidata"
+        },
+        {
+          "label": "One World Trade Center project",
+          "publisher": "Skidmore, Owings & Merrill",
+          "url": "https://www.som.com/projects/one-world-trade-center/",
+          "kind": "supporting"
+        }
+      ],
+      "wikipediaLinks": [
+        {
+          "qid": "Q12495",
+          "url": "https://en.wikipedia.org/wiki/Burj_Khalifa"
+        },
+        {
+          "qid": "Q459464",
+          "url": "https://en.wikipedia.org/wiki/Skidmore,_Owings_%26_Merrill"
+        },
+        {
+          "qid": "Q11245",
+          "url": "https://en.wikipedia.org/wiki/One_World_Trade_Center"
+        }
+      ],
+      "distractors": [
+        {
+          "qid": "Q374276",
+          "label": "Adrian Smith",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q167073",
+          "label": "Eero Saarinen",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q4465",
+          "label": "Peter Jackson",
+          "exactPathMatch": false
+        }
+      ],
+      "distractorValidationOutcome": "Passed: all three alternatives are plausible in context, but none satisfies both exact relationships in the bounded live query.",
+      "uniqueIntermediaryCount": 1
+    },
+    {
+      "id": "gateway-arch-saarinen-twa",
+      "category": "Geography and culture",
+      "decision": "approved",
+      "reason": "Both current Wikidata statements and direction were confirmed; relationship-specific sources support the material claims; the bounded exact-property query returned only the intended intermediary.",
+      "exactPath": "Gateway Arch (Q2027162) —P84→ Eero Saarinen (Q167073) ←P84— TWA Flight Center (Q29257)",
+      "qualifierConcerns": "No material qualifiers on either current statement.",
+      "sourceEvidence": [
+        {
+          "label": "Q2027162 P84 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q2027162#P84",
+          "kind": "wikidata"
+        },
+        {
+          "label": "Architect Eero Saarinen",
+          "publisher": "National Park Service",
+          "url": "https://www.nps.gov/jeff/planyourvisit/architect.htm",
+          "kind": "supporting"
+        },
+        {
+          "label": "Q29257 P84 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q29257#P84",
+          "kind": "wikidata"
+        },
+        {
+          "label": "Architect Eero Saarinen",
+          "publisher": "National Park Service",
+          "url": "https://www.nps.gov/jeff/planyourvisit/architect.htm",
+          "kind": "supporting"
+        }
+      ],
+      "wikipediaLinks": [
+        {
+          "qid": "Q2027162",
+          "url": "https://en.wikipedia.org/wiki/Gateway_Arch"
+        },
+        {
+          "qid": "Q167073",
+          "url": "https://en.wikipedia.org/wiki/Eero_Saarinen"
+        },
+        {
+          "qid": "Q29257",
+          "url": "https://en.wikipedia.org/wiki/TWA_Flight_Center"
+        }
+      ],
+      "distractors": [
+        {
+          "qid": "Q374276",
+          "label": "Adrian Smith",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q336432",
+          "label": "Gutzon Borglum",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q459464",
+          "label": "Skidmore, Owings & Merrill",
+          "exactPathMatch": false
+        }
+      ],
+      "distractorValidationOutcome": "Passed: all three alternatives are plausible in context, but none satisfies both exact relationships in the bounded live query.",
+      "uniqueIntermediaryCount": 1
+    },
+    {
+      "id": "rhodes-scholarship-rhodes-de-beers",
+      "category": "Geography and culture",
+      "decision": "approved",
+      "reason": "Both current Wikidata statements and direction were confirmed; relationship-specific sources support the material claims; the bounded exact-property query returned only the intended intermediary.",
+      "exactPath": "Rhodes Scholarship (Q1204346) —P138→ Cecil Rhodes (Q19825) ←P112— De Beers (Q471891)",
+      "qualifierConcerns": "No material qualifiers on either current statement.",
+      "sourceEvidence": [
+        {
+          "label": "Q1204346 P138 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q1204346#P138",
+          "kind": "wikidata"
+        },
+        {
+          "label": "Cecil Rhodes biography",
+          "publisher": "Encyclopaedia Britannica",
+          "url": "https://www.britannica.com/biography/Cecil-Rhodes",
+          "kind": "supporting"
+        },
+        {
+          "label": "Q471891 P112 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q471891#P112",
+          "kind": "wikidata"
+        },
+        {
+          "label": "Cecil Rhodes biography",
+          "publisher": "Encyclopaedia Britannica",
+          "url": "https://www.britannica.com/biography/Cecil-Rhodes",
+          "kind": "supporting"
+        }
+      ],
+      "wikipediaLinks": [
+        {
+          "qid": "Q1204346",
+          "url": "https://en.wikipedia.org/wiki/Rhodes_Scholarship"
+        },
+        {
+          "qid": "Q19825",
+          "url": "https://en.wikipedia.org/wiki/Cecil_Rhodes"
+        },
+        {
+          "qid": "Q471891",
+          "url": "https://en.wikipedia.org/wiki/De_Beers"
+        }
+      ],
+      "distractors": [
+        {
+          "qid": "Q23810",
+          "label": "Alfred Nobel",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q151414",
+          "label": "George Marshall",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q91",
+          "label": "Abraham Lincoln",
+          "exactPathMatch": false
+        }
+      ],
+      "distractorValidationOutcome": "Passed: all three alternatives are plausible in context, but none satisfies both exact relationships in the bounded live query.",
+      "uniqueIntermediaryCount": 1
+    },
+    {
+      "id": "stack-overflow-spolsky-yale",
+      "category": "Technology",
+      "decision": "approved",
+      "reason": "Both current Wikidata statements and direction were confirmed; relationship-specific sources support the material claims; the bounded exact-property query returned only the intended intermediary.",
+      "exactPath": "Stack Overflow (Q549037) —P112→ Joel Spolsky (Q2387083) —P69→ Yale University (Q49112)",
+      "qualifierConcerns": "No material qualifiers on either current statement.",
+      "sourceEvidence": [
+        {
+          "label": "Q549037 P112 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q549037#P112",
+          "kind": "wikidata"
+        },
+        {
+          "label": "Stack Overflow company history",
+          "publisher": "Stack Overflow",
+          "url": "https://stackoverflow.co/company/",
+          "kind": "supporting"
+        },
+        {
+          "label": "Q2387083 P69 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q2387083#P69",
+          "kind": "wikidata"
+        },
+        {
+          "label": "About Joel Spolsky",
+          "publisher": "Joel on Software",
+          "url": "https://www.joelonsoftware.com/about-me/",
+          "kind": "supporting"
+        }
+      ],
+      "wikipediaLinks": [
+        {
+          "qid": "Q549037",
+          "url": "https://en.wikipedia.org/wiki/Stack_Overflow"
+        },
+        {
+          "qid": "Q2387083",
+          "url": "https://en.wikipedia.org/wiki/Joel_Spolsky"
+        },
+        {
+          "qid": "Q49112",
+          "url": "https://en.wikipedia.org/wiki/Yale_University"
+        }
+      ],
+      "distractors": [
+        {
+          "qid": "Q312556",
+          "label": "Jeff Bezos",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q5284",
+          "label": "Bill Gates",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q1137062",
+          "label": "Jack Ma",
+          "exactPathMatch": false
+        }
+      ],
+      "distractorValidationOutcome": "Passed: all three alternatives are plausible in context, but none satisfies both exact relationships in the bounded live query.",
+      "uniqueIntermediaryCount": 1
+    },
+    {
+      "id": "github-wanstrath-cincinnati",
+      "category": "Technology",
+      "decision": "approved",
+      "reason": "Both current Wikidata statements and direction were confirmed; relationship-specific sources support the material claims; the bounded exact-property query returned only the intended intermediary.",
+      "exactPath": "GitHub (Q364) —P112→ Chris Wanstrath (Q27940879) —P69→ University of Cincinnati (Q153265)",
+      "qualifierConcerns": "Reviewed: P69/P580 studied from: 2003; P69/P582 studied until: 2005. Editorial wording preserves the dated or historical scope.",
+      "sourceEvidence": [
+        {
+          "label": "Q364 P112 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q364#P112",
+          "kind": "wikidata"
+        },
+        {
+          "label": "GitHub founders and history",
+          "publisher": "GitHub",
+          "url": "https://github.com/about",
+          "kind": "supporting"
+        },
+        {
+          "label": "Q27940879 P69 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q27940879#P69",
+          "kind": "wikidata"
+        },
+        {
+          "label": "Where coders connect",
+          "publisher": "University of Cincinnati",
+          "url": "https://magazine.uc.edu/editors_picks/recent_features/wanstrath.html",
+          "kind": "supporting"
+        }
+      ],
+      "wikipediaLinks": [
+        {
+          "qid": "Q364",
+          "url": "https://en.wikipedia.org/wiki/GitHub"
+        },
+        {
+          "qid": "Q27940879",
+          "url": "https://en.wikipedia.org/wiki/Chris_Wanstrath"
+        },
+        {
+          "qid": "Q153265",
+          "url": "https://en.wikipedia.org/wiki/University_of_Cincinnati"
+        }
+      ],
+      "distractors": [
+        {
+          "qid": "Q312556",
+          "label": "Jeff Bezos",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q5284",
+          "label": "Bill Gates",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q1137062",
+          "label": "Jack Ma",
+          "exactPathMatch": false
+        }
+      ],
+      "distractorValidationOutcome": "Passed: all three alternatives are plausible in context, but none satisfies both exact relationships in the bounded live query.",
+      "uniqueIntermediaryCount": 1
+    },
+    {
+      "id": "khan-academy-khan-mit",
+      "category": "Technology",
+      "decision": "approved",
+      "reason": "Both current Wikidata statements and direction were confirmed; relationship-specific sources support the material claims; the bounded exact-property query returned only the intended intermediary.",
+      "exactPath": "Khan Academy (Q94887) —P112→ Sal Khan (Q471472) —P69→ Massachusetts Institute of Technology (Q49108)",
+      "qualifierConcerns": "No material qualifiers on either current statement.",
+      "sourceEvidence": [
+        {
+          "label": "Q94887 P112 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q94887#P112",
+          "kind": "wikidata"
+        },
+        {
+          "label": "About Khan Academy",
+          "publisher": "Khan Academy",
+          "url": "https://www.khanacademy.org/about",
+          "kind": "supporting"
+        },
+        {
+          "label": "Q471472 P69 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q471472#P69",
+          "kind": "wikidata"
+        },
+        {
+          "label": "Sal Khan to deliver MIT Commencement address",
+          "publisher": "MIT News",
+          "url": "https://news.mit.edu/2011/khan-commencement-address-1206",
+          "kind": "supporting"
+        }
+      ],
+      "wikipediaLinks": [
+        {
+          "qid": "Q94887",
+          "url": "https://en.wikipedia.org/wiki/Khan_Academy"
+        },
+        {
+          "qid": "Q471472",
+          "url": "https://en.wikipedia.org/wiki/Sal_Khan"
+        },
+        {
+          "qid": "Q49108",
+          "url": "https://en.wikipedia.org/wiki/Massachusetts_Institute_of_Technology"
+        }
+      ],
+      "distractors": [
+        {
+          "qid": "Q312556",
+          "label": "Jeff Bezos",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q5284",
+          "label": "Bill Gates",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q1137062",
+          "label": "Jack Ma",
+          "exactPathMatch": false
+        }
+      ],
+      "distractorValidationOutcome": "Passed: all three alternatives are plausible in context, but none satisfies both exact relationships in the bounded live query.",
+      "uniqueIntermediaryCount": 1
+    },
+    {
+      "id": "pixar-catmull-utah",
+      "category": "Business",
+      "decision": "approved",
+      "reason": "Both current Wikidata statements and direction were confirmed; relationship-specific sources support the material claims; the bounded exact-property query returned only the intended intermediary.",
+      "exactPath": "Pixar (Q127552) —P112→ Ed Catmull (Q93161) —P69→ University of Utah (Q168515)",
+      "qualifierConcerns": "No material qualifiers on either current statement.",
+      "sourceEvidence": [
+        {
+          "label": "Q127552 P112 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q127552#P112",
+          "kind": "wikidata"
+        },
+        {
+          "label": "Ed Catmull biography",
+          "publisher": "Computer History Museum",
+          "url": "https://computerhistory.org/profile/ed-catmull/",
+          "kind": "supporting"
+        },
+        {
+          "label": "Q93161 P69 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q93161#P69",
+          "kind": "wikidata"
+        },
+        {
+          "label": "Ed Catmull biography",
+          "publisher": "Computer History Museum",
+          "url": "https://computerhistory.org/profile/ed-catmull/",
+          "kind": "supporting"
+        }
+      ],
+      "wikipediaLinks": [
+        {
+          "qid": "Q127552",
+          "url": "https://en.wikipedia.org/wiki/Pixar"
+        },
+        {
+          "qid": "Q93161",
+          "url": "https://en.wikipedia.org/wiki/Edwin_Catmull"
+        },
+        {
+          "qid": "Q168515",
+          "url": "https://en.wikipedia.org/wiki/University_of_Utah"
+        }
+      ],
+      "distractors": [
+        {
+          "qid": "Q312556",
+          "label": "Jeff Bezos",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q5284",
+          "label": "Bill Gates",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q1137062",
+          "label": "Jack Ma",
+          "exactPathMatch": false
+        }
+      ],
+      "distractorValidationOutcome": "Passed: all three alternatives are plausible in context, but none satisfies both exact relationships in the bounded live query.",
+      "uniqueIntermediaryCount": 1
+    },
+    {
+      "id": "fedex-smith-yale",
+      "category": "Business",
+      "decision": "approved",
+      "reason": "Both current Wikidata statements and direction were confirmed; relationship-specific sources support the material claims; the bounded exact-property query returned only the intended intermediary.",
+      "exactPath": "FedEx (Q459477) —P112→ Frederick W. Smith (Q324086) —P69→ Yale University (Q49112)",
+      "qualifierConcerns": "Reviewed: P69/P512 degree: Bachelor of Arts. Editorial wording preserves the dated or historical scope.",
+      "sourceEvidence": [
+        {
+          "label": "Q459477 P112 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q459477#P112",
+          "kind": "wikidata"
+        },
+        {
+          "label": "Frederick Smith biography",
+          "publisher": "Encyclopaedia Britannica",
+          "url": "https://www.britannica.com/biography/Frederick-W-Smith",
+          "kind": "supporting"
+        },
+        {
+          "label": "Q324086 P69 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q324086#P69",
+          "kind": "wikidata"
+        },
+        {
+          "label": "Frederick Smith biography",
+          "publisher": "Encyclopaedia Britannica",
+          "url": "https://www.britannica.com/biography/Frederick-W-Smith",
+          "kind": "supporting"
+        }
+      ],
+      "wikipediaLinks": [
+        {
+          "qid": "Q459477",
+          "url": "https://en.wikipedia.org/wiki/FedEx"
+        },
+        {
+          "qid": "Q324086",
+          "url": "https://en.wikipedia.org/wiki/Frederick_W._Smith"
+        },
+        {
+          "qid": "Q49112",
+          "url": "https://en.wikipedia.org/wiki/Yale_University"
+        }
+      ],
+      "distractors": [
+        {
+          "qid": "Q312556",
+          "label": "Jeff Bezos",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q5284",
+          "label": "Bill Gates",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q1137062",
+          "label": "Jack Ma",
+          "exactPathMatch": false
+        }
+      ],
+      "distractorValidationOutcome": "Passed: all three alternatives are plausible in context, but none satisfies both exact relationships in the bounded live query.",
+      "uniqueIntermediaryCount": 1
+    },
+    {
+      "id": "southwest-kelleher-wesleyan",
+      "category": "Business",
+      "decision": "approved",
+      "reason": "Both current Wikidata statements and direction were confirmed; relationship-specific sources support the material claims; the bounded exact-property query returned only the intended intermediary.",
+      "exactPath": "Southwest Airlines (Q503308) —P112→ Herb Kelleher (Q764247) —P69→ Wesleyan University (Q49167)",
+      "qualifierConcerns": "No material qualifiers on either current statement.",
+      "sourceEvidence": [
+        {
+          "label": "Q503308 P112 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q503308#P112",
+          "kind": "wikidata"
+        },
+        {
+          "label": "Herb Kelleher biography",
+          "publisher": "Southwest Airlines",
+          "url": "https://www.southwestairlinesinvestorrelations.com/our-company/history/",
+          "kind": "supporting"
+        },
+        {
+          "label": "Q764247 P69 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q764247#P69",
+          "kind": "wikidata"
+        },
+        {
+          "label": "Herb Kelleher biography",
+          "publisher": "Encyclopedia.com",
+          "url": "https://www.encyclopedia.com/education/economics-magazines/kelleher-herb",
+          "kind": "supporting"
+        }
+      ],
+      "wikipediaLinks": [
+        {
+          "qid": "Q503308",
+          "url": "https://en.wikipedia.org/wiki/Southwest_Airlines"
+        },
+        {
+          "qid": "Q764247",
+          "url": "https://en.wikipedia.org/wiki/Herb_Kelleher"
+        },
+        {
+          "qid": "Q49167",
+          "url": "https://en.wikipedia.org/wiki/Wesleyan_University"
+        }
+      ],
+      "distractors": [
+        {
+          "qid": "Q312556",
+          "label": "Jeff Bezos",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q5284",
+          "label": "Bill Gates",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q1137062",
+          "label": "Jack Ma",
+          "exactPathMatch": false
+        }
+      ],
+      "distractorValidationOutcome": "Passed: all three alternatives are plausible in context, but none satisfies both exact relationships in the bounded live query.",
+      "uniqueIntermediaryCount": 1
+    },
+    {
+      "id": "cosmos-sagan-cornell",
+      "category": "Science and innovation",
+      "decision": "approved",
+      "reason": "Both current Wikidata statements and direction were confirmed; relationship-specific sources support the material claims; the bounded exact-property query returned only the intended intermediary.",
+      "exactPath": "Cosmos (Q1194705) —P50→ Carl Sagan (Q410) —P108→ Cornell University (Q49115)",
+      "qualifierConcerns": "No material qualifiers on either current statement.",
+      "sourceEvidence": [
+        {
+          "label": "Q1194705 P50 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q1194705#P50",
+          "kind": "wikidata"
+        },
+        {
+          "label": "Carl Sagan biography",
+          "publisher": "Encyclopaedia Britannica",
+          "url": "https://www.britannica.com/biography/Carl-Sagan",
+          "kind": "supporting"
+        },
+        {
+          "label": "Q410 P108 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q410#P108",
+          "kind": "wikidata"
+        },
+        {
+          "label": "Carl Sagan at Cornell",
+          "publisher": "Cornell University",
+          "url": "https://news.cornell.edu/stories/1996/12/carl-sagan-cornell-astronomer-dies-today-dec-20-seattle",
+          "kind": "supporting"
+        }
+      ],
+      "wikipediaLinks": [
+        {
+          "qid": "Q1194705",
+          "url": "https://en.wikipedia.org/wiki/Cosmos_(Sagan_book)"
+        },
+        {
+          "qid": "Q410",
+          "url": "https://en.wikipedia.org/wiki/Carl_Sagan"
+        },
+        {
+          "qid": "Q49115",
+          "url": "https://en.wikipedia.org/wiki/Cornell_University"
+        }
+      ],
+      "distractors": [
+        {
+          "qid": "Q937",
+          "label": "Albert Einstein",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q7186",
+          "label": "Marie Curie",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q123913",
+          "label": "Alexander Fleming",
+          "exactPathMatch": false
+        }
+      ],
+      "distractorValidationOutcome": "Passed: all three alternatives are plausible in context, but none satisfies both exact relationships in the bounded live query.",
+      "uniqueIntermediaryCount": 1
+    },
+    {
+      "id": "pasteur-institute-pasteur-ens",
+      "category": "Science and innovation",
+      "decision": "approved",
+      "reason": "Both current Wikidata statements and direction were confirmed; relationship-specific sources support the material claims; the bounded exact-property query returned only the intended intermediary.",
+      "exactPath": "Pasteur Institute (Q391083) —P112→ Louis Pasteur (Q529) —P69→ École Normale Supérieure (Q83259)",
+      "qualifierConcerns": "Reviewed: P69/P580 studied from: 1844; P69/P582 studied until: 1845. Editorial wording preserves the dated or historical scope.",
+      "sourceEvidence": [
+        {
+          "label": "Q391083 P112 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q391083#P112",
+          "kind": "wikidata"
+        },
+        {
+          "label": "Louis Pasteur biography",
+          "publisher": "Encyclopaedia Britannica",
+          "url": "https://www.britannica.com/biography/Louis-Pasteur",
+          "kind": "supporting"
+        },
+        {
+          "label": "Q529 P69 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q529#P69",
+          "kind": "wikidata"
+        },
+        {
+          "label": "Louis Pasteur biography",
+          "publisher": "Encyclopaedia Britannica",
+          "url": "https://www.britannica.com/biography/Louis-Pasteur",
+          "kind": "supporting"
+        }
+      ],
+      "wikipediaLinks": [
+        {
+          "qid": "Q391083",
+          "url": "https://en.wikipedia.org/wiki/Pasteur_Institute"
+        },
+        {
+          "qid": "Q529",
+          "url": "https://en.wikipedia.org/wiki/Louis_Pasteur"
+        },
+        {
+          "qid": "Q83259",
+          "url": "https://en.wikipedia.org/wiki/École_normale_supérieure_(Paris)"
+        }
+      ],
+      "distractors": [
+        {
+          "qid": "Q937",
+          "label": "Albert Einstein",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q7186",
+          "label": "Marie Curie",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q123913",
+          "label": "Alexander Fleming",
+          "exactPathMatch": false
+        }
+      ],
+      "distractorValidationOutcome": "Passed: all three alternatives are plausible in context, but none satisfies both exact relationships in the bounded live query.",
+      "uniqueIntermediaryCount": 1
+    },
+    {
+      "id": "puskas-award-puskas-real-madrid",
+      "category": "Sports",
+      "decision": "approved",
+      "reason": "Both current Wikidata statements and direction were confirmed; relationship-specific sources support the material claims; the bounded exact-property query returned only the intended intermediary.",
+      "exactPath": "FIFA Puskás Award (Q616031) —P138→ Ferenc Puskás (Q482931) —P54→ Real Madrid (Q8682)",
+      "qualifierConcerns": "Reviewed: P54/P580 joined: 1958; P54/P582 left: 1966. Editorial wording preserves the dated or historical scope.",
+      "sourceEvidence": [
+        {
+          "label": "Q616031 P138 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q616031#P138",
+          "kind": "wikidata"
+        },
+        {
+          "label": "FIFA Puskás Award",
+          "publisher": "FIFA",
+          "url": "https://www.fifa.com/en/the-best-fifa-football-awards/puskas-award",
+          "kind": "supporting"
+        },
+        {
+          "label": "Q482931 P54 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q482931#P54",
+          "kind": "wikidata"
+        },
+        {
+          "label": "Ferenc Puskás profile",
+          "publisher": "Real Madrid",
+          "url": "https://www.realmadrid.com/en-US/the-club/history/football-legends/ferenc-puskas-biro",
+          "kind": "supporting"
+        }
+      ],
+      "wikipediaLinks": [
+        {
+          "qid": "Q616031",
+          "url": "https://en.wikipedia.org/wiki/FIFA_Puskás_Award"
+        },
+        {
+          "qid": "Q482931",
+          "url": "https://en.wikipedia.org/wiki/Ferenc_Puskás"
+        },
+        {
+          "qid": "Q8682",
+          "url": "https://en.wikipedia.org/wiki/Real_Madrid_CF"
+        }
+      ],
+      "distractors": [
+        {
+          "qid": "Q17515",
+          "label": "Diego Maradona",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q11571",
+          "label": "Cristiano Ronaldo",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q615",
+          "label": "Lionel Messi",
+          "exactPathMatch": false
+        }
+      ],
+      "distractorValidationOutcome": "Passed: all three alternatives are plausible in context, but none satisfies both exact relationships in the bounded live query.",
+      "uniqueIntermediaryCount": 1
+    },
+    {
+      "id": "kind-of-blue-davis-juilliard",
+      "category": "Music",
+      "decision": "approved",
+      "reason": "Both current Wikidata statements and direction were confirmed; relationship-specific sources support the material claims; the bounded exact-property query returned only the intended intermediary.",
+      "exactPath": "Kind of Blue (Q283221) —P175→ Miles Davis (Q93341) —P69→ Juilliard School (Q503246)",
+      "qualifierConcerns": "No material qualifiers on either current statement.",
+      "sourceEvidence": [
+        {
+          "label": "Q283221 P175 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q283221#P175",
+          "kind": "wikidata"
+        },
+        {
+          "label": "Miles Davis biography",
+          "publisher": "Encyclopaedia Britannica",
+          "url": "https://www.britannica.com/biography/Miles-Davis",
+          "kind": "supporting"
+        },
+        {
+          "label": "Q93341 P69 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q93341#P69",
+          "kind": "wikidata"
+        },
+        {
+          "label": "Miles Davis biography",
+          "publisher": "Encyclopaedia Britannica",
+          "url": "https://www.britannica.com/biography/Miles-Davis",
+          "kind": "supporting"
+        }
+      ],
+      "wikipediaLinks": [
+        {
+          "qid": "Q283221",
+          "url": "https://en.wikipedia.org/wiki/Kind_of_Blue"
+        },
+        {
+          "qid": "Q93341",
+          "url": "https://en.wikipedia.org/wiki/Miles_Davis"
+        },
+        {
+          "qid": "Q503246",
+          "url": "https://en.wikipedia.org/wiki/Juilliard_School"
+        }
+      ],
+      "distractors": [
+        {
+          "qid": "Q714",
+          "label": "Stevie Wonder",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q4028",
+          "label": "Paul Simon",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q392",
+          "label": "Bob Dylan",
+          "exactPathMatch": false
+        }
+      ],
+      "distractorValidationOutcome": "Passed: all three alternatives are plausible in context, but none satisfies both exact relationships in the bounded live query.",
+      "uniqueIntermediaryCount": 1
+    },
+    {
+      "id": "miseducation-hill-sister-act",
+      "category": "Music",
+      "decision": "approved",
+      "reason": "Both current Wikidata statements and direction were confirmed; relationship-specific sources support the material claims; the bounded exact-property query returned only the intended intermediary.",
+      "exactPath": "The Miseducation of Lauryn Hill (Q945926) —P175→ Lauryn Hill (Q214226) ←P161— Sister Act 2: Back in the Habit (Q1140762)",
+      "qualifierConcerns": "No material qualifiers on either current statement.",
+      "sourceEvidence": [
+        {
+          "label": "Q945926 P175 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q945926#P175",
+          "kind": "wikidata"
+        },
+        {
+          "label": "Lauryn Hill biography",
+          "publisher": "Encyclopaedia Britannica",
+          "url": "https://www.britannica.com/biography/Lauryn-Hill",
+          "kind": "supporting"
+        },
+        {
+          "label": "Q1140762 P161 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q1140762#P161",
+          "kind": "wikidata"
+        },
+        {
+          "label": "Sister Act 2 catalog record",
+          "publisher": "American Film Institute",
+          "url": "https://catalog.afi.com/Catalog/moviedetails/59667",
+          "kind": "supporting"
+        }
+      ],
+      "wikipediaLinks": [
+        {
+          "qid": "Q945926",
+          "url": "https://en.wikipedia.org/wiki/The_Miseducation_of_Lauryn_Hill"
+        },
+        {
+          "qid": "Q214226",
+          "url": "https://en.wikipedia.org/wiki/Lauryn_Hill"
+        },
+        {
+          "qid": "Q1140762",
+          "url": "https://en.wikipedia.org/wiki/Sister_Act_2:_Back_in_the_Habit"
+        }
+      ],
+      "distractors": [
+        {
+          "qid": "Q714",
+          "label": "Stevie Wonder",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q4028",
+          "label": "Paul Simon",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q392",
+          "label": "Bob Dylan",
+          "exactPathMatch": false
+        }
+      ],
+      "distractorValidationOutcome": "Passed: all three alternatives are plausible in context, but none satisfies both exact relationships in the bounded live query.",
+      "uniqueIntermediaryCount": 1
+    },
+    {
+      "id": "handmaids-tale-atwood-booker",
+      "category": "Literature and art",
+      "decision": "approved",
+      "reason": "Both current Wikidata statements and direction were confirmed; relationship-specific sources support the material claims; the bounded exact-property query returned only the intended intermediary.",
+      "exactPath": "The Handmaid's Tale (Q1541914) —P50→ Margaret Atwood (Q183492) —P166→ Booker Prize (Q160082)",
+      "qualifierConcerns": "Reviewed: P166/P585 award year: 2000; P166/P1686 winning work: The Blind Assassin. Editorial wording preserves the dated or historical scope.",
+      "sourceEvidence": [
+        {
+          "label": "Q1541914 P50 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q1541914#P50",
+          "kind": "wikidata"
+        },
+        {
+          "label": "The Handmaid's Tale",
+          "publisher": "Encyclopaedia Britannica",
+          "url": "https://www.britannica.com/topic/The-Handmaids-Tale",
+          "kind": "supporting"
+        },
+        {
+          "label": "Q183492 P166 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q183492#P166",
+          "kind": "wikidata"
+        },
+        {
+          "label": "Margaret Atwood's Booker Prize history",
+          "publisher": "The Booker Prizes",
+          "url": "https://thebookerprizes.com/the-booker-library/authors/margaret-atwood",
+          "kind": "supporting"
+        }
+      ],
+      "wikipediaLinks": [
+        {
+          "qid": "Q1541914",
+          "url": "https://en.wikipedia.org/wiki/The_Handmaid%27s_Tale"
+        },
+        {
+          "qid": "Q183492",
+          "url": "https://en.wikipedia.org/wiki/Margaret_Atwood"
+        },
+        {
+          "qid": "Q160082",
+          "url": "https://en.wikipedia.org/wiki/Booker_Prize"
+        }
+      ],
+      "distractors": [
+        {
+          "qid": "Q692",
+          "label": "William Shakespeare",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q3335",
+          "label": "George Orwell",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q6691",
+          "label": "J. R. R. Tolkien",
+          "exactPathMatch": false
+        }
+      ],
+      "distractorValidationOutcome": "Passed: all three alternatives are plausible in context, but none satisfies both exact relationships in the bounded live query.",
+      "uniqueIntermediaryCount": 1
+    },
+    {
+      "id": "nobel-peace-nobel-dynamite",
+      "category": "History and politics",
+      "reason": "Rejected: the Nobel Peace Prize item does not currently contain the proposed P138 named-after statement to Alfred Nobel, so the first edge is absent even though dynamite P61 Alfred Nobel is current.",
+      "path": "Nobel Peace Prize (Q35637) —P138→ Alfred Nobel (Q23810) ←P61— Dynamite (Q80728)",
+      "claims": [
+        {
+          "label": "Q35637 P138 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q35637#P138",
+          "kind": "wikidata"
+        },
+        {
+          "label": "Q80728 P61 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q80728#P61",
+          "kind": "wikidata"
+        }
+      ],
+      "nodes": [
+        {
+          "qid": "Q35637",
+          "name": "Nobel Peace Prize",
+          "wikipediaUrl": "https://en.wikipedia.org/wiki/Nobel_Peace_Prize",
+          "wikidataUrl": "https://www.wikidata.org/wiki/Q35637"
+        },
+        {
+          "qid": "Q23810",
+          "name": "Alfred Nobel",
+          "wikipediaUrl": "https://en.wikipedia.org/wiki/Alfred_Nobel",
+          "wikidataUrl": "https://www.wikidata.org/wiki/Q23810"
+        },
+        {
+          "qid": "Q80728",
+          "name": "Dynamite",
+          "wikipediaUrl": "https://en.wikipedia.org/wiki/Dynamite",
+          "wikidataUrl": "https://www.wikidata.org/wiki/Q80728"
+        }
+      ],
+      "dist": [
+        {
+          "id": "abraham-lincoln",
+          "label": "Abraham Lincoln",
+          "qid": "Q91"
+        },
+        {
+          "id": "george-washington",
+          "label": "George Washington",
+          "qid": "Q23"
+        },
+        {
+          "id": "george-marshall",
+          "label": "George Marshall",
+          "qid": "Q151414"
+        }
+      ],
+      "decision": "rejected",
+      "exactPath": "Nobel Peace Prize (Q35637) —P138→ Alfred Nobel (Q23810) ←P61— Dynamite (Q80728)",
+      "qualifierConcerns": "No qualifier can repair the missing or editorially misleading edge.",
+      "sourceEvidence": [
+        {
+          "label": "Q35637 P138 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q35637#P138",
+          "kind": "wikidata"
+        },
+        {
+          "label": "Q80728 P61 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q80728#P61",
+          "kind": "wikidata"
+        }
+      ],
+      "wikipediaLinks": [
+        {
+          "qid": "Q35637",
+          "url": "https://en.wikipedia.org/wiki/Nobel_Peace_Prize"
+        },
+        {
+          "qid": "Q23810",
+          "url": "https://en.wikipedia.org/wiki/Alfred_Nobel"
+        },
+        {
+          "qid": "Q80728",
+          "url": "https://en.wikipedia.org/wiki/Dynamite"
+        }
+      ],
+      "distractors": [
+        {
+          "qid": "Q91",
+          "label": "Abraham Lincoln",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q23",
+          "label": "George Washington",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q151414",
+          "label": "George Marshall",
+          "exactPathMatch": false
+        }
+      ],
+      "distractorValidationOutcome": "Checked: none of the three distractors repairs the absent intended edge; candidate rejected before answer fairness approval.",
+      "uniqueIntermediaryCount": 0
+    },
+    {
+      "id": "napoleon-theorem-emperor",
+      "category": "History and politics",
+      "reason": "Rejected despite a structurally unique live path: historians of mathematics do not have evidence that Napoleon originated the theorem, and publishing the eponym as authorship would be misleading.",
+      "path": "Napoleon's theorem (Q637418) —P138→ Napoleon (Q517) —P39→ Emperor of the French (Q5373953)",
+      "claims": [
+        {
+          "label": "Q637418 P138 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q637418#P138",
+          "kind": "wikidata"
+        },
+        {
+          "label": "Q517 P39 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q517#P39",
+          "kind": "wikidata"
+        },
+        {
+          "label": "Napoleon's theorem attribution note",
+          "publisher": "Wolfram MathWorld",
+          "url": "https://mathworld.wolfram.com/NapoleonsTheorem.html",
+          "kind": "supporting"
+        }
+      ],
+      "nodes": [
+        {
+          "qid": "Q637418",
+          "name": "Napoleon's theorem",
+          "wikipediaUrl": "https://en.wikipedia.org/wiki/Napoleon%27s_theorem",
+          "wikidataUrl": "https://www.wikidata.org/wiki/Q637418"
+        },
+        {
+          "qid": "Q517",
+          "name": "Napoleon",
+          "wikipediaUrl": "https://en.wikipedia.org/wiki/Napoleon",
+          "wikidataUrl": "https://www.wikidata.org/wiki/Q517"
+        },
+        {
+          "qid": "Q5373953",
+          "name": "Emperor of the French",
+          "wikipediaUrl": "https://en.wikipedia.org/wiki/Emperor_of_the_French",
+          "wikidataUrl": "https://www.wikidata.org/wiki/Q5373953"
+        }
+      ],
+      "dist": [
+        {
+          "id": "abraham-lincoln",
+          "label": "Abraham Lincoln",
+          "qid": "Q91"
+        },
+        {
+          "id": "george-washington",
+          "label": "George Washington",
+          "qid": "Q23"
+        },
+        {
+          "id": "george-marshall",
+          "label": "George Marshall",
+          "qid": "Q151414"
+        }
+      ],
+      "decision": "rejected",
+      "exactPath": "Napoleon's theorem (Q637418) —P138→ Napoleon (Q517) —P39→ Emperor of the French (Q5373953)",
+      "qualifierConcerns": "No qualifier can repair the missing or editorially misleading edge.",
+      "sourceEvidence": [
+        {
+          "label": "Q637418 P138 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q637418#P138",
+          "kind": "wikidata"
+        },
+        {
+          "label": "Q517 P39 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q517#P39",
+          "kind": "wikidata"
+        },
+        {
+          "label": "Napoleon's theorem attribution note",
+          "publisher": "Wolfram MathWorld",
+          "url": "https://mathworld.wolfram.com/NapoleonsTheorem.html",
+          "kind": "supporting"
+        }
+      ],
+      "wikipediaLinks": [
+        {
+          "qid": "Q637418",
+          "url": "https://en.wikipedia.org/wiki/Napoleon%27s_theorem"
+        },
+        {
+          "qid": "Q517",
+          "url": "https://en.wikipedia.org/wiki/Napoleon"
+        },
+        {
+          "qid": "Q5373953",
+          "url": "https://en.wikipedia.org/wiki/Emperor_of_the_French"
+        }
+      ],
+      "distractors": [
+        {
+          "qid": "Q91",
+          "label": "Abraham Lincoln",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q23",
+          "label": "George Washington",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q151414",
+          "label": "George Marshall",
+          "exactPathMatch": false
+        }
+      ],
+      "distractorValidationOutcome": "Checked: none of the three distractors repairs the absent intended edge; candidate rejected before answer fairness approval.",
+      "uniqueIntermediaryCount": 1
+    },
+    {
+      "id": "anne-frank-house-montessori",
+      "category": "History and politics",
+      "reason": "Rejected: the Anne Frank House P138 Anne Frank statement is current, but Anne Frank's P69 claims do not point to Montessori Lyceum Amsterdam (Q3960588); the intended second edge is absent.",
+      "path": "Anne Frank House (Q165366) —P138→ Anne Frank (Q4583) —P69→ Montessori Lyceum Amsterdam (Q3960588)",
+      "claims": [
+        {
+          "label": "Q165366 P138 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q165366#P138",
+          "kind": "wikidata"
+        },
+        {
+          "label": "Q4583 P69 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q4583#P69",
+          "kind": "wikidata"
+        }
+      ],
+      "nodes": [
+        {
+          "qid": "Q165366",
+          "name": "Anne Frank House",
+          "wikipediaUrl": "https://en.wikipedia.org/wiki/Anne_Frank_House",
+          "wikidataUrl": "https://www.wikidata.org/wiki/Q165366"
+        },
+        {
+          "qid": "Q4583",
+          "name": "Anne Frank",
+          "wikipediaUrl": "https://en.wikipedia.org/wiki/Anne_Frank",
+          "wikidataUrl": "https://www.wikidata.org/wiki/Q4583"
+        },
+        {
+          "qid": "Q3960588",
+          "name": "Montessori Lyceum Amsterdam",
+          "wikipediaUrl": "https://en.wikipedia.org/wiki/Montessori_Lyceum_Amsterdam",
+          "wikidataUrl": "https://www.wikidata.org/wiki/Q3960588"
+        }
+      ],
+      "dist": [
+        {
+          "id": "william-shakespeare",
+          "label": "William Shakespeare",
+          "qid": "Q692"
+        },
+        {
+          "id": "george-orwell",
+          "label": "George Orwell",
+          "qid": "Q3335"
+        },
+        {
+          "id": "j-r-r-tolkien",
+          "label": "J. R. R. Tolkien",
+          "qid": "Q6691"
+        }
+      ],
+      "decision": "rejected",
+      "exactPath": "Anne Frank House (Q165366) —P138→ Anne Frank (Q4583) —P69→ Montessori Lyceum Amsterdam (Q3960588)",
+      "qualifierConcerns": "No qualifier can repair the missing or editorially misleading edge.",
+      "sourceEvidence": [
+        {
+          "label": "Q165366 P138 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q165366#P138",
+          "kind": "wikidata"
+        },
+        {
+          "label": "Q4583 P69 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q4583#P69",
+          "kind": "wikidata"
+        }
+      ],
+      "wikipediaLinks": [
+        {
+          "qid": "Q165366",
+          "url": "https://en.wikipedia.org/wiki/Anne_Frank_House"
+        },
+        {
+          "qid": "Q4583",
+          "url": "https://en.wikipedia.org/wiki/Anne_Frank"
+        },
+        {
+          "qid": "Q3960588",
+          "url": "https://en.wikipedia.org/wiki/Montessori_Lyceum_Amsterdam"
+        }
+      ],
+      "distractors": [
+        {
+          "qid": "Q692",
+          "label": "William Shakespeare",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q3335",
+          "label": "George Orwell",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q6691",
+          "label": "J. R. R. Tolkien",
+          "exactPathMatch": false
+        }
+      ],
+      "distractorValidationOutcome": "Checked: none of the three distractors repairs the absent intended edge; candidate rejected before answer fairness approval.",
+      "uniqueIntermediaryCount": 0
+    },
+    {
+      "id": "mount-rushmore-borglum-stone-mountain",
+      "category": "Geography and world culture",
+      "reason": "Rejected: neither monument currently carries the proposed P84 architect statement to Gutzon Borglum, so the exact structured path does not exist even though reliable narrative sources describe his involvement.",
+      "path": "Mount Rushmore (Q83497) —P84→ Gutzon Borglum (Q336432) ←P84— Stone Mountain (Q609700)",
+      "claims": [
+        {
+          "label": "Q83497 P84 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q83497#P84",
+          "kind": "wikidata"
+        },
+        {
+          "label": "Q609700 P84 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q609700#P84",
+          "kind": "wikidata"
+        }
+      ],
+      "nodes": [
+        {
+          "qid": "Q83497",
+          "name": "Mount Rushmore",
+          "wikipediaUrl": "https://en.wikipedia.org/wiki/Mount_Rushmore",
+          "wikidataUrl": "https://www.wikidata.org/wiki/Q83497"
+        },
+        {
+          "qid": "Q336432",
+          "name": "Gutzon Borglum",
+          "wikipediaUrl": "https://en.wikipedia.org/wiki/Gutzon_Borglum",
+          "wikidataUrl": "https://www.wikidata.org/wiki/Q336432"
+        },
+        {
+          "qid": "Q609700",
+          "name": "Stone Mountain",
+          "wikipediaUrl": "https://en.wikipedia.org/wiki/Stone_Mountain",
+          "wikidataUrl": "https://www.wikidata.org/wiki/Q609700"
+        }
+      ],
+      "dist": [
+        {
+          "id": "eero-saarinen",
+          "label": "Eero Saarinen",
+          "qid": "Q167073"
+        },
+        {
+          "id": "peter-jackson",
+          "label": "Peter Jackson",
+          "qid": "Q4465"
+        },
+        {
+          "id": "alfonso-cuaron",
+          "label": "Alfonso Cuarón",
+          "qid": "Q28028"
+        }
+      ],
+      "decision": "rejected",
+      "exactPath": "Mount Rushmore (Q83497) —P84→ Gutzon Borglum (Q336432) ←P84— Stone Mountain (Q609700)",
+      "qualifierConcerns": "No qualifier can repair the missing or editorially misleading edge.",
+      "sourceEvidence": [
+        {
+          "label": "Q83497 P84 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q83497#P84",
+          "kind": "wikidata"
+        },
+        {
+          "label": "Q609700 P84 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q609700#P84",
+          "kind": "wikidata"
+        }
+      ],
+      "wikipediaLinks": [
+        {
+          "qid": "Q83497",
+          "url": "https://en.wikipedia.org/wiki/Mount_Rushmore"
+        },
+        {
+          "qid": "Q336432",
+          "url": "https://en.wikipedia.org/wiki/Gutzon_Borglum"
+        },
+        {
+          "qid": "Q609700",
+          "url": "https://en.wikipedia.org/wiki/Stone_Mountain"
+        }
+      ],
+      "distractors": [
+        {
+          "qid": "Q167073",
+          "label": "Eero Saarinen",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q4465",
+          "label": "Peter Jackson",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q28028",
+          "label": "Alfonso Cuarón",
+          "exactPathMatch": false
+        }
+      ],
+      "distractorValidationOutcome": "Checked: none of the three distractors repairs the absent intended edge; candidate rejected before answer fairness approval.",
+      "uniqueIntermediaryCount": 0
+    },
+    {
+      "id": "jackie-robinson-day-dodgers",
+      "category": "Sports",
+      "reason": "Rejected: Jackie Robinson Day lacks the proposed P138 statement and Robinson's current P54 team statements do not use the Brooklyn Dodgers item Q5869184; both exact edges fail.",
+      "path": "Jackie Robinson Day (Q585397) —P138→ Jackie Robinson (Q221048) —P54→ Brooklyn Dodgers (Q5869184)",
+      "claims": [
+        {
+          "label": "Q585397 P138 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q585397#P138",
+          "kind": "wikidata"
+        },
+        {
+          "label": "Q221048 P54 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q221048#P54",
+          "kind": "wikidata"
+        }
+      ],
+      "nodes": [
+        {
+          "qid": "Q585397",
+          "name": "Jackie Robinson Day",
+          "wikipediaUrl": "https://en.wikipedia.org/wiki/Jackie_Robinson_Day",
+          "wikidataUrl": "https://www.wikidata.org/wiki/Q585397"
+        },
+        {
+          "qid": "Q221048",
+          "name": "Jackie Robinson",
+          "wikipediaUrl": "https://en.wikipedia.org/wiki/Jackie_Robinson",
+          "wikidataUrl": "https://www.wikidata.org/wiki/Q221048"
+        },
+        {
+          "qid": "Q5869184",
+          "name": "Brooklyn Dodgers",
+          "wikipediaUrl": "https://en.wikipedia.org/wiki/Brooklyn_Dodgers",
+          "wikidataUrl": "https://www.wikidata.org/wiki/Q5869184"
+        }
+      ],
+      "dist": [
+        {
+          "id": "diego-maradona",
+          "label": "Diego Maradona",
+          "qid": "Q17515"
+        },
+        {
+          "id": "cristiano-ronaldo",
+          "label": "Cristiano Ronaldo",
+          "qid": "Q11571"
+        },
+        {
+          "id": "lionel-messi",
+          "label": "Lionel Messi",
+          "qid": "Q615"
+        }
+      ],
+      "decision": "rejected",
+      "exactPath": "Jackie Robinson Day (Q585397) —P138→ Jackie Robinson (Q221048) —P54→ Brooklyn Dodgers (Q5869184)",
+      "qualifierConcerns": "No qualifier can repair the missing or editorially misleading edge.",
+      "sourceEvidence": [
+        {
+          "label": "Q585397 P138 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q585397#P138",
+          "kind": "wikidata"
+        },
+        {
+          "label": "Q221048 P54 statement",
+          "publisher": "Wikidata",
+          "url": "https://www.wikidata.org/wiki/Q221048#P54",
+          "kind": "wikidata"
+        }
+      ],
+      "wikipediaLinks": [
+        {
+          "qid": "Q585397",
+          "url": "https://en.wikipedia.org/wiki/Jackie_Robinson_Day"
+        },
+        {
+          "qid": "Q221048",
+          "url": "https://en.wikipedia.org/wiki/Jackie_Robinson"
+        },
+        {
+          "qid": "Q5869184",
+          "url": "https://en.wikipedia.org/wiki/Brooklyn_Dodgers"
+        }
+      ],
+      "distractors": [
+        {
+          "qid": "Q17515",
+          "label": "Diego Maradona",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q11571",
+          "label": "Cristiano Ronaldo",
+          "exactPathMatch": false
+        },
+        {
+          "qid": "Q615",
+          "label": "Lionel Messi",
+          "exactPathMatch": false
+        }
+      ],
+      "distractorValidationOutcome": "Checked: none of the three distractors repairs the absent intended edge; candidate rejected before answer fairness approval.",
+      "uniqueIntermediaryCount": 0
+    }
+  ]
+}
