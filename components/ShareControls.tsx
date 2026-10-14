@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { shareConnection } from "@/lib/connection-share";
+import type { ConnectionOrigin } from "@/lib/connection-attribution";
 import { trackProductEvent } from "@/lib/product-analytics";
 
 type ShareControlsProps = {
@@ -11,6 +12,7 @@ type ShareControlsProps = {
   targetName: string;
   steps: number;
   path: string;
+  origin: ConnectionOrigin;
 };
 
 async function copyText(text: string) {
@@ -27,6 +29,7 @@ export default function ShareControls({
   targetName,
   steps,
   path,
+  origin,
 }: ShareControlsProps) {
   const [feedback, setFeedback] = useState("");
 
@@ -48,6 +51,7 @@ export default function ShareControls({
         toQid,
         steps,
         method: "copy_link",
+        origin,
       });
       setFeedback("Link copied");
     } catch (error: unknown) {
@@ -80,6 +84,7 @@ export default function ShareControls({
           toQid,
           steps,
           method: outcome === "copied" ? "share_fallback_copy" : "native_share",
+          origin,
         });
       }
       if (outcome === "copied") setFeedback("Link copied");

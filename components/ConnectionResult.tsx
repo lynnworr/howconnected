@@ -200,6 +200,7 @@ export default function ConnectionResult({
         targetName={share.targetName}
         steps={enrichedResult.bestPath.steps}
         path={share.path}
+        origin={origin}
       />
 
       <div className="mt-7 border-t border-[#e4e6e9] pt-6 text-center">

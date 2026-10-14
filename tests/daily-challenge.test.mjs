@@ -154,16 +154,19 @@ test("daily analytics claims prevent duplicate events without identifiers", () =
 });
 
 test("daily UI is noindex while gated, accessible, spoiler-safe, and graph-independent", async () => {
-  const [page, preview, component, analytics, styles] = await Promise.all([
+  const [page, preview, component, schema, styles] = await Promise.all([
     readFile(new URL("../app/daily/page.tsx", import.meta.url), "utf8"), readFile(new URL("../app/daily-preview/page.tsx", import.meta.url), "utf8"),
-    readFile(new URL("../components/DailyChallenge.tsx", import.meta.url), "utf8"), readFile(new URL("../lib/product-analytics.ts", import.meta.url), "utf8"), readFile(new URL("../app/globals.css", import.meta.url), "utf8"),
+    readFile(new URL("../components/DailyChallenge.tsx", import.meta.url), "utf8"), readFile(new URL("../lib/product-analytics-schema.ts", import.meta.url), "utf8"), readFile(new URL("../app/globals.css", import.meta.url), "utf8"),
   ]);
   assert.equal((page.match(/<h1/g) ?? []).length, 1); assert.match(page, /robots: \{ index: isDailyPubliclyLaunched\(\)/); assert.match(preview, /index: false/);
   assert.doesNotMatch(page, /previewWhenUnconfigured: true/);
+  assert.match(component, /const analyticsEnabled = !preview/);
+  assert.match(component, /if \(!analyticsEnabled\) return/);
+  assert.match(component, /return analyticsEnabled && claimDailyAnalyticsEvent/);
   assert.match(component, /<fieldset/); assert.match(component, /<legend/); assert.match(component, /type="radio"/); assert.match(component, /Hidden middle entity/);
   assert.match(component, /Explore the connection/); assert.match(component, /Explore the evidence/); assert.match(component, /noopener noreferrer/); assert.match(styles, /prefers-reduced-motion: reduce/);
   for (const event of ["daily_challenge_opened", "daily_challenge_answer_submitted", "daily_challenge_completed", "daily_wikipedia_link_clicked", "daily_evidence_link_clicked", "daily_challenge_result_shared", "daily_continued_exploration"]) {
-    assert.match(analytics, new RegExp(`"${event}"`)); assert.match(component, new RegExp(`"${event}"`));
+    assert.match(schema, new RegExp(`"${event}"`)); assert.match(component, new RegExp(`"${event}"`));
   }
   const beforeReveal = component.slice(0, component.indexOf("{revealed ? <div className=\"hc-daily-reveal"));
   assert.doesNotMatch(beforeReveal, /href=\{node\.wikipediaUrl/); assert.doesNotMatch(component, /answerText|fullUrl|email|userId/);

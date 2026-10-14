@@ -140,6 +140,7 @@ export default function ConnectionExplorer() {
     trackProductEvent("search_initiated", {
       fromQid: from.entity.id,
       toQid: to.entity.id,
+      origin: "homepage",
       sessionConnectionNumber,
     });
     if (hasViewedResultRef.current || hasViewedResultInSession()) {

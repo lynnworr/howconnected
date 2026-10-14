@@ -23,6 +23,7 @@ function relationshipDetail(item: PuzzleRelationship) {
 function externalLabel(label: string) { return <>{label} <span className="sr-only">(opens in a new tab)</span><span aria-hidden="true">↗</span></>; }
 
 export default function DailyChallenge({ dateKey, puzzle, puzzleNumber, preview = false, origin }: Props) {
+  const analyticsEnabled = !preview;
   const stored = useSyncExternalStore(subscribe, snapshot, serverSnapshot);
   const persisted = useMemo(() => parseDailyCompletionState(stored), [stored]);
   const [override, setOverride] = useState<DailyCompletionState | null>(null);
@@ -35,14 +36,15 @@ export default function DailyChallenge({ dateKey, puzzle, puzzleNumber, preview 
   const effectiveSelected = prior?.selectedOptionId ?? selected;
   const correct = effectiveSelected === puzzle.correctOptionId;
   useEffect(() => {
+    if (!analyticsEnabled) return;
     if (origin === "extension" && claimDailyAnalyticsEvent(window.sessionStorage, "extension-referral", dateKey, puzzle.id)) {
       trackProductEvent("extension_referral_opened", { destination: "daily", puzzleId: puzzle.id, category: puzzle.category });
     }
     if (!opened.current && claimDailyAnalyticsEvent(window.sessionStorage, "opened", dateKey, puzzle.id)) {
       opened.current = true;
-      trackProductEvent("daily_challenge_opened", { puzzleId: puzzle.id, category: puzzle.category, utcDate: dateKey });
+      trackProductEvent("daily_challenge_opened", { puzzleId: puzzle.id, category: puzzle.category, utcDate: dateKey, origin });
     }
-  }, [dateKey, origin, puzzle.category, puzzle.id]);
+  }, [analyticsEnabled, dateKey, origin, puzzle.category, puzzle.id]);
   useEffect(() => {
     const delay = Date.parse(`${dateKey}T00:00:00Z`) + 86_400_000 - Date.now();
     if (delay <= 0 || delay > 86_400_000) return;
@@ -50,19 +52,22 @@ export default function DailyChallenge({ dateKey, puzzle, puzzleNumber, preview 
     return () => window.clearTimeout(timer);
   }, [dateKey]);
 
-  function claim(event: string) { return claimDailyAnalyticsEvent(window.sessionStorage, event, dateKey, puzzle.id); }
+  function claim(event: string) { return analyticsEnabled && claimDailyAnalyticsEvent(window.sessionStorage, event, dateKey, puzzle.id); }
   function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault(); if (!selected || submitted || prior) return;
     const isCorrect = selected === puzzle.correctOptionId; setSubmitted(true);
-    if (claim("answer-submitted")) trackProductEvent("daily_challenge_answer_submitted", { puzzleId: puzzle.id, category: puzzle.category, isCorrect });
+    if (claim("answer-submitted")) trackProductEvent("daily_challenge_answer_submitted", { puzzleId: puzzle.id, category: puzzle.category, isCorrect, origin });
     const completion = completeDailyChallenge(state, { dateKey, puzzleId: puzzle.id, correct: isCorrect, selectedOptionId: selected });
     try { window.localStorage.setItem(DAILY_COMPLETION_STORAGE_KEY, JSON.stringify(completion.state)); } catch { /* Local progress is best-effort. */ }
     setOverride(completion.state);
-    if (completion.newlyCompleted && claim("completed")) trackProductEvent("daily_challenge_completed", { puzzleId: puzzle.id, category: puzzle.category, isCorrect });
+    if (completion.newlyCompleted && claim("completed")) trackProductEvent("daily_challenge_completed", { puzzleId: puzzle.id, category: puzzle.category, isCorrect, origin });
   }
   function trackLink(kind: "wikipedia" | "evidence", target: string) {
     const event = kind === "wikipedia" ? "daily_wikipedia_link_clicked" : "daily_evidence_link_clicked";
-    if (claim(`${kind}:${target}`)) trackProductEvent(event, { puzzleId: puzzle.id, category: puzzle.category, linkType: kind });
+    if (claim(`${kind}:${target}`)) trackProductEvent(event, { puzzleId: puzzle.id, category: puzzle.category, linkType: kind, origin });
+  }
+  function continueExploring() {
+    if (claim("continued-exploration")) trackProductEvent("daily_continued_exploration", { puzzleId: puzzle.id, category: puzzle.category, origin });
   }
   async function share() {
     const number = puzzleNumber ? ` #${puzzleNumber}` : "";
@@ -73,7 +78,7 @@ export default function DailyChallenge({ dateKey, puzzle, puzzleNumber, preview 
       else if (navigator.clipboard) { method = "clipboard"; await navigator.clipboard.writeText(`${text}\n\n${url}`); }
       else { setShareFeedback("Sharing is unavailable in this browser."); return; }
       setShareFeedback(method === "clipboard" ? "Spoiler-free result copied." : "Shared.");
-      if (claim(`shared:${method}`)) trackProductEvent("daily_challenge_result_shared", { puzzleId: puzzle.id, category: puzzle.category, method });
+      if (claim(`shared:${method}`)) trackProductEvent("daily_challenge_result_shared", { puzzleId: puzzle.id, category: puzzle.category, method, origin });
     } catch (error) { if (!(error instanceof DOMException && error.name === "AbortError")) setShareFeedback("Could not share this time."); }
   }
 
@@ -119,7 +124,7 @@ export default function DailyChallenge({ dateKey, puzzle, puzzleNumber, preview 
           </article>)}</div>
         </section>
         <div className="mt-7 flex flex-wrap items-center gap-3"><button type="button" onClick={share} className="hc-secondary-button min-h-10 rounded-full border px-4 text-sm font-bold focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#ff6846]">Share spoiler-free result</button>
-          <Link href="/explore" onClick={() => trackProductEvent("daily_continued_exploration", { puzzleId: puzzle.id, category: puzzle.category })} className="hc-primary-button inline-flex min-h-10 items-center rounded-full px-4 text-sm font-bold">Explore HowConnected</Link><span className="text-xs font-semibold text-[#657087]" aria-live="polite">{shareFeedback}</span></div>
+          <Link href="/explore" onClick={continueExploring} className="hc-primary-button inline-flex min-h-10 items-center rounded-full px-4 text-sm font-bold">Explore HowConnected</Link><span className="text-xs font-semibold text-[#657087]" aria-live="polite">{shareFeedback}</span></div>
       </div> : null}
     </section>
     <p className="mt-5 text-center text-xs leading-5 text-[#657087]">Progress stays in this browser and does not sync across devices. Skipping a day has no penalty or countdown.</p>

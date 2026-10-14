@@ -27,6 +27,7 @@
     ,"daily:links": "node scripts/verify-daily-links.mjs"
     ,"daily:discover": "node --env-file-if-exists=.env --env-file-if-exists=.env.local scripts/manage-daily-puzzles.mjs discover"
     ,"daily:export-review": "node scripts/manage-daily-puzzles.mjs export-review"
+    ,"growth:report": "node scripts/analyze-growth-events.mjs"
   },
   "dependencies": {
     "@vercel/analytics": "^2.0.1",

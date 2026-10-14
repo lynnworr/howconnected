@@ -25,12 +25,14 @@ test("daily extension attribution is bounded and uses the existing duplicate-saf
   assert.match(challenge, /claimDailyAnalyticsEvent\(window\.sessionStorage, "extension-referral"/);
   assert.match(challenge, /extension_referral_opened/);
   assert.match(challenge, /destination: "daily"/);
+  assert.match(challenge, /origin/);
   assert.doesNotMatch(challenge, /pageTitle|rawTitle|activeTabUrl/);
 });
 
 test("public beta analytics covers outcomes and engagement without raw queries", async () => {
-  const [analytics, explorer, result, share, surprise, feedback, explore, insights, attribution] = await Promise.all([
+  const [analytics, schema, explorer, result, share, surprise, feedback, explore, insights, attribution] = await Promise.all([
     readFile(new URL("../lib/product-analytics.ts", import.meta.url), "utf8"),
+    readFile(new URL("../lib/product-analytics-schema.ts", import.meta.url), "utf8"),
     readFile(new URL("../components/ConnectionExplorer.tsx", import.meta.url), "utf8"),
     readFile(new URL("../components/ConnectionResult.tsx", import.meta.url), "utf8"),
     readFile(new URL("../components/ShareControls.tsx", import.meta.url), "utf8"),
@@ -53,7 +55,7 @@ test("public beta analytics covers outcomes and engagement without raw queries",
     "related_connection_opened",
     "extension_referral_opened",
   ]) {
-    assert.match(analytics, new RegExp(`"${event}"`));
+    assert.match(schema, new RegExp(`"${event}"`));
   }
   assert.match(explorer, /search_initiated/);
   assert.match(explorer, /search_no_reliable_path/);
@@ -71,6 +73,7 @@ test("public beta analytics covers outcomes and engagement without raw queries",
   assert.doesNotMatch(attribution, /document\.referrer|localStorage|cookie/);
   assert.match(feedback, /path_feedback_submitted/);
   assert.doesNotMatch(analytics, /queryText|email|message/);
+  assert.doesNotMatch(schema, /answerText|pageTitle|fullUrl|email|ipAddress|userId/);
 });
 
 test("share success is tracked only after the share provider accepts or copies", async () => {

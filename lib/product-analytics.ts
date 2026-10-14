@@ -1,38 +1,8 @@
 "use client";
 
 import { track } from "@vercel/analytics";
-
-export type ProductEventName =
-  | "entity_lookup_completed"
-  | "search_initiated"
-  | "search_succeeded"
-  | "search_no_reliable_path"
-  | "search_timed_out"
-  | "search_failed"
-  | "alternate_paths_opened"
-  | "result_shared"
-  | "surprise_me_used"
-  | "entity_source_opened"
-  | "try_another_clicked"
-  | "additional_search_started"
-  | "surprise_me_shuffled"
-  | "explore_connection_opened"
-  | "explore_category_selected"
-  | "related_connection_opened"
-  | "result_next_action_clicked"
-  | "extension_referral_opened"
-  | "daily_challenge_opened"
-  | "daily_challenge_answer_submitted"
-  | "daily_challenge_completed"
-  | "daily_wikipedia_link_clicked"
-  | "daily_evidence_link_clicked"
-  | "daily_challenge_result_shared"
-  | "daily_continued_exploration";
-
-type ProductEventProperties = Record<
-  string,
-  string | number | boolean | null | undefined
->;
+import { sanitizeProductEvent, type ProductEventName, type ProductEventProperties } from "@/lib/product-analytics-schema";
+export type { ProductEventName } from "@/lib/product-analytics-schema";
 
 const SESSION_CONNECTION_COUNT_KEY = "connections-lab:connection-count";
 const SESSION_RESULT_VIEWED_KEY = "connections-lab:result-viewed";
@@ -42,7 +12,8 @@ export function trackProductEvent(
   properties: ProductEventProperties = {},
 ) {
   try {
-    track(name, properties);
+    const sanitized = sanitizeProductEvent(name, properties);
+    if (sanitized) track(name, sanitized);
   } catch {
     // Analytics must never block or break the product experience.
   }

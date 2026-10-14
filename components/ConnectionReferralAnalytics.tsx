@@ -15,7 +15,7 @@ export default function ConnectionReferralAnalytics({
   useEffect(() => {
     if (tracked.current) return;
     tracked.current = true;
-    trackProductEvent("extension_referral_opened", { fromQid, toQid });
+    trackProductEvent("extension_referral_opened", { destination: "connection", fromQid, toQid });
   }, [fromQid, toQid]);
 
   return null;
