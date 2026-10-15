@@ -8,7 +8,7 @@ import { SITE_ORIGIN } from "@/lib/seo";
 
 const demoSlug = "nasa-dwight-eisenhower";
 const demoUrl = `${SITE_ORIGIN}/embed/${demoSlug}`;
-const demoSnippet = `<iframe src="${demoUrl}" title="HowConnected relationship: NASA and Dwight D. Eisenhower" loading="lazy" width="100%" height="560" style="border:0;max-width:760px" sandbox="allow-scripts allow-popups allow-popups-to-escape-sandbox" referrerpolicy="strict-origin-when-cross-origin"></iframe>`;
+const demoSnippet = `<iframe src="${demoUrl}" title="HowConnected relationship: NASA and Dwight D. Eisenhower" loading="lazy" width="100%" height="560" style="border:0;max-width:760px" sandbox="allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox" referrerpolicy="strict-origin-when-cross-origin"></iframe>`;
 
 export const metadata: Metadata = {
   title: "Embed a verified connection | HowConnected",
@@ -29,7 +29,7 @@ export default async function WidgetsPage() {
       <section aria-labelledby="widget-demo">
         <h2 id="widget-demo">Interactive demo</h2>
         <div className="mt-4 overflow-hidden rounded-[24px] border border-[#dfe2e5] bg-[#f7f5ef]">
-          <iframe src={`/embed/${demoSlug}`} title="HowConnected relationship: NASA and Dwight D. Eisenhower" loading="lazy" width="100%" height="560" className="block w-full border-0" sandbox="allow-scripts allow-popups allow-popups-to-escape-sandbox" referrerPolicy="strict-origin-when-cross-origin" />
+          <iframe src={`/embed/${demoSlug}`} title="HowConnected relationship: NASA and Dwight D. Eisenhower" loading="lazy" width="100%" height="560" className="block w-full border-0" sandbox="allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox" referrerPolicy="strict-origin-when-cross-origin" />
         </div>
       </section>
 

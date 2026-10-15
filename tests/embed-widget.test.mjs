@@ -39,7 +39,7 @@ test("publisher page supplies a privacy-conscious responsive iframe", async () =
   ]);
   assert.match(page, /width="100%"/);
   assert.match(page, /height="560"/);
-  assert.match(page, /allow-scripts allow-popups allow-popups-to-escape-sandbox/);
+  assert.match(page, /allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox/);
   assert.match(page, /no third-party cookies, fingerprinting, personal identifiers/);
   assert.match(analytics, /widget_link_opened/);
   assert.match(attribution, /publisher_widget/);
