@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import PublicPageShell from "@/components/PublicPageShell";
+import FutureAdPlacement from "@/components/FutureAdPlacement";
 
 const title = "How HowConnected verifies relationships | HowConnected";
 const description =
@@ -99,6 +100,7 @@ export default function MethodologyPage() {
           search. Live results remain separate from pages that have completed editorial review.
         </p>
       </section>
+      <FutureAdPlacement placement="long-form-after-content" />
     </PublicPageShell>
   );
 }

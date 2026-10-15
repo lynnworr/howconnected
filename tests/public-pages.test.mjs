@@ -105,19 +105,19 @@ test("contact form uses shared theme surfaces without changing its submission co
   assert.match(form, /website: formData\.get\("website"\)/);
 });
 
-test("successful results include explanation sections and a non-rendering ad reservation", async () => {
-  const insights = await readFile(
-    new URL("../components/ConnectionInsights.tsx", import.meta.url),
-    "utf8",
-  );
-  const adPlacement = await readFile(
-    new URL("../components/FutureAdPlacement.tsx", import.meta.url),
-    "utf8",
-  );
+test("successful results include explanation sections and consent-gated ad reservations", async () => {
+  const [insights, result, adPlacement] = await Promise.all([
+    readFile(new URL("../components/ConnectionInsights.tsx", import.meta.url), "utf8"),
+    readFile(new URL("../components/ConnectionResult.tsx", import.meta.url), "utf8"),
+    readFile(new URL("../components/FutureAdPlacement.tsx", import.meta.url), "utf8"),
+  ]);
 
   assert.match(insights, /So, how are they connected\?/);
   assert.match(insights, /Why this path works/);
   assert.match(insights, /The fun part/);
-  assert.match(adPlacement, /return null/);
+  assert.match(result, /editorial \? \(/);
+  assert.match(adPlacement, /if \(!canRenderAdvertising\(activation\)\) return null/);
+  assert.match(adPlacement, /min-h-\[250px\]/);
+  assert.match(adPlacement, /Advertisement/);
   assert.doesNotMatch(adPlacement, /script/i);
 });

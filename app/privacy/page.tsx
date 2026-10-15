@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 export default function PrivacyPage() {
   return (
     <PublicPageShell
-      eyebrow="Last updated October 10, 2026"
+      eyebrow="Last updated October 14, 2026"
       title="Privacy Policy"
       intro="This policy explains the limited data HowConnected uses to understand and improve the service."
     >
@@ -71,8 +71,10 @@ export default function PrivacyPage() {
         <p>
           HowConnected does not currently display Google AdSense ads. The site
           may add advertising in the future. If it does, third-party vendors
-          such as Google may use cookies or other identifiers to serve,
-          personalize, and measure ads.
+          such as Google may use cookies, web beacons, IP addresses, or other
+          identifiers to serve, personalize, and measure ads. Before any ad
+          code is activated, this policy will identify the active providers
+          and explain the available consent and privacy choices.
         </p>
         <p>
           You can manage or opt out of personalized ads through

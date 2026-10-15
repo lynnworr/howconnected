@@ -153,7 +153,9 @@ export default function ConnectionResult({
 
       <ConnectionInsights path={enrichedResult.bestPath} editorial={editorial} />
 
-      <FutureAdPlacement placement="after-connection-content" />
+      {editorial ? (
+        <FutureAdPlacement placement="after-editorial-connection" />
+      ) : null}
 
       {enrichedResult.alternatePaths.length > 0 ? (
         <details

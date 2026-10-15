@@ -5,6 +5,7 @@ import AnalyticsLink from "@/components/AnalyticsLink";
 import NetworkBackdrop from "@/components/NetworkBackdrop";
 import PublicFooter from "@/components/PublicFooter";
 import PublicHeader from "@/components/PublicHeader";
+import FutureAdPlacement from "@/components/FutureAdPlacement";
 import {
   getApprovedExploreConnections,
   getFeaturedExploreConnection,
@@ -230,6 +231,8 @@ export default async function ExplorePage() {
               </article>
             </section>
           ) : null}
+
+          <FutureAdPlacement placement="explore-between-sections" />
 
           {remaining.length > 0 ? (
             <section className="mt-14" aria-labelledby="verified-connections">
