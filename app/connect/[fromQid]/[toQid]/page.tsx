@@ -13,6 +13,7 @@ import type { ConnectionPageData } from "@/lib/connection-page-data";
 import { getConnectionPageData } from "@/lib/connection-page-data";
 import { buildConnectionRouteMetadata } from "@/lib/connection-seo";
 import { getConnectionPath } from "@/lib/connection-share";
+import { getCanonicalConnectionUrl, SITE_ORIGIN } from "@/lib/seo";
 import { isValidQid } from "@/lib/wikidata-id";
 import {
   getConnectionOrigin,
@@ -125,17 +126,48 @@ async function ConnectionPageContent({
     );
   }
 
+  const editorialJsonLd = data.editorial
+    ? {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        name: data.editorial.headline,
+        description: data.editorial.introduction,
+        url: getCanonicalConnectionUrl(fromQid, toQid),
+        dateModified: data.editorial.verifiedAt,
+        inLanguage: "en",
+        isPartOf: {
+          "@type": "WebSite",
+          name: "HowConnected",
+          url: SITE_ORIGIN,
+        },
+        about: [
+          { "@type": "Thing", name: data.source.label },
+          { "@type": "Thing", name: data.target.label },
+        ],
+      }
+    : null;
+
   return (
-    <ConnectionResult
-      result={data.result}
-      share={{
-        sourceName: data.source.label,
-        targetName: data.target.label,
-        path: getConnectionPath(data.source.id, data.target.id),
-      }}
-      editorial={data.editorial}
-      origin={origin}
-    />
+    <>
+      {editorialJsonLd ? (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(editorialJsonLd).replace(/</g, "\\u003c"),
+          }}
+        />
+      ) : null}
+      <ConnectionResult
+        result={data.result}
+        share={{
+          sourceName: data.source.label,
+          targetName: data.target.label,
+          path: getConnectionPath(data.source.id, data.target.id),
+        }}
+        editorial={data.editorial}
+        origin={origin}
+      />
+    </>
   );
 }
 

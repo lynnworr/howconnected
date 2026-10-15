@@ -17,6 +17,7 @@ type SearchResponse = {
 
 type EntitySearchProps = {
   label: string;
+  hint: string;
   value: string;
   selected: SelectedEntity | null;
   onValueChange: (value: string) => void;
@@ -36,6 +37,7 @@ function isSelectedEntity(value: unknown): value is SelectedEntity {
 
 export default function EntitySearch({
   label,
+  hint,
   value,
   selected,
   onValueChange,
@@ -180,6 +182,7 @@ export default function EntitySearch({
             role="combobox"
             aria-autocomplete="list"
             aria-controls={listboxId}
+            aria-describedby={`${listboxId}-hint`}
             aria-expanded={isOpen}
             aria-activedescendant={
               isOpen && highlightedIndex >= 0
@@ -202,8 +205,8 @@ export default function EntitySearch({
             }}
             onKeyDown={handleKeyDown}
           />
-          <p className="mt-0.5 truncate text-xs text-[#7a8496]">
-            {selected ? selected.description || "Selected entity" : label}
+          <p id={`${listboxId}-hint`} className="mt-0.5 truncate text-xs text-[#7a8496]">
+            {selected ? selected.description || "Selected entity" : hint}
           </p>
         </div>
         {isSearching ? (

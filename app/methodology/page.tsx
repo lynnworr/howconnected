@@ -89,6 +89,16 @@ export default function MethodologyPage() {
           without changing the live discovery engine.
         </p>
       </section>
+
+      <section>
+        <h2>Put the method into practice</h2>
+        <p>
+          <Link href="/explore">Browse the reviewed collection</Link> to read evidence-backed
+          paths, <Link href="/daily">play The Missing Link</Link> to reveal one verified
+          connection at a time, or <Link href="/">choose two entities</Link> for a live graph
+          search. Live results remain separate from pages that have completed editorial review.
+        </p>
+      </section>
     </PublicPageShell>
   );
 }

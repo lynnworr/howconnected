@@ -212,6 +212,7 @@ export default function ConnectionExplorer() {
         <div className="flex flex-col items-stretch gap-3 md:flex-row md:items-center">
           <EntitySearch
             label="First entity"
+            hint="Start with any person, place, organization, work, team, or idea."
             value={from.text}
             selected={from.entity}
             onValueChange={(value) => updateText("from", value)}
@@ -229,6 +230,7 @@ export default function ConnectionExplorer() {
 
           <EntitySearch
             label="Second entity"
+            hint="Choose another entity to reveal the relationship path."
             value={to.text}
             selected={to.entity}
             onValueChange={(value) => updateText("to", value)}
