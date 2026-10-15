@@ -10,7 +10,7 @@ Approval is never guaranteed. The reviewed editorial collection is still modest,
 
 ## Confirmed current state
 
-- No AdSense publisher ID, verification tag, ad tag, advertising SDK, or `ads.txt` entry is present.
+- The owner-provided AdSense account identifier is present only in the global site-verification meta tag. No ad tag, advertising SDK, or `ads.txt` entry is present.
 - No Google-certified consent management platform is integrated.
 - The Privacy Policy truthfully says AdSense is not currently displayed and now explains the categories of technology that would require disclosure before activation.
 - Vercel Web Analytics is the only product analytics integration. The Phase 7A event allowlist and Phase 7C referral behavior are unchanged.
@@ -21,12 +21,11 @@ Approval is never guaranteed. The reviewed editorial collection is still modest,
 
 ## Confirmed blockers before activation
 
-1. The owner has not supplied an AdSense account publisher ID or chosen an ownership-verification method.
-2. The domain has not been shown locally as `Ready` in the owner’s AdSense Sites dashboard.
-3. No certified CMP or regional consent behavior has been configured or tested.
-4. The Privacy Policy is a readiness disclosure, not the final live-vendor disclosure. It must be reviewed against the actual Google/CMP configuration immediately before ad code is enabled.
-5. `ads.txt` is intentionally absent. It cannot be created correctly until AdSense provides the real publisher ID.
-6. Core Web Vitals, mobile placement behavior, consent flows, and ad-label separation have not been tested with real ad creative.
+1. The domain has not been shown locally as `Ready` in the owner’s AdSense Sites dashboard; the owner must ask AdSense to verify the deployed meta tag and review the site.
+2. No certified CMP or regional consent behavior has been configured or tested.
+3. The Privacy Policy is a readiness disclosure, not the final live-vendor disclosure. It must be reviewed against the actual Google/CMP configuration immediately before ad code is enabled.
+4. `ads.txt` is intentionally absent. Add it only from the exact snippet supplied by the owner’s AdSense account.
+5. Core Web Vitals, mobile placement behavior, consent flows, and ad-label separation have not been tested with real ad creative.
 
 ## Recommendations, not confirmed policy failures
 
@@ -74,8 +73,8 @@ At these assumptions, advertising becomes material only at sustained traffic in 
 
 1. Confirm that the owner is eligible for AdSense and controls `howconnected.app` and its HTML/deployment.
 2. Review Search Console indexing, manual actions, Core Web Vitals, mobile usability, sitemap processing, and the ten editorial canonical pages.
-3. Create or connect the owner’s AdSense account and add `howconnected.app` under **Sites**. Do not place an invented or borrowed publisher ID in the repository.
-4. Choose one ownership method offered by AdSense: the owner-provided meta tag, the AdSense code snippet, or the exact `ads.txt` snippet. A meta tag is the least coupled choice for review if the owner does not want ad code loaded yet.
+3. In the owner’s AdSense account, add `howconnected.app` under **Sites** and select meta-tag ownership verification. The exact owner-provided account identifier is already implemented globally; deploy it before requesting verification.
+4. Confirm that AdSense detects the deployed meta tag. Do not add the JavaScript snippet merely for ownership verification.
 5. Select Google Privacy & Messaging or another currently Google-certified CMP. Configure EEA, UK, and Swiss consent, decide personalized/non-personalized/limited-ad behavior, review US-state requirements, and obtain legal advice where appropriate.
 6. Update the Privacy Policy to name the actual providers and choices. Confirm Terms and contact details remain accurate.
 7. Add the exact account-provided `ads.txt` line at `https://www.howconnected.app/ads.txt`; verify HTTP 200, plain-text content, exact publisher ID, and AdSense’s Authorized status.

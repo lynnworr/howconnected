@@ -44,12 +44,14 @@ test("inactive placements never load ad scripts and stay away from daily gamepla
   assert.doesNotMatch(`${result}\n${explore}\n${methodology}`, /activation=/);
 });
 
-test("no publisher identifier or ads.txt placeholder is committed", async () => {
+test("the owner-provided verification identifier is metadata-only and ads remain inactive", async () => {
   const [layout, privacy] = await Promise.all([
     readFile(new URL("../app/layout.tsx", import.meta.url), "utf8"),
     readFile(new URL("../app/privacy/page.tsx", import.meta.url), "utf8"),
   ]);
-  assert.doesNotMatch(layout, /ca-pub-[0-9]{16}/);
+  assert.match(layout, /"google-adsense-account": "ca-pub-1188060943119206"/);
+  assert.equal((layout.match(/ca-pub-1188060943119206/g) ?? []).length, 1);
+  assert.doesNotMatch(layout, /adsbygoogle|googlesyndication|doubleclick/);
   assert.match(privacy, /does not currently display Google AdSense ads/);
   assert.match(privacy, /cookies, web beacons, IP addresses/);
 });

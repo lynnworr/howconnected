@@ -22,6 +22,9 @@ export const metadata: Metadata = {
   title: "HowConnected — Everything is connected.",
   description:
     "Pick any two people, companies, places, teams, works, or ideas and discover how they connect.",
+  other: {
+    "google-adsense-account": "ca-pub-1188060943119206",
+  },
   openGraph: {
     title: "HowConnected — Everything is connected.",
     description:
