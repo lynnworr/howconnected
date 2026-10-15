@@ -4,7 +4,7 @@ import DailyChallenge from "@/components/DailyChallenge";
 import NetworkBackdrop from "@/components/NetworkBackdrop";
 import PublicFooter from "@/components/PublicFooter";
 import PublicHeader from "@/components/PublicHeader";
-import { isExtensionAttribution } from "@/lib/connection-attribution";
+import { getDailyOrigin } from "@/lib/connection-attribution";
 import { getContentRunwayReport, getDailyScheduleState, getSafeDailyRequestDate, getUtcDateKey, isDailyPubliclyLaunched, MISSING_LINK_PUZZLES } from "@/lib/daily-puzzles";
 
 export const instant = false;
@@ -16,7 +16,7 @@ export async function generateMetadata(): Promise<Metadata> {
     description: "Find the hidden entity in a verified relationship path, then explore the connection and its evidence.",
     alternates: { canonical: "/daily" }, robots: { index: isDailyPubliclyLaunched(), follow: true },
     openGraph: { title: "The Missing Link — A HowConnected Daily Challenge", description: "Can you find the missing link?", url: "/daily", type: "website" },
-    twitter: { card: "summary", title: "The Missing Link", description: "A verified daily connection challenge from HowConnected." },
+    twitter: { card: "summary_large_image", title: "The Missing Link", description: "A verified daily connection challenge from HowConnected." },
   };
 }
 
@@ -24,7 +24,7 @@ export default async function DailyPage({ searchParams }: { searchParams: Promis
   await connection();
   const query = await searchParams;
   const requested = query.date;
-  const origin = isExtensionAttribution(query.source) ? "extension" as const : undefined;
+  const origin = getDailyOrigin(query.source);
   const now = new Date();
   const requestedDate = getSafeDailyRequestDate(typeof requested === "string" ? requested : undefined, now);
   const state = getDailyScheduleState(requestedDate);

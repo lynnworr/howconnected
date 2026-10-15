@@ -8,8 +8,14 @@ import {
   getDailyResult, getVisibleCurrentStreak, LEGACY_DAILY_COMPLETION_STORAGE_KEY, parseDailyCompletionState, type DailyCompletionState,
 } from "@/lib/daily-challenge-state";
 import { trackProductEvent } from "@/lib/product-analytics";
+import type { DailyOrigin } from "@/lib/connection-attribution";
+import {
+  buildAttributedShareUrl,
+  DAILY_SHARE_ATTRIBUTION,
+  getDailyShareCopy,
+} from "@/lib/share-attribution";
 
-type Props = { dateKey: string; puzzle: MissingLinkPuzzle; puzzleNumber?: number; preview?: boolean; origin?: "extension" };
+type Props = { dateKey: string; puzzle: MissingLinkPuzzle; puzzleNumber?: number; preview?: boolean; origin?: DailyOrigin };
 function subscribe(onChange: () => void) { window.addEventListener("storage", onChange); return () => window.removeEventListener("storage", onChange); }
 function snapshot() {
   try { return window.localStorage.getItem(DAILY_COMPLETION_STORAGE_KEY) ?? window.localStorage.getItem(LEGACY_DAILY_COMPLETION_STORAGE_KEY) ?? ""; } catch { return ""; }
@@ -70,12 +76,16 @@ export default function DailyChallenge({ dateKey, puzzle, puzzleNumber, preview 
     if (claim("continued-exploration")) trackProductEvent("daily_continued_exploration", { puzzleId: puzzle.id, category: puzzle.category, origin });
   }
   async function share() {
-    const number = puzzleNumber ? ` #${puzzleNumber}` : "";
-    const text = `The Missing Link — Daily Challenge${number}\n\nI solved today's connection!\n\nCan you find the missing link?`;
-    const url = new URL("/daily", window.location.origin).toString(); let method = "native_share";
+    const url = buildAttributedShareUrl(
+      "/daily",
+      DAILY_SHARE_ATTRIBUTION,
+      window.location.origin,
+    );
+    const content = getDailyShareCopy({ puzzleNumber, dateKey, url });
+    let method = "native_share";
     try {
-      if (navigator.share) await navigator.share({ title: "The Missing Link", text, url });
-      else if (navigator.clipboard) { method = "clipboard"; await navigator.clipboard.writeText(`${text}\n\n${url}`); }
+      if (navigator.share) await navigator.share({ title: content.title, text: content.text, url: content.url });
+      else if (navigator.clipboard) { method = "clipboard"; await navigator.clipboard.writeText(content.clipboardText); }
       else { setShareFeedback("Sharing is unavailable in this browser."); return; }
       setShareFeedback(method === "clipboard" ? "Spoiler-free result copied." : "Shared.");
       if (claim(`shared:${method}`)) trackProductEvent("daily_challenge_result_shared", { puzzleId: puzzle.id, category: puzzle.category, method, origin });
@@ -123,8 +133,11 @@ export default function DailyChallenge({ dateKey, puzzle, puzzleNumber, preview 
             <ul className="mt-2 space-y-1 text-sm text-[#657087]">{relationship.evidence.map((item) => <li key={item.url}><a href={item.url} target="_blank" rel="noopener noreferrer" onClick={() => trackLink("evidence", `${relationship.propertyId}:${item.kind}`)} className="font-semibold underline underline-offset-3 hover:text-[#b74a33] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#ff6846]">{externalLabel(item.label)}</a> — {item.publisher} <span className="text-xs">({item.kind === "wikidata" ? "structured claim" : "supporting source"})</span></li>)}</ul>
           </article>)}</div>
         </section>
-        <div className="mt-7 flex flex-wrap items-center gap-3"><button type="button" onClick={share} className="hc-secondary-button min-h-10 rounded-full border px-4 text-sm font-bold focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#ff6846]">Share spoiler-free result</button>
-          <Link href="/explore" onClick={continueExploring} className="hc-primary-button inline-flex min-h-10 items-center rounded-full px-4 text-sm font-bold">Explore HowConnected</Link><span className="text-xs font-semibold text-[#657087]" aria-live="polite">{shareFeedback}</span></div>
+        <section className="mt-7 border-t border-[#dfe2e5]/70 pt-6" aria-labelledby="share-result"><h3 id="share-result" className="text-lg font-bold text-[#1d2944]">Challenge complete</h3>
+          <p className="mt-1 text-sm leading-6 text-[#657087]">Share your completion without spoilers, explore another verified path, and come back after 00:00 UTC for tomorrow&apos;s puzzle.</p>
+          <div className="mt-4 flex flex-wrap items-center gap-3"><button type="button" onClick={share} className="hc-primary-button min-h-11 rounded-full px-5 text-sm font-bold focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#ff6846]">Share spoiler-free result</button>
+            <Link href="/explore" onClick={continueExploring} className="hc-secondary-button inline-flex min-h-11 items-center rounded-full border px-5 text-sm font-bold">Explore HowConnected</Link><span className="text-xs font-semibold text-[#657087]" role="status" aria-live="polite">{shareFeedback}</span></div>
+        </section>
       </div> : null}
     </section>
     <p className="mt-5 text-center text-xs leading-5 text-[#657087]">Progress stays in this browser and does not sync across devices. Skipping a day has no penalty or countdown.</p>

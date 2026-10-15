@@ -90,7 +90,7 @@ const REQUIRED_KEYS: Record<ProductEventName, readonly string[]> = {
 };
 
 const ENUMS: Record<string, readonly string[]> = {
-  origin: ["homepage", "shared_url", "extension"],
+  origin: ["homepage", "shared_url", "extension", "daily_share", "connection_share"],
   failureCategory: ["none", "no_strong_path", "semantic_quality_rejection", "timeout_or_budget", "upstream_wikidata", "neo4j_unavailable", "entity_not_found", "discovery_service"],
   method: ["copy_link", "share_fallback_copy", "native_share", "clipboard"],
   destinationType: ["wikipedia", "wikidata"],

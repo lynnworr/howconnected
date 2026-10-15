@@ -47,6 +47,14 @@ export default function ExtensionPage() {
           The popup also opens The Missing Link, HowConnected&apos;s verified
           daily connection challenge, even when the active tab is not Wikipedia.
         </p>
+        <p>
+          <Link
+            href="/daily"
+            className="inline-flex rounded-full bg-[#17233f] px-5 py-2.5 text-sm font-bold text-white transition hover:bg-[#ff6846] focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-[#ff6846]"
+          >
+            Play The Missing Link
+          </Link>
+        </p>
       </section>
 
       <section>

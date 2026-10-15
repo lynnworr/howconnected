@@ -1,16 +1,20 @@
 import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 import test from "node:test";
-import { getConnectionOrigin, isExtensionAttribution } from "../lib/connection-attribution.ts";
+import { getConnectionOrigin, getDailyOrigin, isExtensionAttribution } from "../lib/connection-attribution.ts";
 
 test("extension attribution accepts only the fixed non-identifying source value", () => {
   assert.equal(getConnectionOrigin("extension"), "extension");
+  assert.equal(getConnectionOrigin("connection_share"), "connection_share");
   assert.equal(getConnectionOrigin(["extension", "ignored"]), "extension");
   assert.equal(getConnectionOrigin("newsletter"), "shared_url");
   assert.equal(getConnectionOrigin(undefined), "shared_url");
   assert.equal(isExtensionAttribution("extension"), true);
   assert.equal(isExtensionAttribution(["extension", "ignored"]), true);
   assert.equal(isExtensionAttribution("newsletter"), false);
+  assert.equal(getDailyOrigin("daily_share"), "daily_share");
+  assert.equal(getDailyOrigin("connection_share"), undefined);
+  assert.equal(getDailyOrigin("newsletter"), undefined);
 });
 
 test("daily extension attribution is bounded and uses the existing duplicate-safe open event", async () => {
@@ -18,7 +22,7 @@ test("daily extension attribution is bounded and uses the existing duplicate-saf
     readFile(new URL("../app/daily/page.tsx", import.meta.url), "utf8"),
     readFile(new URL("../components/DailyChallenge.tsx", import.meta.url), "utf8"),
   ]);
-  assert.match(page, /isExtensionAttribution\(query\.source\)/);
+  assert.match(page, /getDailyOrigin\(query\.source\)/);
   assert.match(page, /origin=\{origin\}/);
   assert.match(challenge, /claimDailyAnalyticsEvent\(window\.sessionStorage, "opened"/);
   assert.match(challenge, /daily_challenge_opened/);

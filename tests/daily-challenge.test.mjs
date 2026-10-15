@@ -171,5 +171,5 @@ test("daily UI is noindex while gated, accessible, spoiler-safe, and graph-indep
   const beforeReveal = component.slice(0, component.indexOf("{revealed ? <div className=\"hc-daily-reveal"));
   assert.doesNotMatch(beforeReveal, /href=\{node\.wikipediaUrl/); assert.doesNotMatch(component, /answerText|fullUrl|email|userId/);
   assert.doesNotMatch(`${page}\n${component}`, /neo4j|\/api\/discover|\/api\/ingest/i);
-  assert.match(component, /I solved today's connection!/); assert.doesNotMatch(component.match(/const text =[^;]+;/s)?.[0] ?? "", /correctOptionId|pathFingerprint|explanation/);
+  assert.match(component, /getDailyShareCopy/); assert.doesNotMatch(component.match(/const content =[^;]+;/s)?.[0] ?? "", /correctOptionId|pathFingerprint|explanation/);
 });

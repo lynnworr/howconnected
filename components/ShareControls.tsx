@@ -4,6 +4,10 @@ import { useEffect, useState } from "react";
 import { shareConnection } from "@/lib/connection-share";
 import type { ConnectionOrigin } from "@/lib/connection-attribution";
 import { trackProductEvent } from "@/lib/product-analytics";
+import {
+  buildAttributedShareUrl,
+  CONNECTION_SHARE_ATTRIBUTION,
+} from "@/lib/share-attribution";
 
 type ShareControlsProps = {
   fromQid: string;
@@ -40,7 +44,11 @@ export default function ShareControls({
   }, [feedback]);
 
   function absoluteUrl() {
-    return new URL(path, window.location.origin).toString();
+    return buildAttributedShareUrl(
+      path,
+      CONNECTION_SHARE_ATTRIBUTION,
+      window.location.origin,
+    );
   }
 
   async function copyLink() {

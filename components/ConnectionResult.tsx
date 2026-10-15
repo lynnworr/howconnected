@@ -246,6 +246,14 @@ export default function ConnectionResult({
           >
             Surprise me
           </AnalyticsLink>
+          <AnalyticsLink
+            href="/daily"
+            event="result_next_action_clicked"
+            eventProperties={{ destination: "daily", fromQid, toQid }}
+            className="hc-secondary-button inline-flex min-h-10 items-center rounded-full border px-5 text-sm font-bold transition hover:-translate-y-0.5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#ff6846]"
+          >
+            Play The Missing Link
+          </AnalyticsLink>
         </div>
       </div>
     </section>

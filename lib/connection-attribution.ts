@@ -1,4 +1,15 @@
-export type ConnectionOrigin = "homepage" | "shared_url" | "extension";
+import {
+  CONNECTION_SHARE_ATTRIBUTION,
+  DAILY_SHARE_ATTRIBUTION,
+  isShareAttribution,
+} from "./share-attribution.ts";
+
+export type ConnectionOrigin =
+  | "homepage"
+  | "shared_url"
+  | "extension"
+  | "connection_share";
+export type DailyOrigin = "extension" | "daily_share";
 
 export const EXTENSION_ATTRIBUTION_PARAMETER = "source";
 export const EXTENSION_ATTRIBUTION_VALUE = "extension";
@@ -13,5 +24,19 @@ export function isExtensionAttribution(
 export function getConnectionOrigin(
   source: string | string[] | undefined,
 ): ConnectionOrigin {
-  return isExtensionAttribution(source) ? "extension" : "shared_url";
+  if (isExtensionAttribution(source)) return "extension";
+  if (isShareAttribution(source, CONNECTION_SHARE_ATTRIBUTION)) {
+    return "connection_share";
+  }
+  return "shared_url";
+}
+
+export function getDailyOrigin(
+  source: string | string[] | undefined,
+): DailyOrigin | undefined {
+  if (isExtensionAttribution(source)) return "extension";
+  if (isShareAttribution(source, DAILY_SHARE_ATTRIBUTION)) {
+    return "daily_share";
+  }
+  return undefined;
 }
