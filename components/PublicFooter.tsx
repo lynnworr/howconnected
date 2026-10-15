@@ -5,6 +5,7 @@ export const PUBLIC_FOOTER_LINKS = [
   { href: "/daily", label: "Daily challenge" },
   { href: "/methodology", label: "Methodology" },
   { href: "/extension", label: "Chrome extension" },
+  { href: "/widgets", label: "Embed a connection" },
   { href: "/about", label: "About" },
   { href: "/privacy", label: "Privacy" },
   { href: "/terms", label: "Terms" },

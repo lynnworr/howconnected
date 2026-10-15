@@ -57,6 +57,25 @@ body {
   font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
 }
 
+.hc-widget-shell {
+  background:
+    radial-gradient(circle at 8% 8%, rgba(255, 104, 70, 0.08), transparent 34%),
+    radial-gradient(circle at 92% 4%, rgba(40, 159, 155, 0.09), transparent 32%),
+    #f7f5ef;
+  color: #15213b;
+}
+
+.hc-widget-card {
+  border-color: rgba(23, 35, 63, 0.14);
+  background: rgba(255, 253, 249, 0.94);
+  box-shadow: 0 16px 54px rgba(34, 40, 53, 0.1);
+}
+
+.hc-widget-mark { background: #17233f; }
+.hc-widget-node { border-color: #e1e4e8; background: rgba(255, 255, 255, 0.78); }
+.hc-widget-node-source { border-color: #f1c5ba; background: #fff7f3; }
+.hc-widget-node-target { border-color: #b9dedb; background: #f2fbfa; }
+
 html {
   color-scheme: light;
 }

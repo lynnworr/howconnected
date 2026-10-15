@@ -24,6 +24,7 @@ export const PRODUCT_EVENT_NAMES = [
   "daily_evidence_link_clicked",
   "daily_challenge_result_shared",
   "daily_continued_exploration",
+  "widget_link_opened",
 ] as const;
 
 export type ProductEventName = (typeof PRODUCT_EVENT_NAMES)[number];
@@ -59,6 +60,7 @@ const EVENT_KEYS: Record<ProductEventName, readonly string[]> = {
   daily_evidence_link_clicked: ["puzzleId", "category", "linkType", "origin"],
   daily_challenge_result_shared: ["puzzleId", "category", "method", "origin"],
   daily_continued_exploration: ["puzzleId", "category", "origin"],
+  widget_link_opened: ["connection", "destination"],
 };
 
 const REQUIRED_KEYS: Record<ProductEventName, readonly string[]> = {
@@ -87,16 +89,17 @@ const REQUIRED_KEYS: Record<ProductEventName, readonly string[]> = {
   daily_evidence_link_clicked: ["puzzleId", "category", "linkType"],
   daily_challenge_result_shared: ["puzzleId", "category", "method"],
   daily_continued_exploration: ["puzzleId", "category"],
+  widget_link_opened: ["connection", "destination"],
 };
 
 const ENUMS: Record<string, readonly string[]> = {
-  origin: ["homepage", "shared_url", "extension", "daily_share", "connection_share"],
+  origin: ["homepage", "shared_url", "extension", "daily_share", "connection_share", "publisher_widget"],
   failureCategory: ["none", "no_strong_path", "semantic_quality_rejection", "timeout_or_budget", "upstream_wikidata", "neo4j_unavailable", "entity_not_found", "discovery_service"],
   method: ["copy_link", "share_fallback_copy", "native_share", "clipboard"],
   destinationType: ["wikipedia", "wikidata"],
   sourceContext: ["path", "share_card"],
   placement: ["card", "featured"],
-  destination: ["explore", "surprise_me", "connection", "daily"],
+  destination: ["explore", "surprise_me", "connection", "daily", "wikipedia", "wikidata", "evidence", "publisher_info"],
   linkType: ["wikipedia", "evidence"],
   category: [
     "Business", "Entertainment and film", "Geography and culture", "History and politics", "Literature and art", "Music", "Science and innovation", "Sports", "Technology",

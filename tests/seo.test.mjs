@@ -50,7 +50,7 @@ test("adds the daily canonical to the sitemap only after the complete launch gat
 test("allows public discovery while excluding private and API routes", () => {
   assert.deepEqual(ROBOTS_RULES, {
     userAgent: "*",
-    allow: ["/", "/connect/", "/daily", "/explore", "/methodology", "/extension", "/about", "/privacy", "/terms", "/contact"],
+    allow: ["/", "/connect/", "/daily", "/explore", "/methodology", "/extension", "/widgets", "/about", "/privacy", "/terms", "/contact"],
     disallow: ["/admin", "/api/"],
   });
 });

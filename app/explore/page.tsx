@@ -171,6 +171,9 @@ export default async function ExplorePage() {
             <p className="mt-3 text-sm text-[#657087]">
               Curious about the review process? <Link href="/methodology" className="font-bold text-[#a4432d] underline underline-offset-4">See how statements, dates, and sources are checked</Link>.
             </p>
+            <p className="mt-3 text-sm text-[#657087]">
+              Publishing a story or lesson? <Link href="/widgets" className="font-bold text-[#a4432d] underline underline-offset-4">Embed a reviewed connection</Link>.
+            </p>
             <nav aria-label="Explore by theme" className="mt-7 flex flex-wrap gap-2">
               {categories.map((category) => (
                 <AnalyticsLink
