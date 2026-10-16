@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 export default function PrivacyPage() {
   return (
     <PublicPageShell
-      eyebrow="Last updated October 14, 2026"
+      eyebrow="Last updated October 15, 2026"
       title="Privacy Policy"
       intro="This policy explains the limited data HowConnected uses to understand and improve the service."
     >
@@ -48,13 +48,21 @@ export default function PrivacyPage() {
         </p>
       </section>
       <section>
-        <h2>Contact messages</h2>
+        <h2>Contact messages and publisher requests</h2>
         <p>
           When you use the contact form, HowConnected sends the name, email
           address, subject, and message you provide to the site owner through
           an email delivery provider. Contact messages are not stored in the
           connection graph. This information is used to review and respond to
           your request and to prevent abuse of the form.
+        </p>
+        <p>
+          Publisher widget requests also send the organization name, contact
+          email, optional website URL, requested connection, intended use,
+          request scope, and optional nonbinding commercial-interest response
+          to the site owner. These details are used only to evaluate and reply
+          to the request. They are not automatically published, added to the
+          graph, or included in analytics events.
         </p>
       </section>
       <section>

@@ -1,6 +1,6 @@
 # Contact email setup
 
-The `/contact` form sends plain-text email through Resend. It does not store contact messages in Neo4j.
+The `/contact` form and `/widgets/request` publisher pilot form send plain-text owner notifications through Resend. They do not store messages or publisher requests in Neo4j, and they do not send automatic email to submitters.
 
 ## Resend
 
@@ -11,7 +11,7 @@ The `/contact` form sends plain-text email through Resend. It does not store con
 
 ## Shared rate limiter
 
-Production contact submissions require a shared Upstash Redis REST database. This prevents each Vercel function instance from maintaining an ineffective independent in-memory limit.
+Production contact and publisher-request submissions require a shared Upstash Redis REST database. They share the bounded contact-message limit, preventing each Vercel function instance from maintaining an ineffective independent in-memory limit.
 
 1. Create an Upstash Redis database in a suitable region.
 2. Copy its REST URL and REST token.
@@ -27,6 +27,6 @@ In the Vercel project, open **Settings > Environment Variables** and add these s
 - `UPSTASH_REDIS_REST_URL`: the Redis REST endpoint.
 - `UPSTASH_REDIS_REST_TOKEN`: the Redis REST token.
 
-After saving the variables, redeploy from Vercel so the deployment receives them. Submit one real test message and confirm that it arrives and that Reply-To uses the visitor's address.
+After saving the variables, redeploy from Vercel so the deployment receives them. With owner authorization, submit one contact test and one publisher-request test. Confirm both arrive as plain text at the private owner address and that Reply-To uses the visitor's address. Do not use a third party's email address for testing.
 
 If any email value or either Redis value is missing or invalid, production returns a user-friendly unavailable response and does not claim that a message was delivered. Local development may use a bounded in-memory limiter, but production never relies on it.

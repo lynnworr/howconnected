@@ -31,6 +31,15 @@ const sample = `date,event,segment_key,segment_value,count
 2026-10-15,explore_category_selected,,,3
 2026-10-15,related_connection_opened,,,2
 2026-10-15,daily_continued_exploration,,,4
+2026-10-15,publisher_landing_opened,,,15
+2026-10-15,publisher_demo_interacted,,,5
+2026-10-15,widget_embed_snippet_copied,,,4
+2026-10-15,publisher_request_cta_clicked,,,6
+2026-10-15,publisher_request_cta_clicked,publisherPlacement,hero,4
+2026-10-15,publisher_request_submitted,,,3
+2026-10-15,publisher_request_submitted,commercialInterest,occasional_custom,1
+2026-10-15,publisher_request_submitted,commercialInterest,ongoing_publishing,1
+2026-10-15,publisher_request_submitted,commercialInterest,maybe_price,1
 `;
 
 test("growth report calculates documented event rates without double-counting segments", () => {
@@ -44,7 +53,11 @@ test("growth report calculates documented event rates without double-counting se
     referrals: 7, connectionReferrals: 4, dailyReferrals: 3, successfulConnections: 2,
     connectionShares: 1, dailyCompletions: 2, dailyShares: 1,
   });
+  assert.equal(summary.publisher.requestRateFromCta, 0.5);
+  assert.equal(summary.publisher.successfulRequests, 3);
+  assert.equal(summary.publisher.ongoingPublishingInterest, 1);
   assert.match(renderGrowthReport(summary), /Counts are event occurrences, not unique people/);
+  assert.match(renderGrowthReport(summary), /Publisher pilot/);
 });
 
 test("growth report rejects unsupported fields instead of accepting arbitrary exports", () => {

@@ -19,6 +19,7 @@ export const PUBLIC_PAGE_PATHS = [
   "/methodology",
   "/extension",
   "/widgets",
+  "/widgets/request",
   "/about",
   "/privacy",
   "/terms",

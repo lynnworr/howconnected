@@ -25,6 +25,11 @@ export const PRODUCT_EVENT_NAMES = [
   "daily_challenge_result_shared",
   "daily_continued_exploration",
   "widget_link_opened",
+  "publisher_landing_opened",
+  "publisher_demo_interacted",
+  "widget_embed_snippet_copied",
+  "publisher_request_cta_clicked",
+  "publisher_request_submitted",
 ] as const;
 
 export type ProductEventName = (typeof PRODUCT_EVENT_NAMES)[number];
@@ -61,6 +66,11 @@ const EVENT_KEYS: Record<ProductEventName, readonly string[]> = {
   daily_challenge_result_shared: ["puzzleId", "category", "method", "origin"],
   daily_continued_exploration: ["puzzleId", "category", "origin"],
   widget_link_opened: ["connection", "destination"],
+  publisher_landing_opened: [],
+  publisher_demo_interacted: ["action"],
+  widget_embed_snippet_copied: [],
+  publisher_request_cta_clicked: ["publisherPlacement"],
+  publisher_request_submitted: ["requestScope", "commercialInterest"],
 };
 
 const REQUIRED_KEYS: Record<ProductEventName, readonly string[]> = {
@@ -90,6 +100,11 @@ const REQUIRED_KEYS: Record<ProductEventName, readonly string[]> = {
   daily_challenge_result_shared: ["puzzleId", "category", "method"],
   daily_continued_exploration: ["puzzleId", "category"],
   widget_link_opened: ["connection", "destination"],
+  publisher_landing_opened: [],
+  publisher_demo_interacted: ["action"],
+  widget_embed_snippet_copied: [],
+  publisher_request_cta_clicked: ["publisherPlacement"],
+  publisher_request_submitted: ["requestScope"],
 };
 
 const ENUMS: Record<string, readonly string[]> = {
@@ -105,6 +120,10 @@ const ENUMS: Record<string, readonly string[]> = {
     "Business", "Entertainment and film", "Geography and culture", "History and politics", "Literature and art", "Music", "Science and innovation", "Sports", "Technology",
     "Business & technology", "Entertainment & media", "History", "Places & culture", "Science & innovation",
   ],
+  action: ["open_demo"],
+  publisherPlacement: ["hero", "examples", "limitations"],
+  requestScope: ["one_widget", "ongoing_use"],
+  commercialInterest: ["occasional_custom", "ongoing_publishing", "maybe_price", "not_currently"],
 };
 
 const INTEGER_KEYS = new Set(["queryLength", "resultCount", "sessionConnectionNumber", "steps", "alternatePathCount"]);

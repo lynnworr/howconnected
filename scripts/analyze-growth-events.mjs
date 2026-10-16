@@ -4,7 +4,7 @@ import { fileURLToPath } from "node:url";
 import { PRODUCT_EVENT_NAMES } from "../lib/product-analytics-schema.ts";
 
 const EXPECTED_COLUMNS = ["date", "event", "segment_key", "segment_value", "count"];
-const SEGMENT_KEYS = new Set(["", "origin", "isCorrect", "destination", "category", "method", "placement"]);
+const SEGMENT_KEYS = new Set(["", "origin", "isCorrect", "destination", "category", "method", "placement", "publisherPlacement", "requestScope", "commercialInterest", "action"]);
 const EVENT_NAMES = new Set(PRODUCT_EVENT_NAMES);
 
 function isUtcDate(value) {
@@ -76,6 +76,9 @@ export function summarizeGrowthEvents(rows) {
   const dailyCompletions = total("daily_challenge_completed");
   const dailyShares = total("daily_challenge_result_shared");
   const extensionReferrals = total("extension_referral_opened");
+  const publisherLandingOpens = total("publisher_landing_opened");
+  const publisherCtaClicks = total("publisher_request_cta_clicked");
+  const publisherRequests = total("publisher_request_submitted");
   const dates = [...new Set(rows.map((row) => row.date))].sort();
   return {
     period: { start: dates[0] ?? null, end: dates.at(-1) ?? null, daysWithRows: dates.length },
@@ -104,6 +107,18 @@ export function summarizeGrowthEvents(rows) {
     discovery: {
       exploreConnectionOpens: total("explore_connection_opened"), categorySelections: total("explore_category_selected"),
       relatedConnectionOpens: total("related_connection_opened"), continuedFromDaily: total("daily_continued_exploration"),
+    },
+    publisher: {
+      landingOpens: publisherLandingOpens,
+      demoInteractions: total("publisher_demo_interacted"),
+      snippetCopies: total("widget_embed_snippet_copied"),
+      requestCtaClicks: publisherCtaClicks,
+      successfulRequests: publisherRequests,
+      occasionalCustomInterest: segment("publisher_request_submitted", "commercialInterest", "occasional_custom"),
+      ongoingPublishingInterest: segment("publisher_request_submitted", "commercialInterest", "ongoing_publishing"),
+      maybeDependingOnPrice: segment("publisher_request_submitted", "commercialInterest", "maybe_price"),
+      notCurrentlyInterested: segment("publisher_request_submitted", "commercialInterest", "not_currently"),
+      requestRateFromCta: rate(publisherRequests, publisherCtaClicks),
     },
   };
 }
@@ -149,6 +164,18 @@ export function renderGrowthReport(summary) {
     `- Category selections: ${summary.discovery.categorySelections}`,
     `- Related connection opens: ${summary.discovery.relatedConnectionOpens}`,
     `- Continued from daily: ${summary.discovery.continuedFromDaily}`,
+    "",
+    "## Publisher pilot",
+    `- Landing opens: ${summary.publisher.landingOpens}`,
+    `- Explicit demo interactions: ${summary.publisher.demoInteractions}`,
+    `- Successful snippet copies: ${summary.publisher.snippetCopies}`,
+    `- Request CTA clicks: ${summary.publisher.requestCtaClicks}`,
+    `- Successful requests: ${summary.publisher.successfulRequests}`,
+    `- Request rate from CTA clicks: ${percent(summary.publisher.requestRateFromCta)}`,
+    `- Occasional custom interest: ${summary.publisher.occasionalCustomInterest}`,
+    `- Ongoing publishing interest: ${summary.publisher.ongoingPublishingInterest}`,
+    `- Maybe, depending on price: ${summary.publisher.maybeDependingOnPrice}`,
+    `- Not currently interested: ${summary.publisher.notCurrentlyInterested}`,
     "",
     "Counts are event occurrences, not unique people. Traffic, landing pages, referrers, and visitor estimates remain in Vercel Web Analytics.",
   ].join("\n");

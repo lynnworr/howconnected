@@ -1,6 +1,9 @@
 "use client";
 
 import { useState } from "react";
+import { trackProductEvent } from "@/lib/product-analytics";
+
+const COPY_EVENT_SESSION_KEY = "howconnected:widget-snippet-copied";
 
 export default function EmbedSnippet({ snippet }: { snippet: string }) {
   const [copied, setCopied] = useState(false);
@@ -9,6 +12,14 @@ export default function EmbedSnippet({ snippet }: { snippet: string }) {
     try {
       await navigator.clipboard.writeText(snippet);
       setCopied(true);
+      try {
+        if (!window.sessionStorage.getItem(COPY_EVENT_SESSION_KEY)) {
+          window.sessionStorage.setItem(COPY_EVENT_SESSION_KEY, "1");
+          trackProductEvent("widget_embed_snippet_copied");
+        }
+      } catch {
+        trackProductEvent("widget_embed_snippet_copied");
+      }
       window.setTimeout(() => setCopied(false), 2000);
     } catch {
       setCopied(false);

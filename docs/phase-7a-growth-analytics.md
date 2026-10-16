@@ -65,6 +65,17 @@ Device-local completion and streak data remain in local storage. They are not up
 - `surprise_me_used` and `surprise_me_shuffled` use curated pair IDs and QIDs.
 - `path_feedback_submitted` is emitted server-side only after validated feedback storage succeeds. It contains QIDs, bounded rating/reason, and path length.
 
+### Publisher pilot
+
+- `publisher_landing_opened` is claimed once per browser session when `/widgets` mounts; it is an event occurrence, not a unique-person count.
+- `publisher_demo_interacted` records only the fixed explicit open-demo action. Cross-origin iframe disclosure interactions are not observed by the landing page.
+- `widget_embed_snippet_copied` fires only after a successful clipboard write and is claimed once per browser session.
+- `publisher_request_cta_clicked` records only a fixed landing-page placement.
+- `publisher_request_submitted` fires after the request API reports provider acceptance and contains only fixed request-scope and optional commercial-interest enums.
+- `widget_link_opened` records an approved connection slug and fixed destination from within a widget.
+
+No publisher name, email address, website URL, requested topic, article context, free-form text, IP address, or full URL is accepted by the analytics schema.
+
 ## Reliability changes
 
 All client product events now pass through a central runtime allowlist. An event is dropped if it has an unknown property, invalid QID, unapproved enum, malformed UTC date, unbounded identifier, or missing required property. This prevents an accidental future call from sending raw search text, answer text, email, page title, full URL, or an arbitrary source value.
@@ -101,6 +112,8 @@ The following behaviors are explicit:
 | Extension | Connection engagement | `search_succeeded` and `result_shared` with `origin=extension` |
 | Extension | Daily engagement | Daily completion/share events with `origin=extension` |
 | Discovery | Reviewed-content engagement | Explore, category, related-link, and daily-continuation events |
+| Publisher | Request conversion | Successful publisher requests / request CTA clicks; event occurrences, not qualified leads |
+| Publisher | Commercial-interest mix | Optional fixed interest selections on successful requests |
 | Retention | Repeat daily engagement | Aggregate daily opens/completions on multiple dates; not a person-level cohort |
 | Retention | Repeat search signal | `additional_search_started`; browser-session signal only |
 

@@ -15,6 +15,16 @@ test("product analytics accepts the bounded production schemas", () => {
   assert.deepEqual(sanitizeProductEvent("extension_referral_opened", {
     destination: "daily", puzzleId: "toy-story-hanks-apollo-13", category: "Entertainment and film",
   }), { destination: "daily", puzzleId: "toy-story-hanks-apollo-13", category: "Entertainment and film" });
+  assert.deepEqual(sanitizeProductEvent("publisher_landing_opened"), {});
+  assert.deepEqual(sanitizeProductEvent("publisher_request_cta_clicked", {
+    publisherPlacement: "hero",
+  }), { publisherPlacement: "hero" });
+  assert.deepEqual(sanitizeProductEvent("publisher_request_submitted", {
+    requestScope: "one_widget", commercialInterest: "maybe_price",
+  }), { requestScope: "one_widget", commercialInterest: "maybe_price" });
+  assert.deepEqual(sanitizeProductEvent("publisher_request_submitted", {
+    requestScope: "ongoing_use",
+  }), { requestScope: "ongoing_use" });
 });
 
 test("product analytics rejects missing, malformed, sensitive, and unbounded properties", () => {
@@ -25,6 +35,10 @@ test("product analytics rejects missing, malformed, sensitive, and unbounded pro
   assert.equal(sanitizeProductEvent("daily_challenge_opened", { puzzleId: "puzzle", category: "Music", utcDate: "2026-02-31" }), null);
   assert.equal(sanitizeProductEvent("extension_referral_opened", { destination: "daily", fromQid: "Q1", toQid: "Q2" }), null);
   assert.equal(sanitizeProductEvent("result_shared", { fromQid: "Q1", toQid: "Q2", steps: 2, method: "canceled", url: "https://example.com" }), null);
+  assert.equal(sanitizeProductEvent("publisher_request_submitted", {
+    requestScope: "one_widget", commercialInterest: "maybe_price", email: "private@example.com",
+  }), null);
+  assert.equal(sanitizeProductEvent("publisher_request_cta_clicked", { publisherPlacement: "email" }), null);
 });
 
 test("every product event has a unique allowlist without sensitive property names", () => {
@@ -32,6 +46,6 @@ test("every product event has a unique allowlist without sensitive property name
   for (const name of PRODUCT_EVENT_NAMES) {
     const keys = getProductEventKeys(name);
     assert.equal(keys.length, new Set(keys).size, `${name} contains duplicate keys`);
-    assert.ok(keys.every((key) => !/(queryText|answerText|pageTitle|fullUrl|email|ipAddress|userId)/i.test(key)), `${name} exposes a sensitive key`);
+    assert.ok(keys.every((key) => !/(queryText|answerText|pageTitle|fullUrl|email|ipAddress|userId|publisherName|websiteUrl|requestedConnection|intendedUse|message)/i.test(key)), `${name} exposes a sensitive key`);
   }
 });

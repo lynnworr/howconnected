@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 import test from "node:test";
 
-const PUBLIC_ROUTES = ["about", "privacy", "terms", "contact", "methodology", "extension"];
+const PUBLIC_ROUTES = ["about", "privacy", "terms", "contact", "methodology", "extension", "widgets/request"];
 
 test("all public policy and information routes have page content", async () => {
   const pages = await Promise.all(
@@ -21,6 +21,8 @@ test("all public policy and information routes have page content", async () => {
   assert.match(pages[4], /historical qualifiers/i);
   assert.match(pages[5], /requests no Chrome API permissions/);
   assert.match(pages[5], /Limited Use/);
+  assert.match(pages[6], /PublisherRequestForm/);
+  assert.match(pages[6], /editorial review/i);
 });
 
 test("public footer links to public routes and never exposes admin", async () => {
@@ -33,7 +35,10 @@ test("public footer links to public routes and never exposes admin", async () =>
     "utf8",
   );
 
-  for (const route of PUBLIC_ROUTES) assert.match(footer, new RegExp(`/${route}`));
+  for (const route of PUBLIC_ROUTES.filter((route) => route !== "widgets/request")) {
+    assert.match(footer, new RegExp(`/${route}`));
+  }
+  assert.match(footer, /\/widgets/);
   assert.doesNotMatch(footer, /\/admin/);
   assert.doesNotMatch(adminLayout, /PublicFooter/);
 });

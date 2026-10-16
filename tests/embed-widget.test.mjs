@@ -41,7 +41,29 @@ test("publisher page supplies a privacy-conscious responsive iframe", async () =
   assert.match(page, /height="560"/);
   assert.match(page, /allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox/);
   assert.match(page, /no third-party cookies, fingerprinting, personal identifiers/);
+  assert.match(page, /Turn your articles into interactive discoveries/);
+  assert.match(page, /Install in three steps/);
+  assert.match(page, /Request a custom widget/);
+  assert.match(page, /publisher_request_cta_clicked/);
+  assert.match(page, /PublisherLandingAnalytics/);
   assert.match(analytics, /widget_link_opened/);
   assert.match(attribution, /publisher_widget/);
   assert.doesNotMatch(page, /Stripe|subscription|premium plan/i);
+});
+
+test("publisher operations preserve a manual editorial approval boundary", async () => {
+  const [requestPage, requestRoute, core, operations, tracker] = await Promise.all([
+    readFile(new URL("../app/widgets/request/page.tsx", import.meta.url), "utf8"),
+    readFile(new URL("../app/api/widget-requests/route.ts", import.meta.url), "utf8"),
+    readFile(new URL("../lib/widget-request-core.ts", import.meta.url), "utf8"),
+    readFile(new URL("../docs/phase-7f-publisher-pilot.md", import.meta.url), "utf8"),
+    readFile(new URL("../docs/publisher-pilot-tracker.template.csv", import.meta.url), "utf8"),
+  ]);
+  assert.match(requestPage, /every request is evaluated manually/i);
+  assert.match(requestRoute, /deliverWidgetRequestWithResend/);
+  assert.doesNotMatch(requestRoute + core, /editorial-connections|discoverConnection|getNeo4jDriver|ingest/i);
+  assert.match(operations, /Manual editorial fulfillment workflow/);
+  assert.match(operations, /Never expose a pending request through the embed allowlist/i);
+  assert.match(tracker, /prospect_organization/);
+  assert.match(tracker, /willingness_to_pay_indication/);
 });
