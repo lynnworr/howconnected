@@ -2,6 +2,10 @@ import type { NextRequest } from "next/server";
 import { ingestWikidataEntity } from "@/lib/ingest-wikidata";
 import { Neo4jConfigurationError } from "@/lib/neo4j";
 import {
+  neo4jWriteMaintenanceResponse,
+  Neo4jWriteMaintenanceError,
+} from "@/lib/neo4j-write-maintenance";
+import {
   isValidQid,
   WikidataEntityNotFoundError,
   WikidataFetchError,
@@ -21,6 +25,12 @@ export async function GET(request: NextRequest) {
     const result = await ingestWikidataEntity(qid);
     return Response.json({ success: true, ...result });
   } catch (error: unknown) {
+    if (error instanceof Neo4jWriteMaintenanceError) {
+      return neo4jWriteMaintenanceResponse(
+        "Graph ingestion is temporarily paused for database maintenance.",
+      );
+    }
+
     if (error instanceof WikidataEntityNotFoundError) {
       return Response.json(
         { success: false, error: error.message },

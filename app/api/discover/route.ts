@@ -2,6 +2,10 @@ import type { NextRequest } from "next/server";
 import { discoverConnection } from "@/lib/discover-connection";
 import { Neo4jConfigurationError } from "@/lib/neo4j";
 import {
+  neo4jWriteMaintenanceResponse,
+  Neo4jWriteMaintenanceError,
+} from "@/lib/neo4j-write-maintenance";
+import {
   isValidQid,
   WikidataEntityNotFoundError,
   WikidataFetchError,
@@ -71,6 +75,12 @@ export async function GET(request: NextRequest) {
       alternatePaths: consumerResult.alternatePaths.map(toConsumerPath),
     });
   } catch (error: unknown) {
+    if (error instanceof Neo4jWriteMaintenanceError) {
+      return neo4jWriteMaintenanceResponse(
+        "Graph expansion is temporarily paused for database maintenance.",
+      );
+    }
+
     if (error instanceof WikidataEntityNotFoundError) {
       return Response.json(
         { found: false, failureCategory: "entity_not_found", error: error.message },

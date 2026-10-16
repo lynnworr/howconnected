@@ -1,6 +1,10 @@
 import { track } from "@vercel/analytics/server";
 import { handlePathFeedbackRequest } from "@/lib/path-feedback";
 import { Neo4jConfigurationError } from "@/lib/neo4j";
+import {
+  neo4jWriteMaintenanceResponse,
+  Neo4jWriteMaintenanceError,
+} from "@/lib/neo4j-write-maintenance";
 import { storePathFeedback } from "@/lib/store-path-feedback";
 
 export async function POST(request: Request) {
@@ -24,6 +28,12 @@ export async function POST(request: Request) {
       }
     });
   } catch (error: unknown) {
+    if (error instanceof Neo4jWriteMaintenanceError) {
+      return neo4jWriteMaintenanceResponse(
+        "Feedback storage is temporarily paused for database maintenance.",
+      );
+    }
+
     if (error instanceof Neo4jConfigurationError) {
       return Response.json(
         { error: "Feedback storage is not configured." },

@@ -17,6 +17,7 @@ import {
   type WikidataEntitySummary,
 } from "@/lib/wikidata";
 import { getNeo4jDriver } from "@/lib/neo4j";
+import { assertNeo4jWritesAllowed } from "@/lib/neo4j-write-maintenance";
 import {
   classifyEntityDomain,
   hasKnownEntityDomain,
@@ -212,6 +213,7 @@ export async function ingestWikidataEntityWithMetadata(
   qid: string,
   options: WikidataIngestionOptions = {},
 ): Promise<WikidataIngestionResult> {
+  assertNeo4jWritesAllowed();
   const startedAt = Date.now();
   const entity = await fetchWikidataEntity(qid);
   const entityFetchedAt = Date.now();
