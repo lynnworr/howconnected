@@ -4,7 +4,7 @@ import { fileURLToPath } from "node:url";
 import { PRODUCT_EVENT_NAMES } from "../lib/product-analytics-schema.ts";
 
 const EXPECTED_COLUMNS = ["date", "event", "segment_key", "segment_value", "count"];
-const SEGMENT_KEYS = new Set(["", "origin", "isCorrect", "destination", "category", "method", "placement", "publisherPlacement", "requestScope", "commercialInterest", "action", "connection", "navigationPlacement", "extensionPlacement"]);
+const SEGMENT_KEYS = new Set(["", "origin", "isCorrect", "destination", "category", "method", "placement", "publisherPlacement", "requestScope", "commercialInterest", "action", "connection", "navigationPlacement", "extensionPlacement", "recommendationSurface", "recommendationReason"]);
 const EVENT_NAMES = new Set(PRODUCT_EVENT_NAMES);
 
 function isUtcDate(value) {
@@ -84,6 +84,8 @@ export function summarizeGrowthEvents(rows) {
   const homepageDiscoveryActions = total("homepage_discovery_interacted");
   const navigationClicks = total("navigation_link_clicked");
   const extensionInstallClicks = total("extension_install_clicked");
+  const recommendationImpressions = total("recommended_connection_impression");
+  const recommendationOpens = total("recommended_connection_opened");
   const dates = [...new Set(rows.map((row) => row.date))].sort();
   return {
     period: { start: dates[0] ?? null, end: dates.at(-1) ?? null, daysWithRows: dates.length },
@@ -112,6 +114,11 @@ export function summarizeGrowthEvents(rows) {
     discovery: {
       exploreConnectionOpens: total("explore_connection_opened"), categorySelections: total("explore_category_selected"),
       relatedConnectionOpens: total("related_connection_opened"), continuedFromDaily: total("daily_continued_exploration"),
+      recommendationImpressions, recommendationOpens,
+      recommendationOpenRate: rate(recommendationOpens, recommendationImpressions),
+      resultRecommendationOpens: segment("recommended_connection_opened", "recommendationSurface", "result"),
+      dailyRecommendationOpens: segment("recommended_connection_opened", "recommendationSurface", "daily"),
+      resultContinuationActions: total("result_next_action_clicked"),
       homepageExamples, homepageSearchExamples, homepageDiscoveryActions, navigationClicks, extensionInstallClicks,
     },
     publisher: {
@@ -169,6 +176,11 @@ export function renderGrowthReport(summary) {
     `- Explore connection opens: ${summary.discovery.exploreConnectionOpens}`,
     `- Category selections: ${summary.discovery.categorySelections}`,
     `- Related connection opens: ${summary.discovery.relatedConnectionOpens}`,
+    `- Recommendation impressions: ${summary.discovery.recommendationImpressions}`,
+    `- Recommendation opens: ${summary.discovery.recommendationOpens} (${percent(summary.discovery.recommendationOpenRate)} of impressions)`,
+    `- Result recommendation opens: ${summary.discovery.resultRecommendationOpens}`,
+    `- Daily recommendation opens: ${summary.discovery.dailyRecommendationOpens}`,
+    `- Result continuation actions: ${summary.discovery.resultContinuationActions}`,
     `- Continued from daily: ${summary.discovery.continuedFromDaily}`,
     `- Homepage reviewed examples opened: ${summary.discovery.homepageExamples}`,
     `- Homepage search examples selected: ${summary.discovery.homepageSearchExamples}`,

@@ -2,6 +2,8 @@
 
 import Link from "next/link";
 import { useEffect, useMemo, useRef, useState, useSyncExternalStore, type FormEvent } from "react";
+import ConnectionRecommendations from "@/components/ConnectionRecommendations";
+import type { ConnectionRecommendation } from "@/lib/connection-recommendations";
 import type { MissingLinkPuzzle, PuzzleRelationship } from "@/lib/daily-puzzles";
 import {
   claimDailyAnalyticsEvent, completeDailyChallenge, DAILY_COMPLETION_STORAGE_KEY,
@@ -15,7 +17,7 @@ import {
   getDailyShareCopy,
 } from "@/lib/share-attribution";
 
-type Props = { dateKey: string; puzzle: MissingLinkPuzzle; puzzleNumber?: number; preview?: boolean; origin?: DailyOrigin };
+type Props = { dateKey: string; puzzle: MissingLinkPuzzle; puzzleNumber?: number; preview?: boolean; origin?: DailyOrigin; recommendations?: readonly ConnectionRecommendation[] };
 function subscribe(onChange: () => void) { window.addEventListener("storage", onChange); return () => window.removeEventListener("storage", onChange); }
 function snapshot() {
   try { return window.localStorage.getItem(DAILY_COMPLETION_STORAGE_KEY) ?? window.localStorage.getItem(LEGACY_DAILY_COMPLETION_STORAGE_KEY) ?? ""; } catch { return ""; }
@@ -28,7 +30,7 @@ function relationshipDetail(item: PuzzleRelationship) {
 }
 function externalLabel(label: string) { return <>{label} <span className="sr-only">(opens in a new tab)</span><span aria-hidden="true">↗</span></>; }
 
-export default function DailyChallenge({ dateKey, puzzle, puzzleNumber, preview = false, origin }: Props) {
+export default function DailyChallenge({ dateKey, puzzle, puzzleNumber, preview = false, origin, recommendations = [] }: Props) {
   const analyticsEnabled = !preview;
   const stored = useSyncExternalStore(subscribe, snapshot, serverSnapshot);
   const persisted = useMemo(() => parseDailyCompletionState(stored), [stored]);
@@ -133,6 +135,7 @@ export default function DailyChallenge({ dateKey, puzzle, puzzleNumber, preview 
             <ul className="mt-2 space-y-1 text-sm text-[#657087]">{relationship.evidence.map((item) => <li key={item.url}><a href={item.url} target="_blank" rel="noopener noreferrer" onClick={() => trackLink("evidence", `${relationship.propertyId}:${item.kind}`)} className="font-semibold underline underline-offset-3 hover:text-[#b74a33] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#ff6846]">{externalLabel(item.label)}</a> — {item.publisher} <span className="text-xs">({item.kind === "wikidata" ? "structured claim" : "supporting source"})</span></li>)}</ul>
           </article>)}</div>
         </section>
+        <ConnectionRecommendations recommendations={recommendations} surface="daily" />
         <section className="mt-7 border-t border-[#dfe2e5]/70 pt-6" aria-labelledby="share-result"><h3 id="share-result" className="text-lg font-bold text-[#1d2944]">Challenge complete</h3>
           <p className="mt-1 text-sm leading-6 text-[#657087]">Share your completion without spoilers, explore another verified path, and come back after 00:00 UTC for tomorrow&apos;s puzzle.</p>
           <div className="mt-4 flex flex-wrap items-center gap-3"><button type="button" onClick={share} className="hc-primary-button min-h-11 rounded-full px-5 text-sm font-bold focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#ff6846]">Share spoiler-free result</button>

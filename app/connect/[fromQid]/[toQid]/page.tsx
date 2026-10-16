@@ -13,6 +13,11 @@ import type { ConnectionPageData } from "@/lib/connection-page-data";
 import { getConnectionPageData } from "@/lib/connection-page-data";
 import { buildConnectionRouteMetadata } from "@/lib/connection-seo";
 import { getConnectionPath } from "@/lib/connection-share";
+import {
+  createConnectionRecommendationCatalog,
+  selectResultRecommendations,
+} from "@/lib/connection-recommendations";
+import { getApprovedExploreConnections } from "@/lib/explore-connections";
 import { getCanonicalConnectionUrl, SITE_ORIGIN } from "@/lib/seo";
 import { isValidQid } from "@/lib/wikidata-id";
 import {
@@ -146,6 +151,14 @@ async function ConnectionPageContent({
         ],
       }
     : null;
+  const recommendations = selectResultRecommendations(
+    createConnectionRecommendationCatalog(getApprovedExploreConnections()),
+    data.source.id,
+    data.target.id,
+    {
+      preferredSlugs: data.editorial?.related.map(({ slug }) => slug),
+    },
+  );
 
   return (
     <>
@@ -166,6 +179,7 @@ async function ConnectionPageContent({
         }}
         editorial={data.editorial}
         origin={origin}
+        recommendations={recommendations}
       />
     </>
   );

@@ -127,10 +127,12 @@ test("contact form uses shared theme surfaces without changing its submission co
   assert.match(form, /website: formData\.get\("website"\)/);
 });
 
-test("successful results include explanation sections and consent-gated ad reservations", async () => {
-  const [insights, result, adPlacement] = await Promise.all([
+test("successful results include explanation, continuation, recommendations, and consent-gated ad reservations", async () => {
+  const [insights, result, recommendations, extensionCta, adPlacement] = await Promise.all([
     readFile(new URL("../components/ConnectionInsights.tsx", import.meta.url), "utf8"),
     readFile(new URL("../components/ConnectionResult.tsx", import.meta.url), "utf8"),
+    readFile(new URL("../components/ConnectionRecommendations.tsx", import.meta.url), "utf8"),
+    readFile(new URL("../components/ContextualExtensionCta.tsx", import.meta.url), "utf8"),
     readFile(new URL("../components/FutureAdPlacement.tsx", import.meta.url), "utf8"),
   ]);
 
@@ -138,6 +140,14 @@ test("successful results include explanation sections and consent-gated ad reser
   assert.match(insights, /Why this path works/);
   assert.match(insights, /The fun part/);
   assert.match(result, /editorial \? \(/);
+  assert.match(result, /Start a new search/);
+  assert.match(result, /Explore verified paths/);
+  assert.match(result, /Surprise me/);
+  assert.match(result, /Play The Missing Link/);
+  assert.match(recommendations, /recommended_connection_impression/);
+  assert.match(recommendations, /recommended_connection_opened/);
+  assert.match(extensionCta, /CHROME_WEB_STORE_URL/);
+  assert.match(extensionCta, /connection_result/);
   assert.match(adPlacement, /if \(!canRenderAdvertising\(activation\)\) return null/);
   assert.match(adPlacement, /min-h-\[250px\]/);
   assert.match(adPlacement, /Advertisement/);

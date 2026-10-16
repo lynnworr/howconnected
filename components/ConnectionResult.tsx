@@ -1,9 +1,10 @@
 "use client";
 
-import Link from "next/link";
 import { useEffect, useMemo, useRef, useState } from "react";
 import ConnectionPath from "@/components/ConnectionPath";
 import ConnectionInsights from "@/components/ConnectionInsights";
+import ConnectionRecommendations from "@/components/ConnectionRecommendations";
+import ContextualExtensionCta from "@/components/ContextualExtensionCta";
 import FutureAdPlacement from "@/components/FutureAdPlacement";
 import PathQualityFeedback from "@/components/PathQualityFeedback";
 import ShareableConnectionCard from "@/components/ShareableConnectionCard";
@@ -22,6 +23,7 @@ import {
 } from "@/lib/product-analytics";
 import AnalyticsLink from "@/components/AnalyticsLink";
 import type { ConnectionOrigin } from "@/lib/connection-attribution";
+import type { ConnectionRecommendation } from "@/lib/connection-recommendations";
 
 type ConnectionResultProps = {
   result: DiscoveryResult;
@@ -33,6 +35,7 @@ type ConnectionResultProps = {
   };
   editorial?: EditorialPageDetails;
   origin?: ConnectionOrigin;
+  recommendations?: readonly ConnectionRecommendation[];
 };
 
 export default function ConnectionResult({
@@ -41,6 +44,7 @@ export default function ConnectionResult({
   share,
   editorial,
   origin = onReset ? "homepage" : "shared_url",
+  recommendations = [],
 }: ConnectionResultProps) {
   const [imageState, setImageState] = useState<{
     key: string;
@@ -205,33 +209,48 @@ export default function ConnectionResult({
         origin={origin}
       />
 
+      <ConnectionRecommendations
+        recommendations={recommendations}
+        surface="result"
+        sourceConnection={editorial?.slug}
+      />
+
       <div className="mt-7 border-t border-[#e4e6e9] pt-6 text-center">
         <h3 className="text-lg font-bold text-[#192541]">Where will the next thread lead?</h3>
         <p className="mt-1 text-sm text-[#6f7889]">Pick two more people, places, or ideas to keep exploring.</p>
         <div className="mt-4 flex flex-wrap justify-center gap-3">
-        {onReset ? (
-          <button
-            type="button"
-            onClick={onReset}
-            className="hc-primary-button rounded-full px-5 py-2.5 text-sm font-bold transition hover:-translate-y-0.5 hover:bg-[#ff6846] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#ff6846]"
-          >
-            Try another connection
-          </button>
-        ) : (
-          <Link
-            href="/"
-            onClick={() =>
-              trackProductEvent("try_another_clicked", {
-                fromQid,
-                toQid,
-                origin,
-              })
-            }
-            className="hc-primary-button rounded-full px-5 py-2.5 text-sm font-bold transition hover:-translate-y-0.5 hover:bg-[#ff6846] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#ff6846]"
-          >
-            Try another connection
-          </Link>
-        )}
+          {onReset ? (
+            <button
+              type="button"
+              onClick={() => {
+                trackProductEvent("result_next_action_clicked", {
+                  destination: "search",
+                  fromQid,
+                  toQid,
+                });
+                onReset();
+              }}
+              className="hc-primary-button rounded-full px-5 py-2.5 text-sm font-bold transition hover:-translate-y-0.5 hover:bg-[#ff6846] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#ff6846]"
+            >
+              Start a new search
+            </button>
+          ) : (
+            <AnalyticsLink
+              href="/"
+              event="result_next_action_clicked"
+              eventProperties={{ destination: "search", fromQid, toQid }}
+              onClick={() =>
+                trackProductEvent("try_another_clicked", {
+                  fromQid,
+                  toQid,
+                  origin,
+                })
+              }
+              className="hc-primary-button rounded-full px-5 py-2.5 text-sm font-bold transition hover:-translate-y-0.5 hover:bg-[#ff6846] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#ff6846]"
+            >
+              Start a new search
+            </AnalyticsLink>
+          )}
           <AnalyticsLink
             href="/explore"
             event="result_next_action_clicked"
@@ -257,6 +276,7 @@ export default function ConnectionResult({
             Play The Missing Link
           </AnalyticsLink>
         </div>
+        <ContextualExtensionCta />
       </div>
     </section>
   );

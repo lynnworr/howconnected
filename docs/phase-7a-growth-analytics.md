@@ -37,7 +37,9 @@ Official references:
 | `result_shared` | Native sharing or clipboard copy succeeds | Two QIDs, steps, share method, origin |
 | `entity_source_opened` | A Wikipedia or Wikidata source is opened | Entity QID, destination type, fixed UI context |
 | `try_another_clicked` | The explicit reset/navigation action is selected | Bounded origin and optional endpoint QIDs |
-| `result_next_action_clicked` | Explore or Surprise Me is selected from a result | Fixed destination and endpoint QIDs |
+| `result_next_action_clicked` | Search, Explore, Surprise Me, or Daily is selected from a result | Fixed destination and endpoint QIDs |
+| `recommended_connection_impression` | A reviewed recommendation card is shown on a successful result or revealed daily challenge | Approved editorial slug, fixed surface, and fixed relevance reason |
+| `recommended_connection_opened` | A reviewed recommendation is selected | The same bounded recommendation properties |
 
 Direct connection URLs can produce an outcome event without a corresponding homepage `search_initiated` event. Search success rate must therefore use events segmented to `origin=homepage`, not an unfiltered outcome numerator divided by all initiations.
 
@@ -62,6 +64,7 @@ Device-local completion and streak data remain in local storage. They are not up
 - `extension_referral_opened` distinguishes `destination=connection` and `destination=daily`.
 - Connection and daily downstream events retain only `origin=extension`, allowing success, completion, and share counts to be segmented without retaining a Wikipedia URL or title.
 - `explore_connection_opened`, `explore_category_selected`, and `related_connection_opened` measure reviewed-content interactions using editorial slugs, placement, or category.
+- Recommendation impressions and opens distinguish the fixed `result` and `daily` surfaces and accept only editorial-style slugs plus fixed relevance reasons. Daily recommendation cards do not render until the reveal gate opens.
 - `surprise_me_used` and `surprise_me_shuffled` use curated pair IDs and QIDs.
 - `path_feedback_submitted` is emitted server-side only after validated feedback storage succeeds. It contains QIDs, bounded rating/reason, and path length.
 
@@ -71,7 +74,7 @@ Device-local completion and streak data remain in local storage. They are not up
 - `homepage_example_opened` records the approved editorial slug and fixed category for a one-click reviewed connection.
 - `homepage_discovery_interacted` records only the fixed `view_all_reviewed` or `search_own_pair` action.
 - `navigation_link_clicked` records a fixed destination and whether the shared header link appeared in the desktop or mobile navigation.
-- `extension_install_clicked` records the fixed extension-page CTA placement after a visitor opens the official Chrome Web Store listing.
+- `extension_install_clicked` records either the fixed extension-page hero or the once-per-session contextual result placement after a visitor opens the official Chrome Web Store listing.
 
 These events never accept search text, arbitrary URLs, page titles, or browser-extension identifiers.
 

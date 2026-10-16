@@ -9,6 +9,8 @@ export type ExploreConnection = {
   slug: string;
   href: string;
   canonicalUrl: string;
+  sourceQid: string;
+  targetQid: string;
   sourceName: string;
   targetName: string;
   headline: string;
@@ -49,6 +51,8 @@ export function getApprovedExploreConnections(
           connection.canonicalFromQid,
           connection.canonicalToQid,
         ),
+        sourceQid: connection.canonicalFromQid,
+        targetQid: connection.canonicalToQid,
         sourceName: snapshot.source.label,
         targetName: snapshot.target.label,
         headline:

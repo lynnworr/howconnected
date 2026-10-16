@@ -1,5 +1,4 @@
 import Link from "next/link";
-import AnalyticsLink from "@/components/AnalyticsLink";
 import type { ConnectionPathData } from "@/components/connection-types";
 import type { EditorialPageDetails } from "@/lib/connection-page-state";
 import {
@@ -120,40 +119,6 @@ export default function ConnectionInsights({
               </p>
             </>
           ) : null}
-        </section>
-      ) : null}
-
-      {editorial?.related.length ? (
-        <section className="mt-3 text-left md:col-span-2" aria-labelledby="related-connections">
-          <p className="text-[10px] font-extrabold uppercase tracking-[0.16em] text-[#ee6243]">
-            Continue exploring
-          </p>
-          <h2 id="related-connections" className="mt-1.5 text-xl font-bold text-[#1d2944]">
-            Related connections
-          </h2>
-          <div className="mt-4 grid gap-3 md:grid-cols-2 lg:grid-cols-3">
-            {editorial.related.map((related) => (
-              <article key={related.slug} className="rounded-xl border border-[#e4e6e9] bg-white/55 p-4">
-                <p className="text-[10px] font-extrabold uppercase tracking-[0.12em] text-[#177258]">
-                  {related.category}
-                </p>
-                <h3 className="mt-2 text-base font-bold leading-6 text-[#1d2944]">
-                  <AnalyticsLink
-                    href={related.href}
-                    event="related_connection_opened"
-                    eventProperties={{
-                      sourceConnection: editorial.slug,
-                      relatedConnection: related.slug,
-                    }}
-                    className="rounded-sm underline decoration-[#e4b2a7] underline-offset-4 hover:text-[#b74a33] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#ff6846]"
-                  >
-                    {related.headline}
-                  </AnalyticsLink>
-                </h3>
-                <p className="mt-2 text-xs leading-5 text-[#657087]">{related.description}</p>
-              </article>
-            ))}
-          </div>
         </section>
       ) : null}
 

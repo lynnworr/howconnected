@@ -5,7 +5,9 @@ import NetworkBackdrop from "@/components/NetworkBackdrop";
 import PublicFooter from "@/components/PublicFooter";
 import PublicHeader from "@/components/PublicHeader";
 import { getDailyOrigin } from "@/lib/connection-attribution";
+import { createConnectionRecommendationCatalog, selectDailyRecommendations } from "@/lib/connection-recommendations";
 import { getContentRunwayReport, getDailyScheduleState, getSafeDailyRequestDate, getUtcDateKey, isDailyPubliclyLaunched, MISSING_LINK_PUZZLES } from "@/lib/daily-puzzles";
+import { getApprovedExploreConnections } from "@/lib/explore-connections";
 
 export const instant = false;
 const runway = getContentRunwayReport();
@@ -31,6 +33,12 @@ export default async function DailyPage({ searchParams }: { searchParams: Promis
   const publiclyLaunched = isDailyPubliclyLaunched(now);
   const previewPuzzle = MISSING_LINK_PUZZLES.find((puzzle) => ["approved", "scheduled", "published"].includes(puzzle.status));
   const playable = state.kind === "available" || state.kind === "preview" ? state : null;
+  const recommendations = playable
+    ? selectDailyRecommendations(
+        createConnectionRecommendationCatalog(getApprovedExploreConnections()),
+        playable.puzzle.path.map(({ qid }) => qid),
+      )
+    : [];
   return <main className="hc-public relative min-h-screen overflow-hidden"><NetworkBackdrop />
     <div className="relative mx-auto flex min-h-screen w-full max-w-5xl flex-col px-4 pb-14 pt-5 sm:px-7 lg:px-10"><PublicHeader />
       <article className="mx-auto w-full flex-1 py-12 sm:py-16"><header className="mx-auto max-w-3xl text-center">
@@ -39,7 +47,7 @@ export default async function DailyPage({ searchParams }: { searchParams: Promis
         <p className="mx-auto mt-5 max-w-2xl text-base leading-7 text-[#657087] sm:text-lg">Two endpoints. One hidden connection. Choose the missing link, then follow the verified path into Wikipedia and the supporting evidence.</p>
         {!publiclyLaunched ? <p className="mx-auto mt-5 inline-flex rounded-full border border-[#e2b9ae] bg-[#fff4ef] px-4 py-2 text-xs font-bold text-[#8d3b2a]">Launch preparation · {runway.scheduledCount} reviewed puzzles scheduled</p> : null}
       </header>
-      <div className="mt-10">{playable ? <DailyChallenge dateKey={state.kind === "available" ? state.dateKey : getUtcDateKey(requestedDate)} puzzle={playable.puzzle} puzzleNumber={state.kind === "available" ? state.puzzleNumber : undefined} preview={state.kind === "preview"} origin={origin} />
+      <div className="mt-10">{playable ? <DailyChallenge dateKey={state.kind === "available" ? state.dateKey : getUtcDateKey(requestedDate)} puzzle={playable.puzzle} puzzleNumber={state.kind === "available" ? state.puzzleNumber : undefined} preview={state.kind === "preview"} origin={origin} recommendations={recommendations} />
         : <section className="hc-daily-card rounded-[24px] border p-7 text-center"><h2 className="text-2xl font-bold text-[#1d2944]">{state.kind === "before-launch" ? "The challenge has not launched yet." : state.kind === "exhausted" ? "Today's puzzle is not available." : "This scheduled puzzle is temporarily unavailable."}</h2>
           <p className="mt-3 text-sm leading-6 text-[#657087]">{state.kind === "before-launch" ? `Launch date: ${state.launchDate}.` : state.kind === "exhausted" ? "The reviewed schedule has ended; no unreviewed puzzle will be substituted or recycled." : "A quarantined, retired, or missing entry is never replaced automatically."}</p></section>}</div>
       {!playable && previewPuzzle ? <p className="mt-5 text-center text-sm text-[#657087]">A reviewed preview remains available at <a className="font-bold underline" href="/daily-preview">/daily-preview</a>.</p> : null}

@@ -7,7 +7,11 @@ import PublicFooter from "@/components/PublicFooter";
 import NetworkBackdrop from "@/components/NetworkBackdrop";
 import PublicHeader from "@/components/PublicHeader";
 import SurpriseMe from "@/components/SurpriseMe";
-import { getHomepageDiscoveryConnections } from "@/lib/explore-connections";
+import { createConnectionRecommendationCatalog } from "@/lib/connection-recommendations";
+import {
+  getApprovedExploreConnections,
+  getHomepageDiscoveryConnections,
+} from "@/lib/explore-connections";
 import { SITE_ORIGIN } from "@/lib/seo";
 
 const title = "HowConnected — Discover surprising real-world connections";
@@ -31,11 +35,17 @@ export const metadata: Metadata = {
 async function getHomepageConnections() {
   "use cache";
   cacheLife("days");
-  return getHomepageDiscoveryConnections();
+  return {
+    discovery: getHomepageDiscoveryConnections(),
+    recommendationCatalog: createConnectionRecommendationCatalog(
+      getApprovedExploreConnections(),
+    ),
+  };
 }
 
 export default async function Home() {
-  const discoveryConnections = await getHomepageConnections();
+  const { discovery: discoveryConnections, recommendationCatalog } =
+    await getHomepageConnections();
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "WebSite",
@@ -123,7 +133,7 @@ export default async function Home() {
             </div>
           </section>
 
-          <ConnectionExplorer />
+          <ConnectionExplorer recommendationCatalog={recommendationCatalog} />
           <SurpriseMe />
           <section className="mt-10 w-full max-w-5xl text-left" aria-labelledby="learn-with-howconnected">
             <h2 id="learn-with-howconnected" className="text-center text-2xl font-bold tracking-[-0.03em] text-[#1d2944]">

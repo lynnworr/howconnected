@@ -34,7 +34,7 @@ test("daily extension attribution is bounded and uses the existing duplicate-saf
 });
 
 test("public beta analytics covers outcomes and engagement without raw queries", async () => {
-  const [analytics, schema, explorer, result, share, surprise, feedback, explore, insights, attribution] = await Promise.all([
+  const [analytics, schema, explorer, result, share, surprise, feedback, explore, recommendations, attribution] = await Promise.all([
     readFile(new URL("../lib/product-analytics.ts", import.meta.url), "utf8"),
     readFile(new URL("../lib/product-analytics-schema.ts", import.meta.url), "utf8"),
     readFile(new URL("../components/ConnectionExplorer.tsx", import.meta.url), "utf8"),
@@ -43,7 +43,7 @@ test("public beta analytics covers outcomes and engagement without raw queries",
     readFile(new URL("../components/SurpriseMe.tsx", import.meta.url), "utf8"),
     readFile(new URL("../app/api/feedback/route.ts", import.meta.url), "utf8"),
     readFile(new URL("../app/explore/page.tsx", import.meta.url), "utf8"),
-    readFile(new URL("../components/ConnectionInsights.tsx", import.meta.url), "utf8"),
+    readFile(new URL("../components/ConnectionRecommendations.tsx", import.meta.url), "utf8"),
     readFile(new URL("../lib/connection-attribution.ts", import.meta.url), "utf8"),
   ]);
 
@@ -57,6 +57,8 @@ test("public beta analytics covers outcomes and engagement without raw queries",
     "additional_search_started",
     "explore_connection_opened",
     "related_connection_opened",
+    "recommended_connection_impression",
+    "recommended_connection_opened",
     "extension_referral_opened",
   ]) {
     assert.match(schema, new RegExp(`"${event}"`));
@@ -72,7 +74,9 @@ test("public beta analytics covers outcomes and engagement without raw queries",
   assert.match(explorer, /hasViewedResultInSession/);
   assert.match(result, /markSessionResultViewed/);
   assert.match(explore, /explore_connection_opened/);
-  assert.match(insights, /related_connection_opened/);
+  assert.match(recommendations, /related_connection_opened/);
+  assert.match(recommendations, /recommended_connection_impression/);
+  assert.match(recommendations, /recommended_connection_opened/);
   assert.match(attribution, /value === EXTENSION_ATTRIBUTION_VALUE/);
   assert.doesNotMatch(attribution, /document\.referrer|localStorage|cookie/);
   assert.match(feedback, /path_feedback_submitted/);

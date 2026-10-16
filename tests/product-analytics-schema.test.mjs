@@ -40,6 +40,27 @@ test("product analytics accepts the bounded production schemas", () => {
   assert.deepEqual(sanitizeProductEvent("extension_install_clicked", {
     extensionPlacement: "extension_page_hero",
   }), { extensionPlacement: "extension_page_hero" });
+  assert.deepEqual(sanitizeProductEvent("recommended_connection_impression", {
+    connection: "steve-jobs-apple",
+    recommendationSurface: "result",
+    recommendationReason: "shared_endpoint",
+  }), {
+    connection: "steve-jobs-apple",
+    recommendationSurface: "result",
+    recommendationReason: "shared_endpoint",
+  });
+  assert.deepEqual(sanitizeProductEvent("recommended_connection_opened", {
+    connection: "apollo-11-neil-armstrong",
+    recommendationSurface: "daily",
+    recommendationReason: "daily_relevant",
+  }), {
+    connection: "apollo-11-neil-armstrong",
+    recommendationSurface: "daily",
+    recommendationReason: "daily_relevant",
+  });
+  assert.deepEqual(sanitizeProductEvent("extension_install_clicked", {
+    extensionPlacement: "connection_result",
+  }), { extensionPlacement: "connection_result" });
 });
 
 test("product analytics rejects missing, malformed, sensitive, and unbounded properties", () => {
@@ -58,6 +79,12 @@ test("product analytics rejects missing, malformed, sensitive, and unbounded pro
   assert.equal(sanitizeProductEvent("homepage_search_example_selected", { pairId: "private pair", fromQid: "Q142", toQid: "Q90" }), null);
   assert.equal(sanitizeProductEvent("navigation_link_clicked", { destination: "explore", navigationPlacement: "footer" }), null);
   assert.equal(sanitizeProductEvent("extension_install_clicked", { extensionPlacement: "https://example.com" }), null);
+  assert.equal(sanitizeProductEvent("recommended_connection_opened", {
+    connection: "steve-jobs-apple", recommendationSurface: "homepage", recommendationReason: "shared_endpoint",
+  }), null);
+  assert.equal(sanitizeProductEvent("recommended_connection_impression", {
+    connection: "Steve Jobs", recommendationSurface: "result", recommendationReason: "shared_endpoint",
+  }), null);
 });
 
 test("every product event has a unique allowlist without sensitive property names", () => {

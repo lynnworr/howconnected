@@ -1,11 +1,15 @@
 "use client";
 
-import { useEffect, useRef, useState, type FormEvent } from "react";
+import { useEffect, useMemo, useRef, useState, type FormEvent } from "react";
 import ConnectionResult from "@/components/ConnectionResult";
 import EntitySearch from "@/components/EntitySearch";
 import type { DiscoveryResult, SelectedEntity } from "@/components/connection-types";
 import { parseDiscoveryResult } from "@/lib/connection-response";
 import { getConnectionPath } from "@/lib/connection-share";
+import {
+  selectResultRecommendations,
+  type ConnectionRecommendationCandidate,
+} from "@/lib/connection-recommendations";
 import {
   hasViewedResultInSession,
   incrementSessionConnectionCount,
@@ -71,7 +75,11 @@ const EXAMPLES: Array<{
   },
 ];
 
-export default function ConnectionExplorer() {
+export default function ConnectionExplorer({
+  recommendationCatalog,
+}: {
+  recommendationCatalog: readonly ConnectionRecommendationCandidate[];
+}) {
   const firstInputRef = useRef<HTMLInputElement>(null);
   const hasViewedResultRef = useRef(false);
   const [from, setFrom] = useState<SearchSelection>({ text: "", entity: null });
@@ -79,6 +87,13 @@ export default function ConnectionExplorer() {
   const [status, setStatus] = useState<ExplorerStatus>("idle");
   const [result, setResult] = useState<DiscoveryResult | null>(null);
   const [loadingMessageIndex, setLoadingMessageIndex] = useState(0);
+  const recommendations = useMemo(() => {
+    const fromQid = result?.bestPath?.nodes[0]?.qid;
+    const toQid = result?.bestPath?.nodes.at(-1)?.qid;
+    return fromQid && toQid
+      ? selectResultRecommendations(recommendationCatalog, fromQid, toQid)
+      : [];
+  }, [recommendationCatalog, result]);
 
   const sameEntity = Boolean(
     from.entity && to.entity && from.entity.id === to.entity.id,
@@ -310,6 +325,7 @@ export default function ConnectionExplorer() {
         <ConnectionResult
           result={result}
           onReset={reset}
+          recommendations={recommendations}
           share={{
             sourceName: from.entity?.label ?? "Source",
             targetName: to.entity?.label ?? "Target",
