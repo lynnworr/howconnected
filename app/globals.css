@@ -187,11 +187,38 @@ html[data-theme="dark"] .hc-logo {
 }
 
 .hc-header-note,
+.hc-mobile-nav-link,
 .hc-theme-toggle,
 .hc-secondary-button {
   border-color: var(--hc-border);
   background: color-mix(in srgb, var(--hc-panel) 84%, transparent);
   color: var(--hc-muted);
+}
+
+.hc-mobile-nav-link:hover {
+  color: var(--hc-coral);
+}
+
+.hc-how-it-works,
+.hc-discovery-card {
+  border-color: var(--hc-border);
+  background: color-mix(in srgb, var(--hc-panel) 88%, transparent);
+}
+
+.hc-step-number {
+  background: color-mix(in srgb, var(--hc-coral) 12%, var(--hc-panel-strong));
+  color: var(--hc-coral);
+}
+
+.hc-discovery-card {
+  box-shadow: 0 16px 46px color-mix(in srgb, var(--hc-shadow) 68%, transparent);
+  transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+}
+
+.hc-discovery-card:hover {
+  border-color: color-mix(in srgb, var(--hc-coral) 35%, var(--hc-border));
+  box-shadow: 0 20px 56px color-mix(in srgb, var(--hc-shadow) 82%, transparent);
+  transform: translateY(-2px);
 }
 
 html[data-theme="dark"] .hc-theme-icon-moon,

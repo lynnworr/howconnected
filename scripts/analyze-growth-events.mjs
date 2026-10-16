@@ -4,7 +4,7 @@ import { fileURLToPath } from "node:url";
 import { PRODUCT_EVENT_NAMES } from "../lib/product-analytics-schema.ts";
 
 const EXPECTED_COLUMNS = ["date", "event", "segment_key", "segment_value", "count"];
-const SEGMENT_KEYS = new Set(["", "origin", "isCorrect", "destination", "category", "method", "placement", "publisherPlacement", "requestScope", "commercialInterest", "action"]);
+const SEGMENT_KEYS = new Set(["", "origin", "isCorrect", "destination", "category", "method", "placement", "publisherPlacement", "requestScope", "commercialInterest", "action", "connection", "navigationPlacement", "extensionPlacement"]);
 const EVENT_NAMES = new Set(PRODUCT_EVENT_NAMES);
 
 function isUtcDate(value) {
@@ -79,6 +79,11 @@ export function summarizeGrowthEvents(rows) {
   const publisherLandingOpens = total("publisher_landing_opened");
   const publisherCtaClicks = total("publisher_request_cta_clicked");
   const publisherRequests = total("publisher_request_submitted");
+  const homepageExamples = total("homepage_example_opened");
+  const homepageSearchExamples = total("homepage_search_example_selected");
+  const homepageDiscoveryActions = total("homepage_discovery_interacted");
+  const navigationClicks = total("navigation_link_clicked");
+  const extensionInstallClicks = total("extension_install_clicked");
   const dates = [...new Set(rows.map((row) => row.date))].sort();
   return {
     period: { start: dates[0] ?? null, end: dates.at(-1) ?? null, daysWithRows: dates.length },
@@ -107,6 +112,7 @@ export function summarizeGrowthEvents(rows) {
     discovery: {
       exploreConnectionOpens: total("explore_connection_opened"), categorySelections: total("explore_category_selected"),
       relatedConnectionOpens: total("related_connection_opened"), continuedFromDaily: total("daily_continued_exploration"),
+      homepageExamples, homepageSearchExamples, homepageDiscoveryActions, navigationClicks, extensionInstallClicks,
     },
     publisher: {
       landingOpens: publisherLandingOpens,
@@ -164,6 +170,11 @@ export function renderGrowthReport(summary) {
     `- Category selections: ${summary.discovery.categorySelections}`,
     `- Related connection opens: ${summary.discovery.relatedConnectionOpens}`,
     `- Continued from daily: ${summary.discovery.continuedFromDaily}`,
+    `- Homepage reviewed examples opened: ${summary.discovery.homepageExamples}`,
+    `- Homepage search examples selected: ${summary.discovery.homepageSearchExamples}`,
+    `- Homepage discovery actions: ${summary.discovery.homepageDiscoveryActions}`,
+    `- Navigation clicks: ${summary.discovery.navigationClicks}`,
+    `- Chrome Web Store CTA clicks: ${summary.discovery.extensionInstallClicks}`,
     "",
     "## Publisher pilot",
     `- Landing opens: ${summary.publisher.landingOpens}`,

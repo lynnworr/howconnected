@@ -40,6 +40,11 @@ const sample = `date,event,segment_key,segment_value,count
 2026-10-15,publisher_request_submitted,commercialInterest,occasional_custom,1
 2026-10-15,publisher_request_submitted,commercialInterest,ongoing_publishing,1
 2026-10-15,publisher_request_submitted,commercialInterest,maybe_price,1
+2026-10-15,homepage_example_opened,,,9
+2026-10-15,homepage_search_example_selected,,,7
+2026-10-15,homepage_discovery_interacted,,,5
+2026-10-15,navigation_link_clicked,,,12
+2026-10-15,extension_install_clicked,,,3
 `;
 
 test("growth report calculates documented event rates without double-counting segments", () => {
@@ -56,8 +61,14 @@ test("growth report calculates documented event rates without double-counting se
   assert.equal(summary.publisher.requestRateFromCta, 0.5);
   assert.equal(summary.publisher.successfulRequests, 3);
   assert.equal(summary.publisher.ongoingPublishingInterest, 1);
+  assert.equal(summary.discovery.homepageExamples, 9);
+  assert.equal(summary.discovery.homepageSearchExamples, 7);
+  assert.equal(summary.discovery.homepageDiscoveryActions, 5);
+  assert.equal(summary.discovery.navigationClicks, 12);
+  assert.equal(summary.discovery.extensionInstallClicks, 3);
   assert.match(renderGrowthReport(summary), /Counts are event occurrences, not unique people/);
   assert.match(renderGrowthReport(summary), /Publisher pilot/);
+  assert.match(renderGrowthReport(summary), /Chrome Web Store CTA clicks: 3/);
 });
 
 test("growth report rejects unsupported fields instead of accepting arbitrary exports", () => {

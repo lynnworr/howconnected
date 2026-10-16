@@ -19,6 +19,11 @@ test("homepage search presentation is descriptive without duplicating accessible
   assert.doesNotMatch(entitySearch, /: label}/);
   assert.match(explorer, /hint="Start with any person/);
   assert.match(explorer, /hint="Choose another entity/);
+  assert.match(home, /How HowConnected works/);
+  assert.match(home, /Start with a reviewed connection/);
+  assert.match(home, /getHomepageDiscoveryConnections/);
+  assert.match(home, /homepage_example_opened/);
+  assert.doesNotMatch(home, /discoverConnection|fetchWikidata|getNeo4jDriver/);
 });
 
 test("educational routes have contextual crawlable links", async () => {

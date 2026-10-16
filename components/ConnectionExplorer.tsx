@@ -26,43 +26,47 @@ const LOADING_MESSAGES = [
 ];
 
 const EXAMPLES: Array<{
+  id: string;
   from: SelectedEntity;
   to: SelectedEntity;
 }> = [
   {
+    id: "nasa-dwight-eisenhower",
     from: {
-      id: "Q19837",
-      label: "Steve Jobs",
-      description: "American entrepreneur and co-founder of Apple",
+      id: "Q23548",
+      label: "NASA",
+      description: "United States space agency",
     },
     to: {
-      id: "Q8704",
-      label: "Walt Disney",
-      description: "American animator, producer, and entrepreneur",
+      id: "Q9916",
+      label: "Dwight D. Eisenhower",
+      description: "34th president of the United States",
     },
   },
   {
+    id: "michael-jordan-chicago-bulls",
     from: {
-      id: "Q38222",
-      label: "George Lucas",
-      description: "American filmmaker and philanthropist",
+      id: "Q41421",
+      label: "Michael Jordan",
+      description: "American basketball player",
     },
     to: {
-      id: "Q19837",
-      label: "Steve Jobs",
-      description: "American entrepreneur and co-founder of Apple",
+      id: "Q128109",
+      label: "Chicago Bulls",
+      description: "American professional basketball team",
     },
   },
   {
+    id: "france-paris",
     from: {
-      id: "Q92764",
-      label: "Sergey Brin",
-      description: "American billionaire businessman",
+      id: "Q142",
+      label: "France",
+      description: "Country in Western Europe",
     },
     to: {
-      id: "Q4934",
-      label: "Larry Page",
-      description: "American computer scientist and entrepreneur",
+      id: "Q90",
+      label: "Paris",
+      description: "Capital and largest city of France",
     },
   },
 ];
@@ -109,10 +113,19 @@ export default function ConnectionExplorer() {
     clearOutcome();
   }
 
-  function applyExample(fromEntity: SelectedEntity, toEntity: SelectedEntity) {
+  function applyExample(
+    pairId: string,
+    fromEntity: SelectedEntity,
+    toEntity: SelectedEntity,
+  ) {
     setFrom({ text: fromEntity.label, entity: fromEntity });
     setTo({ text: toEntity.label, entity: toEntity });
     clearOutcome();
+    trackProductEvent("homepage_search_example_selected", {
+      pairId,
+      fromQid: fromEntity.id,
+      toQid: toEntity.id,
+    });
   }
 
   function reset() {
@@ -204,7 +217,7 @@ export default function ConnectionExplorer() {
   }
 
   return (
-    <div className="w-full">
+    <div id="search" className="w-full scroll-mt-6">
       <form
         onSubmit={submit}
         className="hc-panel hc-search-panel mx-auto mt-10 w-full max-w-5xl rounded-[28px] border p-4 backdrop-blur-xl md:p-6"
@@ -267,7 +280,7 @@ export default function ConnectionExplorer() {
           <button
             key={`${example.from.id}-${example.to.id}`}
             type="button"
-            onClick={() => applyExample(example.from, example.to)}
+            onClick={() => applyExample(example.id, example.from, example.to)}
             className="hc-example-chip rounded-full border px-3 py-1.5 text-xs font-semibold transition focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#ff6846]"
           >
             {example.from.label} <span aria-hidden="true">→</span> {example.to.label}

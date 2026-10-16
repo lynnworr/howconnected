@@ -19,6 +19,7 @@ import {
   selectedEntityAfterEdit,
 } from "../extension/core.mjs";
 import { handleSearchRequest } from "../lib/search-api.ts";
+import { CHROME_WEB_STORE_URL } from "../lib/external-links.ts";
 import {
   EXTENSION_RUNTIME_FILES,
   createDeterministicZip,
@@ -28,6 +29,21 @@ import {
 
 const jobs = { id: "Q19837", label: "Steve Jobs", description: "American entrepreneur" };
 const apple = { id: "Q312", label: "Apple Inc.", description: "Technology company" };
+
+test("public installation uses the official Chrome Web Store listing", async () => {
+  const publicPage = await readFile(
+    new URL("../app/extension/page.tsx", import.meta.url),
+    "utf8",
+  );
+  assert.equal(
+    CHROME_WEB_STORE_URL,
+    "https://chromewebstore.google.com/detail/howconnected-for-wikipedi/ggmjkimekbccfllnjpcejkbagkaijnni",
+  );
+  assert.match(publicPage, /CHROME_WEB_STORE_URL/);
+  assert.match(publicPage, /Add to Chrome/);
+  assert.match(publicPage, /extension_install_clicked/);
+  assert.doesNotMatch(publicPage, /Version 1\.1\.0|During pre-release testing/);
+});
 
 test("recognizes only encoded English Wikipedia article URLs", () => {
   assert.deepEqual(

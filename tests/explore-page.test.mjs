@@ -4,6 +4,7 @@ import test from "node:test";
 import {
   getApprovedExploreConnections,
   getFeaturedExploreConnection,
+  getHomepageDiscoveryConnections,
 } from "../lib/explore-connections.ts";
 import { EDITORIAL_CONNECTIONS } from "../lib/editorial-connections.ts";
 
@@ -49,6 +50,27 @@ test("Explore derives exactly the approved, indexable, snapshot-ready collection
       "Science & innovation",
       "Sports",
     ],
+  );
+});
+
+test("homepage discovery uses diverse approved snapshot-ready connections", () => {
+  const connections = getHomepageDiscoveryConnections(REVIEW_TIME);
+  assert.deepEqual(
+    connections.map(({ slug }) => slug),
+    [
+      "nasa-dwight-eisenhower",
+      "studio-ghibli-hayao-miyazaki",
+      "michael-jordan-chicago-bulls",
+      "france-paris",
+    ],
+  );
+  assert.equal(new Set(connections.map(({ category }) => category)).size, 4);
+  assert.ok(
+    connections.every(({ slug }) =>
+      getApprovedExploreConnections(REVIEW_TIME).some(
+        (approved) => approved.slug === slug,
+      ),
+    ),
   );
 });
 

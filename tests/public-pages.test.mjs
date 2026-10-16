@@ -73,6 +73,23 @@ test("public brand marks link home with an accessible label while admin stays un
   assert.doesNotMatch(adminPage, /Go to HowConnected home/);
 });
 
+test("public header exposes compact tracked Search, Explore, and Daily navigation", async () => {
+  const header = await readFile(
+    new URL("../components/PublicHeader.tsx", import.meta.url),
+    "utf8",
+  );
+
+  for (const destination of ["search", "explore", "daily"]) {
+    assert.match(header, new RegExp(`destination: "${destination}"`));
+  }
+  assert.match(header, /aria-label="Mobile navigation"/);
+  assert.match(header, /aria-label="Primary navigation"/);
+  assert.match(header, /navigation_link_clicked/);
+  assert.match(header, /navigationPlacement: "mobile_header"/);
+  assert.match(header, /min-\[375px\]/);
+  assert.doesNotMatch(header, /<details|<dialog/);
+});
+
 test("all public surfaces use the shared theme-aware frame", async () => {
   const [home, connect, shell, styles, network] = await Promise.all([
     readFile(new URL("../app/page.tsx", import.meta.url), "utf8"),

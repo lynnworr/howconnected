@@ -1,5 +1,9 @@
 # Chrome Web Store listing — HowConnected for Wikipedia
 
+**Public listing**
+
+https://chromewebstore.google.com/detail/howconnected-for-wikipedi/ggmjkimekbccfllnjpcejkbagkaijnni
+
 ## Product details
 
 **Extension title**  

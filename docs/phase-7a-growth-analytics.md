@@ -65,6 +65,16 @@ Device-local completion and streak data remain in local storage. They are not up
 - `surprise_me_used` and `surprise_me_shuffled` use curated pair IDs and QIDs.
 - `path_feedback_submitted` is emitted server-side only after validated feedback storage succeeds. It contains QIDs, bounded rating/reason, and path length.
 
+### Homepage activation and navigation
+
+- `homepage_search_example_selected` records only a curated pair ID and its two QIDs when a visitor fills the search form from an example.
+- `homepage_example_opened` records the approved editorial slug and fixed category for a one-click reviewed connection.
+- `homepage_discovery_interacted` records only the fixed `view_all_reviewed` or `search_own_pair` action.
+- `navigation_link_clicked` records a fixed destination and whether the shared header link appeared in the desktop or mobile navigation.
+- `extension_install_clicked` records the fixed extension-page CTA placement after a visitor opens the official Chrome Web Store listing.
+
+These events never accept search text, arbitrary URLs, page titles, or browser-extension identifiers.
+
 ### Publisher pilot
 
 - `publisher_landing_opened` is claimed once per browser session when `/widgets` mounts; it is an event occurrence, not a unique-person count.

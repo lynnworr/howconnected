@@ -24,6 +24,13 @@ export type ExploreConnection = {
 
 export const FEATURED_EXPLORE_CONNECTION_SLUG = "nasa-dwight-eisenhower";
 
+export const HOMEPAGE_DISCOVERY_SLUGS = [
+  "nasa-dwight-eisenhower",
+  "studio-ghibli-hayao-miyazaki",
+  "michael-jordan-chicago-bulls",
+  "france-paris",
+] as const;
+
 export function getApprovedExploreConnections(
   now = new Date(),
 ): ExploreConnection[] {
@@ -69,4 +76,20 @@ export function getFeaturedExploreConnection(
     connections[0] ??
     null
   );
+}
+
+export function getHomepageDiscoveryConnections(
+  now = new Date(),
+): ExploreConnection[] {
+  const approved = new Map(
+    getApprovedExploreConnections(now).map((connection) => [
+      connection.slug,
+      connection,
+    ]),
+  );
+
+  return HOMEPAGE_DISCOVERY_SLUGS.flatMap((slug) => {
+    const connection = approved.get(slug);
+    return connection ? [connection] : [];
+  });
 }

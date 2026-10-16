@@ -20,7 +20,11 @@ button. If `manifest.json` changed, close any open popup and reload before testi
 
 ## Store installation and upgrades
 
-After publication, users install the extension from its Chrome Web Store listing. Chrome handles
+Users install the extension from the official Chrome Web Store listing:
+
+https://chromewebstore.google.com/detail/howconnected-for-wikipedi/ggmjkimekbccfllnjpcejkbagkaijnni
+
+Chrome handles
 updates automatically when a ZIP with a higher manifest version is approved and published. For
 each release:
 

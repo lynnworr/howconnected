@@ -25,6 +25,21 @@ test("product analytics accepts the bounded production schemas", () => {
   assert.deepEqual(sanitizeProductEvent("publisher_request_submitted", {
     requestScope: "ongoing_use",
   }), { requestScope: "ongoing_use" });
+  assert.deepEqual(sanitizeProductEvent("homepage_example_opened", {
+    connection: "nasa-dwight-eisenhower", category: "History",
+  }), { connection: "nasa-dwight-eisenhower", category: "History" });
+  assert.deepEqual(sanitizeProductEvent("homepage_search_example_selected", {
+    pairId: "france-paris", fromQid: "Q142", toQid: "Q90",
+  }), { pairId: "france-paris", fromQid: "Q142", toQid: "Q90" });
+  assert.deepEqual(sanitizeProductEvent("homepage_discovery_interacted", {
+    action: "view_all_reviewed",
+  }), { action: "view_all_reviewed" });
+  assert.deepEqual(sanitizeProductEvent("navigation_link_clicked", {
+    destination: "explore", navigationPlacement: "mobile_header",
+  }), { destination: "explore", navigationPlacement: "mobile_header" });
+  assert.deepEqual(sanitizeProductEvent("extension_install_clicked", {
+    extensionPlacement: "extension_page_hero",
+  }), { extensionPlacement: "extension_page_hero" });
 });
 
 test("product analytics rejects missing, malformed, sensitive, and unbounded properties", () => {
@@ -39,6 +54,10 @@ test("product analytics rejects missing, malformed, sensitive, and unbounded pro
     requestScope: "one_widget", commercialInterest: "maybe_price", email: "private@example.com",
   }), null);
   assert.equal(sanitizeProductEvent("publisher_request_cta_clicked", { publisherPlacement: "email" }), null);
+  assert.equal(sanitizeProductEvent("homepage_example_opened", { connection: "unknown", category: "Unknown" }), null);
+  assert.equal(sanitizeProductEvent("homepage_search_example_selected", { pairId: "private pair", fromQid: "Q142", toQid: "Q90" }), null);
+  assert.equal(sanitizeProductEvent("navigation_link_clicked", { destination: "explore", navigationPlacement: "footer" }), null);
+  assert.equal(sanitizeProductEvent("extension_install_clicked", { extensionPlacement: "https://example.com" }), null);
 });
 
 test("every product event has a unique allowlist without sensitive property names", () => {

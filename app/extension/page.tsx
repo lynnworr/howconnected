@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import AnalyticsLink from "@/components/AnalyticsLink";
 import PublicPageShell from "@/components/PublicPageShell";
+import { CHROME_WEB_STORE_URL } from "@/lib/external-links";
 
 export const metadata: Metadata = {
   title: "HowConnected Chrome Extension",
@@ -25,10 +27,32 @@ export const metadata: Metadata = {
 export default function ExtensionPage() {
   return (
     <PublicPageShell
-      eyebrow="Chrome extension · Version 1.1.0"
+      eyebrow="Chrome extension · Available now"
       title="HowConnected for Wikipedia"
       intro="A free, focused Chrome extension that turns the English Wikipedia article you are reading into the starting point for a HowConnected search."
     >
+      <section className="rounded-[22px] border border-[#dfe2e5] bg-white/55 p-5 sm:p-6">
+        <h2>Install from the Chrome Web Store</h2>
+        <p>
+          Add HowConnected to Chrome, then open it from the toolbar while
+          reading any supported English Wikipedia article. Chrome manages
+          installation and future updates from the official listing.
+        </p>
+        <p>
+          <AnalyticsLink
+            href={CHROME_WEB_STORE_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            event="extension_install_clicked"
+            eventProperties={{ extensionPlacement: "extension_page_hero" }}
+            className="inline-flex min-h-11 items-center rounded-full bg-[#17233f] px-5 text-sm font-bold text-white transition hover:bg-[#ff6846] focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-[#ff6846]"
+          >
+            Add to Chrome <span aria-hidden="true" className="ml-2">↗</span>
+            <span className="sr-only"> (opens the Chrome Web Store in a new tab)</span>
+          </AnalyticsLink>
+        </p>
+      </section>
+
       <section>
         <h2>What the extension does</h2>
         <p>
@@ -121,12 +145,9 @@ export default function ExtensionPage() {
       <section>
         <h2>Installation and support</h2>
         <p>
-          During pre-release testing, install the unpacked build from
-          <code className="mx-1 rounded bg-black/5 px-1.5 py-0.5 dark:bg-white/10">
-            chrome://extensions
-          </code>
-          with Developer mode enabled. Store installations and upgrades will be
-          managed by Chrome after the public listing is approved.
+          Install HowConnected from its official Chrome Web Store listing.
+          Chrome manages installation and future updates automatically. No
+          Developer Mode or unpacked build is required.
         </p>
         <p>
           To report a privacy concern, incorrect detection, or connection issue,

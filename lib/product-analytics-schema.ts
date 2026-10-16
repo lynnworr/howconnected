@@ -30,6 +30,11 @@ export const PRODUCT_EVENT_NAMES = [
   "widget_embed_snippet_copied",
   "publisher_request_cta_clicked",
   "publisher_request_submitted",
+  "homepage_example_opened",
+  "homepage_search_example_selected",
+  "homepage_discovery_interacted",
+  "navigation_link_clicked",
+  "extension_install_clicked",
 ] as const;
 
 export type ProductEventName = (typeof PRODUCT_EVENT_NAMES)[number];
@@ -71,6 +76,11 @@ const EVENT_KEYS: Record<ProductEventName, readonly string[]> = {
   widget_embed_snippet_copied: [],
   publisher_request_cta_clicked: ["publisherPlacement"],
   publisher_request_submitted: ["requestScope", "commercialInterest"],
+  homepage_example_opened: ["connection", "category"],
+  homepage_search_example_selected: ["pairId", "fromQid", "toQid"],
+  homepage_discovery_interacted: ["action"],
+  navigation_link_clicked: ["destination", "navigationPlacement"],
+  extension_install_clicked: ["extensionPlacement"],
 };
 
 const REQUIRED_KEYS: Record<ProductEventName, readonly string[]> = {
@@ -105,6 +115,11 @@ const REQUIRED_KEYS: Record<ProductEventName, readonly string[]> = {
   widget_embed_snippet_copied: [],
   publisher_request_cta_clicked: ["publisherPlacement"],
   publisher_request_submitted: ["requestScope"],
+  homepage_example_opened: ["connection", "category"],
+  homepage_search_example_selected: ["pairId", "fromQid", "toQid"],
+  homepage_discovery_interacted: ["action"],
+  navigation_link_clicked: ["destination", "navigationPlacement"],
+  extension_install_clicked: ["extensionPlacement"],
 };
 
 const ENUMS: Record<string, readonly string[]> = {
@@ -114,14 +129,16 @@ const ENUMS: Record<string, readonly string[]> = {
   destinationType: ["wikipedia", "wikidata"],
   sourceContext: ["path", "share_card"],
   placement: ["card", "featured"],
-  destination: ["explore", "surprise_me", "connection", "daily", "wikipedia", "wikidata", "evidence", "publisher_info"],
+  destination: ["search", "explore", "surprise_me", "connection", "daily", "methodology", "about", "wikipedia", "wikidata", "evidence", "publisher_info"],
   linkType: ["wikipedia", "evidence"],
   category: [
     "Business", "Entertainment and film", "Geography and culture", "History and politics", "Literature and art", "Music", "Science and innovation", "Sports", "Technology",
     "Business & technology", "Entertainment & media", "History", "Places & culture", "Science & innovation",
   ],
-  action: ["open_demo"],
+  action: ["open_demo", "view_all_reviewed", "search_own_pair"],
   publisherPlacement: ["hero", "examples", "limitations"],
+  navigationPlacement: ["desktop_header", "mobile_header"],
+  extensionPlacement: ["extension_page_hero"],
   requestScope: ["one_widget", "ongoing_use"],
   commercialInterest: ["occasional_custom", "ongoing_publishing", "maybe_price", "not_currently"],
 };
