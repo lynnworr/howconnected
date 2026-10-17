@@ -7,7 +7,7 @@ const REVIEW_TIME = new Date("2026-10-15T12:00:00.000Z");
 
 test("embeds expose only approved snapshot-backed editorial connections", () => {
   const embeds = getEmbeddableConnections(REVIEW_TIME);
-  assert.equal(embeds.length, 10);
+  assert.equal(embeds.length, 11);
   assert.ok(embeds.every(({ connection, snapshot }) => connection.reviewStatus === "approved" && connection.indexEligible && snapshot.path.nodes.length > 1));
   assert.equal(getEmbeddableConnection("george-lucas-lucasfilm", REVIEW_TIME), null);
   assert.equal(getEmbeddableConnection("../api/ingest", REVIEW_TIME), null);

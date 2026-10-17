@@ -12,7 +12,7 @@ const REVIEW_TIME = new Date("2026-10-11T12:00:00.000Z");
 
 test("Explore derives exactly the approved, indexable, snapshot-ready collection", () => {
   const connections = getApprovedExploreConnections(REVIEW_TIME);
-  assert.equal(connections.length, 10);
+  assert.equal(connections.length, 11);
   assert.deepEqual(
     connections.map(({ slug }) => slug),
     [
@@ -26,6 +26,7 @@ test("Explore derives exactly the approved, indexable, snapshot-ready collection
       "michael-jordan-chicago-bulls",
       "google-larry-page",
       "france-paris",
+      "tesla-spacex",
     ],
   );
   assert.equal(

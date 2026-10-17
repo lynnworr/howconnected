@@ -922,6 +922,100 @@ export const EDITORIAL_CONNECTIONS: readonly EditorialConnection[] = [
         "France’s preferred Wikidata capital statement points to Paris and records a start date of 5 October 1789. Historical capital statements remain separate and are not presented as the current relationship.",
     }),
   },
+  {
+    slug: "tesla-spacex",
+    canonicalFromQid: "Q478214",
+    canonicalToQid: "Q193701",
+    category: "Business & technology",
+    pathFingerprint: "hc-v1-7cb73928",
+    expectedRelationships: [
+      {
+        propertyId: "P169",
+        subjectQid: "Q478214",
+        objectQid: "Q317521",
+        pathDirection: "forward",
+      },
+      {
+        propertyId: "P169",
+        subjectQid: "Q193701",
+        objectQid: "Q317521",
+        pathDirection: "reverse",
+      },
+    ],
+    reviewStatus: "approved",
+    verifiedAt: "2026-10-17T16:00:00.000Z",
+    indexEligible: true,
+    relatedSlugs: ["google-larry-page", "steve-jobs-apple", "nasa-dwight-eisenhower"],
+    snapshot: {
+      version: 1,
+      source: entity("Q478214", "Tesla, Inc.", "American electric-vehicle and clean-energy company"),
+      target: entity("Q193701", "SpaceX", "American spacecraft manufacturer and space-launch company"),
+      path: {
+        steps: 2,
+        nodes: [
+          node("Q478214", "Tesla, Inc.", "company/organization", "Tesla, Inc."),
+          node("Q317521", "Elon Musk", "person", "Elon Musk"),
+          node("Q193701", "SpaceX", "company/organization", "SpaceX"),
+        ],
+        relationships: [
+          relationship(
+            "chief executive officer",
+            "Tesla, Inc.",
+            "Elon Musk",
+            "P169",
+            "forward",
+          ),
+          relationship(
+            "CEO of",
+            "Elon Musk",
+            "SpaceX",
+            "P169",
+            "reverse",
+          ),
+        ],
+      },
+      headline: "Elon Musk is the executive link between Tesla and SpaceX.",
+      introduction:
+        "Tesla and SpaceX are separate companies, but both identify Elon Musk as chief executive. That shared leadership is the durable two-step connection; the October 2026 Roadster demonstration is a recent example of technical collaboration, not evidence that one company owns the other.",
+      relationshipMeaning:
+        "Wikidata uses P169, \"chief executive officer,\" from Tesla to Elon Musk and from SpaceX to Musk. The second edge is displayed in reverse as \"CEO of.\" This path establishes shared executive leadership, not a parent-company, subsidiary, or ownership relationship between Tesla and SpaceX.",
+      context: [
+        "Tesla says Musk has served as its chief executive officer since October 2008 and as a director since April 2004.",
+        "SpaceX identifies Musk as its founder and chief executive officer; Tesla's executive biography says he has served as SpaceX CEO, chief technology officer, and chair since May 2002.",
+        "At Tesla's 15 October 2026 Roadster demonstration at SpaceX's Texas rocket-development site, Tesla said its prototype borrowed SpaceX technology for cold-gas thrusters. The demonstration supports a specific recent collaboration claim, not a general claim that the companies are the same business.",
+        "The demonstrated vehicle was a prototype. Musk's 2028 production timing is a stated target, not evidence of a shipping product, and regulatory approval remains unresolved.",
+      ],
+      verificationSources: [
+        {
+          label: "Elon Musk executive biography",
+          publisher: "Tesla Investor Relations",
+          url: "https://ir.tesla.com/corporate/elon-musk",
+        },
+        {
+          label: "SpaceX leadership",
+          publisher: "SpaceX Investor Relations",
+          url: "https://ir.spacex.com/leadership/",
+        },
+        {
+          label: "Tesla chief executive officer statement (P169)",
+          publisher: "Wikidata",
+          url: "https://www.wikidata.org/wiki/Q478214#P169",
+        },
+        {
+          label: "SpaceX chief executive officer statement (P169)",
+          publisher: "Wikidata",
+          url: "https://www.wikidata.org/wiki/Q193701#P169",
+        },
+        {
+          label: "Roadster prototype demonstration at SpaceX",
+          publisher: "Associated Press",
+          url: "https://apnews.com/article/7d5f19665435b7408025bfb7a2f2f0b7",
+        },
+      ],
+      editorialExplanation:
+        "Tesla and SpaceX both identify Elon Musk as chief executive, creating a durable personnel connection between two otherwise separate companies. Tesla's October 2026 Roadster prototype demonstration at a SpaceX site supplied a timely example of technical collaboration, but prototype and production claims should not be confused with the verified executive path.",
+    },
+  },
 ] as const;
 
 function normalizeQid(value: string): string {

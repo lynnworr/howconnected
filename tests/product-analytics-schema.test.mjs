@@ -61,6 +61,9 @@ test("product analytics accepts the bounded production schemas", () => {
   assert.deepEqual(sanitizeProductEvent("extension_install_clicked", {
     extensionPlacement: "connection_result",
   }), { extensionPlacement: "connection_result" });
+  assert.deepEqual(sanitizeProductEvent("trending_connection_impression", {
+    connection: "tesla-spacex", trendObservedAt: "2026-10-16", trendExpiresAt: "2026-10-25",
+  }), { connection: "tesla-spacex", trendObservedAt: "2026-10-16", trendExpiresAt: "2026-10-25" });
 });
 
 test("product analytics rejects missing, malformed, sensitive, and unbounded properties", () => {
@@ -84,6 +87,9 @@ test("product analytics rejects missing, malformed, sensitive, and unbounded pro
   }), null);
   assert.equal(sanitizeProductEvent("recommended_connection_impression", {
     connection: "Steve Jobs", recommendationSurface: "result", recommendationReason: "shared_endpoint",
+  }), null);
+  assert.equal(sanitizeProductEvent("trending_connection_opened", {
+    connection: "tesla-spacex", trendObservedAt: "2026-10-16", trendExpiresAt: "2026-02-31",
   }), null);
 });
 

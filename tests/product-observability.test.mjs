@@ -6,6 +6,7 @@ import { getConnectionOrigin, getDailyOrigin, isExtensionAttribution } from "../
 test("extension attribution accepts only the fixed non-identifying source value", () => {
   assert.equal(getConnectionOrigin("extension"), "extension");
   assert.equal(getConnectionOrigin("connection_share"), "connection_share");
+  assert.equal(getConnectionOrigin("trending_homepage"), "trending_homepage");
   assert.equal(getConnectionOrigin(["extension", "ignored"]), "extension");
   assert.equal(getConnectionOrigin("newsletter"), "shared_url");
   assert.equal(getConnectionOrigin(undefined), "shared_url");

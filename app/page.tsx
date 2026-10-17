@@ -7,6 +7,7 @@ import PublicFooter from "@/components/PublicFooter";
 import NetworkBackdrop from "@/components/NetworkBackdrop";
 import PublicHeader from "@/components/PublicHeader";
 import SurpriseMe from "@/components/SurpriseMe";
+import TrendingConnections from "@/components/TrendingConnections";
 import { createConnectionRecommendationCatalog } from "@/lib/connection-recommendations";
 import {
   getApprovedExploreConnections,
@@ -14,6 +15,7 @@ import {
 } from "@/lib/explore-connections";
 import { SITE_ORIGIN } from "@/lib/seo";
 import { getSpoilerSafeSurprisePairs } from "@/lib/surprise-pairs";
+import { getHomepageTrendingConnections } from "@/lib/trending-connections";
 
 const title = "HowConnected — Discover surprising real-world connections";
 const description =
@@ -35,18 +37,19 @@ export const metadata: Metadata = {
 
 async function getHomepageConnections() {
   "use cache";
-  cacheLife("days");
+  cacheLife("hours");
   return {
     discovery: getHomepageDiscoveryConnections(),
     recommendationCatalog: createConnectionRecommendationCatalog(
       getApprovedExploreConnections(),
     ),
     surprisePairs: getSpoilerSafeSurprisePairs(),
+    trending: getHomepageTrendingConnections(),
   };
 }
 
 export default async function Home() {
-  const { discovery: discoveryConnections, recommendationCatalog, surprisePairs } =
+  const { discovery: discoveryConnections, recommendationCatalog, surprisePairs, trending } =
     await getHomepageConnections();
   const jsonLd = {
     "@context": "https://schema.org",
@@ -136,6 +139,7 @@ export default async function Home() {
           </section>
 
           <ConnectionExplorer recommendationCatalog={recommendationCatalog} />
+          <TrendingConnections connections={trending} />
           <SurpriseMe pairs={surprisePairs} />
           <section className="mt-10 w-full max-w-5xl text-left" aria-labelledby="learn-with-howconnected">
             <h2 id="learn-with-howconnected" className="text-center text-2xl font-bold tracking-[-0.03em] text-[#1d2944]">

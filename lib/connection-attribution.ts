@@ -9,7 +9,8 @@ export type ConnectionOrigin =
   | "shared_url"
   | "extension"
   | "connection_share"
-  | "publisher_widget";
+  | "publisher_widget"
+  | "trending_homepage";
 export type DailyOrigin = "extension" | "daily_share";
 
 export const EXTENSION_ATTRIBUTION_PARAMETER = "source";
@@ -29,6 +30,7 @@ export function getConnectionOrigin(
   if (isExtensionAttribution(source)) return "extension";
   const value = Array.isArray(source) ? source[0] : source;
   if (value === PUBLISHER_WIDGET_ATTRIBUTION_VALUE) return "publisher_widget";
+  if (value === "trending_homepage") return "trending_homepage";
   if (isShareAttribution(source, CONNECTION_SHARE_ATTRIBUTION)) {
     return "connection_share";
   }

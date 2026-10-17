@@ -94,6 +94,25 @@ test("new editorial content fails closed on future direct, hidden, and prose con
   assert.ok(copyDecision.conflicts.some(({ puzzleId, kinds }) => puzzleId === "last-dance-jordan-medal-freedom" && kinds.includes("copy-mention")));
 });
 
+test("the complete Tesla-SpaceX editorial package is spoiler safe after launch", () => {
+  const connection = EDITORIAL_CONNECTIONS.find(({ slug }) => slug === "tesla-spacex");
+  assert.ok(connection?.snapshot);
+  const decision = getEditorialPublicationDecision(connection, {
+    now: new Date("2026-10-17T16:00:00Z"),
+    launchDate: LAUNCH_DATE,
+  });
+  assert.equal(decision.status, "public");
+  assert.deepEqual(decision.conflicts, []);
+  assert.deepEqual(
+    connection.snapshot.path.nodes.map(({ qid }) => qid),
+    ["Q478214", "Q317521", "Q193701"],
+  );
+  assert.deepEqual(
+    connection.expectedRelationships.map(({ propertyId, pathDirection }) => [propertyId, pathDirection]),
+    [["P169", "forward"], ["P169", "reverse"]],
+  );
+});
+
 test("answer and reserved-pair endpoints are explicitly no-store", async () => {
   const [answerRoute, discoverRoute, connectRoute, pageData] = await Promise.all([
     readFile(new URL("../app/api/daily-answer/route.ts", import.meta.url), "utf8"),

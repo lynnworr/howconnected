@@ -20,7 +20,7 @@ import {
 } from "../lib/diagnostic-route-policy.ts";
 import { isMalformedConnectionPath } from "../lib/connection-route-policy.ts";
 
-const REVIEW_TIME = new Date("2026-10-11T12:00:00.000Z");
+const REVIEW_TIME = new Date("2026-10-17T16:00:00.000Z");
 
 test("approved editorial snapshots are valid and fingerprints are stable", () => {
   for (const connection of EDITORIAL_CONNECTIONS) {
@@ -33,7 +33,7 @@ test("approved editorial snapshots are valid and fingerprints are stable", () =>
   }
 
   const indexable = getIndexableEditorialConnections(REVIEW_TIME);
-  assert.equal(indexable.length, 10);
+  assert.equal(indexable.length, 11);
   assert.ok(
     indexable.every(
       ({ reviewStatus, indexEligible }) =>

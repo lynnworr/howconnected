@@ -37,6 +37,8 @@ export const PRODUCT_EVENT_NAMES = [
   "homepage_discovery_interacted",
   "navigation_link_clicked",
   "extension_install_clicked",
+  "trending_connection_impression",
+  "trending_connection_opened",
 ] as const;
 
 export type ProductEventName = (typeof PRODUCT_EVENT_NAMES)[number];
@@ -85,6 +87,8 @@ const EVENT_KEYS: Record<ProductEventName, readonly string[]> = {
   homepage_discovery_interacted: ["action"],
   navigation_link_clicked: ["destination", "navigationPlacement"],
   extension_install_clicked: ["extensionPlacement"],
+  trending_connection_impression: ["connection", "trendObservedAt", "trendExpiresAt"],
+  trending_connection_opened: ["connection", "trendObservedAt", "trendExpiresAt"],
 };
 
 const REQUIRED_KEYS: Record<ProductEventName, readonly string[]> = {
@@ -126,10 +130,12 @@ const REQUIRED_KEYS: Record<ProductEventName, readonly string[]> = {
   homepage_discovery_interacted: ["action"],
   navigation_link_clicked: ["destination", "navigationPlacement"],
   extension_install_clicked: ["extensionPlacement"],
+  trending_connection_impression: ["connection", "trendObservedAt", "trendExpiresAt"],
+  trending_connection_opened: ["connection", "trendObservedAt", "trendExpiresAt"],
 };
 
 const ENUMS: Record<string, readonly string[]> = {
-  origin: ["homepage", "shared_url", "extension", "daily_share", "connection_share", "publisher_widget"],
+  origin: ["homepage", "shared_url", "extension", "daily_share", "connection_share", "publisher_widget", "trending_homepage"],
   failureCategory: ["none", "no_strong_path", "semantic_quality_rejection", "timeout_or_budget", "upstream_wikidata", "neo4j_unavailable", "entity_not_found", "discovery_service"],
   method: ["copy_link", "share_fallback_copy", "native_share", "clipboard"],
   destinationType: ["wikipedia", "wikidata"],
@@ -167,7 +173,9 @@ function validValue(key: string, value: unknown): value is string | number | boo
   if (INTEGER_KEYS.has(key)) return typeof value === "number" && Number.isInteger(value) && value >= 0 && value <= 10_000;
   if (QID_KEYS.has(key)) return typeof value === "string" && QID.test(value);
   if (SLUG_KEYS.has(key)) return typeof value === "string" && value.length <= 120 && SLUG.test(value);
-  if (key === "utcDate") return typeof value === "string" && isUtcDate(value);
+  if (key === "utcDate" || key === "trendObservedAt" || key === "trendExpiresAt") {
+    return typeof value === "string" && isUtcDate(value);
+  }
   if (ENUMS[key]) return typeof value === "string" && ENUMS[key].includes(value);
   return false;
 }
