@@ -1247,7 +1247,13 @@ export function validateEditorialSnapshot(
 }
 
 function normalizedDisclosureText(value: string): string {
-  return value
+  let decoded = value;
+  try {
+    decoded = decodeURIComponent(value);
+  } catch {
+    // Invalid URL escapes remain searchable as their literal text.
+  }
+  return decoded
     .normalize("NFKD")
     .replace(/[\u0300-\u036f]/g, "")
     .toLocaleLowerCase("en-US")
@@ -1266,8 +1272,58 @@ function editorialCopy(snapshot: EditorialSnapshot): string {
     snapshot.relationshipMeaning,
     snapshot.editorialExplanation,
     ...(snapshot.context ?? []),
-    ...(snapshot.verificationSources ?? []).flatMap(({ label, publisher }) => [label, publisher]),
+    ...(snapshot.verificationSources ?? []).flatMap(({ label, publisher, url }) => [label, publisher, url]),
   ].filter(Boolean).join(" "));
+}
+
+function disclosureConflictKindsForPuzzle(
+  puzzle: MissingLinkPuzzle,
+  qids: ReadonlySet<string>,
+  disclosureText: string,
+): EditorialPuzzleConflict["kinds"] {
+  const kinds = new Set<EditorialPuzzleConflict["kinds"][number]>();
+  const hiddenNode = puzzle.path[puzzle.hiddenNodeIndex];
+  if (!hiddenNode) return [];
+  if (qids.has(hiddenNode.qid.toUpperCase())) kinds.add("hidden-entity");
+
+  const normalizedText = normalizedDisclosureText(disclosureText);
+  const hiddenLabel = normalizedDisclosureText(hiddenNode.name);
+  const hiddenQid = normalizedDisclosureText(hiddenNode.qid);
+  if (
+    (hiddenLabel.length >= 4 && (` ${normalizedText} `).includes(` ${hiddenLabel} `)) ||
+    (` ${normalizedText} `).includes(` ${hiddenQid} `)
+  ) {
+    kinds.add("copy-mention");
+  }
+  return [...kinds];
+}
+
+export function getUnrevealedPuzzleDisclosureConflicts(
+  input: {
+    qids?: readonly string[];
+    text: readonly string[];
+  },
+  options: { now?: Date; launchDate?: string | null } = {},
+): EditorialPuzzleConflict[] {
+  const launchDate = options.launchDate === undefined
+    ? getConfiguredLaunchDate()
+    : options.launchDate;
+  const qids = new Set((input.qids ?? []).map((qid) => qid.toUpperCase()));
+  const disclosureText = input.text.filter(Boolean).join(" ");
+
+  return getScheduledPuzzles().flatMap((puzzle) => {
+    if (isPuzzleEditoriallyRevealed(puzzle, options.now, launchDate)) return [];
+    const kinds = disclosureConflictKindsForPuzzle(puzzle, qids, disclosureText);
+    if (kinds.length === 0) return [];
+    const window = getPuzzleScheduleWindow(puzzle, launchDate);
+    return [{
+      puzzleId: puzzle.id,
+      schedulePosition: puzzle.schedulePosition ?? 0,
+      kinds,
+      scheduledDate: window?.scheduledDate ?? null,
+      editorialReleaseDate: window?.editorialReleaseDate ?? null,
+    }];
+  });
 }
 
 function puzzleConflictKinds(
@@ -1277,9 +1333,16 @@ function puzzleConflictKinds(
   const snapshot = connection.snapshot;
   if (!snapshot) return [];
   const kinds = new Set<EditorialPuzzleConflict["kinds"][number]>();
-  const editorialNodeQids = new Set(snapshot.path.nodes.map(({ qid }) => qid));
-  const hiddenNode = puzzle.path[puzzle.hiddenNodeIndex];
-  if (hiddenNode && editorialNodeQids.has(hiddenNode.qid)) kinds.add("hidden-entity");
+  const editorialNodeQids = new Set(
+    snapshot.path.nodes.flatMap(({ qid }) => qid ? [qid.toUpperCase()] : []),
+  );
+  for (const kind of disclosureConflictKindsForPuzzle(
+    puzzle,
+    editorialNodeQids,
+    editorialCopy(snapshot),
+  )) {
+    kinds.add(kind);
+  }
 
   const editorialPair = unorderedQidPair(
     connection.canonicalFromQid,
@@ -1298,11 +1361,6 @@ function puzzleConflictKinds(
     kinds.add("full-path");
   }
 
-  const hiddenLabel = normalizedDisclosureText(hiddenNode?.name ?? "");
-  const copy = editorialCopy(snapshot);
-  if (hiddenLabel.length >= 4 && (` ${copy} `).includes(` ${hiddenLabel} `)) {
-    kinds.add("copy-mention");
-  }
   return [...kinds];
 }
 

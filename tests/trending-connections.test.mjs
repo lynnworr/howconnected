@@ -2,10 +2,15 @@ import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 import test from "node:test";
 import {
+  getTrendingPublicationDecision,
   MINIMUM_TRENDING_CARDS,
   TRENDING_SIGNALS,
   selectTrendingConnections,
 } from "../lib/trending-connections.ts";
+import { getApprovedExploreConnections } from "../lib/explore-connections.ts";
+import { MISSING_LINK_PUZZLES } from "../lib/daily-puzzles.ts";
+
+const LAUNCH_DATE = "2026-10-15";
 
 const approved = (slug) => ({
   slug,
@@ -56,6 +61,63 @@ test("trending selection requires approved editorial data and expires automatica
 });
 
 test("homepage trending has no Neo4j dependency", async () => {
-  const source = await readFile(new URL("../lib/trending-connections.ts", import.meta.url), "utf8");
+  const [source, component] = await Promise.all([
+    readFile(new URL("../lib/trending-connections.ts", import.meta.url), "utf8"),
+    readFile(new URL("../components/TrendingConnections.tsx", import.meta.url), "utf8"),
+  ]);
   assert.doesNotMatch(source, /neo4j|getNeo4jDriver|discoverConnection|ingest/i);
+  assert.doesNotMatch(component, /trendSourceUrl|sourceTitle|sourceUrl/);
+});
+
+test("all public trend and analytics fields fail closed on future-answer disclosure", () => {
+  const puzzle = MISSING_LINK_PUZZLES.find(({ schedulePosition }) => schedulePosition === 5);
+  assert.ok(puzzle);
+  const hidden = puzzle.path[puzzle.hiddenNodeIndex];
+  const baseSignal = {
+    ...TRENDING_SIGNALS[0],
+    editorialSlug: "safe-reviewed",
+    label: "Current documented signal",
+    sourceTitle: "Current documented source",
+    sourceUrl: "https://example.com/current-source",
+  };
+  const baseConnection = approved("safe-reviewed");
+  const cases = [
+    { signal: { ...baseSignal, label: hidden.name }, connection: baseConnection },
+    { signal: { ...baseSignal, sourceTitle: hidden.name }, connection: baseConnection },
+    { signal: { ...baseSignal, sourceUrl: `https://example.com/${hidden.name.replaceAll(" ", "-")}` }, connection: baseConnection },
+    { signal: { ...baseSignal, sourceUrl: `https://example.com/${encodeURIComponent(hidden.name)}` }, connection: baseConnection },
+    { signal: { ...baseSignal, editorialSlug: hidden.name }, connection: approved(hidden.name) },
+    { signal: baseSignal, connection: { ...baseConnection, headline: hidden.name } },
+    { signal: baseSignal, connection: { ...baseConnection, sourceQid: hidden.qid } },
+  ];
+
+  for (const { signal, connection } of cases) {
+    const decision = getTrendingPublicationDecision(signal, [connection], {
+      now: new Date("2026-10-17T16:00:00Z"),
+      launchDate: LAUNCH_DATE,
+    });
+    assert.equal(decision.status, "held");
+    assert.equal(decision.reason, "future-puzzle");
+    assert.deepEqual(
+      selectTrendingConnections(
+        [signal],
+        [connection],
+        new Date("2026-10-17T16:00:00Z"),
+        1,
+        LAUNCH_DATE,
+      ),
+      [],
+    );
+  }
+});
+
+test("the existing Tesla-SpaceX trend remains eligible", () => {
+  const now = new Date("2026-10-17T16:00:00Z");
+  const approvedConnections = getApprovedExploreConnections(now);
+  const decision = getTrendingPublicationDecision(
+    TRENDING_SIGNALS[0],
+    approvedConnections,
+    { now, launchDate: LAUNCH_DATE },
+  );
+  assert.deepEqual(decision, { status: "public", conflicts: [] });
 });
