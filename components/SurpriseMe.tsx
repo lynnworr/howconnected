@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { getConnectionPath } from "@/lib/connection-share";
 import { trackProductEvent } from "@/lib/product-analytics";
-import { pickSurprisePair, SURPRISE_PAIRS } from "@/lib/surprise-pairs";
+import type { SurprisePair } from "@/lib/surprise-pairs";
 
 const RECENT_KEY = "howconnected:recent-surprises";
 
@@ -19,12 +19,28 @@ function recentPairIds(): string[] {
   }
 }
 
-export default function SurpriseMe() {
-  const [pair, setPair] = useState(SURPRISE_PAIRS[0]);
+function pickPair(
+  pairs: readonly SurprisePair[],
+  currentId: string,
+  recentIds: readonly string[],
+): SurprisePair {
+  const available = pairs.filter(
+    ({ id }) => id !== currentId && !recentIds.includes(id),
+  );
+  const pool = available.length > 0
+    ? available
+    : pairs.filter(({ id }) => id !== currentId);
+  return pool[Math.floor(Math.random() * pool.length)] ?? pairs[0];
+}
+
+export default function SurpriseMe({ pairs }: { pairs: readonly SurprisePair[] }) {
+  const [pair, setPair] = useState(pairs[0]);
+
+  if (!pair) return null;
 
   function shuffle() {
     const recent = recentPairIds();
-    const next = pickSurprisePair(pair.id, recent, Math.random());
+    const next = pickPair(pairs, pair.id, recent);
     setPair(next);
     trackProductEvent("surprise_me_shuffled", {
       previousPairId: pair.id,

@@ -33,13 +33,16 @@ export function getCanonicalConnectionUrl(
   return `${SITE_ORIGIN}/connect/${encodeURIComponent(fromQid)}/${encodeURIComponent(toQid)}`;
 }
 
-export function getIndexableUrls(options: { dailyLaunchReady?: boolean } = {}): string[] {
+export function getIndexableUrls(options: { dailyLaunchReady?: boolean; now?: Date } = {}): string[] {
   const dailyLaunchReady = options.dailyLaunchReady ?? isDailyPubliclyLaunched();
+  const indexableConnections = getIndexableEditorialConnections(options.now).map(
+    (connection) => [connection.canonicalFromQid, connection.canonicalToQid] as const,
+  );
   return [
     SITE_ORIGIN,
     ...PUBLIC_PAGE_PATHS.map((path) => `${SITE_ORIGIN}${path}`),
     ...(dailyLaunchReady ? [`${SITE_ORIGIN}/daily`] : []),
-    ...INDEXABLE_CONNECTIONS.map(([fromQid, toQid]) =>
+    ...indexableConnections.map(([fromQid, toQid]) =>
       getCanonicalConnectionUrl(fromQid, toQid),
     ),
   ];

@@ -11,6 +11,7 @@ import {
   WikidataFetchError,
 } from "@/lib/wikidata";
 import { classifyDiscoveryFailure } from "@/lib/discovery-failure-category";
+import { findReservedFuturePuzzleByQids } from "@/lib/daily-puzzles";
 
 function toConsumerPath(path: {
   steps: number;
@@ -46,6 +47,21 @@ export async function GET(request: NextRequest) {
     return Response.json(
       { found: false, error: "Two valid Wikidata QIDs are required." },
       { status: 400 },
+    );
+  }
+
+  if (findReservedFuturePuzzleByQids(fromQid, toQid)) {
+    return Response.json(
+      {
+        found: false,
+        timedOut: false,
+        failureCategory: "no_reliable_path",
+        source: null,
+        target: null,
+        bestPath: null,
+        alternatePaths: [],
+      },
+      { status: 404, headers: { "Cache-Control": "no-store" } },
     );
   }
 

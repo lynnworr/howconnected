@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import {
   findEditorialConnection,
   findReversedEditorialConnection,
+  getEditorialPublicationDecision,
   validateEditorialSnapshot,
   type EditorialConnection,
   type SnapshotValidation,
@@ -97,11 +98,10 @@ export function buildConnectionRouteMetadata(
       connection.canonicalFromQid,
       connection.canonicalToQid,
     );
+    const publication = getEditorialPublicationDecision(connection, { now });
     const canIndex =
       orientation === "canonical" &&
-      connection.indexEligible &&
-      connection.reviewStatus === "approved" &&
-      validation.status === "ready";
+      publication.status === "public";
 
     if (canIndex && validation.status === "ready") {
       const title = `${validation.snapshot.headline ?? `${validation.snapshot.source.label} and ${validation.snapshot.target.label}`} | HowConnected`;
@@ -134,9 +134,7 @@ export function buildConnectionRouteMetadata(
       title: `Explore ${pairName} | HowConnected`,
       description: `Explore a factual connection between ${pairName} on HowConnected.`,
       ...(orientation === "reversed" &&
-      connection.indexEligible &&
-      connection.reviewStatus === "approved" &&
-      validation.status === "ready"
+      publication.status === "public"
         ? { canonical: canonicalUrl }
         : {}),
     });

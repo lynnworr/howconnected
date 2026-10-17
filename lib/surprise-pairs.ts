@@ -1,3 +1,9 @@
+import {
+  getConfiguredLaunchDate,
+  getScheduledPuzzles,
+  isPuzzleEditoriallyRevealed,
+} from "./daily-puzzles.ts";
+
 export type SurprisePair = {
   id: string;
   from: { id: string; label: string };
@@ -43,6 +49,51 @@ export const SURPRISE_PAIRS: readonly SurprisePair[] = [
     hook: "Open knowledge data meets the company that published it.",
   },
 ] as const;
+
+function normalizedDisclosureText(value: string): string {
+  return value
+    .normalize("NFKD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLocaleLowerCase("en-US")
+    .replace(/[^a-z0-9]+/g, " ")
+    .trim();
+}
+
+function unorderedPair(left: string, right: string): string {
+  return [left.trim().toUpperCase(), right.trim().toUpperCase()].sort().join(":");
+}
+
+export function getSpoilerSafeSurprisePairs(
+  now = new Date(),
+  launchDate: string | null = getConfiguredLaunchDate(),
+): SurprisePair[] {
+  const futurePuzzles = getScheduledPuzzles().filter(
+    (puzzle) => !isPuzzleEditoriallyRevealed(puzzle, now, launchDate),
+  );
+
+  return SURPRISE_PAIRS.filter((pair) => {
+    const pairQids = new Set([pair.from.id, pair.to.id]);
+    const pairKey = unorderedPair(pair.from.id, pair.to.id);
+    const copy = ` ${normalizedDisclosureText(
+      `${pair.from.label} ${pair.to.label} ${pair.hook}`,
+    )} `;
+
+    return !futurePuzzles.some((puzzle) => {
+      const hidden = puzzle.path[puzzle.hiddenNodeIndex];
+      if (hidden && pairQids.has(hidden.qid)) return true;
+      if (
+        hidden &&
+        (` ${copy} `).includes(` ${normalizedDisclosureText(hidden.name)} `)
+      ) {
+        return true;
+      }
+      return puzzle.path.some((node, index) => {
+        const next = puzzle.path[index + 1];
+        return next && unorderedPair(node.qid, next.qid) === pairKey;
+      });
+    });
+  });
+}
 
 export function pickSurprisePair(
   currentId: string | null,

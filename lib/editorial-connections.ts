@@ -7,6 +7,13 @@ import type {
   SelectedEntity,
 } from "../components/connection-types.ts";
 import { isValidQid } from "./wikidata-id.ts";
+import {
+  getConfiguredLaunchDate,
+  getPuzzleScheduleWindow,
+  getScheduledPuzzles,
+  isPuzzleEditoriallyRevealed,
+  type MissingLinkPuzzle,
+} from "./daily-puzzles.ts";
 
 export const EDITORIAL_SNAPSHOT_MAX_AGE_DAYS = 365;
 
@@ -67,6 +74,51 @@ export type SnapshotValidation =
   | { status: "missing"; connection: EditorialConnection }
   | { status: "invalid"; connection: EditorialConnection; errors: string[] }
   | { status: "stale"; connection: EditorialConnection; staleSince: string };
+
+export type EditorialPuzzleConflict = {
+  puzzleId: string;
+  schedulePosition: number;
+  kinds: readonly ("direct-pair" | "hidden-entity" | "full-path" | "copy-mention")[];
+  scheduledDate: string | null;
+  editorialReleaseDate: string | null;
+};
+
+export type EditorialPublicationDecision =
+  | {
+      status: "public";
+      validation: Extract<SnapshotValidation, { status: "ready" }>;
+      conflicts: readonly EditorialPuzzleConflict[];
+      grandfathered: boolean;
+    }
+  | {
+      status: "held";
+      reason: "not-approved" | "not-index-eligible" | "invalid-evidence" | "future-puzzle";
+      validation: SnapshotValidation;
+      conflicts: readonly EditorialPuzzleConflict[];
+    };
+
+// Owner-approved exceptions that remain public despite a known future-puzzle conflict.
+export const LEGACY_PUBLIC_EDITORIAL_SLUGS = new Set([
+  "steve-jobs-apple",
+  "studio-ghibli-hayao-miyazaki",
+  "michael-jordan-chicago-bulls",
+  "google-larry-page",
+]);
+
+// Preserve the pre-guard public catalog if release timing is misconfigured.
+// This does not let these pages bypass a known, configured future conflict.
+const PREEXISTING_PUBLIC_EDITORIAL_SLUGS = new Set([
+  "steve-jobs-apple",
+  "walt-disney-the-walt-disney-company",
+  "nasa-dwight-eisenhower",
+  "studio-ghibli-hayao-miyazaki",
+  "star-wars-george-lucas",
+  "world-wide-web-tim-berners-lee",
+  "apollo-11-neil-armstrong",
+  "michael-jordan-chicago-bulls",
+  "google-larry-page",
+  "france-paris",
+]);
 
 function wikidataUrl(qid: string): string {
   return `https://www.wikidata.org/wiki/${qid}`;
@@ -1100,14 +1152,121 @@ export function validateEditorialSnapshot(
   return { status: "ready", connection, snapshot };
 }
 
+function normalizedDisclosureText(value: string): string {
+  return value
+    .normalize("NFKD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLocaleLowerCase("en-US")
+    .replace(/[^a-z0-9]+/g, " ")
+    .trim();
+}
+
+function unorderedQidPair(left: string, right: string): string {
+  return [left.toUpperCase(), right.toUpperCase()].sort().join(":");
+}
+
+function editorialCopy(snapshot: EditorialSnapshot): string {
+  return normalizedDisclosureText([
+    snapshot.headline,
+    snapshot.introduction,
+    snapshot.relationshipMeaning,
+    snapshot.editorialExplanation,
+    ...(snapshot.context ?? []),
+    ...(snapshot.verificationSources ?? []).flatMap(({ label, publisher }) => [label, publisher]),
+  ].filter(Boolean).join(" "));
+}
+
+function puzzleConflictKinds(
+  connection: EditorialConnection,
+  puzzle: MissingLinkPuzzle,
+): EditorialPuzzleConflict["kinds"] {
+  const snapshot = connection.snapshot;
+  if (!snapshot) return [];
+  const kinds = new Set<EditorialPuzzleConflict["kinds"][number]>();
+  const editorialNodeQids = new Set(snapshot.path.nodes.map(({ qid }) => qid));
+  const hiddenNode = puzzle.path[puzzle.hiddenNodeIndex];
+  if (hiddenNode && editorialNodeQids.has(hiddenNode.qid)) kinds.add("hidden-entity");
+
+  const editorialPair = unorderedQidPair(
+    connection.canonicalFromQid,
+    connection.canonicalToQid,
+  );
+  for (let index = 0; index < puzzle.path.length - 1; index += 1) {
+    if (unorderedQidPair(puzzle.path[index].qid, puzzle.path[index + 1].qid) === editorialPair) {
+      kinds.add("direct-pair");
+    }
+  }
+
+  const editorialPath = snapshot.path.nodes.map(({ qid }) => qid).join(">");
+  const puzzlePath = puzzle.path.map(({ qid }) => qid).join(">");
+  const reversedPuzzlePath = [...puzzle.path].reverse().map(({ qid }) => qid).join(">");
+  if (editorialPath === puzzlePath || editorialPath === reversedPuzzlePath) {
+    kinds.add("full-path");
+  }
+
+  const hiddenLabel = normalizedDisclosureText(hiddenNode?.name ?? "");
+  const copy = editorialCopy(snapshot);
+  if (hiddenLabel.length >= 4 && (` ${copy} `).includes(` ${hiddenLabel} `)) {
+    kinds.add("copy-mention");
+  }
+  return [...kinds];
+}
+
+export function getEditorialPuzzleConflicts(
+  connection: EditorialConnection,
+  options: { now?: Date; launchDate?: string | null } = {},
+): EditorialPuzzleConflict[] {
+  const launchDate = options.launchDate === undefined
+    ? getConfiguredLaunchDate()
+    : options.launchDate;
+  return getScheduledPuzzles().flatMap((puzzle) => {
+    const kinds = puzzleConflictKinds(connection, puzzle);
+    if (kinds.length === 0 || isPuzzleEditoriallyRevealed(puzzle, options.now, launchDate)) {
+      return [];
+    }
+    const window = getPuzzleScheduleWindow(puzzle, launchDate);
+    return [{
+      puzzleId: puzzle.id,
+      schedulePosition: puzzle.schedulePosition ?? 0,
+      kinds,
+      scheduledDate: window?.scheduledDate ?? null,
+      editorialReleaseDate: window?.editorialReleaseDate ?? null,
+    }];
+  });
+}
+
+export function getEditorialPublicationDecision(
+  connection: EditorialConnection,
+  options: { now?: Date; launchDate?: string | null } = {},
+): EditorialPublicationDecision {
+  const launchDate = options.launchDate === undefined
+    ? getConfiguredLaunchDate()
+    : options.launchDate;
+  const validation = validateEditorialSnapshot(connection, options.now);
+  const conflicts = getEditorialPuzzleConflicts(connection, { ...options, launchDate });
+  if (connection.reviewStatus !== "approved") {
+    return { status: "held", reason: "not-approved", validation, conflicts };
+  }
+  if (!connection.indexEligible) {
+    return { status: "held", reason: "not-index-eligible", validation, conflicts };
+  }
+  if (validation.status !== "ready") {
+    return { status: "held", reason: "invalid-evidence", validation, conflicts };
+  }
+  const grandfathered = LEGACY_PUBLIC_EDITORIAL_SLUGS.has(connection.slug);
+  const preservePreexistingWithoutSchedule =
+    !launchDate && PREEXISTING_PUBLIC_EDITORIAL_SLUGS.has(connection.slug);
+  if (conflicts.length > 0 && !grandfathered && !preservePreexistingWithoutSchedule) {
+    return { status: "held", reason: "future-puzzle", validation, conflicts };
+  }
+  return { status: "public", validation, conflicts, grandfathered };
+}
+
 export function getIndexableEditorialConnections(
   now = new Date(),
 ): EditorialConnection[] {
   return EDITORIAL_CONNECTIONS.filter(
-    (connection) =>
-      connection.indexEligible &&
-      connection.reviewStatus === "approved" &&
-      validateEditorialSnapshot(connection, now).status === "ready",
+    (connection) => getEditorialPublicationDecision(connection, { now }).status === "public",
   );
 }
 
@@ -1118,9 +1277,7 @@ export function getRelatedEditorialConnections(
   return (connection.relatedSlugs ?? []).flatMap((slug) => {
     const related = CONNECTIONS_BY_SLUG.get(slug);
     return related &&
-      related.reviewStatus === "approved" &&
-      related.indexEligible &&
-      validateEditorialSnapshot(related, now).status === "ready"
+      getEditorialPublicationDecision(related, { now }).status === "public"
       ? [related]
       : [];
   });

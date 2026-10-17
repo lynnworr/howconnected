@@ -4,6 +4,7 @@ import type {
 } from "../components/connection-types.ts";
 import {
   findEditorialConnection,
+  getEditorialPublicationDecision,
   getRelatedEditorialConnections,
   snapshotToDiscoveryResult,
   validateEditorialSnapshot,
@@ -61,7 +62,11 @@ export function resolveEditorialSnapshotPageData(
   connection: EditorialConnection,
   now = new Date(),
 ): ConnectionPageData {
-  const validation = validateEditorialSnapshot(connection, now);
+  const publication = getEditorialPublicationDecision(connection, { now });
+  const validation = publication.validation;
+  if (publication.status !== "public") {
+    return { status: "editorial-unavailable", reason: validation.status === "ready" ? "missing" : validation.status };
+  }
   if (validation.status !== "ready") {
     return { status: "editorial-unavailable", reason: validation.status };
   }

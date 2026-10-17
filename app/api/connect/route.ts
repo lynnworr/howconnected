@@ -11,6 +11,7 @@ import {
   type TraversalDirection,
 } from "@/lib/path-scoring";
 import { RELATIONSHIP_CONFIG_BY_TYPE } from "@/lib/wikidata-properties";
+import { findReservedFuturePuzzleByNames } from "@/lib/daily-puzzles";
 
 const MAX_CANDIDATES = 150;
 const MAX_RETURNED_PATHS = 3;
@@ -183,6 +184,19 @@ export async function GET(request: NextRequest) {
         error: "Both from and to query parameters are required.",
       },
       { status: 400 },
+    );
+  }
+
+  if (findReservedFuturePuzzleByNames(source, target)) {
+    return Response.json(
+      {
+        source,
+        target,
+        bestPath: null,
+        alternatePaths: [],
+        error: "No meaningful path was found within 5 relationships.",
+      },
+      { status: 404, headers: { "Cache-Control": "no-store" } },
     );
   }
 

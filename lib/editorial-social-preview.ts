@@ -1,5 +1,6 @@
 import {
   findEditorialConnection,
+  getEditorialPublicationDecision,
   validateEditorialSnapshot,
 } from "./editorial-connections.ts";
 
@@ -21,11 +22,7 @@ export function getEditorialSocialPreview(
     rawFromQid.trim().toUpperCase(),
     rawToQid.trim().toUpperCase(),
   );
-  if (
-    !connection ||
-    connection.reviewStatus !== "approved" ||
-    !connection.indexEligible
-  ) {
+  if (!connection || getEditorialPublicationDecision(connection, { now }).status !== "public") {
     return null;
   }
 

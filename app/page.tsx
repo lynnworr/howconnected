@@ -13,6 +13,7 @@ import {
   getHomepageDiscoveryConnections,
 } from "@/lib/explore-connections";
 import { SITE_ORIGIN } from "@/lib/seo";
+import { getSpoilerSafeSurprisePairs } from "@/lib/surprise-pairs";
 
 const title = "HowConnected — Discover surprising real-world connections";
 const description =
@@ -40,11 +41,12 @@ async function getHomepageConnections() {
     recommendationCatalog: createConnectionRecommendationCatalog(
       getApprovedExploreConnections(),
     ),
+    surprisePairs: getSpoilerSafeSurprisePairs(),
   };
 }
 
 export default async function Home() {
-  const { discovery: discoveryConnections, recommendationCatalog } =
+  const { discovery: discoveryConnections, recommendationCatalog, surprisePairs } =
     await getHomepageConnections();
   const jsonLd = {
     "@context": "https://schema.org",
@@ -134,7 +136,7 @@ export default async function Home() {
           </section>
 
           <ConnectionExplorer recommendationCatalog={recommendationCatalog} />
-          <SurpriseMe />
+          <SurpriseMe pairs={surprisePairs} />
           <section className="mt-10 w-full max-w-5xl text-left" aria-labelledby="learn-with-howconnected">
             <h2 id="learn-with-howconnected" className="text-center text-2xl font-bold tracking-[-0.03em] text-[#1d2944]">
               Follow a connection further

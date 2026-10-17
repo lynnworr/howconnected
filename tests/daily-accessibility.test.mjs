@@ -31,7 +31,7 @@ test("daily controls retain native keyboard semantics, touch targets, live feedb
     readFile(new URL("../app/globals.css", import.meta.url), "utf8"),
   ]);
   assert.match(component, /<form[^>]+onSubmit=/);
-  assert.match(component, /<fieldset disabled=\{revealed\}>/);
+  assert.match(component, /<fieldset disabled=\{revealed \|\| submitting \|\| Boolean\(prior\)\}>/);
   assert.match(component, /<legend className="sr-only">Choose one answer<\/legend>/);
   assert.match(component, /type="radio"/);
   assert.match(component, /min-h-14/);

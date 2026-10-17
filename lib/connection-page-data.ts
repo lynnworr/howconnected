@@ -10,6 +10,7 @@ import {
 import { parseDiscoveryResult } from "@/lib/connection-response";
 import { discoverConnection } from "@/lib/discover-connection";
 import { isValidQid } from "@/lib/wikidata-id";
+import { findReservedFuturePuzzleByQids } from "@/lib/daily-puzzles";
 import { fetchWikidataEntitySummaries } from "@/lib/wikidata";
 
 export type { ConnectionPageData } from "@/lib/connection-page-state";
@@ -38,6 +39,10 @@ export const getConnectionPageData = cache(
 
     const editorialData = resolveEditorialConnectionPageData(fromQid, toQid);
     if (editorialData) return editorialData;
+
+    if (findReservedFuturePuzzleByQids(fromQid, toQid)) {
+      return { status: "error" };
+    }
 
     try {
       if (fromQid === toQid) {

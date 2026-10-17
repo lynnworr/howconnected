@@ -1,5 +1,6 @@
 import {
   findEditorialConnectionBySlug,
+  getEditorialPublicationDecision,
   getIndexableEditorialConnections,
   validateEditorialSnapshot,
   type EditorialConnection,
@@ -26,7 +27,7 @@ export function getEmbeddableConnection(
 ): EmbeddableConnection | null {
   if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(slug)) return null;
   const connection = findEditorialConnectionBySlug(slug);
-  if (!connection || !connection.indexEligible || connection.reviewStatus !== "approved") {
+  if (!connection || getEditorialPublicationDecision(connection, { now }).status !== "public") {
     return null;
   }
   const validation = validateEditorialSnapshot(connection, now);

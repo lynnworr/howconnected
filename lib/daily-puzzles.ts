@@ -121,6 +121,7 @@ export function validateDailyPuzzleRegistry(puzzles: readonly MissingLinkPuzzle[
 
 export function getUtcDateKey(date: Date): string { if (Number.isNaN(date.getTime())) throw new Error("A valid date is required."); return date.toISOString().slice(0, 10); }
 function utcDay(dateKey: string): number { if (!DATE_KEY_PATTERN.test(dateKey)) return Number.NaN; return Math.floor(Date.parse(`${dateKey}T00:00:00.000Z`) / 86_400_000); }
+function dateKeyFromUtcDay(day: number): string { return new Date(day * 86_400_000).toISOString().slice(0, 10); }
 export function getSafeDailyRequestDate(value: string | undefined, now: Date = new Date()): Date {
   if (!value || !DATE_KEY_PATTERN.test(value) || utcDay(value) > utcDay(getUtcDateKey(now))) return now;
   return new Date(`${value}T12:00:00.000Z`);
@@ -130,6 +131,64 @@ export function getConfiguredLaunchDate(env: NodeJS.ProcessEnv = process.env): s
 }
 export function getScheduledPuzzles(puzzles: readonly MissingLinkPuzzle[] = MISSING_LINK_PUZZLES): MissingLinkPuzzle[] {
   return puzzles.filter((puzzle) => puzzle.schedulePosition !== undefined).sort((a, b) => (a.schedulePosition ?? 0) - (b.schedulePosition ?? 0));
+}
+export function getPuzzleScheduleWindow(
+  puzzle: MissingLinkPuzzle,
+  launchDate: string | null = getConfiguredLaunchDate(),
+): { scheduledDate: string; editorialReleaseDate: string } | null {
+  if (!launchDate || puzzle.schedulePosition === undefined) return null;
+  const launchDay = utcDay(launchDate);
+  if (!Number.isFinite(launchDay)) return null;
+  const scheduledDay = launchDay + puzzle.schedulePosition - 1;
+  return {
+    scheduledDate: dateKeyFromUtcDay(scheduledDay),
+    editorialReleaseDate: dateKeyFromUtcDay(scheduledDay + 1),
+  };
+}
+export function isPuzzleEditoriallyRevealed(
+  puzzle: MissingLinkPuzzle,
+  now: Date = new Date(),
+  launchDate: string | null = getConfiguredLaunchDate(),
+): boolean {
+  const window = getPuzzleScheduleWindow(puzzle, launchDate);
+  return Boolean(
+    window &&
+    !["quarantined", "retired"].includes(puzzle.status) &&
+    utcDay(getUtcDateKey(now)) >= utcDay(window.editorialReleaseDate),
+  );
+}
+
+function unorderedPair(left: string, right: string): string {
+  return [left.trim().toUpperCase(), right.trim().toUpperCase()].sort().join(":");
+}
+function normalizedEntityName(value: string): string {
+  return value.trim().toLocaleLowerCase("en-US").replace(/\s+/g, " ");
+}
+export function findReservedFuturePuzzleByQids(
+  fromQid: string,
+  toQid: string,
+  now: Date = new Date(),
+  launchDate: string | null = getConfiguredLaunchDate(),
+): MissingLinkPuzzle | null {
+  const pair = unorderedPair(fromQid, toQid);
+  return getScheduledPuzzles().find((puzzle) => {
+    const first = puzzle.path[0]?.qid ?? "";
+    const last = puzzle.path.at(-1)?.qid ?? "";
+    return unorderedPair(first, last) === pair && !isPuzzleEditoriallyRevealed(puzzle, now, launchDate);
+  }) ?? null;
+}
+export function findReservedFuturePuzzleByNames(
+  fromName: string,
+  toName: string,
+  now: Date = new Date(),
+  launchDate: string | null = getConfiguredLaunchDate(),
+): MissingLinkPuzzle | null {
+  const pair = unorderedPair(normalizedEntityName(fromName), normalizedEntityName(toName));
+  return getScheduledPuzzles().find((puzzle) => {
+    const first = normalizedEntityName(puzzle.path[0]?.name ?? "");
+    const last = normalizedEntityName(puzzle.path.at(-1)?.name ?? "");
+    return unorderedPair(first, last) === pair && !isPuzzleEditoriallyRevealed(puzzle, now, launchDate);
+  }) ?? null;
 }
 export function getDailyScheduleState(date: Date, options: { puzzles?: readonly MissingLinkPuzzle[]; launchDate?: string | null; previewWhenUnconfigured?: boolean } = {}): ScheduleState {
   const puzzles = options.puzzles ?? MISSING_LINK_PUZZLES; const dateKey = getUtcDateKey(date);
@@ -154,6 +213,32 @@ export function getDailyPuzzleForDate(date: Date, puzzles: readonly MissingLinkP
   const state = getDailyScheduleState(date, { puzzles, previewWhenUnconfigured: true });
   if (state.kind === "available" || state.kind === "preview") return state.puzzle;
   throw new Error(`No playable daily puzzle: ${state.kind}`);
+}
+export function validateDailyAnswerSelection(input: {
+  dateKey: string;
+  puzzleId: string;
+  selectedOptionId: string;
+  now?: Date;
+  launchDate?: string | null;
+}):
+  | { status: "valid"; puzzle: MissingLinkPuzzle; correct: boolean }
+  | { status: "invalid" | "unavailable" } {
+  if (!DATE_KEY_PATTERN.test(input.dateKey)) return { status: "invalid" };
+  const date = new Date(`${input.dateKey}T12:00:00.000Z`);
+  const now = input.now ?? new Date();
+  if (Number.isNaN(date.getTime()) || utcDay(input.dateKey) > utcDay(getUtcDateKey(now))) {
+    return { status: "invalid" };
+  }
+  const state = getDailyScheduleState(date, {
+    launchDate: input.launchDate === undefined ? getConfiguredLaunchDate() : input.launchDate,
+  });
+  if (state.kind !== "available" || state.puzzle.id !== input.puzzleId) {
+    return { status: "unavailable" };
+  }
+  const selected = state.puzzle.options.find(({ id }) => id === input.selectedOptionId);
+  return selected
+    ? { status: "valid", puzzle: state.puzzle, correct: selected.id === state.puzzle.correctOptionId }
+    : { status: "invalid" };
 }
 export function getComparisonPuzzle(): GuessConnectionPuzzle { const puzzle = EXPERIMENTAL_GUESS_PUZZLES[0]; if (!puzzle) throw new Error("A reviewed experimental puzzle is required."); return puzzle; }
 export function getContentRunwayReport(puzzles: readonly MissingLinkPuzzle[] = MISSING_LINK_PUZZLES, launchDate: string | null = getConfiguredLaunchDate()) {
