@@ -33,7 +33,7 @@ test("approved editorial snapshots are valid and fingerprints are stable", () =>
   }
 
   const indexable = getIndexableEditorialConnections(REVIEW_TIME);
-  assert.equal(indexable.length, 11);
+  assert.equal(indexable.length, 12);
   assert.ok(
     indexable.every(
       ({ reviewStatus, indexEligible }) =>
@@ -69,6 +69,19 @@ test("only an approved canonical orientation is indexable", () => {
   assert.equal(arbitrary.title, "Explore a connection | HowConnected");
   assert.equal(arbitrary.openGraph?.images, undefined);
   assert.equal(arbitrary.twitter?.images, undefined);
+
+  const jimKelly = buildConnectionRouteMetadata("Q127819", "Q221626", REVIEW_TIME);
+  assert.deepEqual(jimKelly.robots, { index: true, follow: true });
+  assert.equal(
+    jimKelly.alternates?.canonical,
+    "https://www.howconnected.app/connect/Q127819/Q221626",
+  );
+  const jimKellyReversed = buildConnectionRouteMetadata("Q221626", "Q127819", REVIEW_TIME);
+  assert.deepEqual(jimKellyReversed.robots, { index: false, follow: true });
+  assert.equal(
+    jimKellyReversed.alternates?.canonical,
+    "https://www.howconnected.app/connect/Q127819/Q221626",
+  );
 });
 
 test("approved pages carry rich reviewed content and only approved related links", () => {

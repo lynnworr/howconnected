@@ -766,7 +766,7 @@ export const EDITORIAL_CONNECTIONS: readonly EditorialConnection[] = [
     reviewStatus: "approved",
     verifiedAt: "2026-10-11T00:00:00.000Z",
     indexEligible: true,
-    relatedSlugs: ["apollo-11-neil-armstrong", "steve-jobs-apple"],
+    relatedSlugs: ["apollo-11-neil-armstrong", "steve-jobs-apple", "jim-kelly-buffalo-bills"],
     snapshot: directSnapshot({
       source: entity("Q41421", "Michael Jordan", "American basketball player"),
       target: entity("Q128109", "Chicago Bulls", "National Basketball Association team"),
@@ -1015,6 +1015,79 @@ export const EDITORIAL_CONNECTIONS: readonly EditorialConnection[] = [
       editorialExplanation:
         "Tesla and SpaceX both identify Elon Musk as chief executive, creating a durable personnel connection between two otherwise separate companies. Tesla's October 2026 Roadster prototype demonstration at a SpaceX site supplied a timely example of technical collaboration, but prototype and production claims should not be confused with the verified executive path.",
     },
+  },
+  {
+    slug: "jim-kelly-buffalo-bills",
+    canonicalFromQid: "Q127819",
+    canonicalToQid: "Q221626",
+    category: "Sports",
+    pathFingerprint: "hc-v1-646af643",
+    expectedRelationships: [
+      {
+        propertyId: "P54",
+        subjectQid: "Q127819",
+        objectQid: "Q221626",
+        pathDirection: "forward",
+        qualifierPropertyIds: ["P580", "P582", "P1618"],
+      },
+    ],
+    reviewStatus: "approved",
+    verifiedAt: "2026-10-17T19:20:00.000Z",
+    indexEligible: true,
+    relatedSlugs: ["michael-jordan-chicago-bulls", "apollo-11-neil-armstrong"],
+    snapshot: directSnapshot({
+      source: entity("Q127819", "Jim Kelly", "American football quarterback"),
+      target: entity("Q221626", "Buffalo Bills", "National Football League franchise in Buffalo, New York"),
+      sourceNode: node("Q127819", "Jim Kelly", "athlete", "Jim Kelly"),
+      targetNode: node("Q221626", "Buffalo Bills", "sports team", "Buffalo Bills"),
+      relationship: relationship(
+        "member of sports team",
+        "Jim Kelly",
+        "Buffalo Bills",
+        "P54",
+        "forward",
+        [
+          qualifier("P580", "start time", "1986"),
+          qualifier("P582", "end time", "1996"),
+          qualifier("P1618", "sport number", "12"),
+        ],
+      ),
+      headline: "Jim Kelly quarterbacked Buffalo through an unprecedented AFC run.",
+      introduction:
+        "Jim Kelly played quarterback for the Buffalo Bills from 1986 through 1996. His tenure included Buffalo's four consecutive AFC championships in the 1990–1993 seasons and the four Super Bowl appearances that followed—an unprecedented conference run, but not four Super Bowl victories.",
+      relationshipMeaning:
+        "Wikidata records P54, “member of sports team,” from Jim Kelly to the Buffalo Bills. Its upstream statement carries start and end qualifiers of 1986 and 1996, plus uniform number 12. The production Neo4j edge confirms the direct relationship and direction; it does not store those date qualifiers itself.",
+      context: [
+        "Kelly joined Buffalo before the 1986 NFL season and played his final Bills season in 1996, completing an 11-season NFL career with the franchise.",
+        "Buffalo won the AFC championship in the 1990, 1991, 1992, and 1993 seasons, becoming the only NFL team to claim four consecutive conference titles.",
+        "Those championships produced four consecutive Super Bowl appearances. Buffalo lost all four games, so the achievement is the run of conference championships and appearances—not Super Bowl victories.",
+        "The 1986 and 1996 dates shown on this page come from qualifiers on Wikidata's P54 statement and are corroborated by official career records; they are not represented as qualifier properties on the Neo4j relationship.",
+      ],
+      verificationSources: [
+        {
+          label: "Jim Kelly Hall of Fame profile",
+          publisher: "Pro Football Hall of Fame",
+          url: "https://www.profootballhof.com/players/jim-kelly",
+        },
+        {
+          label: "Jim Kelly Buffalo Bills career profile",
+          publisher: "Buffalo Bills",
+          url: "https://www.buffalobills.com/team/alumni/hall-of-fame-profiles/jim-kelly",
+        },
+        {
+          label: "Jim Kelly career statistics",
+          publisher: "NFL",
+          url: "https://www.nfl.com/players/jim-kelly/stats/career",
+        },
+        {
+          label: "Jim Kelly member of sports team statement (P54)",
+          publisher: "Wikidata",
+          url: "https://www.wikidata.org/wiki/Q127819#P54",
+        },
+      ],
+      editorialExplanation:
+        "Jim Kelly's verified P54 statement points directly to the Buffalo Bills for 1986–1996. Across that career, he led Buffalo's defining early-1990s offense as the team won four consecutive AFC championships and reached four consecutive Super Bowls, a distinction that should not be misstated as four championship-game victories.",
+    }),
   },
 ] as const;
 

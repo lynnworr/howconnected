@@ -1,13 +1,14 @@
 import type { Metadata } from "next";
 import { cacheLife } from "next/cache";
 import Link from "next/link";
+import { Suspense } from "react";
 import AnalyticsLink from "@/components/AnalyticsLink";
 import ConnectionExplorer from "@/components/ConnectionExplorer";
+import HomepageTrendingConnections from "@/components/HomepageTrendingConnections";
 import PublicFooter from "@/components/PublicFooter";
 import NetworkBackdrop from "@/components/NetworkBackdrop";
 import PublicHeader from "@/components/PublicHeader";
 import SurpriseMe from "@/components/SurpriseMe";
-import TrendingConnections from "@/components/TrendingConnections";
 import { createConnectionRecommendationCatalog } from "@/lib/connection-recommendations";
 import {
   getApprovedExploreConnections,
@@ -15,7 +16,6 @@ import {
 } from "@/lib/explore-connections";
 import { SITE_ORIGIN } from "@/lib/seo";
 import { getSpoilerSafeSurprisePairs } from "@/lib/surprise-pairs";
-import { getHomepageTrendingConnections } from "@/lib/trending-connections";
 
 const title = "HowConnected — Discover surprising real-world connections";
 const description =
@@ -44,12 +44,11 @@ async function getHomepageConnections() {
       getApprovedExploreConnections(),
     ),
     surprisePairs: getSpoilerSafeSurprisePairs(),
-    trending: getHomepageTrendingConnections(),
   };
 }
 
 export default async function Home() {
-  const { discovery: discoveryConnections, recommendationCatalog, surprisePairs, trending } =
+  const { discovery: discoveryConnections, recommendationCatalog, surprisePairs } =
     await getHomepageConnections();
   const jsonLd = {
     "@context": "https://schema.org",
@@ -139,7 +138,9 @@ export default async function Home() {
           </section>
 
           <ConnectionExplorer recommendationCatalog={recommendationCatalog} />
-          <TrendingConnections connections={trending} />
+          <Suspense fallback={null}>
+            <HomepageTrendingConnections />
+          </Suspense>
           <SurpriseMe pairs={surprisePairs} />
           <section className="mt-10 w-full max-w-5xl text-left" aria-labelledby="learn-with-howconnected">
             <h2 id="learn-with-howconnected" className="text-center text-2xl font-bold tracking-[-0.03em] text-[#1d2944]">

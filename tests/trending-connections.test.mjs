@@ -61,12 +61,17 @@ test("trending selection requires approved editorial data and expires automatica
 });
 
 test("homepage trending has no Neo4j dependency", async () => {
-  const [source, component] = await Promise.all([
+  const [source, component, homepageComponent, homepage] = await Promise.all([
     readFile(new URL("../lib/trending-connections.ts", import.meta.url), "utf8"),
     readFile(new URL("../components/TrendingConnections.tsx", import.meta.url), "utf8"),
+    readFile(new URL("../components/HomepageTrendingConnections.tsx", import.meta.url), "utf8"),
+    readFile(new URL("../app/page.tsx", import.meta.url), "utf8"),
   ]);
   assert.doesNotMatch(source, /neo4j|getNeo4jDriver|discoverConnection|ingest/i);
   assert.doesNotMatch(component, /trendSourceUrl|sourceTitle|sourceUrl/);
+  assert.doesNotMatch(homepageComponent, /neo4j|getNeo4jDriver|discoverConnection|ingest/i);
+  assert.match(homepageComponent, /await connection\(\)/);
+  assert.doesNotMatch(homepage, /trending:\s*getHomepageTrendingConnections\(\)/);
 });
 
 test("all public trend and analytics fields fail closed on future-answer disclosure", () => {
@@ -120,4 +125,39 @@ test("the existing Tesla-SpaceX trend remains eligible", () => {
     { now, launchDate: LAUNCH_DATE },
   );
   assert.deepEqual(decision, { status: "public", conflicts: [] });
+});
+
+test("both reviewed trends activate together and expire without unpublishing editorials", () => {
+  const now = new Date("2026-10-17T19:20:00Z");
+  const approvedConnections = getApprovedExploreConnections(now);
+  const active = selectTrendingConnections(
+    TRENDING_SIGNALS,
+    approvedConnections,
+    now,
+    MINIMUM_TRENDING_CARDS,
+    LAUNCH_DATE,
+  );
+  assert.deepEqual(active.map(({ slug }) => slug), [
+    "tesla-spacex",
+    "jim-kelly-buffalo-bills",
+  ]);
+  assert.ok(
+    TRENDING_SIGNALS.every(
+      ({ expiresAt }) => expiresAt === "2026-10-25T00:00:00.000Z",
+    ),
+  );
+  assert.deepEqual(
+    selectTrendingConnections(
+      TRENDING_SIGNALS,
+      approvedConnections,
+      new Date("2026-10-25T00:00:00Z"),
+      MINIMUM_TRENDING_CARDS,
+      LAUNCH_DATE,
+    ),
+    [],
+  );
+  assert.ok(
+    getApprovedExploreConnections(new Date("2026-10-25T00:00:00Z"))
+      .some(({ slug }) => slug === "jim-kelly-buffalo-bills"),
+  );
 });

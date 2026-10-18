@@ -45,6 +45,15 @@ export const TRENDING_SIGNALS: readonly TrendingSignal[] = [
     startsAt: "2026-10-17T00:00:00.000Z",
     expiresAt: "2026-10-25T00:00:00.000Z",
   },
+  {
+    editorialSlug: "jim-kelly-buffalo-bills",
+    label: "Buffalo's championship-era legacy",
+    sourceTitle: "The Most Cursed Team in American Sports",
+    sourceUrl: "https://www.theatlantic.com/magazine/2026/12/josh-allen-buffalo-bills-curse/688982/",
+    observedAt: "2026-10-14",
+    startsAt: "2026-10-17T00:00:00.000Z",
+    expiresAt: "2026-10-25T00:00:00.000Z",
+  },
 ];
 
 function hasValidSignalFields(signal: TrendingSignal): boolean {

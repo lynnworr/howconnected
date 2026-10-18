@@ -113,6 +113,29 @@ test("the complete Tesla-SpaceX editorial package is spoiler safe after launch",
   );
 });
 
+test("the complete Jim Kelly-Buffalo Bills editorial package is spoiler safe", () => {
+  const connection = EDITORIAL_CONNECTIONS.find(
+    ({ slug }) => slug === "jim-kelly-buffalo-bills",
+  );
+  assert.ok(connection?.snapshot);
+  const decision = getEditorialPublicationDecision(connection, {
+    now: new Date("2026-10-17T19:20:00Z"),
+    launchDate: LAUNCH_DATE,
+  });
+  assert.equal(decision.status, "public");
+  assert.deepEqual(decision.conflicts, []);
+  assert.deepEqual(
+    connection.snapshot.path.nodes.map(({ qid }) => qid),
+    ["Q127819", "Q221626"],
+  );
+  assert.deepEqual(
+    connection.snapshot.path.relationships[0].qualifiers?.map(({ propertyId }) => propertyId),
+    ["P580", "P582", "P1618"],
+  );
+  assert.match(connection.snapshot.relationshipMeaning ?? "", /does not store those date qualifiers/);
+  assert.match(connection.snapshot.context?.join(" ") ?? "", /not Super Bowl victories/);
+});
+
 test("answer and reserved-pair endpoints are explicitly no-store", async () => {
   const [answerRoute, discoverRoute, connectRoute, pageData] = await Promise.all([
     readFile(new URL("../app/api/daily-answer/route.ts", import.meta.url), "utf8"),
