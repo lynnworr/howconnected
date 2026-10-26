@@ -139,6 +139,12 @@ test("successful results include explanation, continuation, recommendations, and
   assert.match(insights, /So, how are they connected\?/);
   assert.match(insights, /Why this path works/);
   assert.match(insights, /The fun part/);
+  assert.match(insights, /editorial\.explanation/);
+  assert.match(insights, /What connects them/);
+  assert.match(insights, /What this connection does not prove/);
+  assert.match(insights, /<details/);
+  assert.match(insights, /Reviewed sources and what they support/);
+  assert.match(insights, /source\.supports/);
   assert.match(result, /editorial \? \(/);
   assert.match(result, /Start a new search/);
   assert.match(result, /Explore verified paths/);

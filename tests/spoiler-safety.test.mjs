@@ -92,6 +92,23 @@ test("new editorial content fails closed on future direct, hidden, and prose con
   assert.equal(copyDecision.status, "held");
   assert.equal(copyDecision.reason, "future-puzzle");
   assert.ok(copyDecision.conflicts.some(({ puzzleId, kinds }) => puzzleId === "last-dance-jordan-medal-freedom" && kinds.includes("copy-mention")));
+
+  const limitationSnapshot = { ...nasa.snapshot, limitations: ["This does not prove Michael Jordan founded NASA."] };
+  const limitationConflict = { ...nasa, slug: "proposed-limitation-conflict", snapshot: limitationSnapshot, pathFingerprint: createEditorialPathFingerprint(limitationSnapshot) };
+  const limitationDecision = getEditorialPublicationDecision(limitationConflict, { now: new Date("2026-10-17T12:00:00Z"), launchDate: LAUNCH_DATE });
+  assert.equal(limitationDecision.status, "held");
+  assert.ok(limitationDecision.conflicts.some(({ puzzleId, kinds }) => puzzleId === "last-dance-jordan-medal-freedom" && kinds.includes("copy-mention")));
+
+  const sourceMappingSnapshot = {
+    ...nasa.snapshot,
+    verificationSources: nasa.snapshot.verificationSources?.map((source, index) => index === 0
+      ? { ...source, supports: ["Michael Jordan appears in the reviewed claim."] }
+      : source),
+  };
+  const sourceMappingConflict = { ...nasa, slug: "proposed-source-mapping-conflict", snapshot: sourceMappingSnapshot, pathFingerprint: createEditorialPathFingerprint(sourceMappingSnapshot) };
+  const sourceMappingDecision = getEditorialPublicationDecision(sourceMappingConflict, { now: new Date("2026-10-17T12:00:00Z"), launchDate: LAUNCH_DATE });
+  assert.equal(sourceMappingDecision.status, "held");
+  assert.ok(sourceMappingDecision.conflicts.some(({ puzzleId, kinds }) => puzzleId === "last-dance-jordan-medal-freedom" && kinds.includes("copy-mention")));
 });
 
 test("the complete Tesla-SpaceX editorial package is spoiler safe after launch", () => {

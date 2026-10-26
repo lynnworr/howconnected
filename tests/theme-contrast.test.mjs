@@ -30,3 +30,20 @@ test("core light and dark theme text tokens meet WCAG AA contrast", () => {
     assert.ok(contrast(foreground, background) >= 4.5, `${foreground} on ${background}`);
   }
 });
+
+test("editorial evidence role labels meet WCAG AA contrast in both themes", () => {
+  const pairs = [
+    ["#177258", "#fffdf9"],
+    ["#a4432d", "#fffdf9"],
+    ["#62469e", "#fffdf9"],
+    ["#657087", "#fffdf9"],
+    ["#70dfb9", "#12171e"],
+    ["#ff9b84", "#12171e"],
+    ["#c4afff", "#12171e"],
+    ["#b5bdc9", "#12171e"],
+  ];
+
+  for (const [foreground, background] of pairs) {
+    assert.ok(contrast(foreground, background) >= 4.5, `${foreground} on ${background}`);
+  }
+});

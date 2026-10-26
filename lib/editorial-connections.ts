@@ -27,10 +27,40 @@ export type EditorialCategory =
   | "Science & innovation"
   | "Sports";
 
+export type EditorialEvidenceRole =
+  | "structured-claim"
+  | "primary-source"
+  | "independent-corroboration"
+  | "context-source";
+
+export type EditorialFreshness =
+  | "historical"
+  | "periodic"
+  | "current-role"
+  | "time-sensitive";
+
+const EDITORIAL_EVIDENCE_ROLES = new Set<EditorialEvidenceRole>([
+  "structured-claim",
+  "primary-source",
+  "independent-corroboration",
+  "context-source",
+]);
+
+const EDITORIAL_FRESHNESS_CLASSES = new Set<EditorialFreshness>([
+  "historical",
+  "periodic",
+  "current-role",
+  "time-sensitive",
+]);
+
 export type EditorialSource = {
   label: string;
   publisher: string;
   url: string;
+  evidenceRole?: EditorialEvidenceRole;
+  supports?: readonly string[];
+  reviewedAt?: string;
+  freshness?: EditorialFreshness;
 };
 
 export type ExpectedEditorialRelationship = {
@@ -50,6 +80,7 @@ export type EditorialSnapshot = {
   introduction?: string;
   relationshipMeaning?: string;
   context?: readonly string[];
+  limitations?: readonly string[];
   verificationSources?: readonly EditorialSource[];
   editorialExplanation: string;
 };
@@ -186,6 +217,7 @@ function directSnapshot(input: {
   introduction?: string;
   relationshipMeaning?: string;
   context?: readonly string[];
+  limitations?: readonly string[];
   verificationSources?: readonly EditorialSource[];
   editorialExplanation: string;
 }): EditorialSnapshot {
@@ -202,6 +234,7 @@ function directSnapshot(input: {
     introduction: input.introduction,
     relationshipMeaning: input.relationshipMeaning,
     context: input.context,
+    limitations: input.limitations,
     verificationSources: input.verificationSources,
     editorialExplanation: input.editorialExplanation,
   };
@@ -253,16 +286,31 @@ export const EDITORIAL_CONNECTIONS: readonly EditorialConnection[] = [
         "The founder statement carries a start date of 1 April 1976.",
         "Jobs described starting Apple with Steve Wozniak when he was 20; this relationship does not imply he was Apple’s only founder.",
       ],
+      limitations: [
+        "This is a co-founder relationship. It does not describe Jobs as Apple’s only founder or attribute the company’s later work to him alone.",
+      ],
       verificationSources: [
         {
           label: "Steve Jobs’s 2005 Stanford commencement address",
           publisher: "Stanford University",
           url: "https://news.stanford.edu/stories/2005/06/youve-got-find-love-jobs-says",
+          evidenceRole: "primary-source",
+          supports: [
+            "Jobs’s account that he and Steve Wozniak started Apple in his parents’ garage when he was 20.",
+          ],
+          reviewedAt: "2026-10-11T00:00:00.000Z",
+          freshness: "historical",
         },
         {
           label: "Apple founder statement (P112)",
           publisher: "Wikidata",
           url: "https://www.wikidata.org/wiki/Q312#P112",
+          evidenceRole: "structured-claim",
+          supports: [
+            "The P112 founder edge from Apple to Steve Jobs and its 1 April 1976 start qualifier.",
+          ],
+          reviewedAt: "2026-10-11T00:00:00.000Z",
+          freshness: "periodic",
         },
       ],
       editorialExplanation:
@@ -308,16 +356,31 @@ export const EDITORIAL_CONNECTIONS: readonly EditorialConnection[] = [
         "The Walt Disney Company dates its official beginning to 16 October 1923.",
         "Walt and Roy Disney began the Disney Brothers Cartoon Studio together; the relationship is not a claim of sole authorship or ownership.",
       ],
+      limitations: [
+        "The edge identifies Walt Disney as a co-founder; it does not erase Roy Disney’s founding role or imply sole ownership of the later company.",
+      ],
       verificationSources: [
         {
           label: "How a four-page contract started The Walt Disney Company",
           publisher: "The Walt Disney Company",
           url: "https://thewaltdisneycompany.com/news/disney100-anniversary-disney-contract/",
+          evidenceRole: "primary-source",
+          supports: [
+            "The company’s account of the 16 October 1923 contract and the brothers’ early studio.",
+          ],
+          reviewedAt: "2026-10-11T00:00:00.000Z",
+          freshness: "historical",
         },
         {
           label: "The Walt Disney Company founder statement (P112)",
           publisher: "Wikidata",
           url: "https://www.wikidata.org/wiki/Q7414#P112",
+          evidenceRole: "structured-claim",
+          supports: [
+            "The P112 founder edge from The Walt Disney Company to Walt Disney.",
+          ],
+          reviewedAt: "2026-10-11T00:00:00.000Z",
+          freshness: "periodic",
         },
       ],
       editorialExplanation:
@@ -403,16 +466,31 @@ export const EDITORIAL_CONNECTIONS: readonly EditorialConnection[] = [
         "Eisenhower signed the National Aeronautics and Space Act into law on 29 July 1958.",
         "NASA began operations on 1 October 1958; the relationship describes the legal creation of the agency, not a claim that one person built it alone.",
       ],
+      limitations: [
+        "“Founded by” is a compact graph label for Eisenhower’s presidential role in NASA’s legal creation. It is not a claim that he alone designed, staffed, or administered the agency.",
+      ],
       verificationSources: [
         {
           label: "President Eisenhower signs NASA into existence",
           publisher: "NASA",
           url: "https://www.nasa.gov/history/president-eisenhower-signs-nasa-into-existence/",
+          evidenceRole: "primary-source",
+          supports: [
+            "Eisenhower’s 29 July 1958 signing of the National Aeronautics and Space Act and NASA’s 1 October 1958 operational start.",
+          ],
+          reviewedAt: "2026-10-11T00:00:00.000Z",
+          freshness: "historical",
         },
         {
           label: "NASA founder statement (P112)",
           publisher: "Wikidata",
           url: "https://www.wikidata.org/wiki/Q23548#P112",
+          evidenceRole: "structured-claim",
+          supports: [
+            "The P112 edge to Eisenhower and the point-in-time and presidential-role qualifiers displayed on this page.",
+          ],
+          reviewedAt: "2026-10-11T00:00:00.000Z",
+          freshness: "periodic",
         },
       ],
       editorialExplanation:
@@ -565,16 +643,31 @@ export const EDITORIAL_CONNECTIONS: readonly EditorialConnection[] = [
         "Studio Ghibli’s official history dates the studio’s opening to June 1985.",
         "The founder record also names Isao Takahata, Toshio Suzuki, and Yasuyoshi Tokuma, so this page does not present Miyazaki as the studio’s sole founder.",
       ],
+      limitations: [
+        "This page identifies Miyazaki as one of Studio Ghibli’s founders. It does not treat the studio as his sole creation or omit the other founders named in the reviewed record.",
+      ],
       verificationSources: [
         {
           label: "Studio Ghibli history",
           publisher: "Studio Ghibli",
           url: "https://www.ghibli.jp/history/",
+          evidenceRole: "primary-source",
+          supports: [
+            "Studio Ghibli’s official chronology, including its June 1985 opening.",
+          ],
+          reviewedAt: "2026-10-11T00:00:00.000Z",
+          freshness: "historical",
         },
         {
           label: "Studio Ghibli founder statement (P112)",
           publisher: "Wikidata",
           url: "https://www.wikidata.org/wiki/Q182950#P112",
+          evidenceRole: "structured-claim",
+          supports: [
+            "The P112 founder edge from Studio Ghibli to Hayao Miyazaki and the presence of additional founders.",
+          ],
+          reviewedAt: "2026-10-11T00:00:00.000Z",
+          freshness: "periodic",
         },
       ],
       editorialExplanation:
@@ -620,16 +713,31 @@ export const EDITORIAL_CONNECTIONS: readonly EditorialConnection[] = [
         "Lucasfilm’s official Star Wars site describes Lucas as the creator who opened the universe to later storytellers.",
         "The relationship is intentionally narrower than ownership, direction, or production of every Star Wars title.",
       ],
+      limitations: [
+        "The creator edge describes the franchise’s originating concept. It does not credit Lucas with sole authorship, direction, or production of every later Star Wars work.",
+      ],
       verificationSources: [
         {
           label: "The Legendary Star Wars Expanded Universe Turns a New Page",
           publisher: "StarWars.com / Lucasfilm",
           url: "https://www.starwars.com/news/the-legendary-star-wars-expanded-universe-turns-a-new-page",
+          evidenceRole: "primary-source",
+          supports: [
+            "Lucasfilm’s description of George Lucas as the creator of the original Star Wars universe and of later storytellers expanding it.",
+          ],
+          reviewedAt: "2026-10-11T00:00:00.000Z",
+          freshness: "historical",
         },
         {
           label: "Star Wars creator statement (P170)",
           publisher: "Wikidata",
           url: "https://www.wikidata.org/wiki/Q462#P170",
+          evidenceRole: "structured-claim",
+          supports: [
+            "The P170 creator edge from Star Wars to George Lucas.",
+          ],
+          reviewedAt: "2026-10-11T00:00:00.000Z",
+          freshness: "periodic",
         },
       ],
       editorialExplanation:
@@ -675,16 +783,31 @@ export const EDITORIAL_CONNECTIONS: readonly EditorialConnection[] = [
         "Berners-Lee wrote his first Web proposal at CERN in March 1989.",
         "By the end of 1990 he had implemented key pieces including HTML, HTTP, URLs, the first server, and the first browser-editor.",
       ],
+      limitations: [
+        "The World Wide Web is not the Internet itself, and the inventor edge does not erase Robert Cailliau’s role in the Web’s early development.",
+      ],
       verificationSources: [
         {
           label: "The birth of the Web",
           publisher: "CERN",
           url: "https://home.cern/science/computing/the-birth-of-the-web/",
+          evidenceRole: "primary-source",
+          supports: [
+            "The 1989 proposal at CERN and Berners-Lee’s 1990 implementation of the Web’s foundational technologies.",
+          ],
+          reviewedAt: "2026-10-11T00:00:00.000Z",
+          freshness: "historical",
         },
         {
           label: "World Wide Web inventor statement (P61)",
           publisher: "Wikidata",
           url: "https://www.wikidata.org/wiki/Q466#P61",
+          evidenceRole: "structured-claim",
+          supports: [
+            "The P61 inventor edge from the World Wide Web to Tim Berners-Lee and the record’s additional inventor entry.",
+          ],
+          reviewedAt: "2026-10-11T00:00:00.000Z",
+          freshness: "periodic",
         },
       ],
       editorialExplanation:
@@ -732,16 +855,31 @@ export const EDITORIAL_CONNECTIONS: readonly EditorialConnection[] = [
         "Apollo 11 launched on 16 July 1969 and returned on 24 July.",
         "Armstrong commanded the mission and became the first human to step onto the Moon on 20 July 1969; Michael Collins and Buzz Aldrin were also crew members.",
       ],
+      limitations: [
+        "The edge records Armstrong as a crew member with a command-role qualifier. It does not imply that Apollo 11 was a one-person mission.",
+      ],
       verificationSources: [
         {
           label: "Apollo 11 mission overview",
           publisher: "NASA",
           url: "https://www.nasa.gov/history/apollo-11-mission-overview/",
+          evidenceRole: "primary-source",
+          supports: [
+            "Apollo 11’s mission dates, three-person crew, and Armstrong’s role as commander.",
+          ],
+          reviewedAt: "2026-10-11T00:00:00.000Z",
+          freshness: "historical",
         },
         {
           label: "Apollo 11 crew statement (P1029)",
           publisher: "Wikidata",
           url: "https://www.wikidata.org/wiki/Q43653#P1029",
+          evidenceRole: "structured-claim",
+          supports: [
+            "The P1029 crew-member edge to Armstrong and its spacecraft-commander role qualifier.",
+          ],
+          reviewedAt: "2026-10-11T00:00:00.000Z",
+          freshness: "periodic",
         },
       ],
       editorialExplanation:
@@ -794,16 +932,31 @@ export const EDITORIAL_CONNECTIONS: readonly EditorialConnection[] = [
         "Jordan’s first Bulls stint ran from 1984 through 1993; he returned in 1995 and played through 1998.",
         "The Bulls won six NBA championships during Jordan’s playing years: 1991–1993 and 1996–1998.",
       ],
+      limitations: [
+        "Team membership is historical and split across two statements. It should not be read as one uninterrupted stint or a current playing relationship.",
+      ],
       verificationSources: [
         {
           label: "Chicago Bulls franchise leaders and Hall of Fame players",
           publisher: "NBA / Chicago Bulls",
           url: "https://www.nba.com/team/1610612741/franchise-leaders",
+          evidenceRole: "primary-source",
+          supports: [
+            "Jordan’s place in Chicago Bulls franchise history and the team context for his playing career.",
+          ],
+          reviewedAt: "2026-10-11T00:00:00.000Z",
+          freshness: "historical",
         },
         {
           label: "Michael Jordan team-membership statements (P54)",
           publisher: "Wikidata",
           url: "https://www.wikidata.org/wiki/Q41421#P54",
+          evidenceRole: "structured-claim",
+          supports: [
+            "The two P54 Bulls membership statements and their 1984–1993 and 1995–1998 qualifiers.",
+          ],
+          reviewedAt: "2026-10-11T00:00:00.000Z",
+          freshness: "periodic",
         },
       ],
       editorialExplanation:
@@ -849,16 +1002,31 @@ export const EDITORIAL_CONNECTIONS: readonly EditorialConnection[] = [
         "Page and Brin began working together in 1996 on the search engine first called Backrub.",
         "Google Inc. was formally established in 1998; the relationship does not present Page as the company’s only founder.",
       ],
+      limitations: [
+        "The edge identifies Page as a co-founder. It does not describe him as Google’s only founder or attribute the entire company’s work to one person.",
+      ],
       verificationSources: [
         {
           label: "How Google started",
           publisher: "Google",
           url: "https://about.google/company-info/our-story/",
+          evidenceRole: "primary-source",
+          supports: [
+            "Google’s account of Page and Brin’s 1996 Stanford project and the company’s formal establishment in 1998.",
+          ],
+          reviewedAt: "2026-10-11T00:00:00.000Z",
+          freshness: "historical",
         },
         {
           label: "Google founder statement (P112)",
           publisher: "Wikidata",
           url: "https://www.wikidata.org/wiki/Q95#P112",
+          evidenceRole: "structured-claim",
+          supports: [
+            "The P112 founder edge from Google to Larry Page.",
+          ],
+          reviewedAt: "2026-10-11T00:00:00.000Z",
+          freshness: "periodic",
         },
       ],
       editorialExplanation:
@@ -906,16 +1074,31 @@ export const EDITORIAL_CONNECTIONS: readonly EditorialConnection[] = [
         "The displayed edge is the preferred current capital statement and includes its 5 October 1789 start qualifier.",
         "Other Wikidata statements preserve historical exceptions and predecessor capitals; this page does not claim that every French government sat continuously in Paris after that date.",
       ],
+      limitations: [
+        "The page shows Wikidata’s preferred current capital statement. It does not claim uninterrupted government residence in Paris across every later historical period.",
+      ],
       verificationSources: [
         {
           label: "Paris, France’s capital",
           publisher: "Explore France / Atout France",
           url: "https://www.france.fr/en/article/paris-city-lights-1/",
+          evidenceRole: "context-source",
+          supports: [
+            "Paris’s present status as France’s national capital; it is not used here to substantiate the 1789 qualifier.",
+          ],
+          reviewedAt: "2026-10-11T00:00:00.000Z",
+          freshness: "periodic",
         },
         {
           label: "France capital statement (P36)",
           publisher: "Wikidata",
           url: "https://www.wikidata.org/wiki/Q142#P36",
+          evidenceRole: "structured-claim",
+          supports: [
+            "The preferred P36 capital edge to Paris, its 5 October 1789 qualifier, and the presence of separate historical capital statements.",
+          ],
+          reviewedAt: "2026-10-11T00:00:00.000Z",
+          freshness: "periodic",
         },
       ],
       editorialExplanation:
@@ -985,31 +1168,65 @@ export const EDITORIAL_CONNECTIONS: readonly EditorialConnection[] = [
         "At Tesla's 15 October 2026 Roadster demonstration at SpaceX's Texas rocket-development site, Tesla said its prototype borrowed SpaceX technology for cold-gas thrusters. The demonstration supports a specific recent collaboration claim, not a general claim that the companies are the same business.",
         "The demonstrated vehicle was a prototype. Musk's 2028 production timing is a stated target, not evidence of a shipping product, and regulatory approval remains unresolved.",
       ],
+      limitations: [
+        "Shared executive leadership does not make Tesla and SpaceX the same business and does not establish a parent, subsidiary, or ownership relationship between them.",
+        "The Roadster demonstration involved a prototype. A stated production target is not evidence that a finished product is shipping or approved.",
+      ],
       verificationSources: [
         {
           label: "Elon Musk executive biography",
           publisher: "Tesla Investor Relations",
           url: "https://ir.tesla.com/corporate/elon-musk",
+          evidenceRole: "primary-source",
+          supports: [
+            "Tesla’s identification of Musk as its chief executive and its account of his SpaceX leadership roles.",
+          ],
+          reviewedAt: "2026-10-17T16:00:00.000Z",
+          freshness: "current-role",
         },
         {
           label: "SpaceX leadership",
           publisher: "SpaceX Investor Relations",
           url: "https://ir.spacex.com/leadership/",
+          evidenceRole: "primary-source",
+          supports: [
+            "SpaceX’s leadership information used to corroborate the shared-executive connection.",
+          ],
+          reviewedAt: "2026-10-17T16:00:00.000Z",
+          freshness: "current-role",
         },
         {
           label: "Tesla chief executive officer statement (P169)",
           publisher: "Wikidata",
           url: "https://www.wikidata.org/wiki/Q478214#P169",
+          evidenceRole: "structured-claim",
+          supports: [
+            "The P169 edge from Tesla to Elon Musk used for the first step of the path.",
+          ],
+          reviewedAt: "2026-10-17T16:00:00.000Z",
+          freshness: "current-role",
         },
         {
           label: "SpaceX chief executive officer statement (P169)",
           publisher: "Wikidata",
           url: "https://www.wikidata.org/wiki/Q193701#P169",
+          evidenceRole: "structured-claim",
+          supports: [
+            "The P169 edge from SpaceX to Elon Musk, displayed in reverse for the second step of the path.",
+          ],
+          reviewedAt: "2026-10-17T16:00:00.000Z",
+          freshness: "current-role",
         },
         {
           label: "Roadster prototype demonstration at SpaceX",
           publisher: "Associated Press",
           url: "https://apnews.com/article/7d5f19665435b7408025bfb7a2f2f0b7",
+          evidenceRole: "independent-corroboration",
+          supports: [
+            "The 15 October 2026 prototype demonstration at a SpaceX site and the distinction between a demonstration and production availability.",
+          ],
+          reviewedAt: "2026-10-17T16:00:00.000Z",
+          freshness: "time-sensitive",
         },
       ],
       editorialExplanation:
@@ -1063,26 +1280,54 @@ export const EDITORIAL_CONNECTIONS: readonly EditorialConnection[] = [
         "Those championships produced four consecutive Super Bowl appearances. Buffalo lost all four games, so the achievement is the run of conference championships and appearances—not Super Bowl victories.",
         "The 1986 and 1996 dates shown on this page come from qualifiers on Wikidata's P54 statement and are corroborated by official career records; they are not represented as qualifier properties on the Neo4j relationship.",
       ],
+      limitations: [
+        "Four consecutive AFC championships produced four Super Bowl appearances, not four Super Bowl victories.",
+        "The date and uniform-number qualifiers come from the reviewed upstream Wikidata statement; the Neo4j edge confirms the relationship but does not store those qualifiers.",
+      ],
       verificationSources: [
         {
           label: "Jim Kelly Hall of Fame profile",
           publisher: "Pro Football Hall of Fame",
           url: "https://www.profootballhof.com/players/jim-kelly",
+          evidenceRole: "independent-corroboration",
+          supports: [
+            "Kelly’s 1986–1996 Buffalo career and the four consecutive AFC championship seasons.",
+          ],
+          reviewedAt: "2026-10-17T19:20:00.000Z",
+          freshness: "historical",
         },
         {
           label: "Jim Kelly Buffalo Bills career profile",
           publisher: "Buffalo Bills",
           url: "https://www.buffalobills.com/team/alumni/hall-of-fame-profiles/jim-kelly",
+          evidenceRole: "primary-source",
+          supports: [
+            "The Bills’ account of Kelly’s franchise career and early-1990s postseason run.",
+          ],
+          reviewedAt: "2026-10-17T19:20:00.000Z",
+          freshness: "historical",
         },
         {
           label: "Jim Kelly career statistics",
           publisher: "NFL",
           url: "https://www.nfl.com/players/jim-kelly/stats/career",
+          evidenceRole: "primary-source",
+          supports: [
+            "Official league career records used to corroborate Kelly’s Buffalo tenure.",
+          ],
+          reviewedAt: "2026-10-17T19:20:00.000Z",
+          freshness: "historical",
         },
         {
           label: "Jim Kelly member of sports team statement (P54)",
           publisher: "Wikidata",
           url: "https://www.wikidata.org/wiki/Q127819#P54",
+          evidenceRole: "structured-claim",
+          supports: [
+            "The P54 edge to the Buffalo Bills and its 1986, 1996, and number 12 qualifiers.",
+          ],
+          reviewedAt: "2026-10-17T19:20:00.000Z",
+          freshness: "periodic",
         },
       ],
       editorialExplanation:
@@ -1268,6 +1513,32 @@ export function validateEditorialSnapshot(
   if (!snapshot.editorialExplanation.trim()) {
     errors.push("Snapshot is missing an editorial explanation.");
   }
+  if (
+    snapshot.limitations &&
+    (!snapshot.limitations.length || snapshot.limitations.some((item) => !item.trim()))
+  ) {
+    errors.push("Snapshot has invalid relationship limitations.");
+  }
+  if (
+    snapshot.verificationSources?.some((source) => {
+      const hasRole = source.evidenceRole !== undefined;
+      const hasSupports = source.supports !== undefined;
+      const invalidReviewDate =
+        source.reviewedAt !== undefined &&
+        Number.isNaN(new Date(source.reviewedAt).getTime());
+      return (
+        (hasRole && !EDITORIAL_EVIDENCE_ROLES.has(source.evidenceRole!)) ||
+        hasRole !== hasSupports ||
+        (hasSupports &&
+          (!source.supports?.length || source.supports.some((item) => !item.trim()))) ||
+        (source.freshness !== undefined &&
+          !EDITORIAL_FRESHNESS_CLASSES.has(source.freshness)) ||
+        invalidReviewDate
+      );
+    })
+  ) {
+    errors.push("Snapshot has invalid evidence annotations.");
+  }
   if (connection.reviewStatus === "approved" && connection.indexEligible) {
     if (!snapshot.headline?.trim()) errors.push("Approved snapshot is missing a headline.");
     if (!snapshot.introduction?.trim()) {
@@ -1345,7 +1616,15 @@ function editorialCopy(snapshot: EditorialSnapshot): string {
     snapshot.relationshipMeaning,
     snapshot.editorialExplanation,
     ...(snapshot.context ?? []),
-    ...(snapshot.verificationSources ?? []).flatMap(({ label, publisher, url }) => [label, publisher, url]),
+    ...(snapshot.limitations ?? []),
+    ...(snapshot.verificationSources ?? []).flatMap(
+      ({ label, publisher, url, supports }) => [
+        label,
+        publisher,
+        url,
+        ...(supports ?? []),
+      ],
+    ),
   ].filter(Boolean).join(" "));
 }
 

@@ -19,6 +19,7 @@ export type EditorialPageDetails = {
   introduction: string;
   relationshipMeaning: string;
   context: readonly string[];
+  limitations: readonly string[];
   verificationSources: readonly EditorialSource[];
   category: EditorialCategory;
   verifiedAt: string;
@@ -87,6 +88,7 @@ export function resolveEditorialSnapshotPageData(
         validation.snapshot.relationshipMeaning ??
         validation.snapshot.editorialExplanation,
       context: validation.snapshot.context ?? [],
+      limitations: validation.snapshot.limitations ?? [],
       verificationSources: validation.snapshot.verificationSources ?? [],
       category: connection.category,
       verifiedAt: connection.verifiedAt,

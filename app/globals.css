@@ -469,6 +469,89 @@ html[data-theme="dark"] .hc-theme-icon-sun {
   background: color-mix(in srgb, var(--hc-cyan) 8%, var(--hc-panel-strong));
 }
 
+.hc-editorial-synthesis,
+.hc-editorial-card,
+.hc-editorial-limits,
+.hc-editorial-evidence,
+.hc-editorial-source,
+.hc-editorial-statement {
+  border-color: var(--hc-border);
+}
+
+.hc-editorial-synthesis {
+  background:
+    radial-gradient(circle at 94% 12%, color-mix(in srgb, var(--hc-cyan) 12%, transparent), transparent 34%),
+    linear-gradient(135deg, color-mix(in srgb, var(--hc-coral) 7%, var(--hc-panel-strong)), color-mix(in srgb, var(--hc-panel-strong) 92%, transparent));
+  box-shadow: 0 16px 50px color-mix(in srgb, var(--hc-shadow) 58%, transparent);
+}
+
+.hc-editorial-card,
+.hc-editorial-source,
+.hc-editorial-statement {
+  background: color-mix(in srgb, var(--hc-panel-strong) 78%, transparent);
+}
+
+.hc-editorial-limits {
+  background: color-mix(in srgb, var(--hc-coral) 6%, var(--hc-panel-strong));
+}
+
+.hc-editorial-limits > div > span {
+  background: color-mix(in srgb, var(--hc-coral) 13%, var(--hc-panel-strong));
+  color: var(--hc-coral);
+}
+
+.hc-editorial-evidence {
+  background: color-mix(in srgb, var(--hc-panel-soft) 80%, transparent);
+  transition: border-color 180ms ease, box-shadow 180ms ease;
+}
+
+.hc-editorial-evidence[open] {
+  border-color: color-mix(in srgb, var(--hc-cyan) 32%, var(--hc-border));
+  box-shadow: 0 16px 45px color-mix(in srgb, var(--hc-shadow) 48%, transparent);
+}
+
+.hc-editorial-evidence summary::-webkit-details-marker {
+  display: none;
+}
+
+.hc-editorial-evidence summary > span:last-child {
+  background: color-mix(in srgb, var(--hc-cyan) 11%, var(--hc-panel-strong));
+  color: var(--hc-success);
+}
+
+.hc-evidence-role {
+  border: 1px solid var(--hc-border);
+}
+
+.hc-evidence-role-structured-claim {
+  background: color-mix(in srgb, var(--hc-cyan) 11%, var(--hc-panel-strong));
+  color: var(--hc-success);
+}
+
+.hc-evidence-role-primary-source {
+  background: color-mix(in srgb, var(--hc-coral) 10%, var(--hc-panel-strong));
+  color: #a4432d;
+}
+
+.hc-evidence-role-independent-corroboration {
+  background: color-mix(in srgb, #7357b8 10%, var(--hc-panel-strong));
+  color: #62469e;
+}
+
+.hc-evidence-role-context-source,
+.hc-evidence-role-unclassified {
+  background: color-mix(in srgb, var(--hc-muted) 8%, var(--hc-panel-strong));
+  color: var(--hc-muted);
+}
+
+html[data-theme="dark"] .hc-evidence-role-primary-source {
+  color: #ff9b84;
+}
+
+html[data-theme="dark"] .hc-evidence-role-independent-corroboration {
+  color: #c4afff;
+}
+
 html[data-theme="dark"] .hc-public [class*="bg-white"],
 html[data-theme="dark"] .hc-public [class*="bg-[#fbfaf7]"],
 html[data-theme="dark"] .hc-public [class*="bg-[#fffaf6]"],
@@ -510,7 +593,8 @@ html[data-theme="dark"] .hc-public [class*="text-[#1d2944]"],
 html[data-theme="dark"] .hc-public [class*="text-[#24304b]"],
 html[data-theme="dark"] .hc-public [class*="text-[#25314b]"],
 html[data-theme="dark"] .hc-public [class*="text-[#26334f]"],
-html[data-theme="dark"] .hc-public [class*="text-[#33415f]"] {
+html[data-theme="dark"] .hc-public [class*="text-[#33415f]"],
+html[data-theme="dark"] .hc-public [class*="text-[#37435c]"] {
   color: var(--hc-text) !important;
 }
 

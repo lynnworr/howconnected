@@ -87,16 +87,35 @@ test("only an approved canonical orientation is indexable", () => {
 test("approved pages carry rich reviewed content and only approved related links", () => {
   const approved = getIndexableEditorialConnections(REVIEW_TIME);
   const approvedSlugs = new Set(approved.map(({ slug }) => slug));
+  const evidenceRoles = new Set([
+    "structured-claim",
+    "primary-source",
+    "independent-corroboration",
+    "context-source",
+  ]);
+  const freshnessClasses = new Set([
+    "historical",
+    "periodic",
+    "current-role",
+    "time-sensitive",
+  ]);
 
   for (const connection of approved) {
     assert.ok(connection.snapshot.headline?.trim());
     assert.ok(connection.snapshot.introduction?.trim());
     assert.ok(connection.snapshot.relationshipMeaning?.trim());
+    assert.ok(connection.snapshot.editorialExplanation.trim());
     assert.ok(connection.snapshot.context?.length);
+    assert.ok(connection.snapshot.limitations?.length);
     assert.ok(connection.snapshot.verificationSources?.length);
     assert.ok(
-      connection.snapshot.verificationSources.every(({ url }) =>
-        url.startsWith("https://"),
+      connection.snapshot.verificationSources.every((source) =>
+        source.url.startsWith("https://") &&
+        evidenceRoles.has(source.evidenceRole) &&
+        source.supports?.every((claim) => claim.trim()) &&
+        source.supports?.length > 0 &&
+        !Number.isNaN(new Date(source.reviewedAt).getTime()) &&
+        freshnessClasses.has(source.freshness),
       ),
     );
     assert.ok(
@@ -105,6 +124,62 @@ test("approved pages carry rich reviewed content and only approved related links
       ),
     );
   }
+});
+
+test("editorial annotations are optional, validated, and excluded from evidence fingerprints", () => {
+  const original = EDITORIAL_CONNECTIONS[0];
+  assert.ok(original.snapshot);
+
+  const legacySnapshot = {
+    ...original.snapshot,
+    limitations: undefined,
+    verificationSources: original.snapshot.verificationSources?.map(
+      ({ label, publisher, url }) => ({ label, publisher, url }),
+    ),
+  };
+  const legacyCompatible = { ...original, snapshot: legacySnapshot };
+  assert.equal(validateEditorialSnapshot(legacyCompatible, REVIEW_TIME).status, "ready");
+  assert.equal(
+    createEditorialPathFingerprint(legacySnapshot),
+    original.pathFingerprint,
+  );
+
+  const changedEditorialCopy = {
+    ...original.snapshot,
+    limitations: ["A revised, source-supported editorial limitation."],
+  };
+  assert.equal(
+    createEditorialPathFingerprint(changedEditorialCopy),
+    original.pathFingerprint,
+  );
+
+  const blankLimitation = {
+    ...original,
+    snapshot: { ...original.snapshot, limitations: [" "] },
+  };
+  assert.equal(validateEditorialSnapshot(blankLimitation, REVIEW_TIME).status, "invalid");
+
+  const incompleteMapping = {
+    ...original,
+    snapshot: {
+      ...original.snapshot,
+      verificationSources: original.snapshot.verificationSources?.map((source, index) =>
+        index === 0 ? { ...source, evidenceRole: undefined } : source,
+      ),
+    },
+  };
+  assert.equal(validateEditorialSnapshot(incompleteMapping, REVIEW_TIME).status, "invalid");
+
+  const invalidReviewDate = {
+    ...original,
+    snapshot: {
+      ...original.snapshot,
+      verificationSources: original.snapshot.verificationSources?.map((source, index) =>
+        index === 0 ? { ...source, reviewedAt: "not-a-date" } : source,
+      ),
+    },
+  };
+  assert.equal(validateEditorialSnapshot(invalidReviewDate, REVIEW_TIME).status, "invalid");
 });
 
 test("social previews exist only for approved canonical snapshots", () => {
@@ -160,6 +235,8 @@ test("canonical editorial pages resolve from snapshots without live discovery", 
   const data = resolveEditorialConnectionPageData("Q19837", "Q312", REVIEW_TIME);
   assert.equal(data?.status, "success");
   assert.equal(data?.editorial?.pathFingerprint, "hc-v1-553e20db");
+  assert.equal(data?.editorial?.explanation, EDITORIAL_CONNECTIONS[0].snapshot?.editorialExplanation);
+  assert.ok(data?.editorial?.limitations.length);
   assert.equal(data?.result.bestPath?.relationships[0].propertyId, "P112");
 
   assert.equal(
