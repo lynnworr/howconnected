@@ -20,7 +20,7 @@ import {
 } from "../lib/diagnostic-route-policy.ts";
 import { isMalformedConnectionPath } from "../lib/connection-route-policy.ts";
 
-const REVIEW_TIME = new Date("2026-10-17T16:00:00.000Z");
+const REVIEW_TIME = new Date("2026-10-27T23:45:00.000Z");
 
 test("approved editorial snapshots are valid and fingerprints are stable", () => {
   for (const connection of EDITORIAL_CONNECTIONS) {
@@ -122,6 +122,43 @@ test("approved pages carry rich reviewed content and only approved related links
       getRelatedEditorialConnections(connection, REVIEW_TIME).every(({ slug }) =>
         approvedSlugs.has(slug),
       ),
+    );
+  }
+});
+
+test("published editorial pages have source-diverse substantive reviews", () => {
+  const approved = getIndexableEditorialConnections(REVIEW_TIME);
+
+  for (const connection of approved) {
+    const { snapshot } = connection;
+    assert.ok(snapshot.context.length >= 4, `${connection.slug} needs deeper reviewed context`);
+    assert.ok(snapshot.limitations.length >= 2, `${connection.slug} needs distinct limitations`);
+    assert.ok(
+      snapshot.verificationSources.length >= 4,
+      `${connection.slug} needs graph evidence plus multiple external sources`,
+    );
+    assert.ok(
+      snapshot.verificationSources.some(
+        ({ evidenceRole }) => evidenceRole === "structured-claim",
+      ),
+      `${connection.slug} needs its structured graph claim`,
+    );
+    assert.ok(
+      snapshot.verificationSources.some(
+        ({ evidenceRole }) => evidenceRole === "independent-corroboration",
+      ),
+      `${connection.slug} needs independent corroboration`,
+    );
+    assert.ok(
+      snapshot.verificationSources.filter(
+        ({ evidenceRole }) => evidenceRole !== "structured-claim",
+      ).length >= 3,
+      `${connection.slug} needs at least three non-graph sources`,
+    );
+    assert.equal(
+      new Set(snapshot.verificationSources.map(({ url }) => url)).size,
+      snapshot.verificationSources.length,
+      `${connection.slug} repeats a source URL`,
     );
   }
 });
